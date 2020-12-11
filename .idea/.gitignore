@@ -1,0 +1,12 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+/modules.xml
+/misc.xml
+/TIL.iml
+/vcs.xml
+# Datasource local storage ignored files
+/../../../../../../:\Users\TK YOUN\Desktop\TIL\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
