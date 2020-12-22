@@ -41,7 +41,7 @@ feature branch는 *git flow* 전략에 맞게 사용하지 않은 점, 즉 계�
 
 
 
-![img2](./image/img2.png)
+![img2](image/img2.png)
 
 ​          <그림 1> 
 
@@ -71,7 +71,7 @@ feature branch는 develop, master branch와 달리 제한된 생명 주기를 �
 
 
 
-![img1](./image/img1.png)
+![img1](image/img1.png)
 
 ​		             <그림 2> 출처 : https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html 
 
@@ -110,7 +110,7 @@ feature-branch 생성 후, 작업이 마무리되면 *origin to upstream* 방향
   
   
   
-  ![img3](./image/img3.png)
+  ![img3](image/img3.png)
 
 ​       <그림 3>
 
@@ -124,7 +124,7 @@ feature-branch 생성 후, 작업이 마무리되면 *origin to upstream* 방향
 
 
 
-![img3](./image/img3.png)
+![img3](image/img3.png)
 
 <그림 3>
 
@@ -148,7 +148,7 @@ feature-branch 생성 후, 작업이 마무리되면 *origin to upstream* 방향
 
 
 
-![img4](./image/img4.png)
+![img4](image/img4.png)
 
   <그림 4> 
 
@@ -182,7 +182,7 @@ feature-branch 생성 후, 작업이 마무리되면 *origin to upstream* 방향
 
 1~11번까지 진행했을 때 upstream/develop history : 결과 자체는 동일한 것을 확인할 수 있다.
 
-![img5](./image/img5.png)
+![img5](image/img5.png)
 
 <그림 5>
 
@@ -202,7 +202,7 @@ feature-branch 생성 후, 작업이 마무리되면 *origin to upstream* 방향
 
 
 
-![img6](./image/img6.png)
+![img6](image/img6.png)
 
 <그림 6> 
 
@@ -247,7 +247,7 @@ Upstream/feature branch :
 
 **[시나리오 2]**에서는 다음과 같은 순서로 진행된다. 
 
-![img7](./image/img7.png)
+![img7](image/img7.png)
 
 <그림 7>  
 
@@ -292,7 +292,7 @@ Upstream/feature branch :
 
 
 
-![img8](./image/img8.png)
+![img8](image/img8.png)
 
  <그림 8>
 
@@ -363,7 +363,7 @@ A 개발자가 회원가입 기능을 추가하고, upstream/feature-user에 업
 
 
 
-![img10](./image/img10.png)
+![img10](image/img10.png)
 
 <그림 10> 
 
@@ -389,11 +389,11 @@ A가 먼저 feature-user branch에 업데이트하는 것으로 상황을 가정
 
 
 
-![img11](./image/img11.png)
+![img11](image/img11.png)
 
 <그림 11>
 
-![img12](./image/img12.png)
+![img12](image/img12.png)
 
 <그림 12> 
 
@@ -401,7 +401,7 @@ A가 먼저 feature-user branch에 업데이트하는 것으로 상황을 가정
 
 <그림 11>과 <그림 12>를 비교해서 보면, B-login brach에서 **[S3] login developed** 커밋 이전 히스토리와 featuer-user branch가 동일하지 않다. 따라서 이 경우 --rebase를 통해서 아래 <그림 13>과 같이 만들어준다. 
 
-![img13](./image/img13.png)
+![img13](image/img13.png)
 
 <그림 13> 
 
@@ -417,7 +417,7 @@ A가 먼저 feature-user branch에 업데이트하는 것으로 상황을 가정
 
 ---
 
-![img14](./image/img14.png)
+![img14](image/img14.png)
 
  <그림 14> : 최종 결과 
 
@@ -493,7 +493,7 @@ A가 먼저 feature-user branch에 업데이트하는 것으로 상황을 가정
 
 
 
-![img15](./image/img15.png)
+![img15](image/img15.png)
 
 <그림 15> 
 
@@ -501,7 +501,7 @@ A가 먼저 feature-user branch에 업데이트하는 것으로 상황을 가정
 
 **독립적인 branch가 있을 때, 꼭 위 방식으로 관리를 할 필요가 있을까?** 라는 질문을 하고 싶다. 
 
-![img15-1](./image/img15-1.png)
+![img15-1](image/img15-1.png)
 
 <그림 15-1>
 
@@ -525,11 +525,11 @@ upstream/feature-front와 upstream/feature-user 중 feature-front 개발 내역�
 
 ---
 
-![img16](./image/img16.png)
+![img16](image/img16.png)
 
 <그림 16>
 
-![img17](./image/img17.png)
+![img17](image/img17.png)
 
 <그림 17> : (local) B-signup-back branch에 이미 커밋 이력이 있는 경우 
 
@@ -559,7 +559,7 @@ upstream/develop 최신 업데이트 내역이 필요하다. (결론)
 
 **2. (local/feature-user) git merge --no-ff upstream/develop** : 로컬에서 생성된 feature-user와 upstream/develop 병합
 
-![img18](./image/img18.png)
+![img18](image/img18.png)
 
 <그림 18> : (local/feature-user)
 
@@ -567,7 +567,7 @@ upstream/develop 최신 업데이트 내역이 필요하다. (결론)
 
 **4. (local/B-signup-back) git pull --rebase upstream feature-user** : upstream/feature-user에 업데이트 내역과 병합, --rebase 옵션을 사용해서 기존 B-signup-back에 있던 커밋 이력을 최상위로 둔다. 
 
-![img19](./image/img19.png)
+![img19](image/img19.png)
 
 <그림 19>
 
@@ -577,7 +577,7 @@ upstream/develop 최신 업데이트 내역이 필요하다. (결론)
 
 **7. (local/develop) git push**
 
-![img20](./image/img20.png)
+![img20](image/img20.png)
 
 <그림 20>
 
