@@ -62,9 +62,9 @@ https://www.hackerrank.com/challenges/merge-two-sorted-linked-lists/problem
 
 가장 이해가 안 되는 부분은 3에서 7로 연결하는 부분이었고, 결국 InteliJ 디버깅 툴을 이용해서 직접 확인을 했다. 가장 마지막 코드인 return head3;에 토글 포인트를 놓고 직접 데이터를 확인했다. 
 
-![ex_screenshot](./img/%5Bmerge%20two%20sorted%20linked%20list%5D%20head3.png)
-
 **결론**
+
+![img18](img/%5B1%5Dimg1.png)
 
 앞서 내가 코드를 보고 분석했을 때 얻은 head3은 1 -> 1 -> 2 -> 3 -> Null 이었다. 
 
