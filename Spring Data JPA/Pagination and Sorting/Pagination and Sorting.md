@@ -4,6 +4,56 @@ Pagination and Sorting using Spring Data JPA & Infinite Scroll (2020-12-23)
 
 출처 : https://www.baeldung.com/spring-data-jpa-pagination-sorting
 
+___
+
+## 상황 
+
+중고거래 플랫폼 서비스를 개발 중이다. 
+
+메인 페이지에서 카테고리 별로 상품 N개씩 보여준다. 기획 상 **무한 스크롤링**방식으로 페이징을 구현하기로 했다. 
+
+이 부분을 구현하기 위해 큰 축으로는 카테고리 별 상품 N개씩 추출하는 것과 무한 스크롤 형태의 페이징을 구현하는 부분으로 나눴다. 
+
+로그인 상태 여부에 따라서 메인 페이지에 보여질 카테고리가 다르기 때문에, 카테고리별 상품을 리턴할 때 다음과 같은 
+
+JSON을 설계했다. 
+
+[
+
+{
+
+"category" : "",
+
+"productList" : "[{ProductDto1}, {ProductDto2}, ... {ProductDtoN}]"
+
+},
+
+{
+
+"category" : "",
+
+"productList" : "[{ProductDto1}, {ProductDto2}, ... {ProductDtoN}]"
+
+},
+
+{
+
+"category" : "",
+
+"productList" : "[{ProductDto1}, {ProductDto2}, ... {ProductDtoN}]"
+
+}
+
+.
+
+.
+
+]
+
+___
+
+
+
 ## Creating a Repository 
 
 JpaRepository extends PaingAndSortingRepository 관계를 갖고 있으므로, 기존에 JpaRepository를 상속 받은 경우 페이징 또는 정렬을 위한 메소드인 **findAll(Pageable pageable)**과 **findAll(Sort sort)**를 모두 활용할 수 있다. 
@@ -58,6 +108,8 @@ Pageable sortedByPriceDesc = PageRequest.of(0, 3, Sort.by("price").descending())
 Pageable sortedByPriceDescNameAsc = PageRequest.of(0, 5, Sort.by("price").descending().and(Sort.by("name")));
 ```
 페이징 + 정렬 조건 정보를 포함하고 있는 PageRequest 정보를 Repository 메소드의 인자로 활용함으로써 페이징 + 정렬된 데이터를 추출할 수 있다. 
+
+___
 
 
 
