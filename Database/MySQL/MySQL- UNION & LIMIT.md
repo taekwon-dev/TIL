@@ -112,5 +112,48 @@ SELECT city, population, country_code
 
 ___
 
+### 문제 발생  
 
+```sql
+SELECT city, population, country_code
+ FROM
+ (
+   SELECT city, population, country_code,
+   @country_rank := IF(@current_country = country_code, 
+                         @country_rank + 1, 
+                         1
+                      ) AS country_rank,
+   @current_country := country_code
+   FROM cities
+   WHERE country_code = 'us' OR country_code = 'ca'
+   ORDER BY country_code, population DESC
+ ) ranked
+ WHERE country_rank <= 10;
+```
+
+위 방식을 그대로 JpaRepository 상속 받은 인터페이스에서 아래와 같이 설정 후 진행했지만, 마지막 줄의 Where 절의 조건이 적용되지 않는 문제가 있었다. (<u>현재 DB에 저장된 모든 Row가 추출되는 상황</u>)
+
+우선 당장 클라이언트 측과 협업을 진행하기 위해 아래 쿼리를 적용 후 프로젝트 진행을 하기로 결정했고, JPA에서 위 문제가 왜 발생했고, 다른 방법은 없는 지 찾아보기로 결정했다. 
+
+___
+
+### 최종 쿼리 
+
+```sql
+(
+    SELECT *
+    FROM product
+    WHERE  category_id = 1
+    ORDER BY category_id DESC
+    LIMIT 3 
+)
+UNION
+(
+    SELECT *
+    FROM   product
+    WHERE  category_id = 2
+    ORDER BY category_id DESC
+    LIMIT 3
+);
+```
 
