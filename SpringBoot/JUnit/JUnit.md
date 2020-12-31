@@ -1,18 +1,36 @@
 ---
-SpringBoot - JUnit 
+SpringBoot - JUnit 만들어보기
 ---
-
-
-
-
 
 ## 참고
 
-[#JUnit A Cook's Tour](http://junit.sourceforge.net/doc/cookstour/cookstour.htm) 
-
 [#기억보단 기록을 - JUnit 만들어보기](https://jojoldu.tistory.com/231) 
 
+[#JUnit A Cook's Tour](http://junit.sourceforge.net/doc/cookstour/cookstour.htm) 
+
+[#위키백과 - 유닛테스트](https://en.wikipedia.org/wiki/Unit_testing) 
+
 ___
+
+**기억보단 기록을 - JUnit 만들어보기** 글은 JUnit 프레임워크의 각 요소와 전체 구조를 파악하는데 좋은 접근을 보여준다고 생각한다. 본격적으로 해당 글을 따라가며 공부하기 전에 **Unit Testing**에 대한 기본적인 이해와 현재 내 상황 (동국대학교 중고거래 플랫폼 웹서비스 개발)에서의 **Unit Testing** 필요성에 대해 짚어보고자 한다. 
+
+___
+
+### Unit Testing 
+
+> 유닛 테스트(unit test)는 컴퓨터 프로그래밍에서 소스 코드의 특정 모듈이 의도된 대로 정확히 작동하는지 검증하는 절차다. 
+
+유닛 테스트는 의미 그대로 프로그램 각 부분을 고립 시켜서 각각의 부분이 정확하게 동작하는 지 확인하는 것이다. 이를 통해 각 **단위**가 정확하게 동작하는지를 확인하고 문제가 발생했을 때 신속히 대처할 수 있다. 또한 유닛 테스트 환경에서 코드 리팩토링에 대한 결과를 단위 별로 확인할 수 있다는 점도 매우 큰 장점이다. 또한 결국 여러 단위가 통합될 때 각각의 부분에 대한 확실성을 높일 수 있는 구조를 가질 수 있으므로 단위 테스트는 매우 중요하다고 할 수 있다. 
+
+### JUnit
+
+> JUnit은 자바 프로그래밍 언어용 유닛 테스트 프레임워크이다. 
+
+
+
+
+
+
 
 
 

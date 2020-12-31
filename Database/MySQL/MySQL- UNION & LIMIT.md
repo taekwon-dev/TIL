@@ -137,23 +137,9 @@ SELECT city, population, country_code
 
 ___
 
-### 최종 쿼리 
+### 해결 과정 
 
-```sql
-(
-    SELECT *
-    FROM product
-    WHERE  category_id = 1
-    ORDER BY category_id DESC
-    LIMIT 3 
-)
-UNION
-(
-    SELECT *
-    FROM   product
-    WHERE  category_id = 2
-    ORDER BY category_id DESC
-    LIMIT 3
-);
-```
+우선 클라이언트 측에 최종적으로 전달 할 JSON을 먼저 제공하고 서버 통신 부분을 제외한 부분에서 테스트할 수 있도록 협의하고 위 문제에 접근했다. 
+
+https://dzone.com/articles/best-performance-practices-for-hibernate-5-and-spr-2
 

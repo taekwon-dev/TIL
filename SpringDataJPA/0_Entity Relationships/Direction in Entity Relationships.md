@@ -4,8 +4,6 @@ JPA - Entity Relationships : Bidirectional Realtionships
 
 ### Direction in Entity Relationships 
 
-https://docs.oracle.com/cd/E19798-01/821-1841/bnbqi/index.html
-
 ___
 
 #### Bidirectional Relationships
@@ -15,9 +13,11 @@ In a *bidirectional* relationship, each entity has a relationship field or prope
 Bidirectional relationships must follow these rules. 
 
 - The inverse side of a bidirectional relationship must refer to its owing side by using the **mappedBy** element of the @OneToOne, @OneToMany, or @ManyToMany annotation. The **mappedBy** element designates the property of field in the entity that is the owner of the relationship. 
-- The many side of many-to-one bidirectional relationships must not define the **mappedBy** element. The many side is always the owning side of the relationship. 
-- For one-to-one bidirectional relationships, the owning side corresponds to the side that contains the corresponding foreign key. 
+- The many side of many-to-one bidirectional relationships must not define the **mappedBy** element. **The many side is always the owning side of the relationship**. 
+- For one-to-one bidirectional relationships, **the owning side corresponds to the side that contains the corresponding foreign key.** 
 - For many-to-many bidirectional relationships, either side may be the owning side. 
+
+___
 
 DguMarket 프로젝트에서는 양방향 관계의 예시는 무엇이 있을까? 
 
@@ -69,7 +69,9 @@ When a target entity in one-to-one or one-to-many relationship is removed from t
 
 ___
 
+### 참고
 
+https://docs.oracle.com/cd/E19798-01/821-1841/bnbqi/index.html
 
 
 
