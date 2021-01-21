@@ -13,7 +13,7 @@ ___
 
 ### New 
 
-![gitflow_revised_0](.\imgs\gitflow_revised_0.png)
+![gitflow_revised_0](./imgs/gitflow_revised_0.png)
 
 ​								<그림 1> 
 
@@ -23,7 +23,7 @@ work 브랜치는 작업 브랜치(feature branches)를 생성할 때 베이스�
 
  
 
-![gitflow_revised_2](.\imgs\gitflow_revised_2.png)
+![gitflow_revised_2](./imgs/gitflow_revised_2.png)
 
 ​						  <그림 2>
 
@@ -35,7 +35,7 @@ ___
 
 ### Cherry Pick
 
-![gitflow_revised_1](.\imgs\gitflow_revised_1.png)
+![gitflow_revised_1](./imgs/gitflow_revised_1.png)
 
 Cherry Pick 상황에 대해서 가장 이해하기 쉬운 글이라고 생각해서 참고한 내용을 첨부한다.
 
@@ -65,7 +65,7 @@ PR 생성을 위해 origin 리포지토리로 push 하기 전, 다른 동료 개
 
 
 
-![gitflow_revised_3](.\imgs\gitflow_revised_3.png)
+![gitflow_revised_3](./imgs/gitflow_revised_3.png)
 
 <그림 4 : work 브랜치> 
 
