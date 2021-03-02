@@ -37,6 +37,6 @@ So as discussed, the RANK() function returns ranks of rows under a specific part
 
 위에서 언급하는 **gaps or holes**는 3위가 현재 3 ROWS가 있으므로, 바로 6위로 이어지면서 누락된 4, 5위를 가르킨다. 이와 반대로 이 **gaps or holes**를 제거하고 순위를 매길 수 있는데, **DENSE_RANK()**와 **row_number()** 함수를 사용하면  가능하다. 
 
-![unionlimit_img6](./image/unionlimit_img6.png)
+![unionlimit_img6](image/unionlimit_img6.png)
 
 https://github.com/AnghelLeonard/Hibernate-SpringBoot/tree/master/HibernateSpringBootRankFunction

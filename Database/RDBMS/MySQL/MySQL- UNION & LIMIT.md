@@ -4,7 +4,7 @@ MySQL - UNION & LIMIT : 각 카테고리 별 N개의 상품 조회하기 (2020-1
 
 ###  적용 상황 
 
-![unionlimit_img1](./image/unionlimit_img1.png)
+![unionlimit_img1](image/unionlimit_img1.png)
 
 <그림 1 : index.html> 
 
@@ -32,7 +32,7 @@ UNION DISTINCT
 SELECT  column1,column2  FROM `table2`;
 ```
 
-![unionlimit_img2](./image/unionlimit_img2.png)
+![unionlimit_img2](image/unionlimit_img2.png)
 
 ​											<그림 2 : DISTINCT>
 
@@ -42,7 +42,7 @@ UNION ALL
 SELECT ` column1`,` column1`  FROM `table2`;
 ```
 
-![unionlimit_img3](./image/unionlimit_img3.png)
+![unionlimit_img3](image/unionlimit_img3.png)
 
 ​											<그림 3 : ALL> 
 
@@ -77,7 +77,7 @@ UNION
 );
 ```
 
-![unionlimit_img4](./image/unionlimit_img4.png)
+![unionlimit_img4](image/unionlimit_img4.png)
 
 ​																<그림 4 : 결과> 
 
