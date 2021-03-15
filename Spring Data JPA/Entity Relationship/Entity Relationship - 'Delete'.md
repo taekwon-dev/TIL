@@ -27,9 +27,11 @@ ___
 - REFRESH
 - DETACH
 
+https://www.baeldung.com/jpa-cascade-remove-vs-orphanremoval
 
+https://www.baeldung.com/jpa-cascade-types
 
-
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories
 
 
 
