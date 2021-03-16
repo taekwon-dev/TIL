@@ -2,7 +2,21 @@
 
 https://goddaehee.tistory.com/167 / 갓대희 
 
+https://cheese10yun.github.io/checked-exception/
+
 Spring Tranaction Exception & Rollback
+
+___
+
+### Checked &. Unchecked Exception
+
+![스크린샷 2021-03-16 오후 7.21.55](/Users/youn/Library/Application Support/typora-user-images/스크린샷 2021-03-16 오후 7.21.55.png)
+
+https://cheese10yun.github.io/checked-exception/
+
+우선 결론, "**더 구체적인 Unckecked Exception 발생 시켜라**"
+
+
 
 
 
