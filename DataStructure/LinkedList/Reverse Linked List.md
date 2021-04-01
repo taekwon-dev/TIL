@@ -12,11 +12,11 @@ https://www.hackerrank.com/challenges/reverse-a-linked-list/problem
 
 [예시 상황 그림 참조 https://bcp0109.tistory.com/entry/Reverse-Linked-List-Java]
 
-![image-20210324084558742](./img/2_img1.png)
+![image-20210324084558742](img/Reverse%20Linked%20List_1.png)
 
-![image-20210324084618461](./img/2_img2.png)
+![image-20210324084618461](img/Reverse%20Linked%20List_2.png)
 
-![image-20210324084630148](./img/2_img3.png)
+![image-20210324084630148](img/Reverse%20Linked%20List_3.png)
 
 우선 재귀함수의 `탈출` 조건은 다음과 같다.
 

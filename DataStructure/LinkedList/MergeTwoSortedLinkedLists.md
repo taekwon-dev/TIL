@@ -64,7 +64,7 @@ https://www.hackerrank.com/challenges/merge-two-sorted-linked-lists/problem
 
 **결론**
 
-![img18](img/1_img1.png)
+![img18](img/MergeTwoSortedLinkedLists_1.png)
 
 앞서 내가 코드를 보고 분석했을 때 얻은 head3은 1 -> 1 -> 2 -> 3 -> Null 이었다. 
 
