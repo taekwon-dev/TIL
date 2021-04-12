@@ -1,4 +1,4 @@
-## Jira 
+## JIRA : Issue Tracker 
 
 https://jojoldu.tistory.com/260
 
