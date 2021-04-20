@@ -8,7 +8,7 @@ https://stackoverflow.com/questions/23517464/error-cannot-pull-with-rebase-you-h
 
 
 
-![image-20210406190827551](./imgs/Cannot pull with rebase_0.png)
+![image-20210406190827551](./imgs/Cannot%pull%with%rebase_0.png)
 
 <그림 1>
 
