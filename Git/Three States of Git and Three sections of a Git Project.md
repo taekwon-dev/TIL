@@ -22,15 +22,15 @@ https://serengetitech.com/tech/three-states-of-git-and-three-sections-of-a-git-p
 
 
 
-![image-20210331152452960](./imgs/0_Three States of Git and Three sections of a Git Project.png)
+![image-20210331152452960](./imgs/Three_States_of_Git_and_Three_sections_of_a_Git_Project_0.png)
 
-![image-20210331152505499](./imgs/1_Three States of Git and Three sections of a Git Project.png)
+![image-20210331152505499](./imgs/Three_States_of_Git_and_Three_sections_of_a_Git_Project_1.png)
 
-​      							![image-20210331152524930](./imgs/2_Three States of Git and Three sections of a Git Project.png)	
+​      							![image-20210331152524930](./imgs/Three_States_of_Git_and_Three_sections_of_a_Git_Project_2.png)	
 
-![image-20210331152552670](./imgs/3_Three States of Git and Three sections of a Git Project.png)
+![image-20210331152552670](./imgs/Three_States_of_Git_and_Three_sections_of_a_Git_Project_3.png)
 
-![image-20210331152552670](./imgs/4_Three States of Git and Three sections of a Git Project.png)
+![image-20210331152552670](./imgs/Three_States_of_Git_and_Three_sections_of_a_Git_Project_4.png)
 
 
 
@@ -48,7 +48,7 @@ COMMIT : 저장되지 않은 모든 데이터를 데이터베이스에 저장하
 
 
 
-![image-20210331153342801](./imgs/5_Three States of Git and Three sections of a Git Project.png)
+![image-20210331153342801](./imgs/Three_States_of_Git_and_Three_sections_of_a_Git_Project_5.png)
 
 A Git project consists of **three** different sections. 
 
@@ -78,7 +78,7 @@ Also known as the index. It's **the area between the working directory and the .
 
 
 
-![image-20210331160842717](./imgs/6_Three States of Git and Three sections of a Git Project.png)
+![image-20210331160842717](./imgs/Three_States_of_Git_and_Three_sections_of_a_Git_Project_6.png)
 
 출처
 
@@ -90,6 +90,6 @@ https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%9
 
 
 
-![Git Workflow](./imgs/7_Three States of Git and Three sections of a Git Project.png)
+![Git Workflow](./imgs/Three_States_of_Git_and_Three_sections_of_a_Git_Project_7.png)
 
 <출처 : 2021-1 OSSP 수업 자료 중> 
