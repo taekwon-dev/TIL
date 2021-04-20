@@ -26,7 +26,7 @@ https://serengetitech.com/tech/three-states-of-git-and-three-sections-of-a-git-p
 
 ![image-20210331152505499](./imgs/1_Three States of Git and Three sections of a Git Project.png)
 
- 								![image-20210331152524930](./imgs/2_Three States of Git and Three sections of a Git Project.png)	
+​      							![image-20210331152524930](./imgs/2_Three States of Git and Three sections of a Git Project.png)	
 
 ![image-20210331152552670](./imgs/3_Three States of Git and Three sections of a Git Project.png)
 
@@ -50,19 +50,19 @@ COMMIT : 저장되지 않은 모든 데이터를 데이터베이스에 저장하
 
 ![image-20210331153342801](./imgs/5_Three States of Git and Three sections of a Git Project.png)
 
-A Git project consists of three different sections. 
+A Git project consists of **three** different sections. 
 
 **.git directory** : 
 
-Also known as the repository. This is where Git store the metadata and object database for your project. 
+Also known as the repository. This is where **Git store the metadata and object database for your project.** 
 
 **working directory** : 
 
-This is a single checkout of one version of the project. This is where you can modify files. 
+This is a single checkout of one version of the project. This is where **you can modify files.** 
 
 **staging area** :
 
-Also known as the index. It's the area between the working directory and the .git directory like above. All the files which are ready for a commit are stored here. 
+Also known as the index. It's **the area between the working directory and the .git directory** like above. **All the files which are ready for a commit are stored here.** 
 
 
 
@@ -70,6 +70,8 @@ Also known as the index. It's the area between the working directory and the .gi
 
 ```
 -> 커밋 명령어를 실행시키면 staged area에 위치한 파일들은 리포지토리에 저장소로 이동합니다. 이 때 working directory에 위치한 파일들은 제외되는데, 이는 내가 작업한 파일들 (변화가 발생한) 중 원하는 파일들만 골라서 저장소에 저장할 수 있음을 의미합니다. 
+
+-> 대표적으로, 작업 파일 간 add 해야 하는 파일만 따로 선별 후 커밋하는 것을 예로 들 수 있다. 
 ```
 
 ---
@@ -84,7 +86,10 @@ https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%9
 
 워킹 디렉토리의 모든 파일은 크게 Tracked과 Untracked 상태로 나뉜다. Tracked 파일은 이미 스냡샷에 포함돼있던 파일이다. Tracked 파일은 또 Unmodified와 Modified 그리고 Staged 상태 중 하나이다. 
 
-그리고 나머지 파일은 모두 Untracked 파일이다. Untracked 파일은 워킹 디렉토리에 있는 파일 중 스냅샷에도 Staging Area에도 포함되지 않은 파일이다. 마지막 커밋 이후 아직 아무것도 수정하지 않은 상태에서 어떤 파일을 수정하면 Git은 그 파일을 Modified 상태로 인식한다. 실제로 커밋을 하기 위해서는 이 수정한 파일을 Staged 상태로 만들고, Staged 상태의 파일을 커밋한다. 이런 라이프 사이클을 계속 반복한다. 
+그리고 나머지 파일은 모두 Untracked 파일이다. Untracked 파일은 워킹 디렉토리에 있는 파일 중 스냅샷에도 Staging Area에도 포함되지 않은 파일이다. 마지막 커밋 이후 아직 아무것도 수정하지 않은 상태에서 어떤 파일을 수정하면 Git은 그 파일을 Modified 상태로 인식한다. 실제로 커밋을 하기 위해서는 이 수정한 파일을 Staged 상태로 만들고, Staged 상태의 파일을 커밋한다. 이런 라이프 사이클을 계속 반복한다. (Untracked = 새롭게 추가된 파일)
 
 
 
+![Git Workflow](./imgs/7_Three States of Git and Three sections of a Git Project.png)
+
+<출처 : 2021-1 OSSP 수업 자료 중> 
