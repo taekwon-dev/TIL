@@ -2,11 +2,11 @@
 
 
 
-![image-20210502000219035](./imgs/0_Your local changes ... overwritten by merge.png)
+![image-20210502000219035](./imgs/Your local changes ... overwritten by merge_0.png)
 
 < 그림 1 >
 
-![image-20210502000219035](./imgs/1_Your local changes ... overwritten by merge.png)
+![image-20210502000219035](./imgs/Your local changes ... overwritten by merge_1.png)
 
 < 그림 2 >
 
