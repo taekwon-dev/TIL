@@ -1,4 +1,4 @@
-# Error : Cannot pull with rebase : You have unstaged changes 
+# [Error] : Cannot pull with rebase : You have unstaged changes 
 
 https://git-scm.com/docs/git-pull
 
