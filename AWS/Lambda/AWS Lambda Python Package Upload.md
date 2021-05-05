@@ -2,7 +2,9 @@
 
 # AWS Lambda Python - Package Upload 
 
+http://dveamer.github.io/backend/ResizingImagesOnAwsLambda
 
+http://dveamer.github.io/backend/AwsLambdaUsingPythonZip
 
 **상황** : 
 

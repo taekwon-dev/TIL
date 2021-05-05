@@ -50,7 +50,7 @@ An IAM user group is a collection of IAM users.
 
 ___
 
-### IAM roels :
+### IAM roles :
 
 An IAM role is very similar to a user, in that it is an identity with permission policies that determine what the identity can and cannot do in AWS.  However, a role does not have any credentials (password or access keys) associated with it. Instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it.
 
