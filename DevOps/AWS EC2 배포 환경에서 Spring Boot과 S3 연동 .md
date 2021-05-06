@@ -112,6 +112,16 @@ cloud:
 			auto: false
 		credentials:
 			instanceProfile: true 
+cloud:
+  aws:
+  	s3:
+			bucket: 
+    region:
+      static: ap-northeast-2 
+    stack:
+    	auto: false
+    credentials:
+    	intanceProfile: true
 ```
 
 `cloud.aws.stack.auto: false` 
