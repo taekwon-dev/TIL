@@ -1,8 +1,4 @@
----
-Git flow - feature branch rules (2020 - 12 - 21)
----
-
-### DguMarket Team Project 
+# DguMarket Team Project 
 
 1. 논의 주제
 2. 첫 번째 규칙 

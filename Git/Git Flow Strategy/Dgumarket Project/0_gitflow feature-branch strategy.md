@@ -1,8 +1,3 @@
----
-
-Git flow - feature branch strategy (2020 - 12 - 18 ~ 2020 - 12 - 21)
----
-
 # DguMarket Team Project  
 
 **GIt flow - feature branches** 
@@ -109,7 +104,7 @@ feature-branch 생성 후, 작업이 마무리되면 *origin to upstream* 방향
   
   
   
-  ![img3](/image/0_img3.png)
+  ![img3](./image/0_img3.png)
 
 ​       <그림 3>
 

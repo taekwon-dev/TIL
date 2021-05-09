@@ -1,8 +1,3 @@
----
-
-Git Flow : Dgumarket Team Git Branch Strategy 
----
-
 ### 기존 운영하던  Git Flow 방식의 문제점 
 
 기존 Git Flow 운영 과정의 문제점 중 가장 먼저 체감한 것은 Git Commit History를 한 눈에 파악하기 어렵다는 것이었다. 사실 이 문제는 소스를 관리하는 관점에서의 문제라기 보다는 전체 흐름을 파악하는 상황과 특정 시점으로 돌아가서 에러, 버그 처리 또는 개발을 하는 상황에서 문제가 있다. 또한 Local 작업 브랜치에서 Upstream Develop까지의 병합 과정의 절차가 많다는 점도 불편한 부분이었다. 
@@ -13,7 +8,7 @@ ___
 
 ### New 
 
-![gitflow_revised_0](./imgs/gitflow_revised_0.png)
+![gitflow_revised_0](./image/gitflow_revised_0.png)
 
 ​								<그림 1> 
 
@@ -23,7 +18,7 @@ work 브랜치는 작업 브랜치(feature branches)를 생성할 때 베이스�
 
  
 
-![gitflow_revised_2](./imgs/gitflow_revised_2.png)
+![gitflow_revised_2](./image/gitflow_revised_2.png)
 
 ​						  <그림 2>
 
@@ -35,7 +30,7 @@ ___
 
 ### Cherry Pick
 
-![gitflow_revised_1](./imgs/gitflow_revised_1.png)
+![gitflow_revised_1](./image/gitflow_revised_1.png)
 
 Cherry Pick 상황에 대해서 가장 이해하기 쉬운 글이라고 생각해서 참고한 내용을 첨부한다.
 
@@ -65,7 +60,7 @@ PR 생성을 위해 origin 리포지토리로 push 하기 전, 다른 동료 개
 
 
 
-![gitflow_revised_3](./imgs/gitflow_revised_3.png)
+![gitflow_revised_3](./image/gitflow_revised_3.png)
 
 <그림 4 : work 브랜치> 
 
