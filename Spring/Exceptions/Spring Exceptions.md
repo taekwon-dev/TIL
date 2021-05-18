@@ -1,5 +1,4 @@
-# Java Exception
+# How to handle Exceptions in Spring ? 
 
-`checked` `unchecked` `java try and catch` `throw and thorws`
+https://github.com/cheese10yun/spring-guide/blob/master/docs/exception-guide.md#error-reponse-json
 
-# When Does Java Throw UndeclaredThrowableException?
