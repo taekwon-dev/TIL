@@ -89,6 +89,8 @@ public class FilterChainProxy extends GenericFilterBean {
 
 1. 디버그 포인트 (Debug point)
 
+   https://www.baeldung.com/spring-security-registered-filters
+
 2. <u>관리자 역할</u> (메모리 관리, HttpFirewall 보안 등)
 
 3. 유연성 
@@ -96,3 +98,36 @@ public class FilterChainProxy extends GenericFilterBean {
    여기서 말하는 유연성은, 클라이언트로부터 받은 요청에 대해서 <u>어떤</u> `SecurityFilterChain`을 실행시킬 것인 지에 대해서 보다 다양한 옵션을 제공하는 것을 의미한다. `서블릿 컨테이너`에 등록된 필터들은 URL 패턴에만 의존해서 요청을 위임시키지만, `FilterChainProxy` 는 `RequestMatcher` 인터페이스에 있는 여러 기능들을 끌어와서 `HttpServletRequest` 내부에 있는 여러 필드를 활용해 더 다양하고 유연한 전제를 활용해서 필터를 실행시킬 수 있다. 
 
 ![image-20210521093731021](./imgs/SpringSecurity_Big_Picture_5.png)
+
+​					<그림 5> 
+
+`FilterChainProxy` 는 여러 `SecurityFilterChain` 중 어떤 것을 사용해야 할 지를 결정하는 역할을 하고, 이는 애플리케이션에 대한 여러 요청 패턴에 대해서 각각의 `SecurityFilterChain` 을 동작시킬 수 있음을 의미한다. 
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+  
+  // 모든 요청에 대해 인증 여부를 체크하지 않고 허용 
+  // SecurityFilterChain은 0개의 필터도 가질 수 있다. (-> 이 경우 인증 관련 필터링을 하지 않는다.)
+  http.authorizeRequests().anyRequest().permitAll();
+  
+  // ("/api 로 시작하는 URL 패턴) 요청에 대해 인증 여부를 체크 
+  // 이 때 필요한 필터들이 SecurityFilterChain에 포함 
+  http.authorizeRequests().anyRequest("/api/**").authenticated();
+}
+```
+
+<그림 5>에서도 볼 수 있듯이, `SecurityFilterChain` 은 서로 독립적으로 동작할 수 있다.
+
+___
+
+### | 이것도 챙겨가세요 :) 
+
+<u>**Security Filters**</u>
+
+<u>**Handling Security Exceptions**</u>
+
+ 
+
+
+
