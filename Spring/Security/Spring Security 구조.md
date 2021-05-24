@@ -121,9 +121,11 @@ protected void configure(HttpSecurity http) throws Exception {
 
 ___
 
-### | 이것도 챙겨가세요 :) 
+### | 우리 서비스에 활용되는 `Security Filters`는 어떤 것들이 있을까? 
 
-<u>**Security Filters**</u>
+<u>**Security Filters**</u> 에 보면, 32개의 `Security Filters` 가 있다. 우선, 32개의 필터 자체를 하나씩 다 이해하는 것은 지금 시점에서 불필요하므로 현재 내 서비스에서 적용되는 필터를 중심으로 어떤 역할을 하는 지 확인한다. 
+
+
 
 <u>**Handling Security Exceptions**</u>
 
