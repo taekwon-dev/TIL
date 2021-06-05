@@ -1,2 +1,0 @@
-# Java Object Equals vs ==
-
