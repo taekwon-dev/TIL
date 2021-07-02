@@ -1,6 +1,6 @@
 # JPA - 프록시 객체 & 즉시 로딩과 지연로딩
 
-출처 : 자바 ORM 표준 JPA 프로그래밍 (저자 : **김영한**)
+<u>출처 : 자바 ORM 표준 JPA 프로그래밍 (저자 : **김영한**)</u>
 
 
 
@@ -35,6 +35,7 @@ proxy :
 Member member = em.find(Member.class, "member");
 // JPA에서 식별자로 하나의 엔티티를 조회할 때 EntityManager.find() 사용 
 // 해당 엔티티가 영속성 컨텍스트에 없는 경우 데이터베이스를 조회한다. 
+
 vs
   
 Member member = em.getReference(Member.class, "member")

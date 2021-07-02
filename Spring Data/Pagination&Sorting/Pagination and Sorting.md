@@ -1,7 +1,3 @@
----
-Pagination and Sorting using Spring Data JPA & Infinite Scroll (2020-12-23) 
----
-
 출처 : https://www.baeldung.com/spring-data-jpa-pagination-sorting
 
 ___
