@@ -1,4 +1,10 @@
-# Web Application Server : WAS
+# [Web Server] Difference Web Server and WAS
+
+웹 서버 # <u>정적</u> 페이지 제공 
+
+https://www.java67.com/2016/06/3-difference-between-web-server-vs-application-server-vs-servlet-container.html 
+
+EJB 언급이 많지만, 이를 Spring 이 대체했으므로 전체적인 매락을 이해하는데 좋을 듯 ! 
 
 ```
 웹 애플리케이션 서버 : 

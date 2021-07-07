@@ -36,7 +36,7 @@ ____
 
 Spring Security’s Servlet support is based on **Servlet `Filter`s**, so it is helpful to look at the role of **`Filter`s** generally first. The picture below shows the typical layering of the handlers for a single HTTP request.
 
-"Spring Security가 <u>서블릿 필터</u>를 기반으로 <u>서블릿</u>을 지원한다" 에서 알 수 있듯이 Spring Security가 동작하는 원리 그리고 동작하는 상대적인 위치를 이해하는데 있어 가장 중요한 개념은 **Servlet Filter**이다. 사실 필자는 이번 주제에서 가장 전달하고 싶은 부분 역시 Spring Security과 (서블릿) 필터의 **연결고리**이다. 
+"Spring Security가 <u>서블릿 필터</u>를 기반으로 <u>서블릿</u>을 지원한다" 에서 알 수 있듯이 Spring Security가 동작하는 원리 그리고 동작하는 상대적인 위치를 이해하는데 있어 가장 중요한 개념은 **Servlet Filter**이다. 결국 Spring Security에서 제공하는 Filter Chain을 서블릿 컨테이너가 관리하는 서블릿 필터로써 작동할 수 있도록 하는 것이 핵심이기 때문이다. 따라서, 이번 글에서 가장 전달하고 싶은 부분 역시 Spring Security과 (서블릿) 필터의 **연결고리**이다. 
 
 ![image-20210518090409610](./imgs/SpringSecurity_Big_Picture_1.png)
 
@@ -48,11 +48,15 @@ Spring Security’s Servlet support is based on **Servlet `Filter`s**, so it is 
 
 ![image-20210518092045906](./imgs/SpringSecurity_Big_Picture_2.png)
 
-​																  <그림 2>. 
+​																  <그림 2>
 
-그렇다면, Spring에서는 필터를 어떻게 관리할까? <그림 1>과 <그림 2>의 차이를 보면, **Filter** 자리에 **DelegatingFilterProxy** 로 바뀌어 있다. Spring은 **DelegatingFilterProxy** 를 구현한 필터를 제공한다. 이 때 **DelegatingFilterProxy** 는 서블릿 컨테이너의 생명주기와 Spring의 `ApplicationContext(spring container)` 의 가교 역할을 한다. 사실 이 부분이 다소 난해하게 해석될 수 있는데, 여기서 가교 역할의 의미는 다음과 같다. 
+그렇다면, Spring에서는 필터를 어떻게 관리할까? <그림 1>과 <그림 2>의 차이를 보면, **Filter** 자리에 **DelegatingFilterProxy** 로 바뀌어 있다. Spring은 **DelegatingFilterProxy** 를 구현한 필터를 제공한다. 이 때 **DelegatingFilterProxy** 는 서블릿 컨테이너의 생명주기와 Spring의 `ApplicationContext(spring container)` 의 가교 역할을 한다. 사실 이 부분이 다소 난해하게 해석될 수 있는데, 여기서 <u>가교 역할</u>의 의미는 다음과 같다. 
 
 서블릿 컨테이너는 필터의 등록을 처리한다. 이 때 Spring에서 정의한 `Bean` 으로 인식되기 위한 어떠한 연결 고리가 없으면,  Spring에서 관리할 수 없게 된다. **DelegatingFilterProxy** 역시 서블릿 컨테이너에 의해 관리되는 서블릿 필터 중 하나이지만, `Filter` (서블릿 필터)를 구현한 Spring Bean에게 HTTP 요청을 위임시키는 역할을 함으로써 Spring Security를 통해 전개할 인증 / 인가 로직을 가능하게 한다. **DelegatingFilterProxy** 는 `ApplicationContext`에 등록된 Bean Filter를 찾고, 있는 경우 해당 필터를 대신 작동(실행)시키는 역할을 하는 것이다. 
+
+![image-20210518092045906](./imgs/SpringSecurity_Big_Picture_6.png)
+
+<참고: DelegatingFilterProxy Class Diagram>
 
 ```java
 public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) {
@@ -128,6 +132,14 @@ protected void configure(HttpSecurity http) throws Exception {
 ___
 
 
+
+Wrapping의 의미가 뭐지?
+
+https://velog.io/@yaho1024/spring-security-delegatingFilterProxy 에서 DeletegatingFilterProxy 역할 다시 확인해보자.
+
+그리고 FilterChainProxy 로깅 하는 부분을 통해서 데모 프로젝트 기획 + 환경설정 하기
+
+https://freehoon.tistory.com/140 : mysql8 install on mac
 
 
 
