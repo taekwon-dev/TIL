@@ -4,12 +4,6 @@
 This section discusses Spring Security's high level architecture within Servlet based applications.
 ```
 
-https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture
-
-https://docs.spring.io/spring-security/site/docs/5.2.0.BUILD-SNAPSHOT/reference/htmlsingle
-
-https://godekdls.github.io/Spring%20Security/servletsecuritythebigpicture/#92-delegatingfilterproxy
-
 ### | Spring Security은 어떻게 동작할까? 
 
 Spring Security가 무엇인 지 질문을 받거나, 내 프로젝트에 Spring Security를 작성했지만 어디에서, 어떻게 작동하는 지에 대해 모호했었다. 아래 코드는 클라이언트의 HTTP 모든 요청에 대해 인증 여부를 `체크` 또는 `체크하지 않음` 을 설정하는 예제 코드이다. 코드를 작성하는 과정에서는 사실 아래 코드는 매우 충분히 직관적이고 코드 자체에 대한 이해는 어렵지 않다. 따라서 구글링을 통해 접하는 수많은 예제 코드를 통해서 `Spring Security`를 이용하는 것은 어렵지 않다. 
@@ -42,7 +36,7 @@ Spring Security’s Servlet support is based on **Servlet `Filter`s**, so it is 
 
 ​																<그림 1> 
 
-클라이언트가 HTTP 요청을 보냈을 때 웹 서버는 해당 요청을 포워딩을 통해 적합한 서블릿에 전달을 하게 되는데, 그 요청이 서블릿에 도달하기 전에 <그림 1> 사진에서 볼 수 있듯이 여러 필터들이 위치할 수 있다. 그리고 필터가 여러 개인 점에서 **필터 체인** 이라 불린다. (이 필터체인은 서블릿을 관리하는 서블릿 컨테이너에서 생성한다) 
+<u>클라이언트가 HTTP 요청을 보냈을 때 웹 서버는 해당 요청을 포워딩을 통해 적합한 서블릿에 전달</u>을 하게 되는데, 그 요청이 서블릿에 도달하기 전에 <그림 1> 사진에서 볼 수 있듯이 여러 필터들이 위치할 수 있다. 그리고 필터가 여러 개인 점에서 **필터 체인** 이라 불린다. (이 필터체인은 서블릿을 관리하는 서블릿 컨테이너에서 생성한다) 
 
 필터체인에서 가장 중요한 것은 각 필터들의 **순서** 인데, 이는 각 필터가 아래 방향으로만 진행되기 때문이다. 위 <그림 1>을 통해 설명하자면, Filter0 → Filter1 → Filter2 순서 흐름으로만 작동한다. 
 
@@ -50,9 +44,9 @@ Spring Security’s Servlet support is based on **Servlet `Filter`s**, so it is 
 
 ​																  <그림 2>
 
-그렇다면, Spring에서는 필터를 어떻게 관리할까? <그림 1>과 <그림 2>의 차이를 보면, **Filter** 자리에 **DelegatingFilterProxy** 로 바뀌어 있다. Spring은 **DelegatingFilterProxy** 를 구현한 필터를 제공한다. 이 때 **DelegatingFilterProxy** 는 서블릿 컨테이너의 생명주기와 Spring의 `ApplicationContext(spring container)` 의 가교 역할을 한다. 사실 이 부분이 다소 난해하게 해석될 수 있는데, 여기서 <u>가교 역할</u>의 의미는 다음과 같다. 
+그렇다면, Spring에서는 필터를 어떻게 관리할까? <그림 1>과 <그림 2>의 차이를 보면, **Filter** 자리에 **DelegatingFilterProxy** 로 바뀌어 있다. Spring은 서블릿 필터 인터페이스를 구현한 **DelegatingFilterProxy** 제공한다. 이 때 **DelegatingFilterProxy** 는 서블릿 컨테이너의 생명주기와 Spring의 `ApplicationContext(spring container)` 의 가교 역할을 한다. 사실 이 부분이 다소 난해하게 해석될 수 있는데, 여기서 <u>가교 역할</u>의 의미는 다음과 같다. 
 
-서블릿 컨테이너는 필터의 등록을 처리한다. 이 때 Spring에서 정의한 `Bean` 으로 인식되기 위한 어떠한 연결 고리가 없으면,  Spring에서 관리할 수 없게 된다. **DelegatingFilterProxy** 역시 서블릿 컨테이너에 의해 관리되는 서블릿 필터 중 하나이지만, `Filter` (서블릿 필터)를 구현한 Spring Bean에게 HTTP 요청을 위임시키는 역할을 함으로써 Spring Security를 통해 전개할 인증 / 인가 로직을 가능하게 한다. **DelegatingFilterProxy** 는 `ApplicationContext`에 등록된 Bean Filter를 찾고, 있는 경우 해당 필터를 대신 작동(실행)시키는 역할을 하는 것이다. 
+서블릿 컨테이너는 필터의 등록을 처리한다. 이 때 Spring에서 정의한 `Bean` 으로 인식되기 위한 어떠한 연결 고리가 없으면,  Spring에서 관리할 수 없게 된다. **DelegatingFilterProxy** 역시 서블릿 컨테이너에 의해 관리되는 서블릿 필터 중 하나이지만, `Filter` (서블릿 필터)를 구현한 Spring Bean에게 HTTP 요청을 위임시키는 역할을 함으로써 Spring Security를 통해 전개할 인증 / 인가 로직을 가능하게 한다. **DelegatingFilterProxy** 는 `ApplicationContext`에 등록된 Bean Filter를 찾고, 있는 경우 해당 필터를 대신 작동(실행)시키는 역할을 하는 것이다. 여기서 **DelegatingFilterProxy**에 감싸져 있는 **Bean Filter**는 아래 등장하는 **FilterChainProxy**이다. 
 
 ![image-20210518092045906](./imgs/SpringSecurity_Big_Picture_6.png)
 
@@ -72,13 +66,13 @@ public void doFilter(ServletRequest request, ServletResponse response, FilterCha
 
 ​						    <그림 3>
 
-**FilterChainProxy**는 Spring Security에서 제공하는 필터로, **SecurityFilterChain**을 통해 많은 Filter 인스턴스에 요청을 위힘하는 역할을 한다.  
+**FilterChainProxy**는 Spring Security에서 제공하는 필터로, **SecurityFilterChain**을 통해 많은 Filter 인스턴스에 요청을 위힘하는 역할을 한다.  <그림 3>에서 볼 수 있듯이 **DelegatingFilterProxy**에 감싸져 있는 형태로 있는데, **DelegatingFilterProxy**가 서블릿 컨테이너에 의해 서블릿 필터로 등록되고, 이 필터에서 클라이언트의 요청을 인터셉트한 후, 이 요청에 대한 처리를 Spring Bean으로 등록된 **FilterChainProxy**에게 위임시키는 것이다. 
 
 ![image-20210521091153401](./imgs/SpringSecurity_Big_Picture_4.png)
 
 ​							<그림 4> 
 
-`SecurityFilterChain` 은 `FilterChainProxy` 에 의해서 사용되고, 클라이언트로부터 받은 HTTP 요청에 대해서 Spring Security에서 제공하는 필터 중 <u>어떤</u> 필터를 실행 시켜야 할 지를 결정하기 위함이다. (위 화살표 방향 관계를 설명)
+`SecurityFilterChain` 은 `FilterChainProxy` 에 의해서 사용되고, 클라이언트로부터 받은 HTTP 요청에 대해서 Spring Security에서 제공하는 필터 중 <u>어떤</u> 필터를 실행 시켜야 할 지를 결정하기 위함이다. (위 화살표 방향 관계를 설명) 
 
 <그림 4>를 보면, `FilterChainProxy` 에 `SecurityFilterChain` 를 포함하고 있다. 아래 코드는 실제 Spring Security에서 제공하는 `FilterChainProxy.class` 중 일부이다 (필드 확인)
 
@@ -131,15 +125,21 @@ protected void configure(HttpSecurity http) throws Exception {
 
 ___
 
+### | Summary - Spring Security는 어떻게 동작할까? 
 
+Spring Security의 작업 흐름을 이해하기 위해 **서블릿 필터**부터 논으를 시작했다. 또한 서블릿 필터를 관리하는 주체인 서블릿 컨테이너의 작업 흐름에서 Spring에서 제공하는 여러 필터들을 호출하고 연결하기 위해서 어떠한 연결고리가 있는 지를 찾을 수 있었다. 물론 위 내용에서 각 클래스명이나 익숙하지 않은 것들이 등장해서 이 글을 이해하는 난이도가 다소 높아졌지만, 본질은 Spring Security의 작업 흐름은 결국 **서블릿 필터**에서 시작된 것임을 이해하는 것이 중요하다는 것을 강조하고 싶다. 
 
-Wrapping의 의미가 뭐지?
+![image-20210518090409610](./imgs/SpringSecurity_Big_Picture_1.png)
 
-https://velog.io/@yaho1024/spring-security-delegatingFilterProxy 에서 DeletegatingFilterProxy 역할 다시 확인해보자.
+​																 <그림 1 서블릿 필터> 
 
-그리고 FilterChainProxy 로깅 하는 부분을 통해서 데모 프로젝트 기획 + 환경설정 하기
+![image-20210521093731021](./imgs/SpringSecurity_Big_Picture_5.png)
 
-https://freehoon.tistory.com/140 : mysql8 install on mac
+​					<그림 5> 
 
+### | Reference :
 
+https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture
+
+https://velog.io/@yaho1024/spring-security-delegatingFilterProxy
 
