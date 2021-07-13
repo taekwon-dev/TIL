@@ -1,4 +1,4 @@
-# [Servlet Security] - The Big Picture
+# [Spring Security] - The Big Picture
 
 ```
 This section discusses Spring Security's high level architecture within Servlet based applications.
@@ -44,20 +44,22 @@ Spring Security’s Servlet support is based on **Servlet `Filter`s**, so it is 
 
 ​																  <그림 2>
 
-그렇다면, Spring에서는 필터를 어떻게 관리할까? <그림 1>과 <그림 2>의 차이를 보면, **Filter** 자리에 **DelegatingFilterProxy** 로 바뀌어 있다. Spring은 서블릿 필터 인터페이스를 구현한 **DelegatingFilterProxy** 제공한다. 이 때 **DelegatingFilterProxy** 는 서블릿 컨테이너의 생명주기와 Spring의 `ApplicationContext(spring container)` 의 가교 역할을 한다. 사실 이 부분이 다소 난해하게 해석될 수 있는데, 여기서 <u>가교 역할</u>의 의미는 다음과 같다. 
+그렇다면, Spring에서는 필터를 어떻게 관리할까? <그림 1>과 <그림 2>의 차이를 보면, **Filter** 자리에 **DelegatingFilterProxy** 로 바뀌어 있다. Spring은 서블릿 필터 인터페이스를 구현한 **DelegatingFilterProxy** 제공한다. 이 때 **DelegatingFilterProxy** 는 서블릿 컨테이너의 생명주기와 Spring의 `ApplicationContext(spring container)` 의 가교 역할을 한다.  여기서 <u>가교 역할</u>의 의미는 다음과 같다. 
 
-서블릿 컨테이너는 필터의 등록을 처리한다. 이 때 Spring에서 정의한 `Bean` 으로 인식되기 위한 어떠한 연결 고리가 없으면,  Spring에서 관리할 수 없게 된다. **DelegatingFilterProxy** 역시 서블릿 컨테이너에 의해 관리되는 서블릿 필터 중 하나이지만, `Filter` (서블릿 필터)를 구현한 Spring Bean에게 HTTP 요청을 위임시키는 역할을 함으로써 Spring Security를 통해 전개할 인증 / 인가 로직을 가능하게 한다. **DelegatingFilterProxy** 는 `ApplicationContext`에 등록된 Bean Filter를 찾고, 있는 경우 해당 필터를 대신 작동(실행)시키는 역할을 하는 것이다. 여기서 **DelegatingFilterProxy**에 감싸져 있는 **Bean Filter**는 아래 등장하는 **FilterChainProxy**이다. 
+서블릿 컨테이너는 필터의 등록을 처리한다. 이 때 Spring에서 정의한 `Bean` 으로 인식되기 위한 어떠한 연결 고리가 없으면,  Spring에서 관리할 수 없게 된다. **DelegatingFilterProxy** 역시 서블릿 컨테이너에 의해 관리되는 서블릿 필터 중 하나이지만, `Filter` (서블릿 필터)를 구현한 Spring Bean에게 HTTP 요청을 위임시키는 역할을 함으로써 Spring Security를 통해 전개할 인증 / 인가 로직을 가능하게 한다. **DelegatingFilterProxy** 는 `ApplicationContext`에 등록된 Bean Filter를 찾고, 있는 경우 해당 필터를 대신 작동(실행)시키는 역할을 하는 것이다. 여기서 **DelegatingFilterProxy**에 감싸져 있는 **Bean Filter**는 아래 등장하는 **FilterChainProxy**이다. 즉, <u>Spring Security에서 제공하는 Security Filters 들을 서블릿 컨테이너에서 관리하는 서블릿 필터에서 관리될 수 있도록 DelegatingFilterProxy 클래스를 사용하는 것이다.</u>
 
 ![image-20210518092045906](./imgs/SpringSecurity_Big_Picture_6.png)
 
 <참고: DelegatingFilterProxy Class Diagram>
+
+위 클래스 다이어그램을 보면 알 수 있듯이, 표준 서블릿 필터를 구현하고 있고, 내부에 서블릿 필터 역할을 위임할 **FilterChainProxy**를 스프링 컨테이너로부터 받아온다 **(via getFilterBean() method)**. 이러한 구조 속에서 서블릿 컨테이너에서 관리하는 서블릿 필터 단위에서 스프링에서 제공하는 **Security Filters** 들이 동작될 수 있도록 가교 역할을 하는 것이다.
 
 ```java
 public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) {
   // Lazily get Filter that was registered as a Spring Bean
   // For the example in DelegatingFilterProxy delegate is an instance of Bean Filter0
  	Filter delegate = getFilterBean(someBeanName);
-  // delegate work to the Spring Bean
+  // delegate work to the Spring Bean (-> FilterChainProxy)
   delegate.doFilter(request, response); 
 }
 ```
@@ -89,9 +91,9 @@ public class FilterChainProxy extends GenericFilterBean {
     
 ```
 
- Security Filters 는 `SecurityFilterChain` 의 형태로 조합되어 있고, 빈으로 등록되어 있다. 이는 <그림 4> 또는 바로 위 코드를 통해서도 알 수 있듯이 `FilterChainProxy`에 등록되어 있다. `Servlet Container` 혹은 `DelegatingFilterProxy` 에  등록되지 않고, `FilterChainProxy` 에 등록되어 있음으로 다음과 같은 이점이 있다. 
+ Security Filters 는 `SecurityFilterChain` 의 형태로 조합되어 있고, 빈으로 등록되어 있다. 이는 <그림 4> 또는 바로 위 코드를 통해서도 알 수 있듯이 `FilterChainProxy`에 등록되어 있다. Security Filters가 `Servlet Container` 혹은 `DelegatingFilterProxy` 에  등록되지 않고, `FilterChainProxy` 에 등록되어 있음으로 다음과 같은 이점이 있다. 
 
-1. 디버그 포인트 (Debug point)
+1. 디버그 포인트 (Debug point) 
 
    https://www.baeldung.com/spring-security-registered-filters
 
@@ -127,7 +129,7 @@ ___
 
 ### | Summary - Spring Security는 어떻게 동작할까? 
 
-Spring Security의 작업 흐름을 이해하기 위해 **서블릿 필터**부터 논으를 시작했다. 또한 서블릿 필터를 관리하는 주체인 서블릿 컨테이너의 작업 흐름에서 Spring에서 제공하는 여러 필터들을 호출하고 연결하기 위해서 어떠한 연결고리가 있는 지를 찾을 수 있었다. 물론 위 내용에서 각 클래스명이나 익숙하지 않은 것들이 등장해서 이 글을 이해하는 난이도가 다소 높아졌지만, 본질은 Spring Security의 작업 흐름은 결국 **서블릿 필터**에서 시작된 것임을 이해하는 것이 중요하다는 것을 강조하고 싶다. 
+Spring Security의 작업 흐름을 이해하기 위해 **서블릿 필터**부터 논의를 시작했다. 또한 서블릿 필터를 관리하는 주체인 서블릿 컨테이너의 작업 흐름에서 Spring에서 제공하는 여러 필터들을 호출하고 연결하기 위해서 어떠한 연결고리가 있는 지를 찾을 수 있었다. 물론 위 내용에서 각 클래스명이나 익숙하지 않은 것들이 등장해서 이 글을 이해하는 난이도가 다소 높아졌지만, 본질은 Spring Security의 작업 흐름은 결국 **서블릿 필터**에서 시작된 것임을 이해하는 것이 중요하다는 것을 강조하고 싶다. 
 
 ![image-20210518090409610](./imgs/SpringSecurity_Big_Picture_1.png)
 
@@ -143,3 +145,24 @@ https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servle
 
 https://velog.io/@yaho1024/spring-security-delegatingFilterProxy
 
+___
+
+
+
++ 이 블록 하나에서 정의하는 것과, 하나씩 상속 후 새롭게 정의하는 것의 차이 ?
++ https://velog.io/@yaho1024/Spring-Security-FilterChainProxy
+
+```
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+
+    http.cors().and().csrf().disable()
+            .exceptionHandling().authenticationEntryPoint(unauthorizedHanler)
+            .and()
+            .authorizeRequests()
+            .anyRequest().permitAll();
+
+    // https://www.baeldung.com/spring-security-session
+    http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+}
+```
