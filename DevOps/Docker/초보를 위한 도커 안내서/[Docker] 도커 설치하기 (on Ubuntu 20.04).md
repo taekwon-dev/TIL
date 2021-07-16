@@ -1,4 +1,4 @@
-# [Docker] install docker on ubuntu 20.04 
+# [Docker] 도커 설치하기 (on Ubuntu 20.04)
 
 ### | 설치 명령어 : 
 

@@ -1,4 +1,4 @@
-# [LeetCode] Two Sum II - Input array is sorted
+# [LeetCode-1*] Two Sum II - Input array is sorted
 
 `Array` `Two Pointers` `Binary Search` 
 

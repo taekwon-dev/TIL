@@ -1,4 +1,4 @@
-# [LeetCode] Two Sum 
+# [LeetCode-1] Two Sum 
 
 `Array`, `Hash Table or Map`
 

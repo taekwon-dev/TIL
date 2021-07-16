@@ -1,4 +1,4 @@
-# [MySQL] Join Clause 
+# [MySQL] Join
 
 ### | JOIN :
 
