@@ -1,4 +1,4 @@
-# [Security Filter] Notification 
+# [Security Filter] 공부 방향 
 
 ### | 공부 방향, 이 주제에서 중요한 맥락 :
 
