@@ -152,17 +152,17 @@ public class WebSecurityConfig {
 
 위와 같이 두 개 이상의 `SecurityFilterChain`을 등록할 때,    `@Order` 어노테이션을 따로 명시하지 않는 경우 아래와 같은 에러 메시지가 출력되면서 앱이 실행되지 않는다. (<u>@Order on WebSecurityConfigurers must be unique</u>) 
 
-![image-20210716103634575](/Users/youn/Library/Application Support/typora-user-images/image-20210716103634575.png)
+![image-20210716103634575](./imgs/delegating-filterchain-1.png)
 
 <그림 1> 
 
-![image-20210716103740046](/Users/youn/Library/Application Support/typora-user-images/image-20210716103740046.png)
+![image-20210716103634575](./imgs/delegating-filterchain-2.png)
 
 <그림 2>
 
 앱을 디버깅 모드로 실행하면, 위 그림과 같이 3개의 `SecurityFilterChain`이 등록된 것을 확인할 수 있고, <그림 2>와 같이 디폴트로 10개의 `Security Filters`가 해당 체인에 등록된 것을 확인할 수 있다. Spring 공식문서에서 위 상황을 도식화한 그림을 보면 매우 직관적으로 이해할 수 있다. 
 
-![image-20210716104159868](/Users/youn/Library/Application Support/typora-user-images/image-20210716104159868.png)
+![image-20210716103634575](./imgs/delegating-filterchain-3.png)
 
 ​						<그림 3>
 

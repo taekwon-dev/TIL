@@ -28,9 +28,15 @@ ___
 
 ​					   <그림 1> 
 
-위 그림과 같이 빈이 생성되고, 의존관계를 주입 받은 뒤 초기화 콜백 (`@PostConstruct`)이 호출되고 사용된 후 소멸 전 콜백 (`@PreDestory`)가 호출 되면서 소멸되는 사이클로 빈이 관리된다. 즉 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프라고 할 수 있다.
+위 그림과 같이 빈이 생성되고, 의존관계를 주입 받은 뒤 초기화 콜백 (`@PostConstruct`)이 호출되고 사용된 후 소멸 전 콜백 (`@PreDestory`)가 호출 되면서 소멸되는 사이클로 빈이 관리된다. 즉 스프링 컨테이너의 시작과 종료까지 유지되는 <u>가장 넓은 범위</u>의 스코프라고 할 수 있다.
+
+\+ 김영한님 자료 첨부하면 좋을 듯.
+
+
 
 ### | Prototype Bean Scope 
+
+\+ 언제 사용하는 지가 있으면 좋을 것 같다. 
 
 싱글톤 빈 스코프에서는 빈을 조회했을 때 항상 동일한 빈을 반환한다. 하지만 
 
@@ -45,4 +51,6 @@ https://docs.spring.io/spring-framework/docs/3.0.0.M3/reference/html/ch04s04.htm
 https://taes-k.github.io/2020/06/14/spring-bean-scope-lifecycle/ 
 
 http://lifeinhurry.com/spring-bean-scope/
+
+인프런 강의 - 스프링 기본원리 (김영한)
 
