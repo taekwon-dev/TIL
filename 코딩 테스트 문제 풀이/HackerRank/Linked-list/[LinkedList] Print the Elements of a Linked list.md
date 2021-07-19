@@ -1,4 +1,4 @@
-# [HackerRank] Print the Elements of a Linked list
+# [LinkedList] Print the Elements of a Linked list
 
 ### | Question
 

@@ -1,4 +1,4 @@
-# [HackerRank] Insert a Node at the Tail of a Linked list
+# [LinkedList] Insert a Node at the Tail of a Linked list
 
 ### | Question
 
