@@ -1,4 +1,4 @@
-# Kernel (커널) 
+# [OS] Kernel (커널) 
 
 ### | Kernel : 
 

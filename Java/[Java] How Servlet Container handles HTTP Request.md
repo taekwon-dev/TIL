@@ -46,6 +46,16 @@
 
 ​													   <그림 6 - destroy response and request object>
 
+____
+
+The Continer runs multiple threads to process multiple requests to a single servlet. And every client request generates a new pair of request and response obejcts. 
+
+![image-20210714143332087](./imgs/how-to-handle-request-sc7.png)
+
+​									<그림 7> 
+
+
+
 
 
 
@@ -66,4 +76,6 @@ Spring Bean Scopes 개념이 나올 수 있는 원리를 이해하기 위한 선
 
 ### | Reference 
 
-https://www.jitendrazaa.com/blog/java/servlet/how-container-handles-the-servlet-request/
+###### https://www.jitendrazaa.com/blog/java/servlet/how-container-handles-the-servlet-request/
+
+###### https://www.oreilly.com/library/view/head-first-servlets/9780596516680/ch04s04.html

@@ -147,13 +147,13 @@ ___
 
 ### | Reference 
 
-https://catsbi.oopy.io/f9b0d83c-4775-47da-9c81-2261851fe0d0
+###### https://catsbi.oopy.io/f9b0d83c-4775-47da-9c81-2261851fe0d0
 
-https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication
+###### https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication
 
-https://nathanh.tistory.com/131
+###### https://nathanh.tistory.com/131
 
-https://github.com/eugenp/learn-spring-security/issues/27 (on "How to create a custom ProvierManager")
+###### https://github.com/eugenp/learn-spring-security/issues/27 (on "How to create a custom ProvierManager")
 
-https://www.baeldung.com/spring-security-multiple-auth-providers 
+###### https://www.baeldung.com/spring-security-multiple-auth-providers 
 

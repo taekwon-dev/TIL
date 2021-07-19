@@ -145,8 +145,7 @@ ____
 
 ### | Reference :
 
-https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture
+###### https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture
 
-https://velog.io/@yaho1024/spring-security-delegatingFilterProxy
-
+###### https://velog.io/@yaho1024/spring-security-delegatingFilterProxy
 
