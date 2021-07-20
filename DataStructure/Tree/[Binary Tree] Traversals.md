@@ -18,7 +18,7 @@ ___
 
 ##### - Postorder (Left, Right, Root)
 
-<img src="/Users/youn/Desktop/TIL/DataStructure/Tree/imgs/traversal-1.png" alt="image-20210719214547555" style="zoom:50%;" />
+<img src="./imgs/traversal-1.png" alt="image-20210719214547555" style="zoom:50%;" />
 
 ​														 <그림 1> 
 

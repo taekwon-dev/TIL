@@ -13,7 +13,7 @@
 - OAuth2AuthorizationRequestRedirectFilter
 - Saml2WebSsoAuthenticationRequestFilter
 - X509AuthenticationFilter
-- AbstractPreAuthenticatedProcessingFilter
+- <u>AbstractPreAuthenticatedProcessingFilter</u>
 - CasAuthenticationFilter
 - OAuth2LoginAuthenticationFilter
 - Saml2WebSsoAuthenticationFilter
@@ -23,7 +23,7 @@
 - DefaultLogoutPageGeneratingFilter
 - ConcurrentSessionFilter
 - [`DigestAuthenticationFilter`](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication-digest)
-- BearerTokenAuthenticationFilter
+- <u>BearerTokenAuthenticationFilter</u>
 - [`BasicAuthenticationFilter`](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication-basic)
 - RequestCacheAwareFilter
 - SecurityContextHolderAwareRequestFilter
