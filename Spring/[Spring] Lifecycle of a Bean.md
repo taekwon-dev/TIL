@@ -34,10 +34,10 @@
 
 ### | Reference
 
-https://dzone.com/articles/spring-bean-lifecycle
+###### https://dzone.com/articles/spring-bean-lifecycle
 
-https://howtodoinjava.com/spring-core/spring-bean-life-cycle/
+###### https://howtodoinjava.com/spring-core/spring-bean-life-cycle/
 
-https://www.baeldung.com/spring-postconstruct-predestroy
+###### https://www.baeldung.com/spring-postconstruct-predestroy
 
-https://taes-k.github.io/2020/06/14/spring-bean-scope-lifecycle/
+###### https://taes-k.github.io/2020/06/14/spring-bean-scope-lifecycle/

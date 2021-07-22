@@ -6,17 +6,15 @@
 
 여러 `Bean Scope`를 제공함으로써 싱글톤 방식으로만 빈을 관리하지 않고 각 상황 별로 유연하게 대처할 수 있도록 한다. `Bean scope`는 결국 스프링 컨테이너에서 관리되는 빈이 어떠한 <u>생명주기</u>를 갖는 지에 따라서 나뉘는 것이다. 스프링에서 제공하는 `Bean Scope`는 아래와 같다. 
 
-#### - Singleton Bean Scope (<u>Default</u>)
+###### - Singleton Bean Scope (<u>Default</u>) ◀︎ **현재 글**
 
-#### - Prototype Bean Scope
+###### - Prototype Bean Scope ◀︎ **현재 글**
 
-#### * 아래 항목은 이어지는 <u>Bean Scope (2)</u>에서 다룬다. 
+###### - Request and Session Bean Scope (Related with Web)
 
-#### - Request and Session Bean Scope (Related with Web)
+###### - Application Bean Scope 
 
-#### - Application Bean Scope 
-
-#### - Websocket Bean Scope 
+###### - Websocket Bean Scope 
 
 ___
 
@@ -46,11 +44,11 @@ ___
 
 ### | Reference 
 
-https://docs.spring.io/spring-framework/docs/3.0.0.M3/reference/html/ch04s04.html
+###### https://docs.spring.io/spring-framework/docs/3.0.0.M3/reference/html/ch04s04.html
 
-https://taes-k.github.io/2020/06/14/spring-bean-scope-lifecycle/ 
+###### https://taes-k.github.io/2020/06/14/spring-bean-scope-lifecycle/ 
 
-http://lifeinhurry.com/spring-bean-scope/
+###### http://lifeinhurry.com/spring-bean-scope/
 
-인프런 강의 - 스프링 기본원리 (김영한)
+###### 인프런 강의 - 스프링 기본원리 (김영한)
 

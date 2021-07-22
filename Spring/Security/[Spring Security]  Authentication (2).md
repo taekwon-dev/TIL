@@ -114,7 +114,7 @@ public class ProviderManager implements AuthenticationManager, MessageSourceAwar
       	// 지정한 parent (instanceof AuthenticationManager)가 null이 아닌 경우 
         if (result == null && this.parent != null) {
             try {
-              	// 인증 처리 결과를 parent의 authenticate()을 통해서 처리한다. 
+              	// 인증 처리 결과를 parent의 authenticate()을 통해서 활용한다.
                 result = parentResult = this.parent.authenticate(authentication);
             } catch (ProviderNotFoundException var11) {
             } catch (AuthenticationException var12) {

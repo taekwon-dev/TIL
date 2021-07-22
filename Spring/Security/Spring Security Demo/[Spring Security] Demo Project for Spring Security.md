@@ -3,9 +3,11 @@
 ###  | 목록
 
 - **프로젝트 생성, DB 연동 (<u>환경 설정</u>)** ◀︎ **현재 글**
-- 인증
+- 인증 
+  - 인증 방식 선택
   - 인증 성공 
   - 인증 실패 
+- 세션 관리 
 - 인가  
 - 예외 처리 
 
@@ -13,7 +15,7 @@ ___
 
 ### | 목적 
 
-이번 데모 프로젝트의 목적은 `Spring Security Framework` 공부 내용을 기반으로 실제 로직 흐름을 눈으로 직접 확인하는 것에 있다. 이를 통해 `Spring Security Framework` 내 각 컴포넌트들이 어떻게 협력하고 동작하는 지를 더 깊게 이해할 수 있을 것으로 기대된다. 
+이번 데모 프로젝트의 목적은 `Spring Security Framework` 공부 내용을 기반으로 실제 로직 흐름을 눈으로 직접 확인하는 것에 있다. 이를 통해 `Spring Security Framework` 내 각 컴포넌트들이 어떻게 협력하고 동작하는 지 그리고 `Security Filters` 역할에 대해서 더 깊게 이해할 수 있을 것으로 기대된다.  인증 방식은 가장 많이 사용되는 `Username/Password`  기반 인증을 사용하고, `Cookie-Session` 을 통해 로그인 상태를 유지할 예정이다. 
 
 **Github** :  https://github.com/taekwon-dev/spring-demo/tree/main/spring-security 
 

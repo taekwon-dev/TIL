@@ -8,23 +8,23 @@ ___
 
 ### | Architecture Components (9)
 
-###### - SecurityContextHolder 
+###### - SecurityContextHolder ◀︎ **현재 글**
 
-###### - SecurityContext 
+###### - SecurityContext ◀︎ **현재 글**
 
-###### - Authentication 
+###### - Authentication ◀︎ **현재 글**
 
-###### - GrantedAuthority
+###### - GrantedAuthority ◀︎ **현재 글**
 
-###### - AuthenticationManager ◀︎ **현재 글**
+###### - AuthenticationManager 
 
-###### - ProviderManager ◀︎ **현재 글**
+###### - ProviderManager 
 
-###### - AuthenticationProvider ◀︎ **현재 글**
+###### - AuthenticationProvider 
 
-###### - Request Credentials with AuthenticationEntryPoint ◀︎ **현재 글**
+###### - Request Credentials with AuthenticationEntryPoint 
 
-###### - AbstractAuthenticationProcessingFilter ◀︎ **현재 글**
+###### - AbstractAuthenticationProcessingFilter
 
 ---
 
