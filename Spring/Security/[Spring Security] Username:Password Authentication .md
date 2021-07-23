@@ -1,4 +1,4 @@
-# [Spring Security] Username/Password Authentication 
+# [Spring Security] Username/Password Authentication (1)
 
 ### | Username/Password Authentication 
 
@@ -20,7 +20,7 @@
 
 ###### - LDAP storage with LDAP Authentication 
 
-### 
+
 
 ### | Form Login
 
@@ -55,8 +55,6 @@
 ![image-20210722112337282](/Users/youn/Library/Application Support/typora-user-images/image-20210722112337282.png)
 
 ​				  <그림 4>
-
-### | 
 
 ### | Reference 
 

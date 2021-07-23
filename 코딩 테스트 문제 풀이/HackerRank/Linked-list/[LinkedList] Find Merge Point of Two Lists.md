@@ -20,17 +20,13 @@
 
 ### | Code
 
- 단방향 연결 리스트 → 앞에서 부터 비교할 수 밖에 없음 (뒤에서 순회한다는 구조가 될 수 없음) 
+ <u>단방향 연결 리스트 → 앞에서 부터 비교할 수 밖에 없음 (뒤에서 순회한다는 구조가 될 수 없음)</u> 
 
-두 연결 리스트의 헤드가 서로 다르고, NULL이 아님. 
+<u>값 비교가 아니고, 주소(참조 값)을 비교  → 동일성 비교</u> 
 
-값 비교가 아니고, 주소(참조 값)을 비교  → 동일성 비교 
-
-이 문제에서는 끝 점이 같기 때문에, 끝 점을 맞춘 후 교차 점이 있을 수 있는 대상을 추린 상태에서 `일대일 비교(주소 값)` 를 한다.
+<u>이 문제에서는 끝 점이 같기 때문에, 끝 점을 맞춘 후 교차 점이 있을 수 있는 대상을 추린 상태에서 `일대일 비교(주소 값)` 를 한다.</u>
 
 ```java
-// Time Limit Code
-
 		/*
      * For your reference:
      *
@@ -57,6 +53,7 @@
         head1 = head1.next;
         head2 = head2.next; 
       }
+      return -1;
 
     }
 
@@ -64,6 +61,7 @@
     	int count = 0;
       while (head != null) {
         count++;
+        head = head.next;
       }
       return count; 
     }
@@ -77,7 +75,43 @@
 ```
 
 ```java
+		
 
+		/*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     * 
+     * head1 = 1 → 2 → 3 → 7 → 8  length = 5 
+     * head2 = 5 → 6 → 7 → 8      length = 4 
+     *
+     * head1 = 1 → 2 → 3 → 7 → 8 → 5 → 6 → 7 → 8,  length = 5 + 4 = 9 
+     * head2 = 5 → 6 → 7 → 8 → 1 → 2 → 3 → 7 → 8,  length = 4 + 5 = 9
+     */
+    static int findMergeNode(SinglyLinkedListNode head1, SinglyLinkedListNode head1) {
+    
+   		SinglyLinkedListNode head1_curr = head1; 
+      SinglyLinkedListNode head2_curr = head2; 
+      
+      while (head1_curr != head2_curr) {
+        
+        if (head1_curr.next == null) {
+          head1_curr = head2; 
+        } else {
+          head1_curr = head1_curr.next;
+        }
+        
+        if (head2_curr.next == null) {
+          head2_curr = head1;
+        } else {
+          head2_curr = head2_curr.next;
+        }   
+      }
+      return head1_curr.data; 
+    }
 ```
 
 

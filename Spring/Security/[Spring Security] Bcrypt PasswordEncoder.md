@@ -1,5 +1,7 @@
 # [Spring Security] Bcrypt PasswordEncoder 
 
+![image-20210723105605131](/Users/youn/Library/Application Support/typora-user-images/image-20210723105605131.png)
+
 ### | Reference
 
 ###### https://jusths.tistory.com/158
@@ -18,4 +20,3 @@
 
 ###### https://stackoverflow.com/questions/15733196/where-2x-prefix-are-used-in-bcrypt
 
-###### 

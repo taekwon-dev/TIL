@@ -1,5 +1,7 @@
 # [Spring Security] Demo Project for Spring Security (2)
 
+\# Authentication per request (life cycle)
+
 ###  | 목록
 
 - **프로젝트 생성, DB 연동 (환경 설정)** 
@@ -13,5 +15,5 @@
 
 ### | Authentication via Username/Password 
 
-\# JDBC Authentication # PasswordEncoder # UserDetailsService # UserDetails
+\# JDBC Authentication # PasswordEncoder(Bcrypt) # UserDetailsService # UserDetails
 

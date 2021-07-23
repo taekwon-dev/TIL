@@ -12,6 +12,16 @@
 
 #### Note that the linked lists must retain their original structure after the function returns. 
 
+#### A : a1 → a2 → c1 → c2 → c3 → NULL
+
+#### B : b1 → b2 → b3 → c1 → c2 → c3 → NULL
+
+
+
+#### A : a1 → a2 → *c1* → c2 → c3 → <u>b1 → b2 → b3 → *c1* → c2 → c3</u> → NULL
+
+#### B : b1 → b2 → b3 → *c1* → c2 → c3 → <u>a1 → a2 → *c1* → c2 → c3</u> → NULL
+
 ### | Code
 
 ```java
@@ -28,7 +38,26 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+      
+      if (headA == null || headB == null) return null;
+     	
+      ListNode curr_A = headA; 
+      ListNode curr_B = headB; 
+      
+      while (curr_A != curr_B) {
+        if (curr_A == null) {
+          curr_A = headB;
+        } else {
+          curr_A = curr_A.next;
+        }
         
+     		if (curr_B == null) {
+          curr_B = headA;
+        } else {
+          curr_B = curr_B.next;
+        }
+      }
+      return curr_A; 
     }
 }
 ```
