@@ -2,11 +2,17 @@
 
 ### | Question
 
-#### Given a non-empty, sinlgy linked linked list with head node `head`, return a middle node of linked list.
+#### Given <u>a non-empty, sinlgy linked linked</u> list with head node `head`, return <u>a middle node</u> of linked list.
 
-#### If there are two middle nodes, return the second middle node.
+#### <u>If there are two middle nodes, return the second middle node.</u>
+
+![image-20210724163135113](/Users/youn/Library/Application Support/typora-user-images/image-20210724163135113.png)
 
 ### | Code
+
+사이즈가 홀수 - 중점 
+
+<u>사이즈가 짝수 - 중점 중 큰 수</u> 
 
 ```java
 /**
@@ -26,3 +32,6 @@ class Solution {
 }
 ```
 
+### | Reference
+
+###### https://leetcode.com/problems/middle-of-the-linked-list/

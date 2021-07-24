@@ -13,42 +13,113 @@
 두 연결 리스트를 병합 할 때 새로운 포인터가 필요함
 
 ```java
-    static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 
-     	if (head1 == null) return head2;
-      if (head2 == null) return head1; 
-
-      SinglyLinkedListNode head3 = null; 
+// Time Limit Exceeded 
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+      if (l1 == null) return l2;
+      if (l2 == null) return l1;
       
-    	if (head1.data < head2.data) {
-        head3 = head1; 
-        head1 = head1.next;
+      ListNode curr_l1 = l1;
+      ListNode curr_l2 = l2;
+      ListNode head = null;
+      
+      if (curr_l1.val < curr_l2.val) {
+        head = l1;
+        l1 = l1.next;
       } else {
-        head3 = head2;
-        head2 = head2.next; 
+        head = l2; 
+        l2 = l2.next;
       }
-      SinglyLinkedListNode curr_node = head3; 
-      while (head1 != null && head2 != null) {
-        if (head1.data < head2.data) {
-          curr_node.next = head1; 
-          head1 = head1.next; 
-        } else{
-          curr_node.next = head2;
-          head2 = head2.next; 
+      
+      ListNode curr_l3 = head; 
+      
+      while (curr_l1 != null && curr_l2 != null) {
+        if (curr_l1.val < curr_l2.val) {
+          curr_l3.next = curr_l1;
+          curr_l1 = curr_l1.next;
+        } else {
+          curr_l3.next = curr_l2;
+          curr_l2 = curr_l2.next;
         }
-        curr_node = curr_node.next; 
+        
+        curr_l3 = curr_l3.next;
       }
       
-      if (head1 == null) {
-        curr_node.next = head2;
+      if (curr_l1 == null) {
+        curr_l3.next = curr_l2;
       }
       
-      if (head2 == null) {
-        curr_node.next = head1;
+      if (curr_l2 == null) {
+        curr_l3.next = curr_l1; 
       }
       
-      return head3; 
-      	
+      return head; 
+      
+    
     }
+}
+```
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+      if (l1 == null) return l2;
+      if (l2 == null) return l1;
+
+      ListNode head = null;
+      
+        
+      if (l1.val < l2.val) {
+          head = l1;
+          l1 = l1.next;
+      } else {
+          head = l2;
+          l2 = l2.next; 
+      }
+      ListNode curr_node = head;  
+      while (l1 != null && l2 != null) {
+        if (l1.val < l2.val) {
+            curr_node.next = l1;
+            l1 = l1.next;
+        } else {
+            curr_node.next = l2;
+            l2 = l2.next;
+        } 
+        curr_node = curr_node.next;
+      }
+        
+      if (l1 == null) {
+          curr_node.next = l2;
+      }
+        
+      if (l2 == null) {
+          curr_node.next = l1; 
+      }
+        
+      return head;
+
+    }
+}
 ```
 
