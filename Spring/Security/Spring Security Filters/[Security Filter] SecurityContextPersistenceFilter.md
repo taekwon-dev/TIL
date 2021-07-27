@@ -24,7 +24,7 @@ Populates the `SecurityContextHolder` with information obtained from the configu
 
 ###### - HTTP 요청 완료 전, SecurityContext 제거 
 
-![image-20210727203326960](/Users/youn/Library/Application Support/typora-user-images/image-20210727203326960.png)
+![image-20210727203326960](../imgs/filters-persistence-1.png)
 
 <그림 1 - SecurityContextPersistenceFilter Flow>  - 추후 보완 예정
 

@@ -31,7 +31,7 @@
 - RememberMeAuthenticationFilter
 - AnonymousAuthenticationFilter
 - OAuth2AuthorizationCodeGrantFilter
-- SessionManagementFilter
+- <u>SessionManagementFilter</u>
 - [`ExceptionTranslationFilter`](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-exceptiontranslationfilter)
 - [`FilterSecurityInterceptor`](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authorization-filtersecurityinterceptor)
 - SwitchUserFilter
