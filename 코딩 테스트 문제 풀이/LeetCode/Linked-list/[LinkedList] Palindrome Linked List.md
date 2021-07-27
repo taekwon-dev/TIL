@@ -1,2 +1,0 @@
-# [LinkedList] Palindrome Linked List
-

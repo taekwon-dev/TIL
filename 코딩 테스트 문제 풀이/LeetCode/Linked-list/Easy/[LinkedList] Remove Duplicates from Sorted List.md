@@ -1,4 +1,4 @@
-# [LinkedList] Remove Duplicates from Sorted List
+# [LinkedList] Remove Duplicates from <u>Sorted</u> List
 
 ### | Question 
 
@@ -14,6 +14,8 @@
 
 중복되는 노드를 삭제할 때 뒤에 나오는 노드의 값을 제거하는 것이 편리함
 
+문제를 잘 읽자! 이번 문제의 조건은 정렬되어 있는 연결 리스트이므로, 두 개의 포인터가 필요하지 않음! 순차적으로 인접 노드의 값을 비교만 하면 돼! 
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -27,25 +29,18 @@
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-      if (head == null) return head; 
-      ListNode curr_node = head;
-      while (curr_node.next != null) {
-        ListNode runner_node = curr_node.next;
-        while (runner_node.next != null) {
-          if (curr_node.val == runner_node.val) {
-            curr_node = runner_node.next;
-          } else {
-            runner_node = runner_node.next;
-          }
+			ListNode curr_node = head;
+      while (curr_node != null && curr_node.next != null) {
+        if (curr_node.val == curr_node.next.val) {
+          curr_node.next = curr_node.next.next;
+        } else {
+          curr_node = curr_node.next;
         }
-
       }
       return head;
     }
 }
 ```
-
-
 
 ### | Reference
 
