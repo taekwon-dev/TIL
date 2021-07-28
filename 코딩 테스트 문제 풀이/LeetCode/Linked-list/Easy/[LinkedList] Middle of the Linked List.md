@@ -14,6 +14,13 @@
 
 <u>사이즈가 짝수 - 중점 중 큰 수</u> 
 
+사이즈 체크, 중간 사이즈 조회 →  O(2N) 
+
+연결 리스트 중점 (두 개의 포인터)
+
+- fast (2칸씩 이동)
+- slow (1칸씩 이동)
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -27,7 +34,16 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
-        
+      ListNode slow = head;
+      ListNode fast = head; 
+      
+      if (head == null) return head; 
+      
+      while (fast.next != null && fast != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+      }
+      return slow;
     }
 }
 ```
@@ -35,3 +51,5 @@ class Solution {
 ### | Reference
 
 ###### https://leetcode.com/problems/middle-of-the-linked-list/
+
+###### https://bcp0109.tistory.com/167 연결 리스트 중점을 찾을 때 두 개의 포인터 활용
