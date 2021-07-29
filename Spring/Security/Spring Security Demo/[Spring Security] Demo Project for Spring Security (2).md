@@ -23,7 +23,7 @@
 
 \# JDBC Authentication # PasswordEncoder(Bcrypt) # UserDetailsService # UserDetails # HttpSession
 
-우선 이번 데모 프로젝트에서는 유저로부터 입력 받은 유저네임과 패스워드를 통해 인증을 처리하는 방식을 다룬다. 실제 인증 처리를 위임 받은 `AuthenticationProvider` 중 `DaoAuthenticationProvider`과 직접 구현한 `CustomAuthenticationProvider` 를 통해서 인증 처리를 할 예정이다. 또한 `HttpSession`을 통한 인증된 유저의 세션 관리 방식에 대해서 다룬다. 
+우선 이번 데모 프로젝트에서는 유저로부터 입력 받은 유저네임과 패스워드를 통해 인증을 처리하는 방식을 다룬다. 실제 인증 처리를 위임 받은 `AuthenticationProvider` 중 `DaoAuthenticationProvider`과 직접 구현한 `CustomAuthenticationProvider` 를 통해서 인증 처리를 할 예정이다. 또한 `HttpSession`을 통한 인증된 유저의 세션 관리 방식에 대해서 다룬다.
 
 
 
