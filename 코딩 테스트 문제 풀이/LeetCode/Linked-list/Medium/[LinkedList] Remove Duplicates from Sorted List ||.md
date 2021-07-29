@@ -25,19 +25,32 @@
 // 1 → 2 → 3 → 3 → 4 → 4 → 5 
 // 1 → 2 → 5 
 
-// 
-// (1,2), (2,3), (3,3), *제외*(3,4), (4,4), *제외*(4,5)
-// (2,4), (2,5) 
+// 1 → 2 → 3 → 3 → 3 → 3 → 3 → 4 → 4 → 5
+// 1 → 2 → 5 
 
-// 3 제거할 때 2 → 4 : 1 → 2 → 4 → 4 → 5 
-// 이전 노드에 대한 포인터 필요! 
+// 정렬된 연결 리스트에서 중복값을 모두 삭제할 때, 
+// 중복된 값을 갖는 노드가 세 개 이상일 수 있으므로 
+// 포인터를 이동시키는 반복문과 두 인접한 노드가 동일한 값을 가질 경우 그 다음 노드에도 동일한 값이 있는지 체크할 반복문 필요
 
-// 1 → 1 → 2 → ... 
+// 중복된 노드를 삭제할 때는 이전 노드가 참조하고 있는 것을 중복된 값과 다른 값을 갖는 다음 노드에 함으로써 제거
+// 값을 제거하기 위해 이전 노드를 활용할 때 → 이전 노드를 포인터 기준으로 활용
 
-// 중복된 값을 갖고 있는 모든 노드 삭제
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-       
+      ListNode prev_node = new ListNode(0, head);
+      ListNode curr_node = prev_node;
+      
+     	while (curr_node.next != null && curr_node.next.next != null) {
+        if (curr_node.next.val == curr_node.next.next.val) {
+          int dupVal = curr_node.next.val; 
+					while (curr_node.next != null && curr_node.next.val == dupVal) {
+            curr_node.next = curr_node.next.next;
+          }
+        } else {
+          curr_node = curr_node.next; 
+        }
+      }
+      return prev_node.next; 
     }
 }
 ```
@@ -45,3 +58,4 @@ class Solution {
 ### | Reference
 
 ###### https://www.programcreek.com/2014/06/leetcode-remove-duplicates-from-sorted-list-ii-java/
+

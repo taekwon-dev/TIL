@@ -4,7 +4,7 @@
 
 ### | 선수 지식 
 
-###### - HttpSession 생성 시점
+###### - Bind HttpSession object 
 
 ###### - How come you can access to an Authentication (on SecurityContext) # ThreadLocal 
 
@@ -16,7 +16,7 @@ ___
 
 Populates the `SecurityContextHolder` with information obtained from the configured `SecurityContextRepository` prior to the request and stores it back in the repository once the request has completed and clearing the context holder. By default it uses an `HttpSessionSecurityContextRepository`. 
 
-<u>`SecurityContextPersistenceFilter` 의 메인 역할은 세션에서 `SecurityContext`를 `SecurityContextHolder`에 할당</u>하는 것이다. 이 역할과 책임으로, 로그인 상태를 전제로 하는 필터들이 `SecurityContextPersistenceFilter`에 의존적일 수 밖에 없다. 위에서 설명한 것 처럼 세션 정보에서 `SecurityContext`를 가져오는 역할은 `HttpSessionSecurityContextRepository(default)`에서 처리하고, 이 외에도 기존 세션에서 `SecurityContext`를 찾지 못한 경우에는 새로운 `SecurityContext`를 생성하는 역할을 하고, 유저가 로그인하는 시점에 인증이 완료되면, 해당 유저의 정보를 기반으로 `SecurityContext`를 저장하는 등의 역할을 수행한다. 요청을 완료하기 전, `HttpSession(default)`에 `SecurityContext`를 저장 후 `SecurityContextHolder`에서 제거하는 것까지 담당한다. 
+`SecurityContextPersistenceFilter` 의 메인 역할은 세션에서 `SecurityContext`를 가져와서 `SecurityContextHolder`에 할당하는 것이다. 이 역할과 책임으로, 로그인 상태를 전제로 하는 필터들이 `SecurityContextPersistenceFilter`에 의존적일 수 밖에 없다. 위에서 설명한 것 처럼 세션 정보에서 `SecurityContext`를 가져오는 역할은 `HttpSessionSecurityContextRepository(default)`에서 처리하고, 이 외에도 기존 세션에서 `SecurityContext`를 찾지 못한 경우에는 새로운 `SecurityContext`를 생성하는 역할을 하고, 유저가 로그인하는 시점에 인증이 완료되면, 해당 유저의 정보를 기반으로 `SecurityContext`를 저장하는 등의 역할을 수행한다. 요청을 완료하기 전, `HttpSession(default)`에 `SecurityContext`를 저장 후 `SecurityContextHolder`에서 제거하는 것까지 담당한다. 
 
 `SecurityContextPersistenceFilter`의 역할을 두 가지로 간추리면, 다음과 같다. 
 
@@ -80,7 +80,7 @@ this.repo.saveContext(contextAfterChainExecution, holder.getRequest(), holder.ge
 ...
 ```
 
-이어지는 글에서는 Spring Security에서 제공하는 인증 필터를 활용함으로써 이번 글에서 볼 수 없었던 `SecurityFilterChain` 내 필터 간 협력관계를 파악하고, 최초 `SecurityContext`가 `HttpSession`에 없을 때 `Null Authentication`를 생성하는 이유 등에 대해서 공부할 예정이다.
+이어지는 글에서는 <그림 1>에서 확인할 수 있었던 `SecurityContextPersistenceFilter`의 책임을 파악하기 위해 코드를 분석해볼 예정이다. 특히 `HttpSession`을 활용해서 각 유저의 인증 상태를 유지하는 맥락과 관련해서 서블릿 컨테이너가 `HttpSession` 객체를 어떻게 관리하는 지에 대해서도 관련지어 공부할 예정이다.
 
 ### | Reference
 

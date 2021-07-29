@@ -8,40 +8,39 @@
 
 - **프로젝트 생성, DB 연동 (환경 설정)** 
 - 인증 
-  - 인증 방식 선택 ◀︎ **현재 글**
+  - 인증 방식 ◀︎ **현재 글**
   - 인증 성공 처리 ◀︎ **현재 글**
   - 인증 실패 처리 ◀︎ **현재 글**
-- 세션 관리 ◀︎ **현재 글**
+- Session Tracking via HttpSession ◀︎ **현재 글**
 - 인가  
 - 예외 처리 
-
-### | Work-flow 
-
-
 
 ### | Authentication via Username/Password 
 
 \# JDBC Authentication # PasswordEncoder(Bcrypt) # UserDetailsService # UserDetails # HttpSession
 
-우선 이번 데모 프로젝트에서는 유저로부터 입력 받은 유저네임과 패스워드를 통해 인증을 처리하는 방식을 다룬다. 실제 인증 처리를 위임 받은 `AuthenticationProvider` 중 `DaoAuthenticationProvider`과 직접 구현한 `CustomAuthenticationProvider` 를 통해서 인증 처리를 할 예정이다. 또한 `HttpSession`을 통한 인증된 유저의 세션 관리 방식에 대해서 다룬다.
+우선 이번 데모 프로젝트에서는 유저로부터 입력 받은 유저네임과 패스워드를 통해 인증을 처리하는 방식을 다룬다. 실제 인증 처리를 위임 받은 `AuthenticationProvider` 중 `CustomAuthenticationProvider`과 직접 구현한 `DaoAuthenticationProvider`를 통해서 인증 처리를 해볼 예정이다. 
 
+\# Multiple Authentication Providers - Priror
 
-
-
+\# How to register Authentication Providers to ProviderManager (How to create AuthenticationManager)
 
 ### | 인증 성공 처리 
 
-
-
 ### | 인증 실패 처리 
 
+### | Session Tracking via HttpSession
 
+\# SecurityContextPersistenceFilter 
 
-### | 세션 관리
+Spring Security Framework에서는 `Session Tracking`을 처리하기 위해 기본적으로 `HTTP Cookies`를 활용한다. 
 
-____
+![image-20210729214735212](/Users/youn/Library/Application Support/typora-user-images/image-20210729214735212.png)
+
+![image-20210729214957174](/Users/youn/Library/Application Support/typora-user-images/image-20210729214957174.png)
 
 ### | Reference
 
 ###### https://brunch.co.kr/@sbcoba/11
 
+###### 
