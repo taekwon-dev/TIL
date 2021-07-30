@@ -1,8 +1,8 @@
-# [LinkedList] Remove Duplicates from <u>Sorted</u> List ||
+# [LinkedList] <u>Remove</u> Duplicates from <u>Sorted</u> List ||
 
 ### | Question 
 
-#### Given the head of a sorted linked list, <u>delete all nodes</u> that have dupilcate numbers, leaving only distinct numbers from the original list. 
+#### Given the head of a sorted linked list, <u>delete all nodes</u> that have duplicate numbers, leaving only distinct numbers from the original list. 
 
 #### Return the linked list <u>sorted</u> as well. 
 
@@ -54,6 +54,48 @@ class Solution {
     }
 }
 ```
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+// 복습 
+
+// delete all nodes that have duplicate numbers 
+// the given list is sorted in ascending order
+
+// 노드 삭제, 해당 노드 이전 노드에 포인터를 놓자. 
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+    	ListNode prev_node = new ListNode(0, head); 
+      // head 노드를 삭제할 준비 
+      ListNode curr_node = prev_node; 
+     	// 인접한 노드가 같은 값을 갖는 경우 → 대상 조건 → 같은 값이 있을 때 까지 하나씩 검사 
+      while (curr_node.next != null && curr_node.next.next != null) {
+        if (curr_node.next.val == curr_node.next.next.val) {
+          int dupliVal = curr_node.next.val; 
+          // 1 → 2 → 2 → 2 → 2 → 3 ...
+          while (curr_node.next != null && curr_node.next.val == dupliVal) {
+            curr_node = curr_node.next.next; 
+          }
+        } else {
+          curr_node = curr_node.next; 
+        }
+      }
+      return prev_node.next;
+    }
+}
+```
+
+
 
 ### | Reference
 
