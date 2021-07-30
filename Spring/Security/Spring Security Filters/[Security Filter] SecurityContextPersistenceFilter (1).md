@@ -4,6 +4,8 @@
 
 ### | 선수 지식 
 
+###### - Session tracking in Spring Security
+
 ###### - Bind HttpSession object 
 
 ###### - How come you can access to an Authentication (on SecurityContext) # ThreadLocal 
@@ -20,9 +22,9 @@ Populates the `SecurityContextHolder` with information obtained from the configu
 
 `SecurityContextPersistenceFilter`의 역할을 두 가지로 간추리면, 다음과 같다. 
 
-###### - SecurityContext를 SecurityContextHolder에 저장
+###### 1) SecurityContext를 SecurityContextHolder에 저장 (from HttpSession)
 
-###### - HTTP 요청 완료 전, SecurityContext 제거 
+###### 2) HTTP 요청 완료 전, SecurityContext 제거 + HttpSession에 SecurityContext 저장
 
 ![image-20210727203326960](../imgs/filters-persistence-1.png)
 

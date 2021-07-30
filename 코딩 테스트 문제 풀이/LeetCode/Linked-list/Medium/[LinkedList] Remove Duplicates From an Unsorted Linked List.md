@@ -1,4 +1,4 @@
-# [LinkedList] Remove Dupilcates From an Unsorted Linked List
+# [LinkedList] Remove Duplicates From an Unsorted Linked List
 
 ### | Question
 
@@ -10,7 +10,12 @@
 
 ### | Code
 
+\# Use two loops 
+
+\# HashMap 
+
 ```java
+// Using Two loops 
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
 
@@ -18,7 +23,19 @@ class Solution {
 }
 ```
 
+```java
+// Using HashMap 
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+		
+    }
+}
+```
+
+
+
 ### | Reference
 
 ###### https://goodtecher.com/leetcode-1836-remove-duplicates-from-an-unsorted-linked-list/
 
+###### https://www.dineshonjava.com/remove-duplicates-from-the-unsorted-singly-linked-list/

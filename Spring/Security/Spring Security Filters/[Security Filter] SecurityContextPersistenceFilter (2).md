@@ -10,7 +10,7 @@
 
 ###### 1) SecurityContext를 SecurityContextHolder에 저장 (from HttpSession)
 
-###### 2) HTTP 요청 완료 전, SecurityContext 제거 
+###### 2) HTTP 요청 완료 전, SecurityContext 제거 + HttpSession에 SecurityContext 저장
 
 이번 글에서는 위 역할을 처리하는 메소드 코드를 분석한다.
 
@@ -96,6 +96,16 @@ HttpSession httpSession = request.getSession() = HttpSession httpSession = reque
 
  `HttpSession`에서 `SecurityContext` 가져오는 것은 위와 같은 흐름으로 구현되어 있었다. 
 
+____
+
+###### ! 참고 ! 클라이언트 요청에 대한 HttpSession을 어떻게 특정할 수 있을까? 
+
+###### 결론부터 먼저 설명하자면, Spring Security에서 Session-tracking을 할 때 디폴트로 사용하는 것이 HTTP Cookies다. Apache Tomcat(WAS)는 기본적 JSESSIONID를 쿠키 키 값으로 생성하고 해당 키 값에 세션 아이디를 값으로 저장한다. 클라이언트 요청 시, HTTP Cookie를 통해서 고유 세션 아이디를 확보하고 해당 값을 통해서 특정 세션 객체를 참조할 수 있게 된다.
+
+###### Reference - https://springhow.com/session-tracking-modes-in-spring-security/
+
+___
+
 ### | saveContext(SecurityContext context) 
 
 HTTP 요청 처리를 완료하기 전에 위에서 언급한 `SecurityContextPersistenceFilter` 역할 처럼 `HttpSession`에 `SecurityContext`를 저장하고 `SecurityContext`를 제거한다. 
@@ -136,4 +146,36 @@ HTTP 요청 처리를 완료하기 전에 위에서 언급한 `SecurityContextPe
 ### | 예시 상황 
 
 ###### 유저가 로그인 API 요청을 통해 인증을 완료하고, 인증이 요구되는 회원정보 조회 API 요청 시 SecurityContext 내 Authentication 객체를 조회하는 상황에서 위 흐름을 직접 확인해보자. (via IntelliJ Debugging Mode)
+
+![SecurityContextPersistenceFilter work flow](../imgs/filters-persistence-2.png)
+
+<그림 2 최초 로그인 API 요청> 
+
+![SecurityContextPersistenceFilter work flow](../imgs/filters-persistence-3.png)
+
+<그림 3 최초 로그인 API 요청 시, HttpSession 객체에 저장된 NULL Authentication>
+
+![SecurityContextPersistenceFilter work flow](../imgs/filters-persistence-4.png)
+
+<그림 4 인증 후, 회원정보 API 요청>
+
+![SecurityContextPersistenceFilter work flow](../imgs/filters-persistence-5.png)
+
+<그림 5 HttpSession 객체에 저장된 Authentication 확인>
+
+### | 결론 
+
+###### 1) SecurityContext를 SecurityContextHolder에 저장 (from HttpSession)
+
+###### 2) HTTP 요청 완료 전, SecurityContext 제거 + HttpSession에 SecurityContext 저장
+
+`SecurityContextPersistenceFilter`의 역할 그 자체에 대해 이해하는 것은 어렵지 않을 것이다. 보다 더 중요한 것은 Spring Security에서 하나의 필터가 수행하는 역할 뿐만 아니라 `Security Filters`간 의존성 관계를 파악하는 것이라고 생각한다. `SecurityContextPersistenceFilter`에 대한 이해를 기반으로 `SecurityFilterChain`에 속한 다른 필터들과 어떤 관계를 맺는 지에 대해서 공부할 예정이다. 
+
+### | Reference
+
+###### https://docs.spring.io/spring-security/site/docs/3.2.8.RELEASE/apidocs/org/springframework/security/web/context/SecurityContextPersistenceFilter.html
+
+###### https://www.programmersought.com/article/5943639580/
+
+###### https://soon-devblog.tistory.com/2 : HttpSession 생성 시점
 
