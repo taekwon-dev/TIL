@@ -4,9 +4,11 @@
 
 ##### | Integer to Binary 
 
+###### - How are negative numbers represented in Binary? ◀︎ **현재 글**
+
 ##### | Bit Operation
 
-###### - OR
+###### - OR 
 
 ###### - AND
 

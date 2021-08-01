@@ -1,6 +1,0 @@
-# Spring Exception Strategy 
-
-https://velog.io/@waldo/%EC%97%90%EB%9F%AC%EC%B2%98%EB%A6%AC101-Enum%EC%9C%BC%EB%A1%9C-%EC%97%90%EB%9F%AC%EC%BD%94%EB%93%9C-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0
-
-https://velog.io/@waldo/%EC%97%90%EB%9F%AC%EC%B2%98%EB%A6%AC101-%EC%8A%A4%ED%94%84%EB%A7%81%EC%97%90%EC%84%9C-Exception-%EA%B3%B5%ED%86%B5-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0
-

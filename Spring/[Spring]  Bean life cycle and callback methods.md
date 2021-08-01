@@ -1,18 +1,4 @@
-# [Spring] Life cycle of a Bean 
-
-\# 생명주기 콜백 # 객체의 생성과 초기화 분리하는 이유 # 빈 스코프에 따른 생명주기 
-
-### | LIfe cycle of a Bean
-
- `Spring Beans` 생명주기는 `Spring Container`에서 관리한다. 기본적으로 `Spring Container`에서는 `Spring Beans`을 싱글톤으로 관리한다.  아래 <그림 1>과 <그림 2>는 `Spring Bean Scope` 중 디폴트 값인 싱글톤 스코프  `Spring Beans` 의 생명주기를 도식화한 것이다.
-
-![image-20210717175049984](/Users/youn/Library/Application Support/typora-user-images/image-20210717175049984.png)
-
-<그림 1> 
-
-![image-20210717175506676](/Users/youn/Library/Application Support/typora-user-images/image-20210717175506676.png)
-
-​									<그림 2> 
+# [Spring]  Bean life cycle and callback methods 
 
 ### | Life cycle callbacks 
 
@@ -26,9 +12,7 @@
 
 ##### - @PreDestory
 
-### | Life cycle & Bean scope 
 
-프로토타입 스코프, 웹 관련 스코프 추가 예정 
 
 
 
@@ -41,3 +25,7 @@
 ###### https://www.baeldung.com/spring-postconstruct-predestroy
 
 ###### https://taes-k.github.io/2020/06/14/spring-bean-scope-lifecycle/
+
+###### https://www.baeldung.com/spring-bean-scopes
+
+###### https://renuevo.github.io/spring/scope/spring-scope/

@@ -1,2 +1,0 @@
-# [LinkedList] Linked List Cycle
-

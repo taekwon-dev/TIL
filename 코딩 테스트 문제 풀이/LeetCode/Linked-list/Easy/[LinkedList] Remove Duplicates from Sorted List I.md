@@ -1,4 +1,4 @@
-# [LinkedList] Remove Duplicates from <u>Sorted</u> List | 
+# [LinkedList] Remove Duplicates from <u>Sorted</u> List I
 
 ### | Question 
 

@@ -1,7 +1,5 @@
 # [Spring Security] Life cycle of HttpSession
 
-\# Spring Session Scope # HttpSession 구현체 
-
 이번 글에서는 `HttpSession` 생명주기에 관해서 다룬다. 서블릿 컨테이너의 클라이언트에 대한 HTTP 요청 처리 맥락과 관련이 깊고 특히 `Spring Security` 에서 `Session-based Authentication` 관련해서 `HttpSession`의 생명주기를 이해하는 것이 매우 중요하다. 
 
 ![image-20210727234004582](./imgs/httpsession-1.png)
@@ -41,3 +39,4 @@ request.getSession(false); 생성되어 있는 HttpSession이 있으면 반환, 
 
 ###### https://www.programmersought.com/article/55251600442/
 
+###### https://www.waitingforcode.com/tomcat/session-storage-in-tomcat/read
