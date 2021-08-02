@@ -16,6 +16,29 @@ fast = `i+1`, slow = `i` 번째 노드에 도달했다고 가정해보자. fast�
 
 
 
+```java
+private static Node findLoop(Node head) {
+  Node fast = head;
+  Node slow = head; 
+  while (fast != null && fast.next != null) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if(fast == slow) {
+      break;
+    }
+  } 
+  if (fast == null || fast.next == null) {
+    return null;
+  }
+  slow = head;
+  while (fast != slow) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  return fast; 
+}
+```
+
 
 
 ### | Reference 

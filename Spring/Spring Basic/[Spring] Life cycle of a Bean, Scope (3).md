@@ -1,10 +1,12 @@
-# [Spring] Life cycle of a Bean, Scope (2)
+# [Spring] Life cycle of a Bean, Scope (3)
 
 이 번 글에서는 이전 글에서 다루지 않은 나머지 `Bean Scope`에 대해서 다룬다. 
 
 ###### - Singleton Bean Scope (<u>Default</u>) 
 
 ###### - Prototype Bean Scope 
+
+###### - Singletone beans with prototype-bean dependencies 
 
 ###### - Request and Session Bean Scope (Related with Web) ◀︎ **현재 글**
 
