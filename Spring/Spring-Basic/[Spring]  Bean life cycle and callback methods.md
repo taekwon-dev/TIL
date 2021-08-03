@@ -12,7 +12,7 @@
 
 ##### - @PreDestory
 
-
+`prototype` 빈에서 인스턴스 소멸 관리하기 추가 
 
 
 

@@ -1,7 +1,3 @@
----
-SpringBoot - JUnit 만들어보기
----
-
 ## 참고
 
 [#기억보단 기록을 - JUnit 만들어보기](https://jojoldu.tistory.com/231) 
@@ -25,10 +21,6 @@ ___
 ### JUnit
 
 > JUnit은 자바 프로그래밍 언어용 유닛 테스트 프레임워크이다. 
-
-
-
-
 
 
 
