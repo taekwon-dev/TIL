@@ -1,6 +1,6 @@
 # [Spring] Life cycle of a Bean, Scope (1)
 
-**Github** :  https://github.com/taekwon-dev/spring-demo/tree/main/spring-basic/bean-scopes
+**Github** :  https://github.com/taekwon-dev/TIL/tree/main/Spring/Spring-Basic
 
 `Bean Scope` 를 설명할 때 공식 Spring Reference 에서는 *recipe* 라는 표현을 사용해서 설명한다. 요리를 할 때 다양한 레시피가 있는 것 처럼 <u>빈을 생성할 때</u> 스프링 프레임워크에서는 다양한 레시피를 제공한다. 그렇다면, 빈을 생성할 때 어떤 레시피들이 있을까? 스프링 컨테이너에서 관리하는 빈은 대부분 알고 있듯이 싱글톤 방식으로 생성된다. 싱글톤 구조에서는 등록된 빈이 *stateless* 했을 때가 가장 이상적이다. 하지만, *mutable* 한 빈의 경우에는 대처하기 곤란하다. 
 

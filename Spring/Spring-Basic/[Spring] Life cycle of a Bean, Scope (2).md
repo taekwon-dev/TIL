@@ -152,3 +152,4 @@ void seeProblemsTest() {
 
 ###### https://www.baeldung.com/spring-inject-prototype-bean-into-singleton
 
+###### https://engkimbs.tistory.com/698
