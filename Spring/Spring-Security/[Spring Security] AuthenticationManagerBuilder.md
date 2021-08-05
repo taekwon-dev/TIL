@@ -1,5 +1,11 @@
 # [Spring Security] AuthenticationManagerBuilder
 
+### | AuthenticationManagerBuilder 
+
+> ###### `SecurityBuilder` used to create an `AuthenticationManager`. Allows for easily building in memory authentication, LDAP authentication, JDBC based authentication, adding `UserDetailsService` and adding `AuthenticationProvider`'s.
+
+
+
 
 
 ### | Reference
