@@ -1,3 +1,5 @@
+# [Search] Search Algorithm
+
 ### | Search Algorithm 
 
 ```
@@ -52,3 +54,4 @@ public static int binarySearch(int[] arr, int target, int start, int end) {
 
 
  
+
