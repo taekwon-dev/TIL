@@ -122,8 +122,6 @@ public class PrototypeBeanScopeTest {
 
 `singletone`과 `prototype` 빈 스코프의 차이에서 또 중요한 것은 Spring Container에서 `prototype`으로 지정된 빈의 경우에는 빈의 생성과 의존관계 주입 그리고 초기화까지만 관려하고 해당 빈의 소멸 과정까지는 관여하지 않는다는 것이다. 즉,  `prototype` 인스턴스의 경우에는 종료 메소드가 호출되지 않고, 클라이언트가 직접 해당 인스턴스에 대한 관리를 해야 한다. 
 
-<그림 4>
-
 > ###### There is one quite important thing to be aware of when deploying a bean in the prototype scope, in that the lifecycle of the bean changes slightly. <u>Spring does not manage the complete lifecycle of a prototype bean</u>: the container instantiates, configures, decorates and otherwise assembles a prototype object, hands it to the client and then has no further knowledge of that prototype instance. This menas that while *initialzation* lifecylce callback methods will be called on all objects regardless of scope, in the case of prototypes, <u>any configured *destruction* lifecycle callbacks will *not* be called</u>. It is <u>the responsibility of the client code to clean up prototype scoped objects</u> and release any expensive resources that the prototype bean(s) are holding onto. (One possible way to get the Spring container to release resources used by prototype-scoped beans is through the use of a custom bean post-processor which would hold a reference to the beans that need to be cleaned up.)
 
  `Bean Scopes & Callback methods ` 주제에서 `prototype` 빈 소멸을 포함해서 빈의 생명주기와 관련된 콜백과 클라이언트가 직접 관리하는 것의 의미가 무엇인 지 알아볼 예정이다.

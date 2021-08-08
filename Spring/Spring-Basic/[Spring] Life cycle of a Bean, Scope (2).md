@@ -28,9 +28,9 @@ ___
 
 ![image-20210716122959602](./imgs/spring-baic-bean-scopes4.png)
 
-<그림 5>
+<그림 1>
 
-<그림 5>와 같이 `prototype` 빈이  `singleton` 빈에 의존하는 경우에는 각 빈 스코프의 특성에 맞게 의도한대로 동작할 것이다. 이제 보다 Spring Framework에서 일반적인 상황인 `singleton` 빈이 `prototype` 빈에 의존하고 있는 경우를 생각해보자. 
+<그림 1>와 같이 `prototype` 빈이  `singleton` 빈에 의존하는 경우에는 각 빈 스코프의 특성에 맞게 의도한대로 동작할 것이다. 이제 보다 Spring Framework에서 일반적인 상황인 `singleton` 빈이 `prototype` 빈에 의존하고 있는 경우를 생각해보자. 
 
 > 스프링은 일반적으로 싱글톤 빈을 사용하므로, 싱글톤 빈이 프로토타입 빈을 사용하게 된다. (인프런 - 스프링 기본원리(김영한))
 

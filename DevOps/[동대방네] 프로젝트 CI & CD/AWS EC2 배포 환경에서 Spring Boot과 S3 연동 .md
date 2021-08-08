@@ -1,4 +1,4 @@
-# AWS EC2 배포 환경에서 Spring Boot과 S3 연동 
+# `AWS EC2 배포 환경에서 Spring Boot과 S3 연동 
 
 ### [참고 글]
 
