@@ -24,13 +24,13 @@ RPUSH mylist c   # now the list is "b","a","c" (RPUSH was used this time)
 
 ### | Sets 
 
-> Redis Sets are an unordered collection of Strings. It is possible to add, remove, and test for existence of members in O(1). Redis Sets have the desirable property of not allowing repeated members. 
+> Redis Sets are <u>an unordered collection of Strings</u>. It is possible to add, remove, and test for existence of members in O(1). Redis Sets have the desirable property of not allowing repeated members. 
 
 - The max length of a list is (2^32 -1) elements. 
 
 ### | Hashes
 
-> Redis Hashes are maps between string fields and string values, so they are the perfect data type to represent objects. (e.g. A User with a number of fields like name, surname, age, and so forth). A hash with a few fields is stored in a way that takes very little space, so you can store millions of objects in a small Redis instance.
+> Redis Hashes are <u>maps</u> between string fields and string values, so they are the perfect data type to <u>represent objects</u>. (e.g. A User with a number of fields like name, surname, age, and so forth). A hash with a few fields is stored in a way that takes very little space, so you can store millions of objects in a small Redis instance.
 
 - Every hash can store up to (2^32 -1) elements field-value pairs (more than 4 billion).
 
