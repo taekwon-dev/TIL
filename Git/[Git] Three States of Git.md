@@ -1,4 +1,4 @@
-# Three States of Git
+# [Git] Three States of Git
 
 https://serengetitech.com/tech/three-states-of-git-and-three-sections-of-a-git-project/
 

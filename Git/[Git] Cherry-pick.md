@@ -1,4 +1,4 @@
-# Git Cherry-pick 
+# [Git] Cherry-pick 
 
 git-cherry-pick - Apply the changes introduced by some existing cmmits
 
