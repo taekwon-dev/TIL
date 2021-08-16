@@ -60,27 +60,41 @@ https://github.com/taekwon-dev/spring-demo/tree/main/spring-session/spring-sessi
 
 데모 프로젝트에서는 `Spring Security` + `Spring Session with Redis`을 활용해서 Redis 서버에 `SecurityContext`를 저장하고, 저장된 세션 정보를 활용 그리고 저장된 세션을 소멸시키는 것을 다룬다.  
 
-##### | 세션 생성 via 로그인 API
+##### | Save Session on Redis via Login API 
 
 ###### \# SecurityContextPersistenceFilter 
 
+`HttpSession` 의 속성에 유저 정보를 저장하는 형태가 아니고 Spring Security Framework를 활용하므로 직접적으로 유저의 정보를 `HttpSession`에 저장하지 않아도 `SecurityContextPersistenceFilter` 필터가 `HttpSession`에 유저 정보가 담겨 있는 `SecurityContext` 를 저장한다. 
+
+___
+
+###### (참고) Spring Security에서 활용되는 `SecurityContextPersistenceFilter`의 역할을 아래와 같다.  
+
+###### 	1) SecurityContext를 SecurityContextHolder에 저장 (from HttpSession)
+
+###### 	2) HTTP 요청 완료 전, HttpSession에 SecurityContext 저장 + SecurityContext 제거
+
+___
+
+![image-20210815170645569](./imgs/spring-session-redis-5.png)
+
+<그림 5, Redis Command - `key *`> 
+
+![image-20210815170619712](./imgs/spring-session-redis-6.png)
+
+<그림 6, Redis Command - `hkeys 'spring-session-key'`> 
+
++
+
+- [예외처리] 세션 생성 
+- [예외처리] Redis Transaction 
+- [Option] FlushMode 
 
 
-FlushMode 선택 기준 - 필터 내에서 SessionRepository.createsSession() 호출 시점을 찾아봐야 함 
-
-IMMEDIATE인 경우, NULL Authentication이 등록될 수 있는 지 확인
-
-실제 유저 정보를 저장할 필요는 없음 (필터 내에서 SecurityContext 저장해줌)
-
-![image-20210809094011666](./imgs/spring-session-redis-n.png)
-
-<그림 5> 
 
 ##### | 회원정보 조회 (저장된 세션 정보 활용)
 
-활용하면 돼. NULL이 아닌 SecurityContext 활용해서 재로그인 안하고 유저의 정보를 빼올 수 있는 지 확인
 
-필터를 적용할 수도 있고, 인터셉터를 통해서 앞 단에서 인증 상태 여부를 확인할 수 있음 (이 때도 위에서 언급한 필터 사용)
 
 ##### | 세션 삭제(소멸)시키기 via 로그아웃 API 
 

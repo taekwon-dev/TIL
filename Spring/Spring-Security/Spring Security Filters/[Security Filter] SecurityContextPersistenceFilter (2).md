@@ -10,7 +10,7 @@
 
 ###### 1) SecurityContext를 SecurityContextHolder에 저장 (from HttpSession)
 
-###### 2) HTTP 요청 완료 전, SecurityContext 제거 + HttpSession에 SecurityContext 저장
+###### 2) HTTP 요청 완료 전, HttpSession에 SecurityContext 저장 + SecurityContext 제거 
 
 이번 글에서는 위 역할을 처리하는 메소드 코드를 분석한다.
 
