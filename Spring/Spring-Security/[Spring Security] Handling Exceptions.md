@@ -69,12 +69,6 @@ public interface AuthenticationEntryPoint {
 
 
 
-
-
-
-
-
-
 ### | Reference
 
 ###### https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/access/ExceptionTranslationFilter.html
