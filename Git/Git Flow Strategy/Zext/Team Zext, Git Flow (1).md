@@ -1,14 +1,14 @@
-# Team Zext, Git Flow 
+# Team Zext, Git Flow (1)
 
 ##### 팀 Zext 사용한 Git Flow 전략을 소개합니다. 이번 글에서는 Git Flow workflow를 소개합니다. 전반적인 흐름을 이해하기 위해 필요한 선수 지식은 아래 리스트에서 확인하실 수 있고 필요하신 경우 해당 개념을 파악하신 뒤 이어서 읽어가시면 좋을 것 같습니다. 아래 상황은 FE, BE 각 서버 배포 환경에 따라 달라질 수 있는 점 미리 알려드립니다.
 
-### | 선수 지식
+### | 선수 지식 
 
 - ###### Rebase
 
 - ###### Cherry-pick
 
-- ###### Remote-tracking branch. 
+- ###### Remote-tracking branch, Tracking Branch
 
 ### | 목차
 
@@ -50,7 +50,7 @@ ___
 
 <그림 1, Git Flow Network>에서 알 수 있듯이 `Feature Branch`의 베이스는 `Work Branch` 입니다. 따라서 로컬 환경에서 개발할 때는 원격 리포지토리인 `Upstream`를 `fork` 한  `Origin` 을 복제하여 생성된 `Local : work` 브랜치를 베이스로 `Feature Branch`를 생성하면 됩니다. 로컬에서 `Feature Branch`를 생성하고 기능 개발이 완료되면, 이를 다시 원격 리포지토리에 병합을 해야 합니다. 지금부터는 이 과정에 대해서 자세히 설명하겠습니다.
 
-![image-20210819100152269](/Users/youn/Library/Application Support/typora-user-images/image-20210819100152269.png)
+![image-20210819100152269](./imgs/gitflow_zext_2.png)
 
 <그림 2> 
 
