@@ -44,11 +44,13 @@ ___
 
 ### | Feature to Work Branch 
 
-\# PR (Pull Request), \# Fork 
+\# PR (Pull Request), \# Fork  
 
-<그림 1, Git Flow Network>에서 알 수 있듯이 `Feature` Branch의 베이스는 `Work` Branch 입니다. 따라서 로컬 환경에서 개발할 때는 원격 리포지토리의 `Work` Branch를 복제한 로컬 리포지토리의 `Work` 브랜치를 기준으로 `Feature` Branch를 생성하면 됩니다. 로컬에서 `Feature` Branch를 생성하고 기능 개발이 완료되면 이를 다시 원격 리포지토리에 병합을 해야 합니다. 지금부터는 이 과정에 대해서 자세히 설명하겠습니다. 
+먼저 아래 <그림 2>과 같이 세 개의 리포지토리가 사용됩니다. 먼저 `Upstream`, `Origin`는 리모트 리포지토리이고, 실제 로컬에서 개발할 때 사용되는 Local 리포지토리가 있습니다. <그림 1>의 `Work` 브랜치 포함해서 `Develop`, `Test`, `Live` 는 모두 Upstream 리포지토리에서 관리됩니다. 기능 개발 시점에 생성되는 `Feature` 브랜치는 로컬 리포지토리에서 생성 후 `Origin` 을 걸쳐 최종적으로 `Upstream Work` 브랜치로 병합하는 방식으로 관리하게 됩니다.
 
-![image-20210816150618138](./imgs/gitflow_zext_2.png)
+<그림 1, Git Flow Network>에서 알 수 있듯이 `Feature Branch`의 베이스는 `Work Branch` 입니다. 따라서 로컬 환경에서 개발할 때는 원격 리포지토리인 `Upstream`를 `fork` 한  `Origin` 을 복제하여 생성된 `Local : work` 브랜치를 베이스로 `Feature Branch`를 생성하면 됩니다. 로컬에서 `Feature Branch`를 생성하고 기능 개발이 완료되면, 이를 다시 원격 리포지토리에 병합을 해야 합니다. 지금부터는 이 과정에 대해서 자세히 설명하겠습니다.
+
+![image-20210819100152269](/Users/youn/Library/Application Support/typora-user-images/image-20210819100152269.png)
 
 <그림 2> 
 
@@ -60,17 +62,17 @@ ___
 
 - ###### 4) Origin 리포지토리에서 `PR(Pull Request)` 를 통해서 Upstream 리포지토리에 개발 내역을 병합합니다. 
 
-____
+  - ###### 4-1) 자신이 생성한 PR은 본인이 직접 처리 합니다. 
 
- Upstream `Work` 브랜치에 개발 내역을 병합하는 과정은 <그림 2>와 같지만 <그림 1>에서 소개했듯이 `Feature` 브랜치는 `Work` 브랜치를 베이스로 하고 있으므로 <그림 2> 3번의 과정을 보다 구체적으로 소개하면 다음과 같습니다. 
+  - ###### 4-2) Review가 필요한 상황인 경우, Reviewer을 등록 후 PR 생성합니다. 단, 이 경우에도 PR 생성자가 PR을 처리합니다. 
 
-로컬의 `Work` 브랜치에서 기능 개발을 위한 `Feature` 브랜치를 생성합니다. 그리고 개발이 완료되면 이를 Origin/`Feature` 브랜치로 `Push` 를 하고 이를 `PR`을 통해서 Upstream `Work` 브랜치로 병합하게 됩니다. 
-
-
+로컬의 `Work Branch`에서 기능 개발을 위한 `Feature Branch` 를 생성합니다. 그리고 개발이 완료되면 이를 `Origin/feature` 브랜치로 `Push` 를 하고 이를 `PR`을 통해서 `Upstream:work` 브랜치로 병합하게 됩니다. 
 
 ### | Work to Master Branch
 
-\# Pipeline 
+\# CI/CD \# Pipeline 
+
+`CI` 를 활용하여 `Upstream:develop`, `Upstream:test`, `Upstream:master` 각각의 브랜치에 PR을 통해 새로운 커밋이 발생한 경우 자동적으로 배포 파이프라인을 통해 업데이트된 애플리케이션 테스트 및 빌드가 진행되도록 구성할 예정입니다. 보다 자세한 내용은 추후 배포 라인이 구체화되는대로 문서에 반영할 예정입니다.
 
 ### | Reference
 
