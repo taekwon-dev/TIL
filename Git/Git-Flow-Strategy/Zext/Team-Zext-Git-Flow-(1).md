@@ -56,7 +56,7 @@ Git Flow Network에서 사용되는 브랜치 종류는 아래와 같습니다. 
 
 - ###### feature to work branch 
 
-  이 파트에서는 로컬에서의 개발 환경 구축과 로컬 개발 내역을 remote repository에 병합하는 과정 그리고 PR을 활용한 협업 전략에 대해서 다룹니다. (실습 과정 정리한 문서)
+  이 파트에서는 로컬에서의 개발 환경 구축과 로컬 개발 내역을 remote repository에 병합하는 과정 그리고 PR을 활용한 협업 전략에 대해서 다룹니다. 
 
 - ###### work to master branch 
 
@@ -75,8 +75,6 @@ ___
 <그림 1> Git Flow Network를 보면 마치 하나의 repository에서 모든 flow가 진행되는 것으로 보이지만, `feature to work` flow에서는 총 세 개의 repository가 활용됩니다. 세 개의 repository가 어떤식으로 관계를 가지고 <그림 2> flow가 진행되는 지를 알아보겠습니다. 
 
 ![image-20210820111314823](./imgs/gitflow_zext_3.png)
-
-<그림 3: three repos used> + 예상질문 각각 origin을 가지고 있는 이유 
 
 <그림 3>에서 볼 수 있듯이 `upstream:work` , `upstream:work`를 <u>fork</u>한 `origin`, `origin`을 <u>clone</u>한 `local` 총 세 개의 repository를 사용합니다. 세 repository가 서로 협력하는 플로우는 다음과 같습니다.
 
