@@ -2,9 +2,7 @@
 
 # Team Zext, Git Flow (2) 
 
-###### Github : https://github.com/taekwon-dev/gitflow-demo
 
-이번 글에서는 앞서 (1)장에서 다뤘던 `feature to work` 실습 과정을 다룹니다. 아래 깃헙 주소를 통해서 직접 실습을 진행해볼 수 있습니다. 단, access 권한을 얻기 위해서 제가 invite를 드려야 해서 혹시 github 계정을 알려주시면 access를 드리겠습니다. 
 
 ### | 목차
 

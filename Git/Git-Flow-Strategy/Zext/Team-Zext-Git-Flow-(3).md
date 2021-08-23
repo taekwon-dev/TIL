@@ -1,8 +1,8 @@
 # Team Zext, Git Flow (3)
 
-###### Github : https://github.com/taekwon-dev/gitflow-demo
 
-이번 글에서는 앞서 (2)장에 이어서 `local:work`에서 `feature` 생성 후 `upstream:work`에 병합까지 과정을 다룹니다. git history, graph를 직관적으로 쉽게 보여드리기 위해서 저는 제가 주로 사용하는 `intelliJ`를 통해서 진행합니다. git 관련 tool에 따라서 유사 기능을 잘 대응시켜서 보시면 됩니다. 
+
+이번 글에서는 앞서 (2)장에 이어서 `local:work`에서 `feature` 생성 후 `upstream:work`에 병합까지 과정을 다룹니다. 
 
 ### | 목차
 
@@ -69,4 +69,39 @@ $ git commit -m "youn's first commit for git flow demo"
 
 $ git push origin feature 
 ```
+
+위 명령어를 모두 진행하면, `origin:feature` 생성되고, origin repo에서는 아래 <그림 2>와 같이 `compare & pull request` 알림이 뜨게 됩니다. 단, 간혹 동일한 프로세스로 진행해도 알림이 뜨지 않는 경우도 있으므로 이러한 경우에는 직접 PR을 open 하시면 됩니다.
+
+![image-20210823113044304](./imgs/gitflow_zext_(3)_1.png)
+
+<그림 2> 
+
+<그림 2>에서 `compare & pull request`를 클릭하면 <그림 3>과 같이 PR의 두 대상과 방향을 확인할 수 있습니다. 이전 글에서 계속 언급했듯이 최종적으로 기능 개발 내역이 모이는 곳은 `upstream:work`이므로 아래와 같이 설정된 것을 확인할 수 있습니다. 
+
+![image-20210823113110941](./imgs/gitflow_zext_(3)_2.png)
+
+<그림 3> 
+
+<그림 3> 페이지에서는 오른쪽 박스 친 곳에서 볼 수 있듯이 `reviewers`를 등록하여 PR에 대한 코드 리뷰를 요청할 수 있습니다. `Create pull request` 버튼을 클릭함으로써 PR이 open 처리 됩니다.
+
+![image-20210823113548280](./imgs/gitflow_zext_(3)_3.png)
+
+<그림 4> 
+
+(1)장에서 본인이 open한 PR은 본인이 처리하는 것을 규약으로 언급했었습니다. 특별한 코드리뷰 요청이 없는 경우 또는 코드 리뷰 결과 PR 승인으로 합의되는 경우 `Merge pull request` 을 통해 PR을 승인하시면 됩니다. PR 승인이 완료되면 이제 local, origin repo에서 더 이상 필요 없는 feature 브랜치를 삭제하면 됩니다. (local에서 feature 삭제할 때 work 브랜치로 checkout 이후 진행하시면 됩니다.)
+
+```shell
+$ git branch -d feature # local feature branch delete
+$ git push origin --delete feature # origin feature branch delete 
+```
+
+이제 더 이상 필요 없는 브랜치까지 모두 삭제했으므로, `local:work`에도 `upstream:work`에 반영된 최신 이력을 받아와서 동기화 시켜주시면 됩니다. 
+
+```shell
+$ git pull (upstream work)
+```
+
+여기까지 진행하시면 모든 절차가 마무리 됐습니다. 여기서 다룬 실습은 가장 일반적인 상황에 대해서 다룬 것이므로 충돌이 발생하는 경우, 실수로 인해 문제를 해결하는 경우 등 다양한 발생 가능한 상황에 대해서는 앞으로 하나씩 정리하고 합의하는 과정을 통해 정리해가겠습니다. 실습은 저와 같이 두 계정을 이용해서 실습하셔도 되고, 실습 환경을 구축하는 과정에서 어려움이 있으시면 말씀해주시면 도와드리겠습니다.
+
+다음 장에서는 위 과정을 기반으로 왜 `1 commit per 1 기능` 을 하면 좋은 지, 여러 커밋을 하나로 만드는 법, 그리고 git graph 관련해서 다루겠습니다.
 
