@@ -18,3 +18,15 @@
 
 ___
 
+### | Migrate 
+
+`Migrate`  =  (baseline) + new schema file = new version
+
+![image-20210824145559441](/Users/youn/Library/Application Support/typora-user-images/image-20210824145559441.png)
+
+### | Clean
+
+> Drops all objects in the configured schemas.
+
+![image-20210824153847236](/Users/youn/Library/Application Support/typora-user-images/image-20210824153847236.png)
+

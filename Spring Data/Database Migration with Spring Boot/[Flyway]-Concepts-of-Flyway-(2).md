@@ -14,6 +14,18 @@
 
 ___
 
+### | Callback 
+
+\# <u>시점</u> 
+
+> While migrations are sufficient for most needs, there are certain situations that require you to **execute the same action over and over again**. This could be recompiling procedures, updating materialized views and many other types of housekeeping. 
+>
+> For this reason, Flyway offeres you <u>the possibility to hook into its lifecycle by using Callbacks</u>.
+
+
+
+
+
 ### | Error Overrides 
 
 \# <u>커스텀 예외 처리</u>

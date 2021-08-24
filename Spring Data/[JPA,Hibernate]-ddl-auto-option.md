@@ -1,4 +1,4 @@
-# [JPA, Hibernate] ddl-auto option
+# [JPA, Hibernate] Initialize a database using JPA
 
 ### | DDL (Data Definition Language)
 
@@ -8,16 +8,18 @@
 
 - ###### none 
 
-- ###### update
+- ###### vaildate
 
-- ###### create
+- ###### update
 
 - ###### create-drop
 
-- ###### vaildate
+- ###### create
 
 
 
 ### | Reference
 
 ###### https://docs.spring.io/spring-boot/docs/1.1.0.M1/reference/html/howto-database-initialization.html
+
+###### 
