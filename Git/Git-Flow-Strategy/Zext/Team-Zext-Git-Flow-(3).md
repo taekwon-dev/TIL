@@ -56,7 +56,7 @@ ___
 
 `Anything-you-want.txt` 파일명을 임의로 만들어서 (아무) 내용을 작성합니다. 
 
-![image-20210823102330586](/Users/youn/Library/Application Support/typora-user-images/image-20210823102330586.png)
+![image-20210823102330586](./imgs/gitflow_zext_(3)_0.png)
 
 ​												 <그림 1> 
 
@@ -74,7 +74,7 @@ $ git push origin feature
 
 ![image-20210823113044304](./imgs/gitflow_zext_(3)_1.png)
 
-<그림 2> 
+​					 <그림 2> 
 
 <그림 2>에서 `compare & pull request`를 클릭하면 <그림 3>과 같이 PR의 두 대상과 방향을 확인할 수 있습니다. 이전 글에서 계속 언급했듯이 최종적으로 기능 개발 내역이 모이는 곳은 `upstream:work`이므로 아래와 같이 설정된 것을 확인할 수 있습니다. 
 
@@ -86,7 +86,7 @@ $ git push origin feature
 
 ![image-20210823113548280](./imgs/gitflow_zext_(3)_3.png)
 
-<그림 4> 
+​					 <그림 4> 
 
 (1)장에서 본인이 open한 PR은 본인이 처리하는 것을 규약으로 언급했었습니다. 특별한 코드리뷰 요청이 없는 경우 또는 코드 리뷰 결과 PR 승인으로 합의되는 경우 `Merge pull request` 을 통해 PR을 승인하시면 됩니다. PR 승인이 완료되면 이제 local, origin repo에서 더 이상 필요 없는 feature 브랜치를 삭제하면 됩니다. (local에서 feature 삭제할 때 work 브랜치로 checkout 이후 진행하시면 됩니다.)
 
