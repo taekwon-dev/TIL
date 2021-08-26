@@ -6,13 +6,6 @@
 
 - ###### Pull Request 
 
-- ###### Rebase
-
-- ###### Squash
-
-- ###### Cherry-pick
-
-- ###### Remote-tracking branch, Tracking Branch
 
 ### | 목차
 
@@ -20,7 +13,11 @@
 
 - ###### Git Flow Network: Details (Feature to Work Branch) ◀︎ **현재 글**
 
-- ###### Practice (Feature to Work Branch) 
+- ###### Practice (Feature to Work Branch) (1) 
+
+- ###### Practice (Feature to Work Branch) (2) 
+
+- ###### Practice (Feature to Work Branch) (3)
 
 - ###### Git Flow Network: Details (Work to Master Branch)
 
@@ -106,13 +103,11 @@ ___
 
 ###### - PR 처리 (Merge Approved)는 항상 PR을 생성자가 처리한다. 
 
-###### 	- Reviewer는 필요 시점에 남긴다. 
+###### 	- Default Reviewer 1명 + 필요한 인원 Reviewer 등록
 
 ###### - PR Approved 이후, Local, Origin Feature branch는 삭제한다. (필요 시 남기는 것 제외)
 
 ###### - 1 기능 per 1 커밋 
-
-###### - 기능 개발을 위해 feature branch 생성 시, local:work와 upstream:work 상태를 항상 먼저 체크하기
 
 
 

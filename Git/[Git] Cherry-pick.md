@@ -21,3 +21,6 @@ $ git checkout -b feature3
 $ git cherry-pick (가져오고 싶은 커밋 넘버)
 ```
 
+### | Reference
+
+###### https://backlog.com/git-tutorial/kr/stepup/stepup7_4.html

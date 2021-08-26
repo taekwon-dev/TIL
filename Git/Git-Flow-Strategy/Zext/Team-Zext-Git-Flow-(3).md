@@ -1,8 +1,10 @@
 # Team Zext, Git Flow (3)
 
-
-
 이번 글에서는 앞서 (2)장에 이어서 `local:work`에서 `feature` 생성 후 `upstream:work`에 병합까지 과정을 다룹니다. 
+
+### | 선수 지식 
+
+- ###### Remote-tracking branch, Tracking Branch
 
 ### | 목차
 
@@ -13,6 +15,8 @@
 - ###### Practice (Feature to Work Branch) (1) 
 
 - ###### Practice (Feature to Work Branch) (2) ◀︎ **현재 글**
+
+- ###### Practice (Feature to Work Branch) (3)
 
 - ###### Git Flow Network: Details (Work to Master Branch)
 
@@ -101,7 +105,7 @@ $ git push origin --delete feature # origin feature branch delete
 $ git pull (upstream work)
 ```
 
-여기까지 진행하시면 모든 절차가 마무리 됐습니다. 여기서 다룬 실습은 가장 일반적인 상황에 대해서 다룬 것이므로 충돌이 발생하는 경우, 실수로 인해 문제를 해결하는 경우 등 다양한 발생 가능한 상황에 대해서는 앞으로 하나씩 정리하고 합의하는 과정을 통해 정리해가겠습니다. 실습은 저와 같이 두 계정을 이용해서 실습하셔도 되고, 실습 환경을 구축하는 과정에서 어려움이 있으시면 말씀해주시면 도와드리겠습니다.
+여기서 다룬 실습은 가장 일반적인 상황에 대해서 다룬 것이므로 충돌이 발생하는 경우, 실수로 인해 문제를 해결하는 경우 등 다양한 발생 가능한 상황에 대해서는 앞으로 하나씩 정리하고 합의하는 과정을 통해 정리해가겠습니다. 실습은 저와 같이 두 계정을 이용해서 실습하셔도 되고, 실습 환경을 구축하는 과정에서 어려움이 있으시면 요청해주시면 환경 설정 도와드리겠습니다.
 
 다음 장에서는 위 과정을 기반으로 왜 `1 commit per 1 기능` 을 하면 좋은 지, 여러 커밋을 하나로 만드는 법, 그리고 git graph 관련해서 다루겠습니다.
 
