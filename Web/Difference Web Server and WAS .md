@@ -1,4 +1,4 @@
-# [Web Server] Difference Web Server and WAS
+# Difference Web Server and WAS
 
 웹 서버 # <u>정적</u> 페이지 제공 
 

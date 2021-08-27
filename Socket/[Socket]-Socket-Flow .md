@@ -1,2 +1,2 @@
-# [Socket] Socket Flow 
+# [Socket] Socket 통신 Flow 
 
