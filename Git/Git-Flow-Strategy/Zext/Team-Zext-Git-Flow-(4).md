@@ -27,15 +27,13 @@
 
 ___
 
-![image-20210826150500025](/Users/youn/Library/Application Support/typora-user-images/image-20210826150500025.png)
+![image-20210826150500025](./imgs/gitflow_zext_(4)_1.png)
 
-<그림 1 not simple history> 
+<그림 1> 
 
-![image-20210826150528077](/Users/youn/Library/Application Support/typora-user-images/image-20210826150528077.png)
+![image-20210826150500025](./imgs/gitflow_zext_(4)_2.png)
 
-<그림 2 simple history> 
+<그림 2> 
 
 <그림 1>과 <그림 2>를 세부적으로 보지 않더라도 직관적으로 <그림 2> 모델이 flow을 보다 쉽게 이해할 수 있는 것을 알 수 있습니다. 구체적인 방법론을  알아보기 전에 먼저 왜 <그림 2>와 같은 모델로 관리해야 좋은 지에 대해서 좀 더 알아보겠습니다. 
-
-###### 
 

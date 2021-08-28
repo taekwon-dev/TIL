@@ -1,4 +1,4 @@
-# [Git] How to exclude some files from .git ?
+# How to exclude some files from .git ?
 
 
 

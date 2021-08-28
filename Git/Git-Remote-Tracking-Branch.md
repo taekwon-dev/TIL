@@ -1,4 +1,4 @@
-# [Git] Remote Tracking Branch
+# Remote Tracking Branch
 
 
 

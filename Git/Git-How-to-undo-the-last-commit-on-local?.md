@@ -1,4 +1,4 @@
-# [Git] How to undo the last commit on local?
+# How to undo the last commit on local?
 
 https://devconnected.com/how-to-undo-last-git-commit/
 
