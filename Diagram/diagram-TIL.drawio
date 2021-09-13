@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-13T06:28:02.176Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="xYTGhdS_C6sab5QiM9UI" version="15.1.4" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-09-13T06:39:02.271Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="InssdeWoXxzS_UyZsxLA" version="15.1.4" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="TIL">
     <mxGraphModel dx="2098" dy="1609" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
       <root>
@@ -2492,6 +2492,9 @@
         </mxCell>
         <mxCell id="YYmx_sxKa0neZhR5qG_B-27" value="&lt;div style=&quot;text-align: center&quot;&gt;&lt;font face=&quot;helvetica&quot;&gt;&lt;span style=&quot;font-size: 17px&quot;&gt;회원가입 완료페이지 이동&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontStyle=1;fontColor=#FF3333;" vertex="1" parent="IvFI_PnJK8PH2oH3d1oM-1">
           <mxGeometry x="164" y="-216" width="179" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="YYmx_sxKa0neZhR5qG_B-28" value="&lt;h1 style=&quot;font-size: 19px&quot;&gt;회원가입 페이지에서 벗어나고 (브라우저 종료 또는 다른 페이지 이동) + 인증 링크 클릭 하는 경우&lt;br&gt;&lt;br&gt;1) 타이머 종료 전 :&lt;/h1&gt;&lt;div&gt;인증 완료를 보낼 수 있을까?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;2) 타이머 종료 후 :&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;타이머 종료 후에 요청돼야 할 해당 링크 만료 요청을 보낼 수 없을 듯 또는 서버에서 자체적으로 유효기간을 설정해야 함 (이중 작업인 듯)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontColor=#FF0000;fontSize=19;" vertex="1" parent="IvFI_PnJK8PH2oH3d1oM-1">
+          <mxGeometry x="517" y="-487" width="394" height="301" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
