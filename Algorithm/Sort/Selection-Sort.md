@@ -80,7 +80,8 @@ private static void selectionSort(int[] arr, int start) {
     for (int i = start; i < arr.length; i++) {
       if (arr[i] < arr[min_index]) min_index = i; 
     }
-    swap(arr, start, min_index);
+    swap(arr, start,
+         min_index);
     selectionSort(arr, start+1);
   }
 }
