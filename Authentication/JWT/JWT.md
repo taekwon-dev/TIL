@@ -16,5 +16,3 @@
 
 ###### Issues on implementing JWT 
 
-###### 
-

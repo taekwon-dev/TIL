@@ -15,3 +15,4 @@ Gradle 공부 방향을 잡으면서, 중요한 포인트라고 생각했던 리
 
 위 주제를 모두 포괄적으로 다루기에는 공부 흐름과 양이 너무 방대해지는 단점이 있어 Java based Application을 기준으로 빌드 도구인 Gradle을 공부할 예정이다. 
 
+빌드 도구인 Gradle에 대한 기본적인 이해를 바탕으로 최종적으로 현재 Spring based Application의 빌드 최적화 과정을 도모할 것이다. 
