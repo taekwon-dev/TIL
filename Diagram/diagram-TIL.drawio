@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-25T16:50:12.571Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36" etag="UsO9XeWyooPsj04cBeKB" version="15.2.9" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-09-26T01:00:31.810Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36" etag="aP1JbEMYF1FVySB247ZU" version="15.2.9" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="TIL">
     <mxGraphModel dx="1882" dy="1474" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
       <root>
@@ -3570,6 +3570,19 @@
         <mxCell id="4qi_lU2iRPx0Dn9RE11v-21" value="이미지 업로드 응답" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontStyle=1" vertex="1" connectable="0" parent="4qi_lU2iRPx0Dn9RE11v-20">
           <mxGeometry x="-0.0321" y="2" relative="1" as="geometry">
             <mxPoint y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4qi_lU2iRPx0Dn9RE11v-22" value="대화창에 메시지 표시" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=17;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="966.75" y="-470.44" width="204" height="85.13" as="geometry" />
+        </mxCell>
+        <mxCell id="4qi_lU2iRPx0Dn9RE11v-23" value="대화창에 메시지 표시" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=17;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="970" y="-393.75" width="204" height="85.13" as="geometry" />
+        </mxCell>
+        <mxCell id="4qi_lU2iRPx0Dn9RE11v-24" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=#4D9900;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="4qi_lU2iRPx0Dn9RE11v-10" target="4qi_lU2iRPx0Dn9RE11v-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2485.6875" y="907" as="sourcePoint" />
+            <mxPoint x="2471" y="737" as="targetPoint" />
+            <Array as="points" />
           </mxGeometry>
         </mxCell>
       </root>
