@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-04T06:10:57.905Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36" etag="4tiydg4vdUgx1Cur2KpG" version="15.4.1" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-10-04T06:26:32.828Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36" etag="Z-rB_vbTA-3rGPUyzpX1" version="15.4.1" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="TIL">
     <mxGraphModel dx="2098" dy="1609" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
       <root>
@@ -4008,7 +4008,7 @@
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-13" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=19;fontColor=#FF0000;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
           <mxGeometry x="3353" y="-697.75" width="1382" height="402.5" as="geometry" />
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-14" value="Unity Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-14" value="Unity Client 태권" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
           <mxGeometry x="3384" y="-664.75" width="154" height="341" as="geometry" />
         </mxCell>
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-15" value="Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
@@ -4027,11 +4027,11 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-18" value="&lt;b&gt;채팅방 닫기&lt;br&gt;(1번방 구독 취소 요청)&lt;br&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="3631" y="-659.75" width="198" height="57" as="geometry" />
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-18" value="&lt;b&gt;채팅방 닫기&lt;br&gt;(= 채팅방 나가기)&lt;br&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3631" y="-659.75" width="234" height="57.75" as="geometry" />
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-19" value="1번방 &lt;b&gt;생성,&lt;/b&gt;&amp;nbsp;&lt;br&gt;A 메시지 수신 (클라이언트)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="3633" y="-591.75" width="195" height="57" as="geometry" />
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-19" value="채팅 종료 알림&amp;nbsp;&lt;br&gt;(&#39;태권&#39;님이 나감으로써 채팅종료)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3633" y="-591.75" width="228" height="57" as="geometry" />
         </mxCell>
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-20" value="" style="endArrow=classic;html=1;fontSize=17;entryX=0;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -4039,8 +4039,8 @@
             <mxPoint x="3989.7700000000004" y="-496.1500000000001" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-21" value="1번방 구독 요청&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="3635" y="-515.75" width="193.73" height="50.25" as="geometry" />
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-21" value="채팅방 구독 취소 요청&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3631" y="-515.75" width="229" height="50.25" as="geometry" />
         </mxCell>
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-22" value="" style="endArrow=classic;html=1;fontSize=17;exitX=0;exitY=0.276;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -4049,10 +4049,10 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-23" value="구독 처리 완료 응답" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="3635" y="-441.75" width="193.73" height="50.25" as="geometry" />
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-23" value="구독 취소 처리 완료 응답" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3631" y="-441.75" width="227" height="50.25" as="geometry" />
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-24" value="Unity Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-24" value="Unity Client 현이" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
           <mxGeometry x="4535" y="-667" width="154" height="341" as="geometry" />
         </mxCell>
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-25" value="" style="endArrow=classic;html=1;fontSize=17;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1">
@@ -4062,8 +4062,8 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-26" value="1번방&amp;nbsp;&lt;b&gt;생성,&lt;/b&gt;&amp;nbsp;&lt;br&gt;A 메시지 수신 (클라이언트)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="4250" y="-599.75" width="192" height="57" as="geometry" />
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-26" value="채팅 종료 알림&amp;nbsp;&lt;br&gt;(&#39;태권&#39;님이 나감으로써 채팅종료)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4229" y="-599.75" width="231" height="57" as="geometry" />
         </mxCell>
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-27" value="" style="endArrow=classic;html=1;fontSize=17;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="5L3HqL8gAj1KJWEhzWxD-28" target="5L3HqL8gAj1KJWEhzWxD-15">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -4072,8 +4072,8 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-28" value="1번방 구독 요청&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="4249" y="-521.63" width="193.73" height="50.25" as="geometry" />
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-28" value="채팅방 구독 취소 요청&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4225" y="-521.63" width="238" height="50.25" as="geometry" />
         </mxCell>
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-29" value="" style="endArrow=none;html=1;fontSize=17;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" target="5L3HqL8gAj1KJWEhzWxD-28">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -4089,8 +4089,8 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-31" value="구독 처리 완료 응답" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="4249" y="-450.75" width="193.73" height="50.25" as="geometry" />
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-31" value="구독 취소 처리 완료 응답" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4224" y="-450.75" width="241" height="50.25" as="geometry" />
         </mxCell>
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-32" value="" style="endArrow=none;html=1;fontSize=17;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" target="5L3HqL8gAj1KJWEhzWxD-31">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -4129,7 +4129,7 @@
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-40" value="1:1 채팅 수락 결정 공유&lt;br&gt;(채팅방 정보 포함)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
           <mxGeometry x="2825" y="-564" width="193.73" height="50.25" as="geometry" />
         </mxCell>
-        <mxCell id="5L3HqL8gAj1KJWEhzWxD-41" value="&lt;span style=&quot;background-color: rgb(185 , 224 , 165)&quot;&gt;Chat Message&amp;nbsp;&lt;br&gt;&lt;/span&gt;&#39;태권&#39; 님으로부터 온 채팅 메시지&lt;br&gt;&lt;br&gt;&lt;span style=&quot;background-color: rgb(185 , 224 , 165)&quot;&gt;수락&lt;/span&gt; | 거절" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=17;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+        <mxCell id="5L3HqL8gAj1KJWEhzWxD-41" value="&lt;span style=&quot;background-color: rgb(185 , 224 , 165)&quot;&gt;Alert&amp;nbsp;&lt;br&gt;&lt;/span&gt;&#39;태권&#39; 님으로부터 온 채팅 메시지&lt;br&gt;&lt;br&gt;&lt;span style=&quot;background-color: rgb(185 , 224 , 165)&quot;&gt;수락&lt;/span&gt; | 거절" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=17;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
           <mxGeometry x="3123.87" y="-778" width="144.25" height="144.25" as="geometry" />
         </mxCell>
         <mxCell id="5L3HqL8gAj1KJWEhzWxD-42" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=19;fontColor=#FF0000;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
