@@ -1,4 +1,4 @@
-# Spring MVC 동작 과정 (수정 내용 포함)
+# How-SpringMVC-works-(1) 
 
 \# Tomcat, # Web Server # Servlet (Container)
 
@@ -18,17 +18,17 @@ Spring Boot 기본 설정을 통해 `Embeded Tomcat` 이 연동되어 있고, �
 
 <그림 1>에서 서블릿을 통해 클라이언트 처리 중 DB 트랜잭션이 포함된 경우와 같이 동적으로 요청을 처리하는 경우 서블릿이 활용된다. 서블릿은 웹 페이지 또는 응답 값을 동적으로 생성하는 역할을 한다. Spring MVC에서는 `DispatcheSerlvet`을 통해 클라이언트의 모든 요청을 처리하는 전면에 두고 클라이언트의 요청을 처리하는 컨트롤러에 해당 요청에 대한 처리를 위임하는 구조로 클라이언트의 요청을 처리한다. 이러한 디자인 패턴을 `Front Controller Design Pattern` 이라고 한다. 이미 Spring 프레임워크에서 `DispatcherServlet` 제공하고 있기 때문에 직접 서블릿을 작성하지 않고 실제 요청을 처리하는 컨트롤러를 구현하기만 하면 되는 것이다. 
 
-![image-20210710093203982](./imgs/mvc-process-3.png)ㅇ
+![image-20210710093203982](./imgs/mvc-process-3.png)
 
 <그림 2 DispatcherServlet Process> 
 
 ![image-20210710093203982](./imgs/mvc-process-3-1.png)
 
-​				<그림 3 The Requesting processing workflow in Spring Web MVC> 
+<그림 3 The Requesting processing workflow in Spring Web MVC> 
 
 ![image-20210722180603762](/Users/youn/Library/Application Support/typora-user-images/image-20210722180603762.png)
 
-​											<그림 3-1 DispatcherServlet, Spring MVC Architecture>
+<그림 3-1 DispatcherServlet, Spring MVC Architecture>
 
 ![image-20210710093203982](./imgs/mvc-process-2.png)
 
