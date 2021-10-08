@@ -26,10 +26,6 @@ Spring Boot 기본 설정을 통해 `Embeded Tomcat` 이 연동되어 있고, �
 
 <그림 3 The Requesting processing workflow in Spring Web MVC> 
 
-![image-20210722180603762](/Users/youn/Library/Application Support/typora-user-images/image-20210722180603762.png)
-
-<그림 3-1 DispatcherServlet, Spring MVC Architecture>
-
 ![image-20210710093203982](./imgs/mvc-process-2.png)
 
 <참고 : DispatcherServlet Class Diagram>
