@@ -20,7 +20,7 @@
 
 ###### https://kwonnam.pe.kr/wiki/database/mysql/index 
 
-###### https://jojoldu.tistory.com/243 : 인덱스 정리 및 팁 (B-Tree Index)
+###### https://jojoldu.tistory.com/243 : 인덱스 정리 및 팁 (B-Tree Index), 테스트 결과 공유
 
 ###### https://beelee.tistory.com/37
 
