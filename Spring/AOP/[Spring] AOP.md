@@ -64,12 +64,12 @@ ___
 
 - Spring AOP는 런타임에서 AOP 적용 
 
-- 프록시 기반의 AOP 구현체, 스프링 빈에만 AOP 적용 가능 
+- 프록시 기반의 AOP 구현체, 스프링 빈에만 AOP 적용 가능  
 
-  
-
-### 
 
 ### | Reference
 
-https://gmoon92.github.io/spring/aop/2019/05/06/pointcut.html
+###### https://gmoon92.github.io/spring/aop/2019/05/06/pointcut.html
+
+###### https://goddaehee.tistory.com/154
+
