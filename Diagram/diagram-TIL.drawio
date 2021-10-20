@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-20T23:31:26.364Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36" etag="a8IsC0OggrufncRlT1jU" version="15.5.7" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-10-20T23:57:03.626Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36" etag="Jth1RTcSuozQO_hVeebi" version="15.5.7" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="TIL">
     <mxGraphModel dx="2098" dy="1666" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
       <root>
@@ -4283,39 +4283,33 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="HhQdHKPL7gNUP5A9zhDB-7" value="" style="endArrow=classic;html=1;fontSize=17;entryX=0.006;entryY=0.108;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" target="HhQdHKPL7gNUP5A9zhDB-14">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="3677" y="1069" as="sourcePoint" />
-            <mxPoint x="4195.77" y="1059.6" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="HhQdHKPL7gNUP5A9zhDB-8" value="로그인 UI → 메타버스 입장" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="3828.7" y="1036" width="202.87" height="54.63" as="geometry" />
-        </mxCell>
-        <mxCell id="HhQdHKPL7gNUP5A9zhDB-11" value="" style="endArrow=classic;startArrow=classic;html=1;fontSize=19;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" target="HhQdHKPL7gNUP5A9zhDB-14">
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-11" value="" style="endArrow=classic;startArrow=classic;html=1;fontSize=19;entryX=0.006;entryY=0.557;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-1" target="HhQdHKPL7gNUP5A9zhDB-14">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="3672" y="1199" as="sourcePoint" />
             <mxPoint x="4194.0740000000005" y="1202.129" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="3915" y="1161" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="HhQdHKPL7gNUP5A9zhDB-12" value="VIVOX CONNECTED" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="3832.14" y="1180" width="193.73" height="50.25" as="geometry" />
+          <mxGeometry x="3834.41" y="1135.75" width="193.73" height="50.25" as="geometry" />
         </mxCell>
         <mxCell id="HhQdHKPL7gNUP5A9zhDB-13" value="&lt;b&gt;주전공,&lt;br&gt;이름,&lt;br&gt;학번&lt;/b&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="3701" y="950" width="120" height="80" as="geometry" />
+          <mxGeometry x="3531" y="947" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="HhQdHKPL7gNUP5A9zhDB-14" value="VIVOX Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
           <mxGeometry x="4212" y="1047" width="154" height="203" as="geometry" />
         </mxCell>
-        <mxCell id="HhQdHKPL7gNUP5A9zhDB-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.404;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-10" target="HhQdHKPL7gNUP5A9zhDB-14">
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.006;entryY=0.212;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-10" target="HhQdHKPL7gNUP5A9zhDB-14">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="HhQdHKPL7gNUP5A9zhDB-10" value="메타버스 입장 → 그룹채팅 채널 입장" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="3796" y="1103.75" width="266" height="50.25" as="geometry" />
+          <mxGeometry x="3794" y="1064.38" width="266" height="50.25" as="geometry" />
         </mxCell>
         <mxCell id="HhQdHKPL7gNUP5A9zhDB-16" value="" style="endArrow=none;html=1;fontSize=17;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" target="HhQdHKPL7gNUP5A9zhDB-10">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="3672" y="1129" as="sourcePoint" />
+            <mxPoint x="3672" y="1090" as="sourcePoint" />
             <mxPoint x="3704" y="1139.13" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
@@ -4340,7 +4334,106 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="HhQdHKPL7gNUP5A9zhDB-23" value="&lt;b&gt;주전공&lt;/b&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
-          <mxGeometry x="4068" y="1090.63" width="107" height="72.12" as="geometry" />
+          <mxGeometry x="4229" y="1053.44" width="107" height="72.12" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-27" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=19;fontColor=#FF0000;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3506" y="1280.5" width="1253" height="642.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-31" value="" style="endArrow=classic;html=1;fontSize=17;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=none;entryX=0.994;entryY=0.215;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-41" target="HhQdHKPL7gNUP5A9zhDB-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="3704.75" y="1474.569" as="sourcePoint" />
+            <mxPoint x="3673" y="1415.5" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-36" value="&lt;b&gt;주전공,&lt;br&gt;이름,&lt;br&gt;학번&lt;/b&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3542" y="1373" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-41" value="로그인 성공 응답" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3807" y="1400" width="146.86" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.329;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-43" target="HhQdHKPL7gNUP5A9zhDB-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-43" value="로그인 요청&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3809.77" y="1318" width="145.86" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-48" value="" style="endArrow=classic;html=1;fontSize=17;entryX=0.006;entryY=0.058;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-37">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="3676.08" y="1553" as="sourcePoint" />
+            <mxPoint x="4212.004" y="1555.621" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-44" value="" style="endArrow=none;html=1;fontSize=17;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" target="HhQdHKPL7gNUP5A9zhDB-43">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="3672" y="1347.5" as="sourcePoint" />
+            <mxPoint x="4211.076" y="1345.504" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-58" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.128;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-39" target="HhQdHKPL7gNUP5A9zhDB-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-39" value="메타버스 입장 → 1:1 채팅 알림 채널 입장" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3731.57" y="1514" width="297.73" height="50.25" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-37" value="VIVOX Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4070" y="1485" width="154" height="424.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-55" value="" style="endArrow=none;html=1;fontSize=17;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="3953.86" y="1426.5" as="sourcePoint" />
+            <mxPoint x="4091.6300000000006" y="1425.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.006;entryY=0.204;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" target="HhQdHKPL7gNUP5A9zhDB-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="4220" y="1429" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-29" value="Spring WAS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4068" y="1293" width="154" height="164" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-59" value="" style="endArrow=none;html=1;fontSize=17;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="3593.8" y="1539.63" as="sourcePoint" />
+            <mxPoint x="3731.5700000000006" y="1538.63" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-28" value="Unity Client A" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="3521" y="1301.5" width="154" height="589.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.994;entryY=0.323;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-61" target="HhQdHKPL7gNUP5A9zhDB-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-61" value="로그인 요청&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4346" y="1318" width="145.86" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-62" value="로그인 성공 응답" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4346" y="1400" width="146.86" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.994;entryY=0.127;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1" source="HhQdHKPL7gNUP5A9zhDB-63" target="HhQdHKPL7gNUP5A9zhDB-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-63" value="메타버스 입장 → 1:1 채팅 알림 채널 입장" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4263" y="1514" width="297.73" height="50.25" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-65" value="" style="endArrow=none;html=1;fontSize=17;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="4561.000000000001" y="1538" as="sourcePoint" />
+            <mxPoint x="4698.770000000001" y="1537" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-67" value="" style="endArrow=none;html=1;fontSize=17;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="4491.860000000001" y="1347" as="sourcePoint" />
+            <mxPoint x="4629.630000000001" y="1346" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-60" value="Unity Client B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=19;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4585" y="1307" width="154" height="589.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HhQdHKPL7gNUP5A9zhDB-35" value="1:1 채팅 알림 채널&lt;br&gt;VIVOX CONNECTED" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="AFs_PYtZHHH5fy-drdha-1">
+          <mxGeometry x="4079.14" y="1511.06" width="131.73" height="56.12" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
