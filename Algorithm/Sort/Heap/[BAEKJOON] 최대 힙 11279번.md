@@ -22,5 +22,3 @@
 ### | Reference
 
 ###### https://www.acmicpc.net/problem/11279
-
-![image-20220104112248668](image-20220104112248668.png)
