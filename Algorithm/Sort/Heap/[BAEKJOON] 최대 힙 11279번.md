@@ -17,9 +17,10 @@
 
 입력에서 0이 주어진 만큼 답을 출력한다. 만약 배열이 비어 있는 경우인데 가장 큰 값을 출력하라고 한 경우에는 0을 출력하면 된다.
 
-![image-20220104111923607](/Users/youn/Desktop/TIL/Algorithm/Sort/Heap/image-20220104111923607.png)
+![image-20220104111923607](../Heap/image-20220104111923607.png)
 
 ### | Reference
 
 ###### https://www.acmicpc.net/problem/11279
 
+![image-20220104112248668](image-20220104112248668.png)
