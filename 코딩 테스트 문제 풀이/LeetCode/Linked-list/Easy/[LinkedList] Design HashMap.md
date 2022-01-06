@@ -1,2 +1,0 @@
-# [LinkedList] Design HashMap
-
