@@ -1,12 +1,9 @@
-<mxfile host="app.diagrams.net" modified="2021-12-30T08:29:56.929Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36" etag="8QJCPuFaJuF8dRNs8iQK" version="16.0.0" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2022-01-16T08:31:32.131Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36" etag="6zDv10abXC019MXdUe_3" version="16.2.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="TIL">
-    <mxGraphModel dx="1702" dy="1866" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
+    <mxGraphModel dx="2265" dy="2533" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
-        <mxCell id="AA0PDswzbH_evOWl18Es-8" value="&lt;font style=&quot;font-size: 18px&quot;&gt;이메일 본문 내용 (참고)&lt;br&gt;&lt;br&gt;&lt;ul style=&quot;text-align: left ; margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-stretch: inherit ; line-height: inherit ; vertical-align: baseline ; list-style: none&quot;&gt;&lt;li style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: 16.8px ; vertical-align: baseline ; list-style: inside&quot;&gt;&lt;span class=&quot;txt gray&quot; style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: inherit ; vertical-align: baseline ; color: rgb(100 , 100 , 100)&quot;&gt;-님의 본인확인이 완료되었습니다.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#646464&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;ul style=&quot;text-align: left ; margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-stretch: inherit ; line-height: inherit ; vertical-align: baseline ; list-style: none&quot;&gt;&lt;li style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: 16.8px ; vertical-align: baseline ; list-style: inside&quot;&gt;&lt;span class=&quot;txt gray&quot; style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: inherit ; vertical-align: baseline ; color: rgb(100 , 100 , 100)&quot;&gt;기존 비밀번호는 암호화 처리되어 안내가 불가능하므로 새로운 비밀번호로 입력해주세요.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#646464&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;ul style=&quot;text-align: left ; margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-stretch: inherit ; line-height: inherit ; vertical-align: baseline ; list-style: none&quot;&gt;&lt;li style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: 16.8px ; vertical-align: baseline ; list-style: inside&quot;&gt;&lt;span class=&quot;txt gray&quot; style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: inherit ; vertical-align: baseline ; color: rgb(100 , 100 , 100)&quot;&gt;영문+숫자 9자~30자로 사용가능하며, 아이디와 중복하거나, 3자 이상 연속 또는 중복되는 문자, 숫자는 사용할 수 없습니다.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#646464&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;ul style=&quot;text-align: left ; margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-stretch: inherit ; line-height: inherit ; vertical-align: baseline ; list-style: none&quot;&gt;&lt;li style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: 16.8px ; vertical-align: baseline ; list-style: inside&quot;&gt;&lt;span class=&quot;txt gray&quot; style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: inherit ; vertical-align: baseline ; color: rgb(100 , 100 , 100)&quot;&gt;영문(대소문자 구분), 특수기호를 혼합하여 비밀번호를 설정하면, 더욱 안전한 비밀번호를 만드실 수 있습니다.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#646464&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;ul style=&quot;text-align: left ; margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-stretch: inherit ; line-height: inherit ; vertical-align: baseline ; list-style: none&quot;&gt;&lt;li style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: 16.8px ; vertical-align: baseline ; list-style: inside&quot;&gt;&lt;span class=&quot;txt gray&quot; style=&quot;margin: 0px ; padding: 0px ; border: 0px ; outline: 0px ; font-style: inherit ; font-variant: inherit ; font-weight: inherit ; font-stretch: inherit ; font-size: inherit ; line-height: inherit ; vertical-align: baseline ; color: rgb(100 , 100 , 100)&quot;&gt;전화번호, 생년월일 등 개인정보와 관련된 숫자 등 다른 사람이 알아낼 수 있는 비밀번호는 사용하지 마세요.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2241" y="2198" width="370" height="370" as="geometry" />
-        </mxCell>
         <mxCell id="kt1jONgmsDwbfPELJXkd-25" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#D5E8D4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="259" y="1122" width="591" height="391" as="geometry" />
         </mxCell>
@@ -2141,55 +2138,6 @@
           <mxGeometry x="0.023" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2249" y="1794" width="322" height="322" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-2" value="[Input] 학교 웹 메일" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2285" y="1855" width="258" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-4" value="[Button] 비밀번호 찾기" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2280.5" y="1966" width="261" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-6" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AA0PDswzbH_evOWl18Es-4" target="AA0PDswzbH_evOWl18Es-7" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="2443" y="2105" as="sourcePoint" />
-            <mxPoint x="2714" y="1996" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-7" value="인증 메일 전송&lt;br&gt;(비밀번호 재설정 페이지 링크 첨부)" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2650.85" y="1919" width="243" height="177" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-11" value="Link" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2356" y="2531" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-13" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.482;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AA0PDswzbH_evOWl18Es-11" target="AA0PDswzbH_evOWl18Es-14" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="2409" y="2635" as="sourcePoint" />
-            <mxPoint x="2887" y="2635" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="2416" y="2635" />
-              <mxPoint x="2878" y="2635" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-14" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2713" y="2199" width="342" height="342" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-15" value="비밀번호 찾기 페이지" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2339" y="1800" width="131" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-16" value="비밀번호 재설정 페이지" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=13;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2817" y="2206" width="131" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-17" value="[Input] password" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2751" y="2258" width="258" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-18" value="[Input] password check" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2751" y="2350" width="258" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="AA0PDswzbH_evOWl18Es-19" value="[Button] 비밀번호 재설정" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2751" y="2455" width="258" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
