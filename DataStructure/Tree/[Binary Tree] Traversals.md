@@ -1,6 +1,6 @@
 # [Binary Tree] 3 types of Traversal
 
-### | Wiki 
+### | Wiki  
 
 전산학에서 트리 순회(Tree traversal)는 트리 구조에서 각각의 노드를 정확히 한 번만, 체계적인 방법으로 방문하는 과정을 말한다. 이는 노드를 방문하는 순서에 따라 분류된다. 
 
