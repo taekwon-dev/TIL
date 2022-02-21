@@ -11,7 +11,7 @@ ___
 ### | 예시 
 
 아래 세 가지 순회 방법을 통해서 아래 <그림 1>의 결과 값이 어떤 순서로 나오는 지 확인해보자.
-
+ 
 ##### - Inorder (Left, Root, Right)
 
 ##### - Preorder (Root, Left, Right)
