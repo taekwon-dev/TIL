@@ -1,5 +1,0 @@
-# [Grafana] Grafana
-
-### | WiKi
-
-`Grafana`

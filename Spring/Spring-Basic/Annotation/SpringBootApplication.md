@@ -1,8 +1,0 @@
-# @SpringBootApplication
-
-#### - @Configuration
-
-#### - @EnableAutoConfiguration
-
-#### - @ComponentScan 
-
