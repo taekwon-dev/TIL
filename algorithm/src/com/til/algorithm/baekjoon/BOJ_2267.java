@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Main_2267 {
+public class BOJ_2267 {
 
     static int node[][];
     static int visited[][];
