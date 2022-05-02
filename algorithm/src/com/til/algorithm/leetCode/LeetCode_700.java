@@ -7,4 +7,11 @@ package com.til.algorithm.leetCode;
  */
 public class LeetCode_700 {
 
+    public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null) return root;
+        if (root.val > val) return searchBST(root.left, val);
+        if (root.val < val) return searchBST(root.right, val);
+        return root;
+    }
+
 }
