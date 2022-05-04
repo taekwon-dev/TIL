@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Created by Youn on 2022/05/04.
  * Title : DFS와 BFS (https://www.acmicpc.net/problem/1260)
- * Hint  : 이차원배열 사이즈 N+1 이유?
+ * Hint  : N (1 <= N <= 1000)
  */
 public class BOJ_1260 {
 
@@ -61,7 +61,7 @@ public class BOJ_1260 {
     }
 
     private static void initVisited() {
-        for (int i = 0; i < visited.length; i++) {
+        for (int i = 1; i < visited.length; i++) {
             visited[i] = false;
         }
     }
@@ -86,5 +86,4 @@ public class BOJ_1260 {
         }
         sb.append("\n");
     }
-
 }
