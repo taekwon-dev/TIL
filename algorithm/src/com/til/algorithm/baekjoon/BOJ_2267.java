@@ -74,4 +74,8 @@ public class BOJ_2267 {
         }
     }
 
+
+    private static void bfs(int x, int y) {
+    }
+
 }
