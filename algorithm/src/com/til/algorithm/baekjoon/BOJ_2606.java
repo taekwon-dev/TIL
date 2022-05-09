@@ -8,7 +8,8 @@ import java.util.StringTokenizer;
 /**
  * Created by Youn on 2022/05/04.
  * Title : 바이러스 (https://www.acmicpc.net/problem/2606)
- * Hint  :
+ * Hint  : N (= 컴퓨터 수), 1번 컴퓨터가 바이러스에 걸렸을 때 → (N >= 1)
+ *
  */
 public class BOJ_2606 {
 
@@ -42,14 +43,13 @@ public class BOJ_2606 {
         }
 
         System.out.println(dfs(1));
-
     }
 
     private static int dfs(int start) {
         visited[start] = true;
 
         for (int i = 1; i < visited.length; i++) {
-            if (i != start && visited[i] == false && map[start][i] == 1) {
+            if (!visited[i] && map[start][i] == 1) {
                 dfs(i);
                 count++;
             }
