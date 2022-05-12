@@ -3,43 +3,34 @@ package com.til.algorithm.baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
- * Created by Youn on 2022/05/11.
+ * Created by Youn on 2022/05/12.
  * Title : 이분 그래프 (https://www.acmicpc.net/problem/1707)
- * Hint  : DFS
+ * Hint  : BFS
  */
-public class BOJ_1707 {
+public class BOJ_1707_2 {
 
     static int k;
-    static int v;
-    static int e;
-
+    static int v, e;
     static List<Integer>[] graph;
     static int[] colors;
-
     static boolean bipartite;
 
-
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         k = Integer.parseInt(br.readLine());
 
         for (int tc = 0; tc < k; tc++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
 
+            StringTokenizer st = new StringTokenizer(br.readLine());
             v = Integer.parseInt(st.nextToken());
             e = Integer.parseInt(st.nextToken());
 
             graph = new ArrayList[v + 1];
             colors = new int[v + 1];
-
-            for (int i = 1; i < v + 1; i++) {
-                graph[i] = new ArrayList<>();
-            }
 
             bipartite = true;
 
@@ -53,30 +44,30 @@ public class BOJ_1707 {
                 graph[end].add(start);
             }
 
+            Queue<Integer> queue = new LinkedList<>();
+
             for (int i = 1; i < v + 1; i++) {
-                if (!bipartite) {
-                    break;
-                }
                 if (colors[i] == 0) {
-                    dfs(i, 1);
+                    queue.offer(i);
+                    colors[i] = 1;
+
+                    while (!queue.isEmpty() && bipartite) {
+                        int currV = queue.poll();
+                        for (int nextV : graph[currV]) {
+                            if (colors[nextV] == 0) {
+                                queue.offer(nextV);
+                                colors[nextV] = colors[currV] * -1;
+                            } else if (colors[nextV] == colors[currV]) {
+                                bipartite = false;
+                                break;
+                            }
+                        }
+                    }
+
                 }
             }
             System.out.println(bipartite ? "YES" : "NO");
         }
     }
 
-    private static void dfs(int start, int color) {
-        colors[start] = color;
-
-        for (int adjV : graph[start]) {
-            if (colors[adjV] == color) {
-                bipartite = false;
-                return;
-            }
-
-            if (colors[adjV] == 0) {
-                dfs(adjV, -color);
-            }
-        }
-    }
 }
