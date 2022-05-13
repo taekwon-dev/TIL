@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Created by Youn on 2022/05/12.
- * Title :
+ * Title : 1로 만들기 (https://www.youtube.com/watch?v=5Lu34WIx2Us)
  * Hint  :
  */
 public class 일로만들기 {
