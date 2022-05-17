@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  # BE
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      TZ: "Asia/Seoul"
+    depends_on:
+      - mysql
+  # MySQL
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: intly
+      MYSQL_ROOT_PASSWORD: password
+    command:
+      [
+          '--character-set-server=utf8mb4',
+          '--collation-server=utf8mb4_unicode_ci',
+      ]
