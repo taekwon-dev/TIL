@@ -1,4 +1,4 @@
-# 서블릿 시리즈 
+# Servlet, Servlet Container Series 
 
 [1] [Servlet, Servlet Container](https://gist.github.com/69fe9a40ab8720ac0eceadc4e177dbd5.git)
 
