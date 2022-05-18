@@ -20,8 +20,13 @@ services:
     environment:
       MYSQL_DATABASE: intly
       MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - database:/var/lib/mysql/
     command:
       [
           '--character-set-server=utf8mb4',
           '--collation-server=utf8mb4_unicode_ci',
       ]
+
+volumes:
+  database:
