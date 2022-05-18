@@ -8,4 +8,4 @@
 
 ### [4] [How to maintain a user state - HttpSession](https://gist.github.com/cc08ac2844f95e596a9b272ebe94bbc3.git)
 
-### [5] [Servlet Scopes]()
+### [5] [Servlet Scopes](https://gist.github.com/a25f093b2f32a44bfa595aae2a234386.git)
