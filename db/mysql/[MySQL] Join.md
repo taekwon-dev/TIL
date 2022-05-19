@@ -28,15 +28,15 @@ JOIN은 데이터베이스 내 여러 테이블에서 가져온 레코드를 조
 
 벤 다이어그램으로 JOIN TYPE을 각각 표현하면 다음과 같다. 
 
-![image-20210706182444990](./image/mysql-join1.png)
+![image-20210706182444990](image/mysql-join1.png)
 
 ​															    <그림 1 : INNER JOIN> 
 
-![image-20210706182444990](./image/mysql-join2.png)
+![image-20210706182444990](image/mysql-join2.png)
 
 ​																  <그림 2 : LEFT JOIN>
 
-![image-20210706182444990](./image/mysql-join3.png)
+![image-20210706182444990](image/mysql-join3.png)
 
 ​																  <그림 3 : RIGHT JOIN> 
 
