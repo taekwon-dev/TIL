@@ -17,6 +17,7 @@
     - [Spring MVC - How Spring MVC Works［1］- WebApplicationContext, Context Hierarchy](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-webapplicationcontext-context-hierarchy-21c835719f43)
     - [Spring MVC - How Spring MVC Works［2］- DispatcherServlet (Front Controller)](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-2-dispatcherservlet-front-controller-a03bf6248202)
     - [Spring MVC - How Spring MVC Works［3］- HandlerMapping, HandlerAdapter, and DI](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-3-handlermapping-handleradapter-and-di-4ca249c3ce8a)
+    - [Spring MVC - (Servlet) Filter vs (Handler) Interceptor](https://medium.com/taekwon-v/spring-mvc-servlet-filter-vs-handler-interceptor-ce0d95edf18b)
   
   
 - **Spring Data**
