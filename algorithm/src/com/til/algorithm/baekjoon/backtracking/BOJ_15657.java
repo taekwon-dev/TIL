@@ -7,15 +7,14 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
- * Created by Youn on 2022/05/26.
- * Title : N과 M (6) (https://www.acmicpc.net/problem/15655)
+ * Created by Youn on 2022/05/27.
+ * Title : N과 M (8) (https://www.acmicpc.net/problem/15657)
  * Hint  :
  */
-public class BOJ_15655 {
-
+public class BOJ_15657 {
     static int n, m;
-    static int[] nums;
     static int[] arr;
+    static int[] nums;
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -23,9 +22,8 @@ public class BOJ_15655 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
-
-        nums = new int[n + 1];
         arr = new int[m];
+        nums = new int[n + 1];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 1; i < n + 1; i++) {
@@ -48,7 +46,8 @@ public class BOJ_15655 {
 
         for (int i = curr; i < n + 1; i++) {
             arr[index] = nums[i];
-            dfs(i + 1, index + 1);
+            dfs(i, index + 1);
         }
     }
+
 }
