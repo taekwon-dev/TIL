@@ -1,5 +1,7 @@
 # Spring Boot + Flyway - Database Migration
 
+[Spring Boot + Flyway DB Migration (MySQL DDL)](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)
+
 ---
 
 - Spring Boot 2.5.3
