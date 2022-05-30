@@ -21,6 +21,7 @@
   
   
 - **Spring Data**
+    - [ORM (Object-Relational Mapping) 등장 배경](https://medium.com/taekwon-v/jpa-orm-object-relational-mapping-%EB%93%B1%EC%9E%A5-%EB%B0%B0%EA%B2%BD-86e5d1439e23)
 
 
 - **DevOps**
