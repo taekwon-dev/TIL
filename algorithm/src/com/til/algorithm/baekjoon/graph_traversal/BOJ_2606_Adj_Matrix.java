@@ -3,6 +3,8 @@ package com.til.algorithm.baekjoon.graph_traversal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
@@ -13,17 +15,15 @@ import java.util.StringTokenizer;
  */
 public class BOJ_2606 {
 
+    static int n, m;
     static int[][] map;
     static boolean[] visited;
-    static int n; // 정점 수 (= 컴퓨터 수)
-    static int m; // 간선 수
     static int result;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
         m = Integer.parseInt(br.readLine());
-
         map = new int[n + 1][n + 1];
         visited = new boolean[n + 1];
 
@@ -31,23 +31,43 @@ public class BOJ_2606 {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
-
             map[start][end] = 1;
             map[end][start] = 1;
         }
 
-        dfs(1);
+//        dfs(1);
+        bfs(1);
         System.out.println(result);
     }
 
-    private static void dfs(int i) {
-        visited[i] = true;
-
-        for (int j = 1; j < n + 1; j++) {
-            if (!visited[j] && map[i][j] == 1) {
+    private static void dfs(int v) {
+        visited[v] = true;
+        for (int i = 1; i < n + 1; i++) {
+            if (!visited[i] && map[v][i] == 1) {
                 result++;
-                dfs(j);
+                dfs(i);
             }
         }
     }
+
+    private static void bfs(int v) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(v);
+        visited[v] = true;
+
+        while (!queue.isEmpty()) {
+            int curr = queue.poll();
+            for (int i = 1; i < n + 1; i++) {
+                if (!visited[i] && map[curr][i] == 1) {
+                    result++;
+                    queue.add(i);
+                    visited[i] = true;
+                }
+            }
+        }
+    }
+
+
+
+
 }
