@@ -23,7 +23,7 @@
 - **Spring Data**
     - [ORM (Object-Relational Mapping) 등장 배경](https://medium.com/taekwon-v/jpa-orm-object-relational-mapping-%EB%93%B1%EC%9E%A5-%EB%B0%B0%EA%B2%BD-86e5d1439e23)
     - [JPA EntityManager, PersistenceContext［1］](https://medium.com/taekwon-v/jpa-entitymanger-persistencecontext-1-df1e71a7a0e7)
-    - [JPA EntityManager, PersistenceContext［1］](https://medium.com/taekwon-v/jpa-entitymanager-persistencecontext-2-44ab3e1925ff)
+    - [JPA EntityManager, PersistenceContext［2］](https://medium.com/taekwon-v/jpa-entitymanager-persistencecontext-2-44ab3e1925ff)
   
 
 - **DevOps**
