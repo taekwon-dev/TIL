@@ -1,4 +1,4 @@
-package com.til.algorithm.이코테;
+package com.til.algorithm.이코테.dp;
 
 import java.io.IOException;
 import java.util.Scanner;
