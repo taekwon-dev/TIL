@@ -25,6 +25,7 @@
     - [JPA - EntityManager, PersistenceContext［1］](https://medium.com/taekwon-v/jpa-entitymanger-persistencecontext-1-df1e71a7a0e7)
     - [JPA - EntityManager, PersistenceContext［2］](https://medium.com/taekwon-v/jpa-entitymanager-persistencecontext-2-44ab3e1925ff)
     - [JPA - Proxy(프록시)](https://medium.com/taekwon-v/jpa-proxy-%ED%94%84%EB%A1%9D%EC%8B%9C-c3b2402abdc7)
+    - [JPA - 즉시 로딩 (Eager), 지연 로딩 (Lazy)](https://medium.com/taekwon-v/jpa-%EC%A6%89%EC%8B%9C-%EB%A1%9C%EB%94%A9-eager-%EC%A7%80%EC%97%B0-%EB%A1%9C%EB%94%A9-lazy-80dd3764ac2f)
   
 
 - **DevOps**
