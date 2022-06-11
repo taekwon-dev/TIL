@@ -30,6 +30,7 @@
 
 - **DevOps**
     - [Spring + Flyway DB Migration (MySQL DDL) ](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)
+    - [Flyway - Repeatable migration & Seed Data](https://medium.com/taekwon-v/flyway-repeatable-migration-seed-data-a363c7f86206)
 
 
 - **Git**
