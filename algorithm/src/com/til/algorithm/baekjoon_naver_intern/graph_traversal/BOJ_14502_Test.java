@@ -23,7 +23,6 @@ public class BOJ_14502_Test {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (map[i][j] == 0) {
-                    System.out.println("i = " + i + " j = " + j);
                     map[i][j] = 1;
                     dfs(wall + 1);
                     map[i][j] = 0;
