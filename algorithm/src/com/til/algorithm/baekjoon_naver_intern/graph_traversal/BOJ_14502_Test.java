@@ -1,4 +1,4 @@
-package com.til.algorithm.baekjoon_pack_mg.graph_traversal;
+package com.til.algorithm.baekjoon_naver_intern.graph_traversal;
 
 /**
  * Created by Youn on 2022/06/17.

@@ -2,6 +2,8 @@
 
 ### 🐢 TIL & Blog 🐢
 
+- **OOP** 
+
 
 
 - **Java**
@@ -10,9 +12,12 @@
     - [Servlet Series (3) - How to Maintain a User State (HttpSession)](https://medium.com/taekwon-v/servlet-series-3-how-the-servlet-container-handles-multithreading-6e96391902e0)
     - [Servlet Series (4) - How the Servlet Container Handles multithreading](https://medium.com/taekwon-v/servlet-series-4-how-to-maintain-a-user-state-httpsession-e4d95799617b)
     - [Servlet Series (5) - Servlet Scopes](https://medium.com/taekwon-v/servlet-series-5-servlet-scopes-f68f0c44ed38)
+
+
+- **Spring Core**
+    - [Spring Core - Object & Object Relationship ［1］](https://medium.com/taekwon-v/spring-core-object-object-relationship-1-b531fd1196e6)
   
-  
-- **Spring**
+- **Spring MVC**
     - [Spring Security - Servlet Application Architecture](https://medium.com/taekwon-v/spring-security-servlet-application-architecture-c46c7c5dbaba)
     - [Spring MVC - How Spring MVC Works［1］- WebApplicationContext, Context Hierarchy](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-webapplicationcontext-context-hierarchy-21c835719f43)
     - [Spring MVC - How Spring MVC Works［2］- DispatcherServlet (Front Controller)](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-2-dispatcherservlet-front-controller-a03bf6248202)

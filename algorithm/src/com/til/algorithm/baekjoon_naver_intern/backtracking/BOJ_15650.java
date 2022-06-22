@@ -1,4 +1,4 @@
-package com.til.algorithm.baekjoon_pack_mg.backtracking;
+package com.til.algorithm.baekjoon_naver_intern.backtracking;
 
 import java.util.StringTokenizer;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.til.algorithm.baekjoon_pack_mg.brute_force;
+package com.til.algorithm.baekjoon_naver_intern.brute_force;
 
 import java.io.BufferedReader;
 import java.io.IOException;
