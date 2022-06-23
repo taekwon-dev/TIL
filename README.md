@@ -16,6 +16,8 @@
 
 - **Spring Core**
     - [Spring Core - Object & Object Relationship ［1］](https://medium.com/taekwon-v/spring-core-object-object-relationship-1-b531fd1196e6)
+    - [Spring Core - Object & Object Relationship ［2］](https://medium.com/taekwon-v/spring-core-object-object-relationship-2-ioc-b7b366e5fe20)
+    - [Spring Core - Object & Object Relationship ［3］](https://medium.com/taekwon-v/spring-core-object-object-relationship-3-spring-ioc-46d1749bc7b2)
   
 - **Spring MVC**
     - [Spring Security - Servlet Application Architecture](https://medium.com/taekwon-v/spring-security-servlet-application-architecture-c46c7c5dbaba)
