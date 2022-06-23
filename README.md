@@ -20,14 +20,18 @@
     - [Spring Core - Object & Object Relationship - Spring IoC ［3］](https://medium.com/taekwon-v/spring-core-object-object-relationship-3-spring-ioc-46d1749bc7b2)
     - [Spring Core - Object & Object Relationship - Singleton Registry ［4］](https://medium.com/taekwon-v/spring-core-object-object-relationship-4-singleton-registry-6c0cfc5a792a)
   
-- **Spring MVC**
-    - [Spring Security - Servlet Application Architecture](https://medium.com/taekwon-v/spring-security-servlet-application-architecture-c46c7c5dbaba)
+
+- **Spring MVC**   
     - [Spring MVC - How Spring MVC Works［1］- WebApplicationContext, Context Hierarchy](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-webapplicationcontext-context-hierarchy-21c835719f43)
     - [Spring MVC - How Spring MVC Works［2］- DispatcherServlet (Front Controller)](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-2-dispatcherservlet-front-controller-a03bf6248202)
     - [Spring MVC - How Spring MVC Works［3］- HandlerMapping, HandlerAdapter, and DI](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-3-handlermapping-handleradapter-and-di-4ca249c3ce8a)
     - [Spring MVC - (Servlet) Filter vs (Handler) Interceptor](https://medium.com/taekwon-v/spring-mvc-servlet-filter-vs-handler-interceptor-ce0d95edf18b)
+
+
+- **Spring Security**
+    - [Spring Security - Servlet Application Architecture](https://medium.com/taekwon-v/spring-security-servlet-application-architecture-c46c7c5dbaba)
   
-  
+
 - **Spring Data**
     - [ORM (Object-Relational Mapping) 등장 배경](https://medium.com/taekwon-v/jpa-orm-object-relational-mapping-%EB%93%B1%EC%9E%A5-%EB%B0%B0%EA%B2%BD-86e5d1439e23)
     - [JPA - EntityManager, PersistenceContext［1］](https://medium.com/taekwon-v/jpa-entitymanger-persistencecontext-1-df1e71a7a0e7)
