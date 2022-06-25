@@ -19,6 +19,8 @@
     - [Spring Core - Object & Object Relationship - IoC ［2］](https://medium.com/taekwon-v/spring-core-object-object-relationship-2-ioc-b7b366e5fe20)
     - [Spring Core - Object & Object Relationship - Spring IoC ［3］](https://medium.com/taekwon-v/spring-core-object-object-relationship-3-spring-ioc-46d1749bc7b2)
     - [Spring Core - Object & Object Relationship - Singleton Registry ［4］](https://medium.com/taekwon-v/spring-core-object-object-relationship-4-singleton-registry-6c0cfc5a792a)
+    - [Spring Core - Object & Object Relationship - DI, DL ［5］](https://medium.com/taekwon-v/spring-core-object-object-relationship-5-di-dl-a5a23419174b)
+    - [Spring Core - 컴포넌트 스캔 (@ComponentScan)](https://medium.com/taekwon-v/spring-core-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%8A%A4%EC%BA%94-8ac34e9eaeb6)
   
 
 - **Spring MVC**   
