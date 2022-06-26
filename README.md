@@ -12,6 +12,7 @@
     - [Servlet Series (3) - How to Maintain a User State (HttpSession)](https://medium.com/taekwon-v/servlet-series-3-how-the-servlet-container-handles-multithreading-6e96391902e0)
     - [Servlet Series (4) - How the Servlet Container Handles multithreading](https://medium.com/taekwon-v/servlet-series-4-how-to-maintain-a-user-state-httpsession-e4d95799617b)
     - [Servlet Series (5) - Servlet Scopes](https://medium.com/taekwon-v/servlet-series-5-servlet-scopes-f68f0c44ed38)
+    - [JAVA - How is a Java Program executed - JVM, JRE, JDK](https://medium.com/taekwon-v/java-how-is-a-java-program-is-executed-1-jvm-jre-jdk-713397acb98b)
 
 
 - **Spring Core**
