@@ -1,10 +1,9 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 /**
  * Created by Youn on 2022/05/22.
@@ -18,17 +17,17 @@ public class BOJ_2667 {
     static boolean[][] visited;
     static int[] dx = {1, -1, 0, 0};
     static int[] dy = {0, 0, 1, -1};
-    static int count = 0;
-    static ArrayList<Integer> results;
+    static int count;
+    static ArrayList<Integer> results = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
         map = new int[n + 1][n + 1];
         visited = new boolean[n + 1][n + 1];
-        results = new ArrayList<>();
+
         for (int i = 1; i < n + 1; i++) {
-            String row = br.readLine();
+            String row = sc.next();
             for (int j = 1; j < n + 1; j++) {
                 map[i][j] = row.charAt(j - 1) - '0';
             }
@@ -37,14 +36,15 @@ public class BOJ_2667 {
         for (int i = 1; i < n + 1; i++) {
             for (int j = 1; j < n + 1; j++) {
                 if (!visited[i][j] && map[i][j] == 1) {
-                    count = 1;
                     dfs(i, j);
                     results.add(count);
+                    count = 0;
                 }
             }
         }
 
         Collections.sort(results);
+
         System.out.println(results.size());
         for (int i = 0; i < results.size(); i++) {
             System.out.println(results.get(i));
@@ -53,6 +53,7 @@ public class BOJ_2667 {
 
     private static void dfs(int x, int y) {
         visited[x][y] = true;
+        count++;
 
         for (int i = 0; i < 4; i++) {
             int nx = x + dx[i];
@@ -61,10 +62,11 @@ public class BOJ_2667 {
             if (nx >= 1 && ny >= 1 && nx < n + 1 && ny < n + 1) {
                 if (!visited[nx][ny] && map[nx][ny] == 1) {
                     dfs(nx, ny);
-                    count++;
                 }
             }
         }
     }
+
+
 
 }

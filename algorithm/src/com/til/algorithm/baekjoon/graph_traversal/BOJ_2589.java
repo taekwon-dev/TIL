@@ -11,6 +11,7 @@ import java.util.StringTokenizer;
  * Created by Youn on 2022/06/04.
  * Title : 보물섬 (https://www.acmicpc.net/problem/2589)
  * Hint  : 가중치 1로 동일 (1시간 소요) + 최단거리 = BFS + Brute force
+ *         (다시 풀기 추천 !)
  */
 public class BOJ_2589 {
 

@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  *         1  0  1
  *         1  1  0
  */
-public class BOJ_1260_Adjacency_Matrix_Test {
+public class BOJ_1260_Adj_Matrix_Test {
 
     static int n, m, v;
     static int[][] map;

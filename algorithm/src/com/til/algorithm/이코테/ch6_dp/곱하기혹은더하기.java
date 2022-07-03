@@ -1,4 +1,4 @@
-package com.til.algorithm.이코테.dp;
+package com.til.algorithm.이코테.ch6_dp;
 
 import java.io.BufferedReader;
 import java.io.IOException;

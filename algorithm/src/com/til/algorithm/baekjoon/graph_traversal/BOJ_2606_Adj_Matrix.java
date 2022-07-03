@@ -10,10 +10,9 @@ import java.util.StringTokenizer;
 /**
  * Created by Youn on 2022/05/19.
  * Title : 바이러스 (https://www.acmicpc.net/problem/2606)
- * Hint  : 그래프 표현 (Adjacency Matrix, Adjacency List), DFS
- *         1번 컴퓨터를 기준으로 연결된 컴퓨터의 수를 세는 과정
+ * Hint  : 인접 행렬
  */
-public class BOJ_2606 {
+public class BOJ_2606_Adj_Matrix {
 
     static int n, m;
     static int[][] map;

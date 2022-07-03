@@ -18,7 +18,7 @@ class Tomato {
     int y;
     int h;
 
-    public Tomato(int x, int y, int h) {
+    Tomato(int x, int y, int h) {
         this.x = x;
         this.y = y;
         this.h = h;

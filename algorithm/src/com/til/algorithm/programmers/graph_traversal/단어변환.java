@@ -1,4 +1,4 @@
-package com.til.algorithm.programmers;
+package com.til.algorithm.programmers.graph_traversal;
 
 /**
  * Created by Youn on 2022/05/09.

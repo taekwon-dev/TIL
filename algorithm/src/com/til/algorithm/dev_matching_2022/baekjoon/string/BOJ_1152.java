@@ -16,15 +16,5 @@ public class BOJ_1152 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         System.out.println(st.countTokens());
 
-
-//        String input = br.readLine();
-//        String[] inputs = input.split(" ");
-//        int result = 0;
-//        for (int i = 0; i < inputs.length; i++) {
-//            if (!inputs[i].equals("")) {
-//                result += 1;
-//            }
-//        }
-//        System.out.println(result);
     }
 }

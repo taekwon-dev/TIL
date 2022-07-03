@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 /**
  * Created by Youn on 2022/06/28.
  * Title : 외판원 순회 (https://www.acmicpc.net/problem/10971)
- * Hint  : Traveling Salesman Problem (TSP)
+ * Hint  : Traveling Salesman Problem (TSP), https://youngest-programming.tistory.com/547
  */
 public class BOJ_10971 {
 

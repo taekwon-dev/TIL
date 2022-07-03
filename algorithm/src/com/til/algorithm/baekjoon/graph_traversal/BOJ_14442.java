@@ -57,6 +57,7 @@ public class BOJ_14442 {
         Queue<Node> queue = new LinkedList<>();
         queue.offer(new Node(1, 1, 1, 0));
         visited[1][1][0] = true;
+        visited[1][1][1] = true;
 
         while (!queue.isEmpty()) {
             Node node = queue.poll();

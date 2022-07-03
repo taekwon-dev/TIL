@@ -10,7 +10,7 @@ import java.util.*;
  * Title : DFS와 BFS (https://www.acmicpc.net/problem/1260)
  * Hint  : Graph Traversal (Adjacency List)
  */
-public class BOJ_1260_Adjacency_List {
+public class BOJ_1260_Adj_List {
 
     static int n; // 정점 수
     static int m; // 간선 수
