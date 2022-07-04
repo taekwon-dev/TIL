@@ -23,18 +23,6 @@ public class Member {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
     public void addOrders(Order order) {
         this.orders.add(order);
         order.updateMember(this);

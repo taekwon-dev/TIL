@@ -11,12 +11,14 @@ public class Order {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "member_id")
     private Member member;
 
     protected Order() {
     }
 
-    public Order(Member member) {
+    public Order(Long id, Member member) {
+        this.id = id;
         this.member = member;
     }
 

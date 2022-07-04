@@ -45,7 +45,9 @@
     - [JPA - 즉시 로딩 (Eager), 지연 로딩 (Lazy)](https://medium.com/taekwon-v/jpa-%EC%A6%89%EC%8B%9C-%EB%A1%9C%EB%94%A9-eager-%EC%A7%80%EC%97%B0-%EB%A1%9C%EB%94%A9-lazy-80dd3764ac2f)
     - [JPA - 객체지향 쿼리 (JPQL)](https://medium.com/taekwon-v/jpa-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%BF%BC%EB%A6%AC-jpql-f09e48e495c)
     - [JPA - 객체지향 쿼리 (JPQL) — JOIN, FETCH JOIN](https://medium.com/taekwon-v/jpa-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%BF%BC%EB%A6%AC-jpql-join-fetch-join-b3d9a247ccf1)
-
+    - [JPA - 성능 최적화 [1] - N + 1 with JPQL](https://medium.com/taekwon-v/jpa-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-1-n-1-with-jpql-e69944596bd1)
+    - [JDBC - JDBC [1] - JDBC 등장](https://medium.com/taekwon-v/jdbc-jdbc-1-jdbc-%EB%93%B1%EC%9E%A5-21983c110001)
+  
 
 - **DevOps**
     - [Spring + Flyway DB Migration (MySQL DDL) ](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)
