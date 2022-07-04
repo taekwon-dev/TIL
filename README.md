@@ -50,13 +50,12 @@
   
 
 - **DevOps**
-    - [Spring + Flyway DB Migration (MySQL DDL) ](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)
+    - [Flyway - Spring + Flyway DB Migration (MySQL DDL) ](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)
     - [Flyway - Repeatable migration & Seed Data](https://medium.com/taekwon-v/flyway-repeatable-migration-seed-data-a363c7f86206)
-
-
-- **Git**
     - [Git  - Squash Commits into one](https://medium.com/taekwon-v/git-squash-commits-into-one-f9830a49fe5b)
-  
+    - [Git  - CRLS (새줄문자) 설정 with Docker](https://medium.com/taekwon-v/git-crlf-%EC%83%88%EC%A4%84-%EB%AC%B8%EC%9E%90-%EC%84%A4%EC%A0%95-with-docker-bab88a24072c)
+    - [DevOps - ZEXT Infrastructure & CI/CD](https://medium.com/taekwon-v/devops-zext-infrastructure-ci-cd-5b4106dde554)
+   
 
 - **Database**
     
