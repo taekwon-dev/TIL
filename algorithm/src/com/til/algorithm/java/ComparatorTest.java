@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class ComparatorTest {
     public static void main(String[] args) {
 
-        // Tim Sort
+        // Tim Sort (Quick + Merge)
 
         Integer[] tring = new Integer[]   {5, 3, 2, 6, 8, 10, 1};
 

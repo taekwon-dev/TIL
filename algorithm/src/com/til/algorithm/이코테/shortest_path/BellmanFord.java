@@ -1,4 +1,4 @@
-package com.til.algorithm.이코테.ch7_shortest_path;
+package com.til.algorithm.이코테.shortest_path;
 
 /**
  * Created by Youn on 2022/06/03.

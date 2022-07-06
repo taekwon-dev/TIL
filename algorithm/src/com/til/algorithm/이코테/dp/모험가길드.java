@@ -1,4 +1,4 @@
-package com.til.algorithm.이코테.ch6_dp;
+package com.til.algorithm.이코테.dp;
 
 import java.util.ArrayList;
 import java.util.Collections;
