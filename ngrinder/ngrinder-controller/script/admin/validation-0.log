@@ -1,0 +1,37 @@
+2022-07-07 05:08:31,971 INFO  Setting of nGrinder local DNS successfully
+2022-07-07 05:08:31,978 INFO  The Grinder version 3.9.1
+2022-07-07 05:08:31,982 INFO  Java(TM) SE Runtime Environment 1.8.0_201-b09: Java HotSpot(TM) 64-Bit Server VM (25.201-b09, mixed mode) on Linux amd64 5.10.47-linuxkit
+2022-07-07 05:08:31,984 INFO  time zone is GMT (+0000)
+2022-07-07 05:08:32,106 INFO  worker process 0 of agent number 0
+2022-07-07 05:08:32,137 INFO  Instrumentation agents: byte code transforming instrumenter for Java
+2022-07-07 05:08:33,840 INFO  registered plug-in net.grinder.plugin.http.HTTPPlugin
+2022-07-07 05:08:33,960 INFO  before process.
+2022-07-07 05:08:33,963 INFO  Running "zexthomeposts.groovy" using GroovyScriptEngine running with groovy version: 3.0.5
+2022-07-07 05:08:34,048 INFO  before thread.
+2022-07-07 05:08:34,049 INFO  starting, will do 1 run
+2022-07-07 05:08:34,050 INFO  Start time is 1657170514050 ms since Epoch
+2022-07-07 05:08:34,065 INFO  before. init headers and cookies
+2022-07-07 05:08:34,365 INFO  https://www.zext.one/api/home/posts -> 200 , 5206 bytes
+2022-07-07 05:08:34,390 INFO  finished 1 run
+2022-07-07 05:08:34,393 INFO  elapsed time is 344 ms
+2022-07-07 05:08:34,394 INFO  Final statistics for this process:
+2022-07-07 05:08:34,406 INFO  
+             Tests        Errors       Mean Test    Test Time    TPS          Mean         Response     Response     Mean time to Mean time to Mean time to 
+                                       Time (ms)    Standard                  response     bytes per    errors       resolve host establish    first byte   
+                                                    Deviation                 length       second                                 connection                
+                                                    (ms)                                                                                                    
+
+Test 1       1            0            318.00       0.00         2.91         5206.00      15133.72     0            0.00         85.00        265.00        "www.zext.one"
+
+Totals       1            0            318.00       0.00         2.91         5206.00      15133.72     0            0.00         85.00        265.00       
+
+  Tests resulting in error only contribute to the Errors column.          
+  Statistics for individual tests can be found in the data file, including
+  (possibly incomplete) statistics for erroneous tests. Composite tests   
+  are marked with () and not included in the totals.                      
+
+
+
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+2022-07-07 05:08:33,970 INFO  validation-0: Starting threads
+2022-07-07 05:08:34,407 INFO  validation-0: Finished

@@ -1,8 +1,19 @@
 spring:
+  h2:
+    console:
+      enabled: true
+
   datasource:
-    url: jdbc:mysql://localhost:3306/jpa
-    username: root
-    password: password
+    hikari:
+      jdbc-url: jdbc:h2:mem:db
+      driver-class-name: org.h2.Driver
+      username: sa
+      password: password
+
+  sql:
+    init:
+      mode: always
+
   jpa:
     hibernate:
       ddl-auto:  none
@@ -10,3 +21,6 @@ spring:
     database: mysql
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL57Dialect
+    properties:
+      hibernate:
+        format_sql: false

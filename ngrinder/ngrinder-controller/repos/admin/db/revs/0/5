@@ -1,0 +1,43 @@
+PLAIN
+K 11
+targetHosts
+V 0
+
+K 9
+validated
+V 4
+true
+END
+ENDREP
+id: 0-4.0.r5/62
+type: file
+pred: 0-4.0.r4/898
+count: 1
+text: 4 0 826 2117 494471f25bd1b315c9a3b1f30fa72f91 be7b996ba78a5ec147677bc17fb9311f6e24bf2c 4-4/_1
+props: 5 0 49 49 3fe0195699b968c3c3960bf00486e140
+cpath: /zexthomeposts.groovy
+copyroot: 0 /
+
+PLAIN
+K 14
+.gitconfig.yml
+V 17
+file 0-1.0.r1/346
+K 20
+zexthomeposts.groovy
+V 16
+file 0-4.0.r5/62
+END
+ENDREP
+id: 0.0.r5/419
+type: dir
+pred: 0.0.r4/1240
+count: 5
+text: 5 311 95 95 3f6397b1dbc24bbc1ad1470b2e8917ee
+cpath: /
+copyroot: 0 /
+
+0-4.0.t4-4 modify-file true true /zexthomeposts.groovy
+
+
+419 546
