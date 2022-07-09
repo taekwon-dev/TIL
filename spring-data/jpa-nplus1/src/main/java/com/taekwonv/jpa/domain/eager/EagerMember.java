@@ -23,4 +23,9 @@ public class EagerMember {
     public EagerMember(String name) {
         this.name = name;
     }
+
+    public void addEagerOrders(EagerOrder eagerOrder) {
+        this.eagerOrders.add(eagerOrder);
+        eagerOrder.updateEagerMember(this);
+    }
 }

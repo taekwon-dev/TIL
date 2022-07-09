@@ -12,7 +12,7 @@ public class EagerOrder {
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "eager_id")
     private EagerMember eagerMember;
 
@@ -21,5 +21,9 @@ public class EagerOrder {
 
     public EagerOrder(String name) {
         this.name = name;
+    }
+
+    public void updateEagerMember(EagerMember eagerMember) {
+        this.eagerMember = eagerMember;
     }
 }

@@ -14,7 +14,7 @@ public class LazyMember {
 
     private String name;
 
-    @OneToMany(mappedBy = "lazyMember", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "lazyMember", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<LazyOrder> lazyOrders = new ArrayList<>();
 
     protected LazyMember() {
@@ -22,5 +22,14 @@ public class LazyMember {
 
     public LazyMember(String name) {
         this.name = name;
+    }
+
+    public void addLazyOrders(LazyOrder lazyOrder) {
+        this.lazyOrders.add(lazyOrder);
+        lazyOrder.updateLazyMember(this);
+    }
+
+    public List<LazyOrder> getLazyOrders() {
+        return lazyOrders;
     }
 }

@@ -22,4 +22,12 @@ public class LazyOrder {
     public LazyOrder(String name) {
         this.name = name;
     }
+
+    public void updateLazyMember(LazyMember lazyMember) {
+        this.lazyMember = lazyMember;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
