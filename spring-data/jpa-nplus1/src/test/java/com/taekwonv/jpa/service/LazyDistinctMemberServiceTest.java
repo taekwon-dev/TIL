@@ -59,22 +59,22 @@ public class LazyDistinctMemberServiceTest {
     }
 
     @Test
-    @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (INNER JOIN) 페치조인 사용")
-    void INNER_페치조인_지연로딩_N_Plus_1() {
+    @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (LEFT OUTER JOIN) 페치조인 사용")
+    void OUTER_페치조인_지연로딩_N_Plus_1() {
 
         // given
-        List<LazyMember> lazyMembers = lazyMemberRepository.findAllJoinFetch();
+        List<LazyMember> lazyMembers = lazyMemberRepository.findAllLeftOuterJoinFetch();
 
         // then
         assertThat(lazyMembers.size()).isEqualTo(10);
     }
 
     @Test
-    @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (LEFT OUTER JOIN) 페치조인 사용")
-    void OUTER_페치조인_지연로딩_N_Plus_1() {
+    @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (INNER JOIN) 페치조인 사용")
+    void INNER_페치조인_지연로딩_N_Plus_1() {
 
         // given
-        List<LazyMember> lazyMembers = lazyMemberRepository.findAllLeftOuterJoinFetch();
+        List<LazyMember> lazyMembers = lazyMemberRepository.findAllJoinFetch();
 
         // then
         assertThat(lazyMembers.size()).isEqualTo(10);

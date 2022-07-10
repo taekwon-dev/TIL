@@ -9,7 +9,7 @@ import java.util.Comparator;
 public class BOJ_1181 {
 
     /**
-     *   단어 정렬
+     *   단어 정렬 (= 문자열 정렬)
      *
      *   1) 길이가 짧은 것부터 (문자열 길이 기준으로 정렬)
      *   2) 길이가 같으면 사전 순으로
