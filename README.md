@@ -46,7 +46,9 @@
     - [JPA - 객체지향 쿼리 (JPQL)](https://medium.com/taekwon-v/jpa-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%BF%BC%EB%A6%AC-jpql-f09e48e495c)
     - [JPA - 객체지향 쿼리 (JPQL) — JOIN, FETCH JOIN](https://medium.com/taekwon-v/jpa-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%BF%BC%EB%A6%AC-jpql-join-fetch-join-b3d9a247ccf1)
     - [JPA - 성능 최적화 [1] - N + 1 with JPQL](https://medium.com/taekwon-v/jpa-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-1-n-1-with-jpql-e69944596bd1)
+    - [JPA - 성능 최적화 [1-1] - N + 1 with DISTINCT](https://medium.com/taekwon-v/jpa-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-1-1-n-1-with-distinct-201b0ffe73ac)
     - [JDBC - JDBC [1] - JDBC 등장](https://medium.com/taekwon-v/jdbc-jdbc-1-jdbc-%EB%93%B1%EC%9E%A5-21983c110001)
+    - [JDBC - JDBC [2] - 커넥션 풀과 데이터소스 이해](https://medium.com/taekwon-v/jdbc-jdbc-2-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EA%B3%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%86%8C%EC%8A%A4-%EC%9D%B4%ED%95%B4-726caa313773)
   
 
 - **DevOps**
