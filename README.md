@@ -3,7 +3,8 @@
 ### 🐢 TIL & Blog 🐢
 
 - **CS**
-
+    - [OS 프로세스 [1] — 프로세스 상태 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
+  
 
 - **OOP**
 
@@ -49,6 +50,7 @@
     - [JPA - 성능 최적화 [1-1] - N + 1 with DISTINCT](https://medium.com/taekwon-v/jpa-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-1-1-n-1-with-distinct-201b0ffe73ac)
     - [JDBC - JDBC [1] - JDBC 등장](https://medium.com/taekwon-v/jdbc-jdbc-1-jdbc-%EB%93%B1%EC%9E%A5-21983c110001)
     - [JDBC - JDBC [2] - 커넥션 풀과 데이터소스 이해](https://medium.com/taekwon-v/jdbc-jdbc-2-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EA%B3%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%86%8C%EC%8A%A4-%EC%9D%B4%ED%95%B4-726caa313773)
+    - [JDBC - JDBC [3] - 트랜잭션, DB 락](https://medium.com/taekwon-v/jdbc-jdbc-3-transaction-db-lock-21ab15f7e9f9)
   
 
 - **DevOps**
