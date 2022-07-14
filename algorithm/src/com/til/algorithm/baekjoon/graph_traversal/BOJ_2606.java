@@ -9,48 +9,38 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- *  트리의 부모 찾기
+ *  바이러스
  *
- *  루트 없는 트리가 주어진다.
- *
- *  이때, 트리의 루트를 1이라고 정했을 때, 각 노드의 부모를 구하는 프로그램을 작성하시오.
- *
- *  2 <= N (노드 개수) <= 100,000
- *
- *  트리문제에서 바이너리 트리로 한정하는 것은 좋지 않다.
- *  예를 들어, 이 문제에서 InOrder, PreOrder, PostOrder 에 매몰되면 안 된다.
+ *  1번 컴퓨터 -> 시작 노드
+ *  시작 노드를 기준으로 그래프 탐색으로 통해 (간선으로 연결된) 노드의 수 구하기 (이 때 시작노드 컴퓨터는 카운팅에서 제외)
+ *  무방향 그래프 (-> 양방향)
  *
  */
-public class BOJ_11725 {
-    static int n;
-    static ArrayList<Integer>[] adjList;
-    static boolean[] visited;
-    static int[] parents;
+public class BOJ_2606 {
 
+    static int n, m;
+    static boolean[] visited;
+    static ArrayList<Integer>[] adjList;
+    static int answer = 0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        adjList = new ArrayList[n + 1];
+        m = Integer.parseInt(br.readLine());
         visited = new boolean[n + 1];
-        parents = new int[n + 1];
-
+        adjList = new ArrayList[n + 1];
         for (int i = 1; i <= n; i++) {
             adjList[i] = new ArrayList<>();
         }
-
         StringTokenizer st;
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             int from = Integer.parseInt(st.nextToken());
             int to = Integer.parseInt(st.nextToken());
             adjList[from].add(to);
             adjList[to].add(from);
         }
-
         bfs(1);
-        for (int i = 2; i <= n; i++) {
-            System.out.println(parents[i]);
-        }
+        System.out.println(answer);
     }
 
     private static void bfs(int start) {
@@ -60,13 +50,11 @@ public class BOJ_11725 {
 
         while (!queue.isEmpty()) {
             int now = queue.poll();
-
             for (int adj : adjList[now]) {
                 if (!visited[adj]) {
+                    answer++;
                     queue.add(adj);
                     visited[adj] = true;
-                    // now 노드의 인접노드는 모두 now를 부모 노드이다.
-                    parents[adj] = now;
                 }
             }
         }

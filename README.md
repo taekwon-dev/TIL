@@ -5,6 +5,7 @@
 - **CS**
     - [OS 프로세스 [1] — 프로세스 상태 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
     - [OS 프로세스 [2] — PCB, Context Switching](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-2-pcb-context-switching-e541f1ac476b)
+    - [OS 프로세스 [3] — 프로세스 구조](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-3-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B5%AC%EC%A1%B0-4ba957ae0ddf)
   
 
 - **OOP**
