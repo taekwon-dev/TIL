@@ -14,6 +14,10 @@ import java.util.StringTokenizer;
  *  DP[i] = Arr[i] 를 마지막 원소로 가지는 부분수열의 최대 길이
  *  0 <= j < i, DP[i] = Max(DP[i], DP[j] + 1) If Arr[j] < Arr[i]
  *
+ *  수열 A = {10, 20, 10, 30, 20, 50} 인 경우에
+ *
+ *  가장 긴 증가하는 부분 수열은 A = {10*, 20*, 10, 30*, 20, 50*} 이고, 길이는 4이다.
+ *  {10, 20, 30, 50}
  */
 public class BOJ_11503 {
     public static void main(String[] args) throws IOException {

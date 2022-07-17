@@ -52,18 +52,11 @@ public class BOJ_1789 {
         long s = Long.parseLong(br.readLine());
 
         long sum = 0;
-        long count = 0;
-        long num = 1;
-
-
-        while (sum < s) {
+        long num = 0;
+        while (sum <= s) {
             // sum > s (N 개의 수 합이 s 를 초과하는 시점에 break)
-            sum += num;
-            num++;
-            count++;
+            sum += ++num;
         }
-        // sum 이 s 를 초과한 시점에 break 됐으므로,
-        // count - 1 을 출력한다.
-        System.out.println(count - 1);
+        System.out.println(sum == s ? num : num - 1);
     }
 }
