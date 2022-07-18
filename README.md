@@ -50,6 +50,7 @@
     - [JPA - 객체지향 쿼리 (JPQL) — JOIN, FETCH JOIN](https://medium.com/taekwon-v/jpa-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%BF%BC%EB%A6%AC-jpql-join-fetch-join-b3d9a247ccf1)
     - [JPA - 성능 최적화 [1] - N + 1 with JPQL](https://medium.com/taekwon-v/jpa-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-1-n-1-with-jpql-e69944596bd1)
     - [JPA - 성능 최적화 [1-1] - N + 1 with DISTINCT](https://medium.com/taekwon-v/jpa-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-1-1-n-1-with-distinct-201b0ffe73ac)
+    - [JPA - 웹 애플리케이션과 영속성 관리 [1] — 트랜잭션 범위의 영속성 컨텍스트](https://medium.com/taekwon-v/jpa-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EA%B3%BC-%EC%98%81%EC%86%8D%EC%84%B1-%EA%B4%80%EB%A6%AC-1-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%B2%94%EC%9C%84%EC%9D%98-%EC%98%81%EC%86%8D%EC%84%B1-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-39506fdffa86)
     - [JDBC - JDBC [1] - JDBC 등장](https://medium.com/taekwon-v/jdbc-jdbc-1-jdbc-%EB%93%B1%EC%9E%A5-21983c110001)
     - [JDBC - JDBC [2] - 커넥션 풀과 데이터소스 이해](https://medium.com/taekwon-v/jdbc-jdbc-2-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EA%B3%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%86%8C%EC%8A%A4-%EC%9D%B4%ED%95%B4-726caa313773)
     - [JDBC - JDBC [3] - 트랜잭션, DB 락](https://medium.com/taekwon-v/jdbc-jdbc-3-transaction-db-lock-21ab15f7e9f9)
