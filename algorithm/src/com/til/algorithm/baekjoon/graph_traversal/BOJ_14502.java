@@ -24,6 +24,8 @@ import java.util.StringTokenizer;
  *  각각의 경우의 수에서 벽을 세우고, 바이러스 퍼트리고, 안전영역 크기 구하기
  *  백트랙킹 - 완전탐색
  *
+ *  https://yongku.tistory.com/entry/%EB%B0%B1%EC%A4%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B0%B1%EC%A4%80-14502%EB%B2%88-%EC%97%B0%EA%B5%AC%EC%86%8C-%EC%9E%90%EB%B0%94Java
+ *
  */
 public class BOJ_14502 {
     static class Node {

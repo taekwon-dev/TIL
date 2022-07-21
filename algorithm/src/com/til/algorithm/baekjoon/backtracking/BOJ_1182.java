@@ -52,6 +52,10 @@ public class BOJ_1182 {
             }
             return;
         }
+        // 부분집합 { 0, 1, 2 }
+        // ∅, {0}, {1}, {2}, {0, 1} ...
+        // 각 자리에 대해서 선택 또는 미선택
+        // 유사한 binary tree -> in order, post order, pre order traversal
         dfs(depth + 1, sum + arr[depth]);
         dfs(depth + 1, sum);
     }

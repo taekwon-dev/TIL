@@ -55,7 +55,8 @@
     - [JDBC [2] - 커넥션 풀과 데이터소스 이해](https://medium.com/taekwon-v/jdbc-jdbc-2-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EA%B3%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%86%8C%EC%8A%A4-%EC%9D%B4%ED%95%B4-726caa313773)
     - [JDBC [3] - 트랜잭션, DB 락](https://medium.com/taekwon-v/jdbc-jdbc-3-transaction-db-lock-21ab15f7e9f9)
     - [JDBC [4-1] - 스프링과 문제 해결 — 트랜잭션 매니저, 동기화](https://medium.com/taekwon-v/jdbc-jdbc-4-1-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%A7%A4%EB%8B%88%EC%A0%80-%EB%8F%99%EA%B8%B0%ED%99%94-d8fd2b7607e6)
-  
+    - [JDBC [4-2] - 스프링과 문제 해결 — 트랜잭션 템플릿, 트랜잭션 AOP](https://medium.com/taekwon-v/jdbc-jdbc-4-2-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-aop-b4d8436c9d5)
+
   
 - **DevOps**
     - [Flyway - Spring + Flyway DB Migration (MySQL DDL) ](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)

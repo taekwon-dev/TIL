@@ -14,6 +14,8 @@ import java.util.Arrays;
 public class LEET_300 {
     public int lengthOfLIS(int[] nums) {
         int[] dp = new int[nums.length];
+
+        // 길이가 1인 부분 집합 (각 원소 기준)
         Arrays.fill(dp, 1);
 
         for (int i = 1; i < nums.length; i++) {
