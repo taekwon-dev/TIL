@@ -6,7 +6,7 @@
     - [OS 프로세스 [1] — 프로세스 상태 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
     - [OS 프로세스 [2] — PCB, Context Switching](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-2-pcb-context-switching-e541f1ac476b)
     - [OS 프로세스 [3] — 프로세스 구조](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-3-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B5%AC%EC%A1%B0-4ba957ae0ddf)
-  
+    - [OS 인터럽트 (interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
 
 - **OOP**
 
@@ -56,6 +56,7 @@
     - [JDBC [3] - 트랜잭션, DB 락](https://medium.com/taekwon-v/jdbc-jdbc-3-transaction-db-lock-21ab15f7e9f9)
     - [JDBC [4-1] - 스프링과 문제 해결 — 트랜잭션 매니저, 동기화](https://medium.com/taekwon-v/jdbc-jdbc-4-1-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%A7%A4%EB%8B%88%EC%A0%80-%EB%8F%99%EA%B8%B0%ED%99%94-d8fd2b7607e6)
     - [JDBC [4-2] - 스프링과 문제 해결 — 트랜잭션 템플릿, 트랜잭션 AOP](https://medium.com/taekwon-v/jdbc-jdbc-4-2-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-aop-b4d8436c9d5)
+    - [JDBC [5] - Java Exception](https://medium.com/taekwon-v/jdbc-jdbc-5-java-exception-43c5f72c69fd)
 
   
 - **DevOps**
