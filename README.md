@@ -3,10 +3,12 @@
 ### 🐢 TIL & Blog 🐢
 
 - **CS**
-    - [OS 프로세스 [1] — 프로세스 상태 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
+    - [OS 프로세스 [1] — 프로세스 상태 1 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
+    - [OS 프로세스 [1] — 프로세스 상태 2 (보류)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-2-%EB%B3%B4%EB%A5%98-suspended-a040c254968a)
     - [OS 프로세스 [2] — PCB, Context Switching](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-2-pcb-context-switching-e541f1ac476b)
     - [OS 프로세스 [3] — 프로세스 구조](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-3-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B5%AC%EC%A1%B0-4ba957ae0ddf)
-    - [OS 인터럽트 (interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
+    - [OS 인터럽트 (Interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
+    - [OS 프로세스 스케줄링을 위한 큐(Queue)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%81%90-queue-ddc2cefe75e2)
 
 - **OOP**
 
