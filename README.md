@@ -9,6 +9,7 @@
     - [OS 프로세스 [3] — 프로세스 구조](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-3-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B5%AC%EC%A1%B0-4ba957ae0ddf)
     - [OS 프로세스 [4] — 프로세스 생성과 복사](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-4-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%9D%EC%84%B1%EA%B3%BC-%EB%B3%B5%EC%82%AC-8b76dae1e023)
     - [OS 프로세스 [5] — 스레드](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-5-%EC%8A%A4%EB%A0%88%EB%93%9C-d51f5479e0cb)
+    - [OS CPU 스케줄링 [1] — 기본 개념](https://medium.com/taekwon-v/os-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-1-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-39ecf968dda6)
     - [OS 인터럽트 (Interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
     - [OS 프로세스 스케줄링을 위한 큐(Queue)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%81%90-queue-ddc2cefe75e2)
   

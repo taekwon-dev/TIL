@@ -14,6 +14,17 @@ import java.io.InputStreamReader;
  *
  *  순열 = 조합 + 순서 고려
  *
+ *  3! = 3 * 2 * 1 =6
+ *
+ *  1 2 3
+ *  1 3 2
+ *  2 1 3
+ *  2 3 1
+ *  3 1 2
+ *  3 2 1
+ *
+ *  같은 수를 중복해서 사용할 수 없다.
+ *
  */
 public class BOJ_10974 {
     static int n;
@@ -26,13 +37,11 @@ public class BOJ_10974 {
         n = Integer.parseInt(br.readLine());
         arr = new int[n];
         visited = new boolean[n];
-
         backtracking(0);
         System.out.println(sb.toString());
     }
 
     private static void backtracking(int depth) {
-        // N 번쨰 숫자를 지정 했을 때 (= 모든 수의 자리를 배정 했을 때)
         if (depth == n) {
             // 출력
             for (int i = 0; i < n; i++) {
@@ -44,11 +53,13 @@ public class BOJ_10974 {
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                arr[depth] = i + 1; // N(1 ≤ N ≤ 8)
+                arr[depth] = i + 1;
                 backtracking(depth + 1);
                 visited[i] = false;
             }
         }
 
     }
+
+
 }

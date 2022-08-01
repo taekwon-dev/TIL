@@ -19,45 +19,44 @@ import java.util.StringTokenizer;
  *  | 1 - 2 | + | 2 - 3 | = 1 + 1 = 2
  */
 public class BOJ_10819 {
-    static int n;
+    static int n, max = Integer.MIN_VALUE;
     static int[] arr;
-    static int[] tmp;
+    static int[] rarr;
     static boolean[] visited;
-    static int max = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
         arr = new int[n];
-        tmp = new int[n];
+        rarr = new int[n];
         visited = new boolean[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-
         backtracking(0);
         System.out.println(max);
     }
 
     private static void backtracking(int depth) {
         if (depth == n) {
-            // 수식의 적용 했을 때 최댓값 계산
-            int result = 0;
-            // 다음 인덱스를 계산하므로, 인덱스 범위를 한 칸 당겨서 진행
+            // 최댓값 계산
+            int sum = 0;
             for (int i = 0; i < n - 1; i++) {
-                result += Math.abs(tmp[i] - tmp[i + 1]);
+                sum += Math.abs(rarr[i] - rarr[i + 1]);
             }
-            max = Math.max(result, max);
+            max = Math.max(max, sum);
             return;
         }
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                tmp[depth] = arr[i];
+                rarr[depth] = arr[i];
                 backtracking(depth + 1);
                 visited[i] = false;
             }
         }
     }
+
+
 }

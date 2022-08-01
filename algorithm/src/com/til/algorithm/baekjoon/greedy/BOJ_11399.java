@@ -70,3 +70,5 @@ public class BOJ_11399 {
         System.out.println(sum);
     }
 }
+
+

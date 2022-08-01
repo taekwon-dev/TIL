@@ -40,7 +40,46 @@ import java.util.StringTokenizer;
  *         8---11
  *              12--14
  *
- *  Java Comparator, Comparable
+ * 1 4
+ * 3 5
+ * 0 6
+ * 5 7
+ * 3 8
+ * 5 9
+ * 6 10
+ * 8 11
+ * 8 12
+ * 2 13
+ * 12 14
+ * 0 - 6
+ *
+ * [시작 시간 기준 정렬] - 오름차순
+ * 1 - 4
+ * 2 - 13
+ * 3 - 5
+ * 3 - 8
+ * 5 - 7
+ * 5 - 9
+ * 6 - 10
+ * 8 - 11
+ * 8 - 12
+ * 12 - 14
+ *
+ * [끝나는 시간 기준 정렬] - 오름차순
+ * 1 - 4
+ * 3 - 5
+ * 0 - 6
+ * 5 - 7
+ * 3 - 8
+ * 5 - 9
+ * 6 - 10
+ * 8 - 11
+ * 8 - 12
+ * 2 - 13
+ * 12 - 14
+ *
+ * 빨리 시작하고, 빨리 끝나는 기준으로 정렬
+ * = 최대한 많은 강의를 배정
  *
  */
 public class BOJ_1931 {
@@ -64,12 +103,20 @@ public class BOJ_1931 {
             }
         });
 
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i][0] + " - " + arr[i][1]);
+        }
+
         Arrays.sort(arr, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
                 return o1[1] - o2[1];
             }
         });
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i][0] + " - " + arr[i][1]);
+        }
 
         int answer = 0;
         int end = 0;
@@ -80,7 +127,6 @@ public class BOJ_1931 {
                 answer++;
             }
         }
-
         System.out.println(answer);
     }
 }
