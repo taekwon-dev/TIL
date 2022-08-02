@@ -10,6 +10,7 @@
     - [OS 프로세스 [4] — 프로세스 생성과 복사](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-4-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%9D%EC%84%B1%EA%B3%BC-%EB%B3%B5%EC%82%AC-8b76dae1e023)
     - [OS 프로세스 [5] — 스레드](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-5-%EC%8A%A4%EB%A0%88%EB%93%9C-d51f5479e0cb)
     - [OS CPU 스케줄링 [1] — 기본 개념](https://medium.com/taekwon-v/os-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-1-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-39ecf968dda6)
+    - [OS CPU 스케줄링 [2] — CPU 스케줄링 알고리즘](https://medium.com/taekwon-v/os-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-2-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-9c6f4c34301c)
     - [OS 인터럽트 (Interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
     - [OS 프로세스 스케줄링을 위한 큐(Queue)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%81%90-queue-ddc2cefe75e2)
   
@@ -54,13 +55,13 @@
     - [JPA - 성능 최적화 [1] - N + 1 with JPQL](https://medium.com/taekwon-v/jpa-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-1-n-1-with-jpql-e69944596bd1)
     - [JPA - 성능 최적화 [1-1] - N + 1 with DISTINCT](https://medium.com/taekwon-v/jpa-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-1-1-n-1-with-distinct-201b0ffe73ac)
     - [JPA - 웹 애플리케이션과 영속성 관리 [1] — 트랜잭션 범위의 영속성 컨텍스트](https://medium.com/taekwon-v/jpa-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EA%B3%BC-%EC%98%81%EC%86%8D%EC%84%B1-%EA%B4%80%EB%A6%AC-1-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%B2%94%EC%9C%84%EC%9D%98-%EC%98%81%EC%86%8D%EC%84%B1-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-39506fdffa86)
-    - [JDBC [1] - JDBC 등장](https://medium.com/taekwon-v/jdbc-jdbc-1-jdbc-%EB%93%B1%EC%9E%A5-21983c110001)
-    - [JDBC [2] - 커넥션 풀과 데이터소스 이해](https://medium.com/taekwon-v/jdbc-jdbc-2-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EA%B3%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%86%8C%EC%8A%A4-%EC%9D%B4%ED%95%B4-726caa313773)
-    - [JDBC [3] - 트랜잭션, DB 락](https://medium.com/taekwon-v/jdbc-jdbc-3-transaction-db-lock-21ab15f7e9f9)
-    - [JDBC [4-1] - 스프링과 문제 해결 — 트랜잭션 매니저, 동기화](https://medium.com/taekwon-v/jdbc-jdbc-4-1-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%A7%A4%EB%8B%88%EC%A0%80-%EB%8F%99%EA%B8%B0%ED%99%94-d8fd2b7607e6)
-    - [JDBC [4-2] - 스프링과 문제 해결 — 트랜잭션 템플릿, 트랜잭션 AOP](https://medium.com/taekwon-v/jdbc-jdbc-4-2-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-aop-b4d8436c9d5)
-    - [JDBC [5] - Java Exception](https://medium.com/taekwon-v/jdbc-jdbc-5-java-exception-43c5f72c69fd)
-    - [JDBC [6] - 스프링과 문제 해결 - 예외 추상화](https://medium.com/taekwon-v/jdbc-jdbc-6-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%EC%98%88%EC%99%B8-%EC%B6%94%EC%83%81%ED%99%94-28895899e669)
+    - [인프런 스프링 DB 1편 [1] - JDBC 등장](https://medium.com/taekwon-v/jdbc-jdbc-1-jdbc-%EB%93%B1%EC%9E%A5-21983c110001)
+    - [인프런 스프링 DB 1편 [2] - 커넥션 풀과 데이터소스 이해](https://medium.com/taekwon-v/jdbc-jdbc-2-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EA%B3%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%86%8C%EC%8A%A4-%EC%9D%B4%ED%95%B4-726caa313773)
+    - [인프런 스프링 DB 1편 [3] - 트랜잭션, DB 락](https://medium.com/taekwon-v/jdbc-jdbc-3-transaction-db-lock-21ab15f7e9f9)
+    - [인프런 스프링 DB 1편 [4-1] - 스프링과 문제 해결 — 트랜잭션 매니저, 동기화](https://medium.com/taekwon-v/jdbc-jdbc-4-1-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%A7%A4%EB%8B%88%EC%A0%80-%EB%8F%99%EA%B8%B0%ED%99%94-d8fd2b7607e6)
+    - [인프런 스프링 DB 1편 [4-2] - 스프링과 문제 해결 — 트랜잭션 템플릿, 트랜잭션 AOP](https://medium.com/taekwon-v/jdbc-jdbc-4-2-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-aop-b4d8436c9d5)
+    - [인프런 스프링 DB 1편 [5] - Java Exception](https://medium.com/taekwon-v/jdbc-jdbc-5-java-exception-43c5f72c69fd)
+    - [인프런 스프링 DB 1편 [6] - 스프링과 문제 해결 - 예외 추상화](https://medium.com/taekwon-v/jdbc-jdbc-6-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%EC%98%88%EC%99%B8-%EC%B6%94%EC%83%81%ED%99%94-28895899e669)
 
   
 - **DevOps**

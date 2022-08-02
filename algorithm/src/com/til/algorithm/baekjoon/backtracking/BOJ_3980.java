@@ -32,50 +32,50 @@ import java.util.StringTokenizer;
  *  - 내가 한 포지션 (= 열)을 잡으면 다른 인원은 해당 포지션에 설 수 없다.
  *    즉, A가 0번 포지션을 잡았을 때 B는 0번 포지션에 설 수 없다. (= 고를 수 없다)
  *
+ *    11명의 선수가 11개의 포지션을 하나씩 점유
+ *    즉, 한 명이 하나의 포지션에 일대일 대응되는 구조
+ *
+ *    능력치의 합의 최댓값
  */
 public class BOJ_3980 {
     static int tc, max;
-    static int[] arr = new int[11];
-    static boolean[] visited = new boolean[11];
-    static int[][] map = new int[11][11];
-
+    static int[][] map;
+    static boolean[] visited;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        tc = Integer.parseInt(br.readLine());
         StringTokenizer st;
+
+        tc = Integer.parseInt(br.readLine());
         for (int t = 0; t < tc; t++) {
-            // 최댓값 초기화
             max = 0;
-            // 각 테스트 케이스 별도 능력 치 업데이트
+            map = new int[11][11];
+            visited = new boolean[11];
             for (int i = 0; i < 11; i++) {
                 st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < 11; j++) {
                     map[i][j] = Integer.parseInt(st.nextToken());
                 }
             }
-            backtracking(0);
+            backtracking(0, 0);
             System.out.println(max);
         }
     }
 
-    private static void backtracking(int depth) {
+    private static void backtracking(int depth, int sum) {
         if (depth == 11) {
-            // 능력치 최댓값 계산
-            int sum = 0;
-            for (int i = 0; i < 11; i++) {
-                sum += arr[i];
-            }
+            // 능력 최댓값
             max = Math.max(max, sum);
             return;
         }
         for (int i = 0; i < 11; i++) {
-            // 능력치가 0이 아니어야 한다. + 이미 해당 포지션에 어떤 선수가 배치되어 있으면 해당 포지션은 다른 선수에게 배치할 수 없다.
             if (!visited[i] && map[depth][i] != 0) {
                 visited[i] = true;
-                arr[depth] = map[depth][i];
-                backtracking(depth + 1);
+                backtracking(depth + 1, sum + map[depth][i]);
                 visited[i] = false;
             }
         }
+
+
     }
+
 }

@@ -20,13 +20,29 @@ import java.util.StringTokenizer;
  *  시작점으로부터 각 노드에 방문거리를 1씩 추가해서 거리를 구하기
  *  단 이미 0 (= 길이 아닌 곳)인 경우에는 0으로 출력
  *  시작점으로부터 도달할 수 없는 곳은 -1로 출력
+ *
+ *  (2 ≤ n ≤ 1000, 2 ≤ m ≤ 1000)
+ *
+ *  BFS - 거리별 특징
+ *
+ *  1 - 2 - 3 . .
+ *    - 2 - 3 . .
+ *        - 3 . .
+ *
+ *  각 지점 -> 목표 지점
+ *  목표 지점 -> 각 지점까지의 거리
+ *
+ *  맵에서 목표 지점은 한 곳
+ *
+ *  목표 지점을 기준으로 BFS를 돌면서 하나씩 방문처리 (이 때 거리 정보 하나씩 추가하면서)
+ *  원래 0으로 되어 있는 부분은 0으로 그대로 두면 되고,
+ *  방문 할 수 없는 곳은 -1 처리 (BFS 끝내고, 1인 곳 -> -1로 처리)
+ *
  */
 public class BOJ_14940 {
-
     static class Node {
         int x;
         int y;
-
         public Node(int x, int y) {
             this.x = x;
             this.y = y;
@@ -34,49 +50,48 @@ public class BOJ_14940 {
     }
     static int n, m;
     static int[][] map;
-    static int[][] answer;
+    static int[][] rmap;
     static boolean[][] visited;
     static int[] dx = {1, -1, 0, 0};
     static int[] dy = {0, 0, 1, -1};
+    static StringBuilder sb = new StringBuilder();
     static Queue<Node> queue = new LinkedList<>();
+
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
-
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
-        map = new int[n + 1][m + 1];
-        answer = new int[n + 1][m + 1];
-        visited = new boolean[n + 1][m + 1];
-
-        for (int i = 1; i <= n; i++) {
+        map = new int[n][m];
+        rmap = new int[n][m];
+        visited = new boolean[n][m];
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 1; j <= m; j++) {
+            for (int j = 0; j < m; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
-
                 if (map[i][j] == 2) {
-                    answer[i][j] = 0;
-                    queue.add(new Node(i, j));
+                    // i, j -> 목표 지점
+                    // 목표 지점은 시작 지점이므로 0으로 설정
+                    rmap[i][j] = 0;
+                    queue.offer(new Node(i, j));
                 } else if (map[i][j] == 1) {
-                    answer[i][j] = -1;
+                    rmap[i][j] = -1;
                 }
             }
         }
         bfs();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= m; j++) {
-                sb.append(answer[i][j] + " ");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                sb.append(rmap[i][j] + " ");
             }
             sb.append("\n");
         }
-        System.out.println(sb);
+        System.out.println(sb.toString());
     }
 
-    // 각 지점 별로 목적지 까지의 거리 채우기
     private static void bfs() {
-
         while (!queue.isEmpty()) {
             Node node = queue.poll();
             visited[node.x][node.y] = true;
@@ -85,15 +100,16 @@ public class BOJ_14940 {
                 int nx = node.x + dx[i];
                 int ny = node.y + dy[i];
 
-
-                if (nx >= 1 && ny >= 1 && nx <= n && ny <= m) {
-                    if (!visited[nx][ny] && map[nx][ny] == 1) {
-                        queue.add(new Node(nx, ny));
+                if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
+                    if (!visited[nx][ny] && map[nx][ny] != 0) {
+                        queue.offer(new Node(nx, ny));
                         visited[nx][ny] = true;
-                        answer[nx][ny] = answer[node.x][node.y] + 1;
+                        rmap[nx][ny] = rmap[node.x][node.y] + 1;
                     }
                 }
             }
         }
     }
+
+
 }
