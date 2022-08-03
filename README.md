@@ -38,6 +38,8 @@
     - [Spring MVC - How Spring MVC Works［2］- DispatcherServlet (Front Controller)](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-2-dispatcherservlet-front-controller-a03bf6248202)
     - [Spring MVC - How Spring MVC Works［3］- HandlerMapping, HandlerAdapter, and DI](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-3-handlermapping-handleradapter-and-di-4ca249c3ce8a)
     - [Spring MVC - (Servlet) Filter vs (Handler) Interceptor](https://medium.com/taekwon-v/spring-mvc-servlet-filter-vs-handler-interceptor-ce0d95edf18b)
+    - [Spring MVC - How Spring MVC handles Exceptions](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-handles-exceptions-7a6910c956f)
+    - [Spring MVC - 멀티 스레드 [1] — 스레드 생성 시점과 ThreadLocal](https://medium.com/taekwon-v/spring-mvc-%EB%A9%80%ED%8B%B0-%EC%8A%A4%EB%A0%88%EB%93%9C-1-%EC%8A%A4%EB%A0%88%EB%93%9C-%EC%83%9D%EC%84%B1-%EC%8B%9C%EC%A0%90%EA%B3%BC-threadlocal-3245a0ec9331)
 
 
 - **Spring Security**

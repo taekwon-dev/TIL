@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
  *  0 <= n <= 20
  *
  *  Top-Down via recursion
+ *  Fn = Fn-1 + Fn-2 (n ≥ 2)
  */
 public class BOJ_10870_TD {
 
