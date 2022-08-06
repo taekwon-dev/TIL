@@ -8,36 +8,52 @@ import java.util.StringTokenizer;
 /**
  *  점프
  *
- *  가장 왼쪽 위 칸 -> 가장 오른쪽 아래 칸
+ *  - N X N 게임판
+ *  - 가장 왼쪽 위 칸 to 가장 오른쪽 아래 칸
+ *  - 각 칸에 적혀있는 수는 현재 칸에서 갈 수 있는 거리를 의미한다
+ *  - 반드시 오른쪽이나 아래쪽으로만 이동해야 한다
  *
- *  이동 방향 : 오른쪽, 아래쪽
+ *  - 가장 왼쪽 위 칸에서 가장 오른쪽 아래 칸으로 규칙에 맞게 이동할 수 있는 경로의 개수
  *
- *  가장 왼쪽 위 칸에서 가장 오른쪽 아래 칸으로 규칙에 맞게 이동할 수 있는 경로의 개수 구하기
+ *  - 칸에 적혀있는 수는 0보다 크거나 같고, 9보다 작거나 같은 정수이며,
+ *  - 가장 오른쪽 아래 칸에는 항상 0이 주어진다.
  *
- *  첫째 줄에 게임 판의 크기 N (4 ≤ N ≤ 100)
+ *  [1][2][1][1]  - 1
+ *  [1][2][3][3]  - 2
+ *  [1][3][2][1]  - 3
+ *  [3][1][2][0]  - 4
+ *   |  |  |  |
+ *   1  2  3  4
  *
- *  경로의 개수는 2^63 - 1 보다 작다.
+ *   (3,2)에 도달할 수 있는 경우의
  *
- *  2^63 : 9223372036854775808
- *  Java long : - 9223372036854775808  ~ 9223372036854775807
+ *   [0][0][0][0]
+ *   [0][0][0][0]
+ *   [0][0][0][0]
+ *   [0][0][0][0]
  *
- *  시작 점을 기준으로 이동할 수 있는 곳이 한정되어 있다.
+ *   BU 방식으로 생각해보면,
  *
- *  맵의 범위 내 + 시작점의 이동할 값을 기준으로 그 다음 노드의 위치가 정해진다.
+ *   dp[i][j] = 1,1 에서 i,j 까지 규칙을 따라 이동할 수 있는 경우의 수
+ *   1,1 부터 규칙에 따라서 해당 위치에 도달하는 경우 + 1 처리하면 그 위치에 도달하는 경우의 수를 모두 구할 수 있다.
  *
- *  그 다음 노드도 마찬가지로 위와 같이 그 다음의 위치가 결정되는 구조다.
+ *   경로의 개수는 2^63-1보다 작거나 같다.
+ *   2^63 ... long (8 byte)
  *
- *  각 노드 별로 다음 노드로 이동할 떄 두 가지 경우의 수가 있다. (오른쪽, 아래쪽)
  *
- *  D[i, j] = D[i - ?, j - ?] + 1 (이전 위치에서 현재 위치 + 1)
  */
 public class BOJ_1890 {
+    static int n;
+    static int[][] map;
+    static long[][] dp;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        int[][] map = new int[n + 1][n + 1];
-        long[][] dp = new long[n + 1][n + 1];
         StringTokenizer st;
+        n = Integer.parseInt(br.readLine());
+        map = new int[n + 1][n + 1];
+        dp = new long[n + 1][n + 1];
+
         for (int i = 1; i <= n; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 1; j <= n; j++) {
@@ -48,14 +64,16 @@ public class BOJ_1890 {
         dp[1][1] = 1;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
-                int value = map[i][j];
-                if (value == 0) {
+                if (i == n && j == n) {
                     break;
                 }
-                // 오른쪽
-                if (j + value <= n) dp[i][j + value] += dp[i][j];
-                // 아래쪽
-                if (i + value <= n) dp[i + value][j] += dp[i][j];
+                int next = map[i][j];
+
+                // →
+                if (j + next <= n) dp[i][j + next] += dp[i][j];
+
+                // ↓
+                if (i + next <= n) dp[i + next][j] += dp[i][j];
             }
         }
         System.out.println(dp[n][n]);

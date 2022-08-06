@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 /**
  *  차이를 최대로
  *
- *  N 개의 정수로 이루어진 배열 A N (3 ≤ N ≤ 8)
+ *  N 개의 정수로 이루어진 배열 A N (3 ≤ N ≤ 8) -> Brute force
  *  이 때 배열에 들어 있는 정수의 순서를 적절히 바꿔서 다음 식의 최댓값을 구하라
  *
  *  배열에 들어있는 정수는 -100보다 크거나 같고, 100보다 작거나 같다.
@@ -17,9 +17,12 @@ import java.util.StringTokenizer;
  *
  *  예) 1, 2, 3
  *  | 1 - 2 | + | 2 - 3 | = 1 + 1 = 2
+ *
+ *  - 한 수를 여러번 사용할 수 없다.
+ *  - 뽑은 숫자의 순서가 중요하다. -> 순열 {1, 2} vs {2, 1} = diff
  */
 public class BOJ_10819 {
-    static int n, max = Integer.MIN_VALUE;
+    static int n, max = 0;
     static int[] arr;
     static int[] rarr;
     static boolean[] visited;
@@ -40,7 +43,8 @@ public class BOJ_10819 {
 
     private static void backtracking(int depth) {
         if (depth == n) {
-            // 최댓값 계산
+            // n - 1 개의 숫자를 모두 배치한 뒤
+            // 수식 최댓값 계산
             int sum = 0;
             for (int i = 0; i < n - 1; i++) {
                 sum += Math.abs(rarr[i] - rarr[i + 1]);
@@ -57,6 +61,5 @@ public class BOJ_10819 {
             }
         }
     }
-
 
 }
