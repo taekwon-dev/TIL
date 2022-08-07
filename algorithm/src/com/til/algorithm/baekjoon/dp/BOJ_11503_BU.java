@@ -7,40 +7,50 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
- *  가장 긴 증가하는 부분 수열
+ *  가장 긴 증가하는 부분 수열 (LIS, Longest Increasing Subsequence)
  *
- *  1 <= 수열 크기 N <= 1000
+ *  A = {10, 20, 10, 30, 20, 50} 에서
+ *  가장 긴 증가하는 수열 A = {10, 20, 30, 50}
  *
- *  DP[i] = Arr[i] 를 마지막 원소로 가지는 부분수열의 최대 길이
- *  0 <= j < i, DP[i] = Max(DP[i], DP[j] + 1) If Arr[j] < Arr[i]
+ *  수열 A의 크기 N (1 ≤ N ≤ 1,000)
+ *  수열 A의 가장 긴 증가하는 부분 수열의 길이를 출력한다.
  *
- *  수열 A = {10, 20, 10, 30, 20, 50} 인 경우에
  *
- *  가장 긴 증가하는 부분 수열은 A = {10*, 20*, 10, 30*, 20, 50*} 이고, 길이는 4이다.
- *  {10, 20, 30, 50}
+ *  A = {10, 20, 10, 30, 20, 50}
+ *
+ *  DP[1] = 1
+ *  DP[2] = 2
+ *  DP[3] = 1
+ *  DP[4] = 3
+ *  DP[5] = 2
+ *  DP[6] = 4
+ *
+ *  " 부분 집합 최소 길이 1 "
+ *
  */
 public class BOJ_11503 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         int[] arr = new int[n];
-        int[] dp = new int[n];
-        Arrays.fill(dp, 1);
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-
+        int[] dp = new int[n];
+        dp[0] = 1;
         for (int i = 1; i < n; i++) {
+            // 각 원소만 갖는 부분집합의 길이는 1
+            dp[i] = 1;
             for (int j = 0; j < i; j++) {
-                if (arr[j] < arr[i]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                if (arr[j] < arr[i] && dp[j] >= dp[i]) {
+                    dp[i] = dp[j] + 1;
                 }
             }
         }
-        int max = 0;
-        for (int i = 0; i < dp.length; i++) {
-            max = Math.max(max, dp[i]);
+        int max = 1;
+        for (int i : dp) {
+            max = Math.max(max, i);
         }
         System.out.println(max);
     }

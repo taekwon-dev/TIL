@@ -1,31 +1,27 @@
 package com.til.algorithm.baekjoon.dp;
 
+import java.awt.datatransfer.StringSelection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- *  연속합
+ * 가장 긴 감소하는 부분 수열
  *
- *  N개의 정수 N(1 ≤ n ≤ 100,000), 수는 -1,000보다 크거나 같고, 1,000보다 작거나 같은 정수
- *  우리는 이 중 연속된 몇 개의 수를 선택해서 구할 수 있는 합 중 가장 큰 합을 구하려고 한다.
+ *  A = {10, 30, 10, 20, 20, 10} 인 경우에
+ *  가장 긴 감소하는 부분 수열은 A = {30, 20, 10}  이고, 길이는 3이다.
  *
- *  10, -4, 3, 1, 5, 6, -35, 12, 21, -1
- *
- *  에서 12 + 21 = 33 이 가장 큰 합
- *
- *  1, -2, 3, 4, 5, -6, 7
- *
- *  - 를 만났을 때 -> 기존 합 - ? < 0 인 경우, 그 다음부터 다시 시작
- *  1, 2, 3, 4, -11, 1, 2, 3, 11
- *
- *  DP[i] = i 까지의 연속 합 중 가장 큰 값
+ *  10 -> 1
+ *  30 -> 1 (앞 인덱스에 30보다 작은 수가 없음)
+ *  10 -> 2
+ *  20 -> 2
+ *  20 -> 2 (같은 수의 경우 결과 값이 같음)
+ *  10 -> 3
  *
  *
  */
-public class BOJ_1912 {
-
+public class BOJ_11722_BU {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
@@ -35,15 +31,21 @@ public class BOJ_1912 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         int[] dp = new int[n + 1];
-        dp[1] = arr[1];
+        dp[1] = 1;
         for (int i = 2; i <= n; i++) {
-            dp[i] = Math.max(dp[i - 1] + arr[i], arr[i]);
+            dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (arr[j] > arr[i] && dp[j] >= dp[i]) {
+                    dp[i] = dp[j] + 1;
+                } else if (arr[j] == arr[i]) {
+                    dp[i] = dp[j];
+                }
+            }
         }
-        int max = Integer.MIN_VALUE;
+        int max = 0;
         for (int i = 1; i <= n; i++) {
             max = Math.max(max, dp[i]);
         }
         System.out.println(max);
     }
-
 }
