@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
  *  " 부분 집합 최소 길이 1 "
  *
  */
-public class BOJ_11503 {
+public class BOJ_11503_BU {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
