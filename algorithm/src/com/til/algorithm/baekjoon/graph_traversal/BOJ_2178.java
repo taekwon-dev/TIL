@@ -15,7 +15,7 @@ import java.util.StringTokenizer;
  *  (1, 1) -> (N, M) 이동 (시작, 도착 위치도 이동거리에 포함)
  */
 public class BOJ_2178 {
-    static class Node {
+    public static class Node {
         int x;
         int y;
         int dist;
