@@ -3,9 +3,8 @@ package com.til.algorithm.baekjoon.greedy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.StringTokenizer;
+import java.lang.reflect.Method;
+import java.util.*;
 
 /**
  * 최소 회의실 개수
@@ -76,60 +75,51 @@ import java.util.StringTokenizer;
  *
  * 첫째 줄에 최소 회의실 개수를 출력한다.
  *
- * 최대 100,000개의 회의를 시작 시간 기준, 끝나는 시간 기준으로 두 번 정렬
- *
- *
- *
- *
  */
-public class BOJ_19598_TIMEOUT {
+public class BOJ_19598 {
+    static class Meeting implements Comparable<Meeting> {
+        int start;
+        int end;
+
+        public Meeting(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        public int compareTo(Meeting o) {
+            if (this.start == o.start) {
+                return this.end - o.end;
+            } else {
+                return this.start - o.start;
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
         int n = Integer.parseInt(br.readLine());
-        int[][] arr = new int[n][2];
-        boolean[] visited = new boolean[n];
-
+        StringTokenizer st;
+        List<Meeting> meetings = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
-
-            arr[i][0] = s;
-            arr[i][1] = e;
+            meetings.add(new Meeting(s, e));
         }
+        Collections.sort(meetings);
 
-        Arrays.sort(arr, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[0] - o2[0];
-            }
-        });
-
-        Arrays.sort(arr, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[1] - o2[1];
-            }
-        });
-
-        int count = n;
-        int answer = 0;
+        Queue<Integer> pq = new PriorityQueue<>();
         int end = 0;
 
-        while (count >= 1) {
-            for (int i = 0; i < n; i++) {
-                if (!visited[i]) {
-                    if (arr[i][0] >= end) {
-                        visited[i] = true;
-                        count--;
-                        end = arr[i][1];
-                    }
-                }
+        for (Meeting meeting : meetings) {
+            end = meeting.end;
+
+            if (!pq.isEmpty() && pq.peek() <= meeting.start) {
+                pq.poll();
             }
-            end = 0;
-            answer++;
+            pq.add(end);
         }
-        System.out.println(answer);
+        System.out.println(pq.size());
     }
 }
