@@ -9,50 +9,15 @@ import java.util.*;
  *  강의실 배정
  *
  *  그리디 알고리즘 + 우선순위 큐
- *  https://steady-coding.tistory.com/253
+ *
+ *  "버리는 시간을 최소로 하면서 강의를 배정해야 최소한의 강의실 개수를 알아낼 수 있다"
+ *
+ *  "어떻게 하면 버리는 시간을 최소화 할 수 있을까?"
+ *
+ *  "정렬" -> 시작 기준
+ *
  *  https://loosie.tistory.com/480
- *
- *
- @Override
- public int compareTo(Class o) {
- if (this.start == o.start) {
- // 시작 시간이 같으면, 끝나는 시간 기준으로 오름차순
- return this.end - o.end;
- } else {
- return this.start - o.start;
- }
- }
- 0 ~ 6
- 1 ~ 4
- 2 ~ 13
- 3 ~ 5
- 3 ~ 8
- 5 ~ 7
- 5 ~ 9
- 6 ~ 10
- 8 ~ 11
- 8 ~ 12
- 12 ~ 14
-
-
- @Override
- public int compareTo(Class o) {
- if (this.end > o.end) return 1;
- else if (this.end < o.end) return -1;
- else return this.start - o.start;
- }
- 1 ~ 4
- 3 ~ 5
- 0 ~ 6
- 5 ~ 7
- 3 ~ 8
- 5 ~ 9
- 6 ~ 10
- 8 ~ 11
- 8 ~ 12
- 2 ~ 13
- 12 ~ 14
-
+ *  https://steady-coding.tistory.com/253 -> 종료 시간 기준 정렬 반례 제공
  */
 public class BOJ_11000 {
     static class Class implements Comparable<Class> {

@@ -1,5 +1,12 @@
 package com.til.algorithm.algorithm.sort;
 
+/**
+ *  버블 정렬
+ *
+ *  두 개의 인접한 원소를 비교하여 정렬하는 방식
+ *
+ *  비교 정렬 / 제자리 정렬 (단 임시 변수 필요)
+ */
 public class BubbleSort {
 
     public static void main(String[] args) {

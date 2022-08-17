@@ -9,9 +9,8 @@ import java.util.*;
  *  회의실 배정
  *
  *  현재 진행중인 회의 시간과 겹치지 않는 남아 있는 회의 시간 중에서 종료 시간이 가장 빠른 회의 시간을 고른다.
- *
+ *  단, 종료 시간이 같다면 시작 시간이 빠른 것을 기준으로 선택한다.
  *  https://loosie.tistory.com/475
- *
  */
 public class BOJ_1931 {
     static class Meeting implements Comparable<Meeting> {
@@ -28,6 +27,7 @@ public class BOJ_1931 {
         public int compareTo(Meeting o) {
             if (this.end > o.end) return 1;
             else if (this.end < o.end) return -1;
+            // 끝나는 시간이 같다면, 빨리 시작하는 순서대로.
             else return this.start - o.start;
         }
     }
@@ -44,10 +44,6 @@ public class BOJ_1931 {
             list.add(new Meeting(s, e));
         }
         Collections.sort(list);
-
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).start +  " ~ " +  list.get(i).end);
-        }
 
         int answer = 0;
         int end = 0;
