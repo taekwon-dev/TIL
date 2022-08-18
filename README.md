@@ -2,7 +2,7 @@
 
 ### 🐢 TIL & Blog 🐢
 
-- **CS**
+- **OS**
     - [OS 프로세스 [1] — 프로세스 상태 1 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
     - [OS 프로세스 [1] — 프로세스 상태 2 (보류)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-2-%EB%B3%B4%EB%A5%98-suspended-a040c254968a)
     - [OS 프로세스 [2] — PCB, Context Switching](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-2-pcb-context-switching-e541f1ac476b)
@@ -16,7 +16,14 @@
     - [OS 메모리 관리 [2] - 연속, 불연속 메모리 할당, 페이징, TLB](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-2-%EC%97%B0%EC%86%8D-%EB%B6%88%EC%97%B0%EC%86%8D-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-%ED%8E%98%EC%9D%B4%EC%A7%95-tlb-9c697cac6d3b)  
     - [OS 인터럽트 (Interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
     - [OS 프로세스 스케줄링을 위한 큐(Queue)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%81%90-queue-ddc2cefe75e2)
-  
+
+
+- **Network**
+
+
+- **Database**
+  - [MySQL - 트랜잭션 격리 수준](https://medium.com/taekwon-v/mysql-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80-e96c49083f7c)
+
 
 - **Java**
     - [Servlet Series (1) - Servlet, Servlet Container](https://medium.com/taekwon-v/servlet-series-1-servlet-servlet-container-38e039d7fc3c)
@@ -78,8 +85,3 @@
     - [Git  - Squash Commits into one](https://medium.com/taekwon-v/git-squash-commits-into-one-f9830a49fe5b)
     - [Git  - CRLS (새줄문자) 설정 with Docker](https://medium.com/taekwon-v/git-crlf-%EC%83%88%EC%A4%84-%EB%AC%B8%EC%9E%90-%EC%84%A4%EC%A0%95-with-docker-bab88a24072c)
     - [DevOps - ZEXT Infrastructure & CI/CD](https://medium.com/taekwon-v/devops-zext-infrastructure-ci-cd-5b4106dde554)
-   
-
-- **Database**
-    - [MySQL - 트랜잭션 격리 수준](https://medium.com/taekwon-v/mysql-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80-e96c49083f7c)
-    

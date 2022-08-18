@@ -22,10 +22,13 @@ public class InsertionSort {
             int target = arr[i];
             int j = i - 1;
             while (j >= 0 && arr[j] > target) {
+                // 처음 통과할 때 j + 1 = i (= target)
                 arr[j + 1] = arr[j];
+                // 비교 대상 지정 포인트 왼쪽으로 이동
                 j--;
             }
             arr[j + 1] = target;
+
         }
     }
 
