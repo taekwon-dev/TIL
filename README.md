@@ -13,16 +13,22 @@
     - [OS CPU 스케줄링 [2] — CPU 스케줄링 알고리즘](https://medium.com/taekwon-v/os-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-2-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-9c6f4c34301c)
     - [OS 프로세스 동기화 [1] — Race Condition](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%8F%99%EA%B8%B0%ED%99%94-1-race-condition-2f722dfae956)
     - [OS 메모리 관리 [1] - 논리적, 물리적 메모리, 주소 바인딩](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-1-%EB%85%BC%EB%A6%AC%EC%A0%81-%EB%AC%BC%EB%A6%AC%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A3%BC%EC%86%8C-%EB%B0%94%EC%9D%B8%EB%94%A9-9d6a3295a2eb)
-    - [OS 메모리 관리 [2] - 연속, 불연속 메모리 할당, 페이징, TLB](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-2-%EC%97%B0%EC%86%8D-%EB%B6%88%EC%97%B0%EC%86%8D-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-%ED%8E%98%EC%9D%B4%EC%A7%95-tlb-9c697cac6d3b)  
+    - [OS 메모리 관리 [2] - 연속, 불연속 메모리 할당, 페이징, TLB](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-2-%EC%97%B0%EC%86%8D-%EB%B6%88%EC%97%B0%EC%86%8D-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-%ED%8E%98%EC%9D%B4%EC%A7%95-tlb-9c697cac6d3b)
+    - [OS 메모리 관리 [4] - 세그멘테이션, 세그멘테이션 with 페이징](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-4-segmentation-segmentation-with-paging-abc0e4c8d6c4)
+    - [OS 가상 메모리 [1] - 요구 페이징](https://medium.com/taekwon-v/os-%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-1-%EC%9A%94%EA%B5%AC-%ED%8E%98%EC%9D%B4%EC%A7%95-11b91b1602fe)
+    - [OS 가상 메모리 [2] - 페이지 교체 알고리즘 - FIFO, LRU, LFU, Clock](https://medium.com/taekwon-v/os-%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-2-%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B5%90%EC%B2%B4-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-7e11288b61b6)
     - [OS 인터럽트 (Interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
     - [OS 프로세스 스케줄링을 위한 큐(Queue)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%81%90-queue-ddc2cefe75e2)
-
+  
 
 - **Network**
 
 
 - **Database**
   - [MySQL - 트랜잭션 격리 수준](https://medium.com/taekwon-v/mysql-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80-e96c49083f7c)
+
+
+- **OOP**
 
 
 - **Java**
