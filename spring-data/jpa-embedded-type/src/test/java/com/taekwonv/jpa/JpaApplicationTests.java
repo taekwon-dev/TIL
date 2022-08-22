@@ -1,10 +1,10 @@
-package com.taekwondev.mvc;
+package com.taekwonv.jpa;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MvcApplicationTests {
+class JpaApplicationTests {
 
     @Test
     void contextLoads() {
