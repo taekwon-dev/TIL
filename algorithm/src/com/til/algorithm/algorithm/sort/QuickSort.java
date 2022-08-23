@@ -1,5 +1,16 @@
 package com.til.algorithm.algorithm.sort;
 
+
+/**
+ *  Quick Sort
+ *
+ *  O(NlogN) ~ O(N^2)
+ *
+ *  https://st-lab.tistory.com/250
+ *  https://www.youtube.com/watch?v=EuJSDghD4z8
+ *  https://www.youtube.com/watch?v=7BDzle2n47c
+ */
+
 public class QuickSort {
 
     public static void main(String[] args) {
@@ -16,11 +27,9 @@ public class QuickSort {
     private static void quickSort(int[] arr, int start, int end) {
         int part2 = partition(arr, start, end);
         if (start < part2 - 1) {
-            System.out.println("start ~ end = " + start + " ~ " + (part2 - 1));
             quickSort(arr, start, part2 - 1);
         }
         if (part2 < end) {
-            System.out.println("start ~ end = " + part2 + " ~ " + end);
             quickSort(arr, part2, end);
         }
     }
@@ -29,7 +38,7 @@ public class QuickSort {
         int pivot = arr[(start + end) / 2];
         while (start <= end) {
             while (arr[start] < pivot) start++;
-            while (arr[end] > pivot) end--;
+            while (pivot < arr[end]) end--;
             if (start <= end) {
                 swap(arr, start, end);
                 start++;
