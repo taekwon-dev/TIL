@@ -17,11 +17,11 @@ import java.util.StringTokenizer;
  *  1은 갈 수 있는 땅
  *  2는 목표지점
  *
- *
- *
+ *  도달할 수 없는 곳을 -1로 표기 -> -1로 초기화 (단, 갈 수 없는 땅은 0으로 초기화)
  */
 
 public class BOJ_14940 {
+
     static class Node {
         int x;
         int y;
@@ -52,12 +52,12 @@ public class BOJ_14940 {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < m; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
-                if (map[i][j] == 0) {
-                    map[i][j] = 0;
-                } else if (map[i][j] == 2) {
-                    map[i][j] = 0;
+                if (map[i][j] == 2) {
                     queue.add(new Node(i, j, 0));
                     visited[i][j] = true;
+                    map[i][j] = 0;
+                } else if (map[i][j] == 0) {
+                    map[i][j] = 0;
                 } else {
                     map[i][j] = -1;
                 }
@@ -75,21 +75,23 @@ public class BOJ_14940 {
     }
 
     private static void bfs() {
+
         while (!queue.isEmpty()) {
             Node node = queue.poll();
-
             for (int i = 0; i < 4; i++) {
+
                 int nx = node.x + dx[i];
                 int ny = node.y + dy[i];
 
                 if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
-                    if (!visited[nx][ny] && map[nx][ny] != 0) {
-                        visited[nx][ny] = true;
+                    if (!visited[nx][ny] && map[nx][ny] == -1) {
                         queue.add(new Node(nx, ny, node.dist + 1));
                         map[nx][ny] = node.dist + 1;
+                        visited[nx][ny] = true;
                     }
                 }
             }
         }
+
     }
 }

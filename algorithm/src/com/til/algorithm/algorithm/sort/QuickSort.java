@@ -9,6 +9,11 @@ package com.til.algorithm.algorithm.sort;
  *  https://st-lab.tistory.com/250
  *  https://www.youtube.com/watch?v=EuJSDghD4z8
  *  https://www.youtube.com/watch?v=7BDzle2n47c
+ *
+ *  비교 정렬
+ *  제자리 정렬
+ *  불안정 정렬
+ *
  */
 
 public class QuickSort {
