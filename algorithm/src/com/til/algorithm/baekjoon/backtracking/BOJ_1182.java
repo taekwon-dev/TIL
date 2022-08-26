@@ -5,10 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/**
+ *  부분수열의 합
+ */
 public class BOJ_1182 {
-
     static int n, s;
     static int[] arr;
+    static boolean[] visited;
     static int answer;
 
     public static void main(String[] args) throws IOException {
@@ -17,14 +20,12 @@ public class BOJ_1182 {
         n = Integer.parseInt(st.nextToken());
         s = Integer.parseInt(st.nextToken());
         arr = new int[n];
+        visited = new boolean[n];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         backtracking(0, 0);
-        // s = 0 인 경우, 공집합이 포함되는데,
-        // 문제 조건에서 부분 집합(수열)의 크기가 양수 조건이므로
-        // answer - 1
         if (s == 0) {
             System.out.println(answer - 1);
         } else {
@@ -34,10 +35,12 @@ public class BOJ_1182 {
 
     private static void backtracking(int depth, int sum) {
         if (depth == n) {
-            if (sum == s) answer++;
+            if (sum == s) {
+                answer++;
+            }
             return;
         }
-        backtracking(depth + 1, sum);
         backtracking(depth + 1, sum + arr[depth]);
+        backtracking(depth + 1, sum);
     }
 }

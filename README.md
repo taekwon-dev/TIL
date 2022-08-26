@@ -17,6 +17,7 @@
     - [OS 메모리 관리 [4] - 세그멘테이션, 세그멘테이션 with 페이징](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-4-segmentation-segmentation-with-paging-abc0e4c8d6c4)
     - [OS 가상 메모리 [1] - 요구 페이징](https://medium.com/taekwon-v/os-%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-1-%EC%9A%94%EA%B5%AC-%ED%8E%98%EC%9D%B4%EC%A7%95-11b91b1602fe)
     - [OS 가상 메모리 [2] - 페이지 교체 알고리즘 - FIFO, LRU, LFU, Clock](https://medium.com/taekwon-v/os-%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-2-%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B5%90%EC%B2%B4-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-7e11288b61b6)
+    - [OS 가상 메모리 [3] - 페이지 프레임 할당, 스레싱(thrashing)](https://medium.com/taekwon-v/os-%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-3-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%94%84%EB%A0%88%EC%9E%84-%ED%95%A0%EB%8B%B9-%EC%8A%A4%EB%A0%88%EC%8B%B1-thrashing-36ae77cb634e)
     - [OS 인터럽트 (Interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
     - [OS 프로세스 스케줄링을 위한 큐(Queue)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%81%90-queue-ddc2cefe75e2)
   
@@ -48,7 +49,8 @@
     - [Spring Core - Object & Object Relationship - DI, DL ［5］](https://medium.com/taekwon-v/spring-core-object-object-relationship-5-di-dl-a5a23419174b)
     - [Spring Core - 컴포넌트 스캔 (@ComponentScan)](https://medium.com/taekwon-v/spring-core-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%8A%A4%EC%BA%94-8ac34e9eaeb6)
     - [Spring Core & Design Pattern - 템플릿 메서드 패턴](https://medium.com/taekwon-v/spring-core-design-pattern-%ED%85%9C%ED%94%8C%EB%A6%BF-%EB%A9%94%EC%84%9C%EB%93%9C-%ED%8C%A8%ED%84%B4-2bce00992b4a)
-  
+    - [Spring Core & Design Pattern - 전략 패턴, 템플릿 콜백 패턴](https://medium.com/taekwon-v/spring-core-design-pattern-%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%BD%9C%EB%B0%B1-%ED%8C%A8%ED%84%B4-df382fd524bf)
+
 
 - **Spring MVC**   
     - [Spring MVC - How Spring MVC Works［1］- WebApplicationContext, Context Hierarchy](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-webapplicationcontext-context-hierarchy-21c835719f43)
