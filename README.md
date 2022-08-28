@@ -50,6 +50,7 @@
     - [Spring Core - 컴포넌트 스캔 (@ComponentScan)](https://medium.com/taekwon-v/spring-core-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%8A%A4%EC%BA%94-8ac34e9eaeb6)
     - [Spring Core & Design Pattern - 템플릿 메서드 패턴](https://medium.com/taekwon-v/spring-core-design-pattern-%ED%85%9C%ED%94%8C%EB%A6%BF-%EB%A9%94%EC%84%9C%EB%93%9C-%ED%8C%A8%ED%84%B4-2bce00992b4a)
     - [Spring Core & Design Pattern - 전략 패턴, 템플릿 콜백 패턴](https://medium.com/taekwon-v/spring-core-design-pattern-%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%BD%9C%EB%B0%B1-%ED%8C%A8%ED%84%B4-df382fd524bf)
+    - [Spring Core & Design Pattern - 템플릿 콜백 패턴 - DI, 수동 DI](https://medium.com/taekwon-v/spring-core-design-pattern-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%BD%9C%EB%B0%B1-%ED%8C%A8%ED%84%B4-di-%EC%88%98%EB%8F%99-di-b5561f5b0469)
 
 
 - **Spring MVC**   
@@ -60,7 +61,7 @@
     - [Spring MVC - How Spring MVC handles Exceptions](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-handles-exceptions-7a6910c956f)
     - [Spring MVC - 멀티 스레드 [1] — 스레드 생성 시점과 ThreadLocal](https://medium.com/taekwon-v/spring-mvc-%EB%A9%80%ED%8B%B0-%EC%8A%A4%EB%A0%88%EB%93%9C-1-%EC%8A%A4%EB%A0%88%EB%93%9C-%EC%83%9D%EC%84%B1-%EC%8B%9C%EC%A0%90%EA%B3%BC-threadlocal-3245a0ec9331)
     - [Spring MVC - 멀티 스레드 [2] — ThreadPool](https://medium.com/taekwon-v/spring-mvc-%EB%A9%80%ED%8B%B0-%EC%8A%A4%EB%A0%88%EB%93%9C-2-threadpool-1f067ad086b1)
-    - [Spring MVC - 핸들러 인터셉터에서 유저 인증 여부 및 권한 검사하기 [1]](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EB%B0%8F-%EA%B6%8C%ED%95%9C-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-1-2e736844d46b)
+    - [Spring MVC - 핸들러 인터셉터에서 유저 인증 여부 및 권한 검사하기 [1] - GET /api/post/{postId} vs POST /api/post/{postId}](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EB%B0%8F-%EA%B6%8C%ED%95%9C-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-1-2e736844d46b)
     - [Spring MVC - 핸들러 인터셉터에서 유저 인증 여부 및 권한 검사하기 [2] - pick-git 팀 해결 아이디어 소개 (Java Annotation, Reflection, Proxy Pattern)](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-2-pick-git-%ED%8C%80-%ED%95%B4%EA%B2%B0-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EC%86%8C%EA%B0%9C-java-annotation-reflection-85d02cc20b32)
     - [Spring MVC - 핸들러 인터셉터에서 유저 인증 여부 및 권한 검사하기 [3] - pick-git 팀 소스 코드 분석하기](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-3-pick-git-%ED%8C%80-%EC%86%8C%EC%8A%A4-%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0-7aad4ffc8297)
 
@@ -72,7 +73,6 @@
 - **Spring Data**
     - [ORM (Object-Relational Mapping) 등장 배경](https://medium.com/taekwon-v/jpa-orm-object-relational-mapping-%EB%93%B1%EC%9E%A5-%EB%B0%B0%EA%B2%BD-86e5d1439e23)
     - [JPA - EntityManager, PersistenceContext［1］](https://medium.com/taekwon-v/jpa-entitymanger-persistencecontext-1-df1e71a7a0e7)
-    - [JPA - EntityManager, PersistenceContext［2］](https://medium.com/taekwon-v/jpa-entitymanager-persistencecontext-2-44ab3e1925ff)
     - [JPA - EntityManager, PersistenceContext［2］](https://medium.com/taekwon-v/jpa-entitymanager-persistencecontext-2-44ab3e1925ff)
     - [JPA - Embedded Type](https://medium.com/taekwon-v/jpa-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%ED%83%80%EC%9E%85-94ecadfb6295)
     - [JPA - 즉시 로딩 (Eager), 지연 로딩 (Lazy)](https://medium.com/taekwon-v/jpa-%EC%A6%89%EC%8B%9C-%EB%A1%9C%EB%94%A9-eager-%EC%A7%80%EC%97%B0-%EB%A1%9C%EB%94%A9-lazy-80dd3764ac2f)
@@ -91,7 +91,7 @@
 
   
 - **DevOps**
-    - [Flyway - Spring + Flyway DB Migration (MySQL DDL) ](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)
+    - [Flyway - Spring + Flyway DB Migration (MySQL DDL)](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)
     - [Flyway - Repeatable migration & Seed Data](https://medium.com/taekwon-v/flyway-repeatable-migration-seed-data-a363c7f86206)
     - [Git  - Squash Commits into one](https://medium.com/taekwon-v/git-squash-commits-into-one-f9830a49fe5b)
     - [Git  - CRLS (새줄문자) 설정 with Docker](https://medium.com/taekwon-v/git-crlf-%EC%83%88%EC%A4%84-%EB%AC%B8%EC%9E%90-%EC%84%A4%EC%A0%95-with-docker-bab88a24072c)
