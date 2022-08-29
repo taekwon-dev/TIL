@@ -15,6 +15,7 @@ public class TraceTemplate {
         this.trace = trace;
     }
 
+    // 파라미터 활용 (핵심 기능을 파라미터로 전달)
     public <T> T execute(String message, TraceCallback<T> callback) {
         TraceStatus status = null;
         try {
