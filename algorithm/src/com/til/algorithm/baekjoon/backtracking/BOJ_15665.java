@@ -8,14 +8,11 @@ import java.util.StringTokenizer;
 
 /**
  *  N과 M (11)
- *  N개의 자연수는 모든 다른 수가 아닐 수 있다. (-> 중복된 수가 있을 수 있다)
- *
- *  - 같은 수를 여러 번 골라도 된다.
  */
 public class BOJ_15665 {
     static int n, m;
     static int[] arr;
-    static int[] answer;
+    static int[] sarr;
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -24,8 +21,7 @@ public class BOJ_15665 {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
         arr = new int[n];
-        answer = new int[m];
-
+        sarr = new int[m];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
@@ -38,7 +34,7 @@ public class BOJ_15665 {
     private static void backtracking(int depth) {
         if (depth == m) {
             for (int i = 0; i < m; i++) {
-                sb.append(answer[i] + " ");
+                sb.append(sarr[i] + " ");
             }
             sb.append("\n");
             return;
@@ -47,7 +43,7 @@ public class BOJ_15665 {
         for (int i = 0; i < n; i++) {
             if (prev != arr[i]) {
                 prev = arr[i];
-                answer[depth] = arr[i];
+                sarr[depth] = arr[i];
                 backtracking(depth + 1);
             }
         }

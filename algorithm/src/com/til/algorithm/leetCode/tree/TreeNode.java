@@ -1,7 +1,6 @@
-package com.til.algorithm.leetCode;
+package com.til.algorithm.leetCode.tree;
 
 public class TreeNode {
-
     public int val;
     public TreeNode left;
     public TreeNode right;
