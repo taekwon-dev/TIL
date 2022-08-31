@@ -19,7 +19,7 @@ package com.til.algorithm.algorithm.sort;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] arr = {3, 9, 4, 7, 5, 0, 1, 6, 8, 2};
+        int[] arr = {3, 9, 4, 7, 5, 0};
         printArray(arr);
         quickSort(arr);
         printArray(arr);
@@ -40,6 +40,7 @@ public class QuickSort {
     }
 
     private static int partition(int[] arr, int start, int end) {
+        System.out.println(start + " ~ " + end);
         int pivot = arr[(start + end) / 2];
         while (start <= end) {
             while (arr[start] < pivot) start++;
