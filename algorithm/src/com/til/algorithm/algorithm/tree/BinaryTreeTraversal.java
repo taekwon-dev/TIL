@@ -54,17 +54,30 @@ class Tree {
 public class BinaryTreeTraversal {
     public static void main(String[] args) {
         Tree tree = new Tree();
-        Node n4 = tree.makeNode(null, 4, null);
-        Node n5 = tree.makeNode(null, 5, null);
-        Node n2 = tree.makeNode(n4, 2, n5);
-        Node n3 = tree.makeNode(null, 3, null);
-        Node n1 = tree.makeNode(n2, 1, n3);
 
-        tree.inorder(n1);
+        Node n10 = tree.makeNode(null, 10, null);
+        Node n9 = tree.makeNode(null, 9, n10);
+
+        Node n7 = tree.makeNode(null, 7, null);
+        Node n6 = tree.makeNode(null, 6, n7);
+
+        Node n8 = tree.makeNode(n6, 8, n9);
+
+
+        Node n4 = tree.makeNode(null, 4, null);
+        Node n3 = tree.makeNode(null, 3, n4);
+
+        Node n1 = tree.makeNode(null, 1, null);
+
+        Node n2 = tree.makeNode(n1, 2, n3);
+
+        Node n5 = tree.makeNode(n2, 5, n8);
+
+        tree.inorder(n5);
         System.out.println();
-        tree.preorder(n1);
+        tree.preorder(n5);
         System.out.println();
-        tree.postorder(n1);
+        tree.postorder(n5);
 
     }
 }
