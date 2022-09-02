@@ -2,7 +2,6 @@ package com.til.algorithm.leetCode.tree;
 
 /**
  *  Increasing Order Search Tree
- *  (https://jaime-note.tistory.com/314)
  */
 public class LEET_897 {
     private TreeNode head;

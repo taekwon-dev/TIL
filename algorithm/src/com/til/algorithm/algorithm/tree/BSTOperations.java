@@ -1,7 +1,12 @@
 package com.til.algorithm.algorithm.tree;
 
 /**
- *  https://www.youtube.com/watch?v=xxADG17SveY
+ *  Binary Search Tree Operations
+ *
+ *  (1) Search
+ *  (2) Insert
+ *  (3) Delete
+ *
  */
 class BinarySearchTreeForOps {
     class Node {
@@ -16,7 +21,9 @@ class BinarySearchTreeForOps {
     Node root;
 
     public Node search(Node root, int key) {
-        if (root == null || root.data == key) return root;
+        if (root == null || root.data == key) {
+            return root;
+        }
         if (root.data > key) return search(root.left, key);
         return search(root.right, key);
     }
@@ -59,7 +66,7 @@ class BinarySearchTreeForOps {
         return root;
     }
 
-    int findMin(Node root) {
+    private int findMin(Node root) {
         int min = root.data;
         while (root.left != null) {
             min = root.left.data;
@@ -101,6 +108,10 @@ public class BSTOperations {
         bst.insert(6);
         bst.insert(5);
         bst.insert(7);
+        bst.insert(8);
+
+        System.out.println(bst.search(bst.root, 9));
+        System.out.println(bst.search(bst.root, 6));
 
         bst.inorder();
         bst.delete(6);
