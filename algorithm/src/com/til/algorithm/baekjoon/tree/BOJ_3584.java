@@ -4,39 +4,48 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- *  LCA 1
+ *  가장 가까운 공통 조상 (LCA) + 루트가 있는 트리에서 루트 노드 구하기
  */
-public class BOJ_11437 {
+public class BOJ_3584 {
     static List<Integer>[] adjList;
     static int[] parent;
     static int[] depth;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        parent = new int[n + 1];
-        depth = new int[n + 1];
-        adjList = new List[n + 1];
-        for (int i = 1; i <= n; i++) {
-            adjList[i] = new ArrayList<>();
-        }
         StringTokenizer st = null;
-        for (int i = 0; i < n - 1; i++) {
-            st = new StringTokenizer(br.readLine());
-            int from = Integer.parseInt(st.nextToken());
-            int to = Integer.parseInt(st.nextToken());
-            adjList[from].add(to);
-            adjList[to].add(from);
-        }
-        init(1, 1, 0);
-
         StringBuilder sb = new StringBuilder();
-        int m = Integer.parseInt(br.readLine());
-        for (int i = 0; i < m; i++) {
+        int tc = Integer.parseInt(br.readLine());
+        for (int t = 0; t < tc; t++) {
+            int n = Integer.parseInt(br.readLine());
+            parent = new int[n + 1];
+            depth = new int[n + 1];
+            adjList = new List[n + 1];
+            for (int i = 1; i <= n; i++) {
+                adjList[i] = new ArrayList<>();
+            }
+            boolean[] rooted = new boolean[n + 1];
+            Arrays.fill(rooted, true);
+            for (int i = 0; i < n - 1; i++) {
+                st = new StringTokenizer(br.readLine());
+                int from = Integer.parseInt(st.nextToken());
+                int to = Integer.parseInt(st.nextToken());
+                adjList[from].add(to);
+                rooted[to] = false;
+            }
+            int rootIdx = 0;
+            for (int i = 1; i <= n; i++) {
+                if (rooted[i]) {
+                    rootIdx = i;
+                    break;
+                }
+            }
+            init(rootIdx, 1, 0);
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
@@ -49,9 +58,7 @@ public class BOJ_11437 {
         depth[curr] = h;
         parent[curr] = pa;
         for (int child : adjList[curr]) {
-            if (child != pa) {
-                init(child, h + 1, curr);
-            }
+            init(child, h + 1, curr);
         }
     }
 
