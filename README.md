@@ -12,6 +12,7 @@
     - [OS CPU 스케줄링 [1] — 기본 개념](https://medium.com/taekwon-v/os-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-1-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-39ecf968dda6)
     - [OS CPU 스케줄링 [2] — CPU 스케줄링 알고리즘](https://medium.com/taekwon-v/os-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-2-cpu-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-9c6f4c34301c)
     - [OS 프로세스 동기화 [1] — Race Condition](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%8F%99%EA%B8%B0%ED%99%94-1-race-condition-2f722dfae956)
+    - [OS 프로세스 동기화 [2] — 프로세스 동기화 & 임계 구역 동기화 문제 해결 1 — 소프트웨어, 하드웨어 해결방법](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%8F%99%EA%B8%B0%ED%99%94-2-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%8F%99%EA%B8%B0%ED%99%94-%EC%9E%84%EA%B3%84-%EA%B5%AC%EC%97%AD-%EB%8F%99%EA%B8%B0%ED%99%94-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-1-%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-8737bbe7b40)
     - [OS 메모리 관리 [1] - 논리적, 물리적 메모리, 주소 바인딩](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-1-%EB%85%BC%EB%A6%AC%EC%A0%81-%EB%AC%BC%EB%A6%AC%EC%A0%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A3%BC%EC%86%8C-%EB%B0%94%EC%9D%B8%EB%94%A9-9d6a3295a2eb)
     - [OS 메모리 관리 [2] - 연속, 불연속 메모리 할당, 페이징, TLB](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-2-%EC%97%B0%EC%86%8D-%EB%B6%88%EC%97%B0%EC%86%8D-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9-%ED%8E%98%EC%9D%B4%EC%A7%95-tlb-9c697cac6d3b)
     - [OS 메모리 관리 [4] - 세그멘테이션, 세그멘테이션 with 페이징](https://medium.com/taekwon-v/os-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-4-segmentation-segmentation-with-paging-abc0e4c8d6c4)
@@ -20,7 +21,7 @@
     - [OS 가상 메모리 [3] - 페이지 프레임 할당, 스레싱(thrashing)](https://medium.com/taekwon-v/os-%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC-3-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%94%84%EB%A0%88%EC%9E%84-%ED%95%A0%EB%8B%B9-%EC%8A%A4%EB%A0%88%EC%8B%B1-thrashing-36ae77cb634e)
     - [OS 인터럽트 (Interrupt)](https://medium.com/taekwon-v/os-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-interrupt-566b31faed94)
     - [OS 프로세스 스케줄링을 위한 큐(Queue)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%81%90-queue-ddc2cefe75e2)
-  
+
 
 - **Network**
 
@@ -72,7 +73,7 @@
   
 
 - **Spring Data**
-    - [ORM (Object-Relational Mapping) 등장 배경](https://medium.com/taekwon-v/jpa-orm-object-relational-mapping-%EB%93%B1%EC%9E%A5-%EB%B0%B0%EA%B2%BD-86e5d1439e23)
+    - [JPA - ORM (Object-Relational Mapping) 등장 배경](https://medium.com/taekwon-v/jpa-orm-object-relational-mapping-%EB%93%B1%EC%9E%A5-%EB%B0%B0%EA%B2%BD-86e5d1439e23)
     - [JPA - EntityManager, PersistenceContext［1］](https://medium.com/taekwon-v/jpa-entitymanger-persistencecontext-1-df1e71a7a0e7)
     - [JPA - EntityManager, PersistenceContext［2］](https://medium.com/taekwon-v/jpa-entitymanager-persistencecontext-2-44ab3e1925ff)
     - [JPA - Embedded Type](https://medium.com/taekwon-v/jpa-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%ED%83%80%EC%9E%85-94ecadfb6295)

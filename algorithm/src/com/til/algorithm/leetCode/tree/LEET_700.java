@@ -1,7 +1,6 @@
 package com.til.algorithm.leetCode.tree;
 
 /**
- *  ⚠
  *  Search in a Binary Search Tree
  */
 public class LEET_700 {
