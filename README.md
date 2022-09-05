@@ -1,6 +1,6 @@
 #  TIL (Today, I Learned)
 
-### 🐢 TIL & Blog 🐢
+### TIL & Blog 
 
 - **OS**
     - [OS 프로세스 [1] — 프로세스 상태 1 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
@@ -53,6 +53,7 @@
     - [Spring Core & Design Pattern - 전략 패턴, 템플릿 콜백 패턴](https://medium.com/taekwon-v/spring-core-design-pattern-%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%BD%9C%EB%B0%B1-%ED%8C%A8%ED%84%B4-df382fd524bf)
     - [Spring Core & Design Pattern - 템플릿 콜백 패턴 - DI, 수동 DI](https://medium.com/taekwon-v/spring-core-design-pattern-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%BD%9C%EB%B0%B1-%ED%8C%A8%ED%84%B4-di-%EC%88%98%EB%8F%99-di-b5561f5b0469)
     - [Spring Core & Design Pattern - 프록시 패턴, 데코레이터 패턴 1](https://medium.com/taekwon-v/spring-core-design-pattern-%ED%94%84%EB%A1%9D%EC%8B%9C-%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0-%ED%8C%A8%ED%84%B4-1-b2015787b754)
+    - [Spring Core & Design Pattern - 프록시 패턴, 데코레이터 패턴 2](https://medium.com/taekwon-v/spring-core-design-pattern-%ED%94%84%EB%A1%9D%EC%8B%9C-%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0-%ED%8C%A8%ED%84%B4-2-d2b0a56fa8e5)
 
 
 - **Spring MVC**   
