@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *  로마 숫자 만들기
+ * 로마 숫자 만들기
  */
 public class BOJ_16922 {
     static int n;
-    static int answer;
     static int[] arr = {1, 5, 10, 50};
     static boolean[] visited = new boolean[1000 + 1];
+    static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

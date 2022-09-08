@@ -10,7 +10,7 @@ package com.til.algorithm.baekjoon.backtracking;
  *  N-Queen 문제를 풀기 위한 기본 아이디어
  *
  */
-public class BOJ_9663_0 {
+public class BOJ_9663_TEST {
     static boolean[][] visited = new boolean[3][3];
     static int count;
     public static void main(String[] args) {

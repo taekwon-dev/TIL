@@ -9,16 +9,17 @@ import java.util.StringTokenizer;
  *  차이를 최대로
  */
 public class BOJ_10819 {
-    static int n, max = 0;
+    static int n;
     static int[] arr;
-    static int[] rarr;
+    static int[] tmp;
     static boolean[] visited;
+    static int max = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
         arr = new int[n];
-        rarr = new int[n];
+        tmp = new int[n];
         visited = new boolean[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
@@ -30,23 +31,25 @@ public class BOJ_10819 {
 
     private static void backtracking(int depth) {
         if (depth == n) {
-            // n - 1 개의 숫자를 모두 배치한 뒤
-            // 수식 최댓값 계산
-            int sum = 0;
-            for (int i = 0; i < n - 1; i++) {
-                sum += Math.abs(rarr[i] - rarr[i + 1]);
-            }
-            max = Math.max(max, sum);
+            max = Math.max(max, cal());
             return;
         }
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                rarr[depth] = arr[i];
+                tmp[depth] = arr[i];
                 backtracking(depth + 1);
                 visited[i] = false;
             }
         }
+    }
+
+    private static int cal() {
+        int sum = 0;
+        for (int i = 0; i < n - 1; i++) {
+            sum += Math.abs(tmp[i] - tmp[i + 1]);
+        }
+        return sum;
     }
 
 }

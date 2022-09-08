@@ -10,49 +10,48 @@ import java.util.List;
 /**
  *  단지번호붙이기
  *
- *  단지수 = 영역 수
- *  단지내 집의 수 = 영역 크기
- *
- *  0 = 집이 없는 곳
- *  1 = 집이 있는 곳
+ *  - charactor to int via ascii code
  */
 public class BOJ_2667 {
     static int n;
-    static int[][] map;
     static boolean[][] visited;
+    static int[][] map;
     static int[] dx = {1, -1, 0, 0};
     static int[] dy = {0, 0, 1, -1};
-    static int regionSize = 1;
+    static int all_size, each_size;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        map = new int[n][n];
         visited = new boolean[n][n];
+        map = new int[n][n];
         for (int i = 0; i < n; i++) {
             String row = br.readLine();
             for (int j = 0; j < n; j++) {
                 map[i][j] = row.charAt(j) - '0';
             }
         }
-        List<Integer> regions = new ArrayList<>();
+
+        List<Integer> sizes = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (!visited[i][j] && map[i][j] == 1) {
                     dfs(i, j);
-                    regions.add(regionSize);
-                    regionSize = 1;
+                    all_size++;
+                    sizes.add(each_size);
+                    each_size = 0;
                 }
             }
         }
-        Collections.sort(regions);
-        System.out.println(regions.size());
-        for (int i = 0; i < regions.size(); i++) {
-            System.out.println(regions.get(i));
+        System.out.println(all_size);
+        Collections.sort(sizes);
+        for (int each : sizes) {
+            System.out.println(each);
         }
     }
 
     private static void dfs(int x, int y) {
+        each_size++;
         visited[x][y] = true;
 
         for (int i = 0; i < 4; i++) {
@@ -62,7 +61,6 @@ public class BOJ_2667 {
             if (nx >= 0 && ny >= 0 && nx < n && ny < n) {
                 if (!visited[nx][ny] && map[nx][ny] == 1) {
                     dfs(nx, ny);
-                    regionSize++;
                 }
             }
         }
