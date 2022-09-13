@@ -6,6 +6,7 @@ import java.util.List;
 
 public class LEET_1079_TEST {
     static List<String> list = new ArrayList<>();
+
     public static int numTilePossibilities(String tiles) {
         if (tiles == null || tiles.length() == 0) {
             return 0;

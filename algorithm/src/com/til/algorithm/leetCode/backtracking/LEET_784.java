@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  Letter Case Permutations
+ * Letter Case Permutations
  */
 public class LEET_784 {
     public List<String> letterCasePermutation(String s) {
@@ -12,6 +12,7 @@ public class LEET_784 {
         backtracking(answer, s, 0, 0, "");
         return answer;
     }
+
     private void backtracking(List<String> answer, String s, int depth, int index, String item) {
         if (depth == s.length()) {
             answer.add(item);

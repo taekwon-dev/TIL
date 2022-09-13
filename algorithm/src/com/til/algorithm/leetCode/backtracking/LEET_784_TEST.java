@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  - only character, lower or upper
+ * - only character, lower or upper
  */
 public class LEET_784_TEST {
     static String str = "a1b2c";
@@ -23,7 +23,7 @@ public class LEET_784_TEST {
             return;
         }
         for (int i = index; i < str.length(); i++) {
-            backtracking(depth + 1, i + 1,s + Character.toLowerCase(str.charAt(i)));
+            backtracking(depth + 1, i + 1, s + Character.toLowerCase(str.charAt(i)));
             backtracking(depth + 1, i + 1, s + Character.toUpperCase(str.charAt(i)));
         }
     }
