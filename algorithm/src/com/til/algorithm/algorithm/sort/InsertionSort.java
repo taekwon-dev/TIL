@@ -1,12 +1,14 @@
 package com.til.algorithm.algorithm.sort;
 
 /**
- *  삽입 정렬
- *
- *  거의 정렬된 경우 매우 효율적이다. 최선의 경우 O(N)
- *  단, 역순으로 되어 있는 경우 (= 최악의 경우) O(N^2)
- *  즉 데이터 상태에 따라서 성능 편차가 크다.
- *
+ * Insertion Sort
+ * <p>
+ * 장점
+ * 1. 추가 메모리 소비가 적다.
+ * 2. 안정 정렬
+ * <p>
+ * 단점
+ * 1. 시간복잡도 O(N^2)
  */
 public class InsertionSort {
 

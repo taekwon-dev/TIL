@@ -1,6 +1,6 @@
-#  TIL (Today, I Learned)
+# TIL (Today, I Learned)
 
-### TIL & Blog 
+### TIL & Blog
 
 - **OS**
     - [OS 프로세스 [1] — 프로세스 상태 1 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
@@ -27,7 +27,7 @@
 
 
 - **Database**
-  - [MySQL - 트랜잭션 격리 수준](https://medium.com/taekwon-v/mysql-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80-e96c49083f7c)
+    - [MySQL - 트랜잭션 격리 수준](https://medium.com/taekwon-v/mysql-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80-e96c49083f7c)
 
 
 - **OOP**
@@ -56,7 +56,7 @@
     - [Spring Core & Design Pattern - 프록시 패턴, 데코레이터 패턴 2](https://medium.com/taekwon-v/spring-core-design-pattern-%ED%94%84%EB%A1%9D%EC%8B%9C-%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0-%ED%8C%A8%ED%84%B4-2-d2b0a56fa8e5)
 
 
-- **Spring MVC**   
+- **Spring MVC**
     - [Spring MVC - How Spring MVC Works［1］- WebApplicationContext, Context Hierarchy](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-webapplicationcontext-context-hierarchy-21c835719f43)
     - [Spring MVC - How Spring MVC Works［2］- DispatcherServlet (Front Controller)](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-2-dispatcherservlet-front-controller-a03bf6248202)
     - [Spring MVC - How Spring MVC Works［3］- HandlerMapping, HandlerAdapter, and DI](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-works-3-handlermapping-handleradapter-and-di-4ca249c3ce8a)
@@ -71,7 +71,7 @@
 
 - **Spring Security**
     - [Spring Security - Servlet Application Architecture](https://medium.com/taekwon-v/spring-security-servlet-application-architecture-c46c7c5dbaba)
-  
+
 
 - **Spring Data**
     - [JPA - ORM (Object-Relational Mapping) 등장 배경](https://medium.com/taekwon-v/jpa-orm-object-relational-mapping-%EB%93%B1%EC%9E%A5-%EB%B0%B0%EA%B2%BD-86e5d1439e23)
@@ -92,10 +92,10 @@
     - [인프런 스프링 DB 1편 [5] - Java Exception](https://medium.com/taekwon-v/jdbc-jdbc-5-java-exception-43c5f72c69fd)
     - [인프런 스프링 DB 1편 [6] - 스프링과 문제 해결 - 예외 추상화](https://medium.com/taekwon-v/jdbc-jdbc-6-%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%EC%98%88%EC%99%B8-%EC%B6%94%EC%83%81%ED%99%94-28895899e669)
 
-  
+
 - **DevOps**
     - [Flyway - Spring + Flyway DB Migration (MySQL DDL)](https://medium.com/taekwon-v/spring-boot-flyway-db-migration-mysql-ddl-4e649bda7f45)
     - [Flyway - Repeatable migration & Seed Data](https://medium.com/taekwon-v/flyway-repeatable-migration-seed-data-a363c7f86206)
-    - [Git  - Squash Commits into one](https://medium.com/taekwon-v/git-squash-commits-into-one-f9830a49fe5b)
-    - [Git  - CRLS (새줄문자) 설정 with Docker](https://medium.com/taekwon-v/git-crlf-%EC%83%88%EC%A4%84-%EB%AC%B8%EC%9E%90-%EC%84%A4%EC%A0%95-with-docker-bab88a24072c)
+    - [Git - Squash Commits into one](https://medium.com/taekwon-v/git-squash-commits-into-one-f9830a49fe5b)
+    - [Git - CRLS (새줄문자) 설정 with Docker](https://medium.com/taekwon-v/git-crlf-%EC%83%88%EC%A4%84-%EB%AC%B8%EC%9E%90-%EC%84%A4%EC%A0%95-with-docker-bab88a24072c)
     - [DevOps - ZEXT Infrastructure & CI/CD](https://medium.com/taekwon-v/devops-zext-infrastructure-ci-cd-5b4106dde554)

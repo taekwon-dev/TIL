@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  Map (HashMap)
- *  Set (HashSet)
+ * Map (HashMap)
+ * Set (HashSet)
  */
 class LV1_신고결과받기 {
     public int[] solution(String[] id_list, String[] report, int k) {

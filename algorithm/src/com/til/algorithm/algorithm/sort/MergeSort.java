@@ -1,12 +1,14 @@
 package com.til.algorithm.algorithm.sort;
 
 /**
- *  분할 정복
- *
- *  비교 정렬
- *  ~ 제자리 정렬 -> 추가 공간 필요
- *  안정 정렬
- *
+ * Merge Sort
+ * <p>
+ * 장점
+ * 1. 항상 두 부분 리스트로 쪼개어 들어가기 때문에 최악의 경우에도 O(NlogN) 으로 유지 된다.
+ * 2. 안정정렬
+ * <p>
+ * 단점
+ * 1. 정렬 과정에서 추가적인보조 배열 공간을 사용
  */
 public class MergeSort {
 

@@ -9,8 +9,19 @@ class Tree2 {
         public Node(int data) {
             this.data = data;
         }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + data +
+                    ", left=" + left +
+                    ", right=" + right +
+                    '}';
+        }
     }
+
     Node root;
+
     public void makeTree(int[] arr) {
         root = makeTreeR(arr, 0, arr.length - 1);
     }
@@ -35,6 +46,14 @@ class Tree2 {
             System.out.println("Data Found");
         }
     }
+    
+    public Node searchNode(Node root, int key) {
+        if (root == null || root.data == key) {
+            return root;
+        }
+        if (root.data > key) return searchNode(root.left, key);
+        return searchNode(root.right, key);
+    }
 }
 
 public class SortedArrayToBinaryTree {
@@ -46,5 +65,7 @@ public class SortedArrayToBinaryTree {
         Tree2 t = new Tree2();
         t.makeTree(arr);
         t.searchBTree(t.root, 2);
+        System.out.println("t = " + t.root);
+        System.out.println("t.searchNode(t.root, 5).data = " + t.searchNode(t.root, 5).data);
     }
 }
