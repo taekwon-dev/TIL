@@ -1,19 +1,26 @@
 package com.til.algorithm.leetCode.tree;
 
-/**
- *  Minimum Distance Between BST Nodes
- */
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class LEET_783 {
-    int min = Integer.MAX_VALUE;
-    TreeNode prev = null;
     public int minDiffInBST(TreeNode root) {
-        if (root == null) return min;
-        minDiffInBST(root.left);
-        if (prev != null) {
-            min = Math.min(min, root.val - prev.val);
+        int min = Integer.MAX_VALUE;
+        List<Integer> list = new ArrayList<>();
+        preorder(root, list);
+        Collections.sort(list);
+        for (int i = 0; i < list.size() - 1; i++) {
+            min = Math.min(min, Math.abs(list.get(i) - list.get(i + 1)));
         }
-        prev = root;
-        minDiffInBST(root.right);
         return min;
+
+    }
+
+    private void preorder(TreeNode root, List<Integer> list) {
+        if (root == null) return;
+        list.add(root.val);
+        preorder(root.left, list);
+        preorder(root.right, list);
     }
 }

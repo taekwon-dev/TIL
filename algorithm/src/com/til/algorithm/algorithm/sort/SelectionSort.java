@@ -47,6 +47,18 @@ public class SelectionSort {
         }
     }
 
+    private static void selectionSort2(int[] arr, int start) {
+        if (start > arr.length - 1) return;
+        int min_index = start;
+        for (int i = start; i < arr.length; i++) {
+            if (arr[min_index] > arr[i]) {
+                min_index = i;
+            }
+        }
+        swap(arr, start, min_index);
+        selectionSort2(arr, start + 1);
+    }
+
     private static void swap(int[] arr, int index1, int index2) {
         int tmp = arr[index1];
         arr[index1] = arr[index2];

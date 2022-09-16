@@ -3,7 +3,7 @@ package com.til.algorithm.leetCode.binary_tree;
 import com.til.algorithm.leetCode.tree.TreeNode;
 
 /**
- *  Root Equals Sum of Children
+ * Root Equals Sum of Children
  */
 public class LEET_2236 {
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
