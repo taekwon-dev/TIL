@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -11,15 +12,15 @@ import java.util.StringTokenizer;
  */
 public class BOJ_12101 {
     static int n, k;
-    static ArrayList<String> list = new ArrayList<>();
+    static List<String> list = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
-
         backtracking(0, "");
+
         if (list.size() < k) {
             System.out.println(-1);
         } else {
@@ -41,5 +42,4 @@ public class BOJ_12101 {
             }
         }
     }
-
 }

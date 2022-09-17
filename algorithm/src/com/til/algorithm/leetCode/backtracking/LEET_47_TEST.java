@@ -1,15 +1,18 @@
 package com.til.algorithm.leetCode.backtracking;
 
+import java.util.Arrays;
+
 public class LEET_47_TEST {
-    static int[] nums = {1, 1, 2, 2, 3};
+    static int[] nums = {1, 1, 2};
     static int[] arr = new int[nums.length];
     static boolean[] visited = new boolean[nums.length];
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) {
-        backtracking(0);
+//        backtracking(0);
+        Arrays.sort(nums);
         backtrakcing2(0);
-        backtracking3(0);
+//        backtracking3(0);
         System.out.println(sb.toString());
     }
 
@@ -31,6 +34,9 @@ public class LEET_47_TEST {
         }
     }
 
+    /**
+     *  with a sorted array
+     */
     private static void backtrakcing2(int depth) {
         if (depth == nums.length) {
             for (int i = 0; i < nums.length; i++) {
@@ -39,7 +45,7 @@ public class LEET_47_TEST {
             sb.append("\n");
             return;
         }
-        int prev = 0;
+        int prev = -1;
         for (int i = 0; i < nums.length; i++) {
             if (!visited[i] && prev != nums[i]) {
                 visited[i] = true;
@@ -51,6 +57,7 @@ public class LEET_47_TEST {
         }
     }
 
+    /** without a sorted array */
     private static void backtracking3(int depth) {
         if (depth == nums.length) {
             for (int i = 0; i < nums.length; i++) {
