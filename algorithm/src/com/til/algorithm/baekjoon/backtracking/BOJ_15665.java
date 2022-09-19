@@ -6,9 +6,6 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-/**
- *  N과 M (11)
- */
 public class BOJ_15665 {
     static int n, m;
     static int[] arr;

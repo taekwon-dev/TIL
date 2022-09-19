@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- *  1, 2, 3 더하기 (DP 로 분류된 문제지만 백트랙킹으로 풀어보기)
- */
 public class BOJ_9095 {
     static int tc, n, answer;
 

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *  모든 순열
+ * 모든 순열
  */
 public class BOJ_10974 {
     static int n;

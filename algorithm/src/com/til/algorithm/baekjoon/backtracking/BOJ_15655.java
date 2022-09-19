@@ -6,14 +6,6 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-/**
- *  N과 M (6)
- *
- *  N개의 자연수 중에서 M개를 고른 수열
- *  고른 수열은 오름차순
- *  - 인덱스
- *  - 같은 원소를 두 개 이상 고를 수 없다.
- */
 public class BOJ_15655 {
     static int n, m;
     static int[] arr;

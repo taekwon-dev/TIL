@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/**
- *  선발 명단
- */
 public class BOJ_3980 {
     static int tc;
     static int[][] map;
@@ -18,7 +15,7 @@ public class BOJ_3980 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         tc = Integer.parseInt(br.readLine());
-        while (tc --> 0) {
+        while (tc-- > 0) {
             max = Integer.MIN_VALUE;
             visited = new boolean[11];
             map = new int[11][11];

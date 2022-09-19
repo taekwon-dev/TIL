@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * 로마 숫자 만들기
- */
 public class BOJ_16922 {
     static int n;
     static int[] arr = {1, 5, 10, 50};

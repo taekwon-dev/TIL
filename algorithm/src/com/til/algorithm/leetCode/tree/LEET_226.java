@@ -1,4 +1,4 @@
-package com.til.algorithm.leetCode.binary_tree;
+package com.til.algorithm.leetCode.tree;
 
 import com.til.algorithm.leetCode.tree.TreeNode;
 

@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/**
- *  스타트와 링크
- */
 public class BOJ_14889 {
     static int n;
     static int[][] map;

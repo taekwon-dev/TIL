@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/**
- *  차이를 최대로
- */
 public class BOJ_10819 {
     static int n;
     static int[] arr;

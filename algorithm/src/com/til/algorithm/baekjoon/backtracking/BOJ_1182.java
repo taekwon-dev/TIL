@@ -5,10 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/**
- *  부분수열의 합
- */
-
 public class BOJ_1182 {
     static int n, s;
     static int[] arr;

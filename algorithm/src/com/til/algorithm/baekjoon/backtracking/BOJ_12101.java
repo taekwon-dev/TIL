@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-/**
- * 1, 2, 3 더하기 2
- */
 public class BOJ_12101 {
     static int n, k;
     static List<String> list = new ArrayList<>();

@@ -5,39 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/**
- *  N과 M (1)
- *
- *  자연수 N과 M이 주어졌을 때,
- *  아래 조건을 만족하는 길이가 M인 수열을 모두 구하는 프로그램을 작성하시오.
- *
- *  첫째 줄에 자연수 N과 M이 주어진다. (1 ≤ M ≤ N ≤ 8)
- *
- *  N M
- *  4 2
- *
- *  1 2
- *  1 3
- *  1 4
- *
- *  2 1
- *  2 3
- *  2 4
- *
- *  3 1
- *  3 2
- *  3 4
- *
- *  4 1
- *  4 2
- *  4 3
- *
- *  12
- *
- *  4P2 → 1 2 를 2 1 서로 다르게 봄
- *
- */
-
 public class BOJ_15649 {
     static int n, m;
     static int[] arr;

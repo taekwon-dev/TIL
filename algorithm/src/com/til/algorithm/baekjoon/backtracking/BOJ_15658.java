@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/**
- *  연산자 끼워넣기 (2)
- */
 public class BOJ_15658 {
     static int n;
     static int[] arr;

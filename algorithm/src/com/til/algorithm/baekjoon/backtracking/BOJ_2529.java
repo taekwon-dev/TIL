@@ -7,11 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-/**
- *  부등호
- *
- *  https://onejunu.tistory.com/79 - 맨 앞자리가 0인 경우를 표현 관련
- */
 public class BOJ_2529 {
     static int k;
     static char[] arr;
@@ -46,6 +41,7 @@ public class BOJ_2529 {
             }
         }
     }
+
     private static boolean compare(char sign, int x, int y) {
         if (sign == '<') {
             return x < y;

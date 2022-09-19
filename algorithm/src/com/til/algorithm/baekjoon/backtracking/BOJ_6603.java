@@ -5,12 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/**
- *  로또
- *
- *  로또 -> 집합 -> 조합
- *
- */
 public class BOJ_6603 {
     static int k;
     static int[] arr;

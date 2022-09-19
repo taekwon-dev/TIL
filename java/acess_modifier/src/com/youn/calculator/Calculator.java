@@ -1,10 +1,5 @@
 package com.youn.calculator;
 
-/**
- * Created by Youn on 2022/06/26.
- * Title :
- * Hint  :
- */
 public class Calculator {
     private int left, right;
 

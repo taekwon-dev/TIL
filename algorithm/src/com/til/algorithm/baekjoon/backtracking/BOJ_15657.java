@@ -6,13 +6,6 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-/**
- *  N과 M (8)
- *  N개의 자연수는 모두 다른 수이다.
- *
- *  - 같은 수를 여러 번 골라도 된다. -> 각 노드(숫자)를 방문 여부를 기록할 필요 없음
- *  - 고른 수열은 비내림차순 -> 뒤에 있는 숫자가 (배열 인덱스 기준) 앞에 있는 숫자보다 같거나 커야 하므로 별도의 인덱스를 인자로 활용
- */
 public class BOJ_15657 {
     static int n, m;
     static int[] arr;
