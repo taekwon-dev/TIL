@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  이진 검색 트리
- *
- *  주어진 트리를 오름차순으로 정렬 후 해당 배열을 통해 BST를 만드려고 시도 -> 반드시 문제 조건에 주어진 트리와 같다고 보장할 수 없음 !
+ * 이진 검색 트리
+ * <p>
+ * 주어진 트리를 오름차순으로 정렬 후 해당 배열을 통해 BST를 만드려고 시도 -> 반드시 문제 조건에 주어진 트리와 같다고 보장할 수 없음 !
  */
 public class BOJ_5639 {
     static class Node {

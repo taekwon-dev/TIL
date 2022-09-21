@@ -3,23 +3,24 @@ package com.til.algorithm.baekjoon.graph_traversal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 /**
- *  적록색약
- *
- *  적록색약 = 빨강과 초록 차이를 거의 느끼기 힘듬 -> 이 문제에서 적록색약인 경우 초록색과 빨강은 같은 색으로 본다.
- *  구역 = 같은 색으로 이루어져 있다.
- *
- *  1) 적록색약인 사람이 봤을 때
- *  2) 아닌 사람이 봤을 때
- *  구역의 수를 구하는 프로그램을 작성하시오.
- *
- *  (1 ≤ N ≤ 100)
- 5
- RRRBB
- GGBBB
- BBBRR
- BBRRR
- RRRRR
+ * 적록색약
+ * <p>
+ * 적록색약 = 빨강과 초록 차이를 거의 느끼기 힘듬 -> 이 문제에서 적록색약인 경우 초록색과 빨강은 같은 색으로 본다.
+ * 구역 = 같은 색으로 이루어져 있다.
+ * <p>
+ * 1) 적록색약인 사람이 봤을 때
+ * 2) 아닌 사람이 봤을 때
+ * 구역의 수를 구하는 프로그램을 작성하시오.
+ * <p>
+ * (1 ≤ N ≤ 100)
+ * 5
+ * RRRBB
+ * GGBBB
+ * BBBRR
+ * BBRRR
+ * RRRRR
  */
 public class BOJ_10026 {
 

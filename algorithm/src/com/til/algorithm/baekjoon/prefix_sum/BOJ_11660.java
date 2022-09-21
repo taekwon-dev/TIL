@@ -6,30 +6,28 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- *  구간 합 구하기 5
- *
- *  DP + 누적 합
- *
- *  N×N개의 수가 N×N 크기의 표에 채워져 있다. (x1, y1)부터 (x2, y2)까지 합을 구하는 프로그램을 작성하시오
- *  (1 ≤ N ≤ 1024, 1 ≤ M ≤ 100,000) 조건이므로
- *
- int sum = 0;
- for (int x = x1; x <= x2; x++) {
-     for (int y = y1; y <= y2; y++) {
-         sum += map[x][y];
-     }
- }
-
- 위 처럼 풀면 시간 초과
-
- https://subbak2.tistory.com/65
-
- DP 관점
-
- 1) dp[i][j] = i, j 까지의 구간 합 (0,0) ~ (i,j) 점화식 구하기
- 2) 위 점화식 활용해서 문제에서 원하는 영역 구하기
- *
- *
+ * 구간 합 구하기 5
+ * <p>
+ * DP + 누적 합
+ * <p>
+ * N×N개의 수가 N×N 크기의 표에 채워져 있다. (x1, y1)부터 (x2, y2)까지 합을 구하는 프로그램을 작성하시오
+ * (1 ≤ N ≤ 1024, 1 ≤ M ≤ 100,000) 조건이므로
+ * <p>
+ * int sum = 0;
+ * for (int x = x1; x <= x2; x++) {
+ * for (int y = y1; y <= y2; y++) {
+ * sum += map[x][y];
+ * }
+ * }
+ * <p>
+ * 위 처럼 풀면 시간 초과
+ * <p>
+ * https://subbak2.tistory.com/65
+ * <p>
+ * DP 관점
+ * <p>
+ * 1) dp[i][j] = i, j 까지의 구간 합 (0,0) ~ (i,j) 점화식 구하기
+ * 2) 위 점화식 활용해서 문제에서 원하는 영역 구하기
  */
 public class BOJ_11660 {
     public static void main(String[] args) throws IOException {

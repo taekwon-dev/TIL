@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- *  LCA 1
+ * LCA 1
  */
 public class BOJ_11437 {
     static List<Integer>[] adjList;

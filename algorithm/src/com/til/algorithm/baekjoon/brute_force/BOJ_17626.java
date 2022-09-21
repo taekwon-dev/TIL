@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *  Four Squares
- *
- *  25 = 5^2 -> 1
- *  26 = 5^2 + 1^2 -> 2
- *
- *  [25][26][27][28][29]
- *   1   2   2   2   2
- *
- *  DP + Brute Force
+ * Four Squares
+ * <p>
+ * 25 = 5^2 -> 1
+ * 26 = 5^2 + 1^2 -> 2
+ * <p>
+ * [25][26][27][28][29]
+ * 1   2   2   2   2
+ * <p>
+ * DP + Brute Force
  */
 public class BOJ_17626 {
 

@@ -9,11 +9,12 @@ public class BOJ_2752_SelectionSort {
 
     /**
      * 세수정렬
-     *
+     * <p>
      * 숫자 세 개 (오름차순) - 선택정렬, 버븗정렬
      */
 
     static int[] arr = new int[3];
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

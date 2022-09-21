@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- *  트리 순회
- *
- *  이진 트리 키워드 확인
+ * 트리 순회
+ * <p>
+ * 이진 트리 키워드 확인
  */
 public class BOJ_1991 {
     static class Node {
@@ -20,6 +20,7 @@ public class BOJ_1991 {
             this.val = val;
         }
     }
+
     static class Tree {
         Node root;
 

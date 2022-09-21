@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *  버블 정렬 -> O(N^2)
- *  N <= 1000, O(1000^2)
+ * 버블 정렬 -> O(N^2)
+ * N <= 1000, O(1000^2)
  */
 public class BOJ_2750_BubbleSort {
 

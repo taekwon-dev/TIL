@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 /**
- *  트리
+ * 트리
  */
 public class BOJ_1068 {
     static int n;

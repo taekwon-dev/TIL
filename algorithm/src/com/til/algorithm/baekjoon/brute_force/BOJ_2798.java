@@ -6,24 +6,24 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- *  블랙잭
- *
- *  조합 = 순서를 고려하지 않는다.
- *
- *  [1, 2, 3, 4, 5]
- *
- *  1 + 2 + 3
- *  1 + 2 + 4
- *  1 + 2 + 5
- *  1 + 3 + 4
- *  .
- *  .
- *  .
- *
+ * 블랙잭
+ * <p>
+ * 조합 = 순서를 고려하지 않는다.
+ * <p>
+ * [1, 2, 3, 4, 5]
+ * <p>
+ * 1 + 2 + 3
+ * 1 + 2 + 4
+ * 1 + 2 + 5
+ * 1 + 3 + 4
+ * .
+ * .
+ * .
  */
 public class BOJ_2798 {
     static int n, m;
     static int[] nums;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

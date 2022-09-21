@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- *  쉬운 최단거리
+ * 쉬운 최단거리
  */
 public class BOJ_14940 {
     static class Node {
@@ -22,6 +22,7 @@ public class BOJ_14940 {
             this.dist = dist;
         }
     }
+
     static int n, m;
     static boolean[][] visited;
     static int[][] map;

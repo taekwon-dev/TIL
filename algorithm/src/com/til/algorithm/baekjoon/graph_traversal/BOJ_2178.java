@@ -8,11 +8,11 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- *  최단거리
- *  BFS
- *  - 가중치가 모두 1로 동일
- *
- *  (1, 1) -> (N, M) 이동 (시작, 도착 위치도 이동거리에 포함)
+ * 최단거리
+ * BFS
+ * - 가중치가 모두 1로 동일
+ * <p>
+ * (1, 1) -> (N, M) 이동 (시작, 도착 위치도 이동거리에 포함)
  */
 public class BOJ_2178 {
     public static class Node {
@@ -26,11 +26,13 @@ public class BOJ_2178 {
             this.dist = dist;
         }
     }
+
     static int n, m;
     static int[][] map;
     static boolean[][] visited;
     static int[] dx = {1, -1, 0, 0};
     static int[] dy = {0, 0, 1, -1};
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

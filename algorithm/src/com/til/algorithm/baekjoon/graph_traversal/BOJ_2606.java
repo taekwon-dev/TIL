@@ -9,12 +9,11 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- *  바이러스
- *
- *  1번 컴퓨터 -> 시작 노드
- *  시작 노드를 기준으로 그래프 탐색으로 통해 (간선으로 연결된) 노드의 수 구하기 (이 때 시작노드 컴퓨터는 카운팅에서 제외)
- *  무방향 그래프 (-> 양방향)
- *
+ * 바이러스
+ * <p>
+ * 1번 컴퓨터 -> 시작 노드
+ * 시작 노드를 기준으로 그래프 탐색으로 통해 (간선으로 연결된) 노드의 수 구하기 (이 때 시작노드 컴퓨터는 카운팅에서 제외)
+ * 무방향 그래프 (-> 양방향)
  */
 public class BOJ_2606 {
 
@@ -22,6 +21,7 @@ public class BOJ_2606 {
     static boolean[] visited;
     static ArrayList<Integer>[] adjList;
     static int answer = 0;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());

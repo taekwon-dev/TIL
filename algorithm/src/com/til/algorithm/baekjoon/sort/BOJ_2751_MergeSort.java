@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *  시간초과
+ * 시간초과
  */
 
 public class BOJ_2751_MergeSort {
@@ -65,7 +65,6 @@ public class BOJ_2751_MergeSort {
         }
 
     }
-
 
 
 }

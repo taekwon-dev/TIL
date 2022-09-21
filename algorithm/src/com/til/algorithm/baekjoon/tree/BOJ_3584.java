@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- *  가장 가까운 공통 조상 (LCA) + 루트가 있는 트리에서 루트 노드 구하기
+ * 가장 가까운 공통 조상 (LCA) + 루트가 있는 트리에서 루트 노드 구하기
  */
 public class BOJ_3584 {
     static List<Integer>[] adjList;

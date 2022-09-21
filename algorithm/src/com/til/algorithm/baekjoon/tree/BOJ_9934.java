@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- *  완전 이진 트리
+ * 완전 이진 트리
  */
 public class BOJ_9934 {
     static int[] node;

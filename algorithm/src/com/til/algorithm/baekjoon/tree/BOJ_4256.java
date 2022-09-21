@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- *  트리 : 순회결과로 원본트리 재현하기
- *
- *  in + pre (O) ✔️
- *  in + post (O)
- *  pre + post (X)
+ * 트리 : 순회결과로 원본트리 재현하기
+ * <p>
+ * in + pre (O) ✔️
+ * in + post (O)
+ * pre + post (X)
  */
 public class BOJ_4256 {
     static int[] pre, in;
@@ -21,7 +21,7 @@ public class BOJ_4256 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = null;
         int t = Integer.parseInt(br.readLine());
-        while (t --> 0) {
+        while (t-- > 0) {
             int n = Integer.parseInt(br.readLine());
             pre = new int[n];
             in = new int[n];

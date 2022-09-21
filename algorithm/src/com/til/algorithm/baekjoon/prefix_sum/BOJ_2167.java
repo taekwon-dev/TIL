@@ -6,19 +6,20 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- *  2차원 배열의 합
- *
- *  2차원 배열이 주어졌을 때 (i, j) 위치부터 (x, y) 위치까지에 저장되어 있는 수들의 합을 구하는 프로그램을 작성하시오.
- *  배열의 (i, j) 위치는 i행 j열을 나타낸다.
- *
- *
- *  1 1 2 3 -> (1, 1) to (2, 3) 까지의 구간 합
- *  1 2 1 2 -> (1, 2) to (1, 2) 까지의 구간 합
- *  1 3 2 3 -> (1, 3) to (2, 3) 까지의 구간 합
+ * 2차원 배열의 합
+ * <p>
+ * 2차원 배열이 주어졌을 때 (i, j) 위치부터 (x, y) 위치까지에 저장되어 있는 수들의 합을 구하는 프로그램을 작성하시오.
+ * 배열의 (i, j) 위치는 i행 j열을 나타낸다.
+ * <p>
+ * <p>
+ * 1 1 2 3 -> (1, 1) to (2, 3) 까지의 구간 합
+ * 1 2 1 2 -> (1, 2) to (1, 2) 까지의 구간 합
+ * 1 3 2 3 -> (1, 3) to (2, 3) 까지의 구간 합
  */
 public class BOJ_2167 {
     static int n, m;
     static int[][] map;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -35,10 +36,10 @@ public class BOJ_2167 {
         for (int i = 0; i < k; i++) {
             st = new StringTokenizer(br.readLine());
             System.out.println(prefixSum(
-                Integer.parseInt(st.nextToken()),
-                Integer.parseInt(st.nextToken()),
-                Integer.parseInt(st.nextToken()),
-                Integer.parseInt(st.nextToken())
+                    Integer.parseInt(st.nextToken()),
+                    Integer.parseInt(st.nextToken()),
+                    Integer.parseInt(st.nextToken()),
+                    Integer.parseInt(st.nextToken())
             ));
         }
     }

@@ -9,7 +9,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- *  트리의 부모 찾기
+ * 트리의 부모 찾기
  */
 public class BOJ_11725 {
     static int n;

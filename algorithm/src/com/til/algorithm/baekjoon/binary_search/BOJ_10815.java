@@ -7,19 +7,18 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
- *  숫자카드
- *
- *  숫자 카드 N개
- *  정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 가지고 있는지 아닌지를 구하는 프로그램
- *
- *  N -> ~ 500,000
- *  M -> ~ 500,000
- *
- *  각 M에 대해서 N개의 숫자 중에 있는지 확인해야 하므로, O(N*M) = O(N^2) = O(500,000^2)
- *
- *  O(N) -> O(1) via map
- *  O(N) -> O(log N) via binary search
- *
+ * 숫자카드
+ * <p>
+ * 숫자 카드 N개
+ * 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 가지고 있는지 아닌지를 구하는 프로그램
+ * <p>
+ * N -> ~ 500,000
+ * M -> ~ 500,000
+ * <p>
+ * 각 M에 대해서 N개의 숫자 중에 있는지 확인해야 하므로, O(N*M) = O(N^2) = O(500,000^2)
+ * <p>
+ * O(N) -> O(1) via map
+ * O(N) -> O(log N) via binary search
  */
 public class BOJ_10815 {
     static int n, m;
@@ -53,7 +52,7 @@ public class BOJ_10815 {
                 }
                 if (narr[mid] > marr[i]) {
                     right = mid - 1;
-                } else if (narr[mid] < marr[i]){
+                } else if (narr[mid] < marr[i]) {
                     left = mid + 1;
                 }
             }

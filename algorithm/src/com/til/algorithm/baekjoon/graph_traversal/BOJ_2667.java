@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *  단지번호붙이기
- *
- *  - charactor to int via ascii code
+ * 단지번호붙이기
+ * <p>
+ * - charactor to int via ascii code
  */
 public class BOJ_2667 {
     static int n;
