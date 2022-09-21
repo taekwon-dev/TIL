@@ -1,6 +1,6 @@
 # TIL (Today, I Learned)
 
-### TIL & Blog
+### Blog 
 
 - **OS**
     - [OS 프로세스 [1] — 프로세스 상태 1 (생성, 준비, 실행, 대기)](https://medium.com/taekwon-v/os-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-1-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%81%ED%83%9C-464294fcf59)
@@ -28,18 +28,16 @@
 
 - **Database**
     - [MySQL - 트랜잭션 격리 수준](https://medium.com/taekwon-v/mysql-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80-e96c49083f7c)
-
-
-- **OOP**
-
+  
 
 - **Java**
+    - [Java - How is a Java Program executed - JVM, JRE, JDK](https://medium.com/taekwon-v/java-how-is-a-java-program-is-executed-1-jvm-jre-jdk-713397acb98b)
+    - [Java - Object Class - equals()](https://medium.com/taekwon-v/java-object-class-equals-e4851181af0c)
     - [Servlet Series (1) - Servlet, Servlet Container](https://medium.com/taekwon-v/servlet-series-1-servlet-servlet-container-38e039d7fc3c)
     - [Servlet Series (2) - How the Servlet Container Handles a request](https://medium.com/taekwon-v/how-the-servlet-container-handles-a-request-5d1f49e95a92)
     - [Servlet Series (3) - How to Maintain a User State (HttpSession)](https://medium.com/taekwon-v/servlet-series-3-how-the-servlet-container-handles-multithreading-6e96391902e0)
     - [Servlet Series (4) - How the Servlet Container Handles multithreading](https://medium.com/taekwon-v/servlet-series-4-how-to-maintain-a-user-state-httpsession-e4d95799617b)
     - [Servlet Series (5) - Servlet Scopes](https://medium.com/taekwon-v/servlet-series-5-servlet-scopes-f68f0c44ed38)
-    - [JAVA - How is a Java Program executed - JVM, JRE, JDK](https://medium.com/taekwon-v/java-how-is-a-java-program-is-executed-1-jvm-jre-jdk-713397acb98b)
 
 
 - **Spring Core**
