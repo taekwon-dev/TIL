@@ -1,8 +1,5 @@
 package com.til.algorithm.leetCode.tree;
 
-/**
- *  Insert into a Binary Search Tree
- */
 public class LEET_701 {
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {

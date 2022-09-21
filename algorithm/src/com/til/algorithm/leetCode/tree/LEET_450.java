@@ -1,8 +1,5 @@
 package com.til.algorithm.leetCode.tree;
 
-/**
- *  Delete Node in a BST
- */
 public class LEET_450 {
     public TreeNode deleteNode(TreeNode root, int key) {
         if (root == null) return root;
@@ -10,8 +7,7 @@ public class LEET_450 {
             root.left = deleteNode(root.left, key);
         } else if (root.val < key) {
             root.right = deleteNode(root.right, key);
-        }
-        else {
+        } else {
             if (root.left == null && root.right == null) return null;
             else if (root.left == null) return root.right;
             else if (root.right == null) return root.left;

@@ -1,10 +1,5 @@
 package com.til.algorithm.leetCode.tree;
 
-import com.til.algorithm.leetCode.tree.TreeNode;
-
-/**
- * Root Equals Sum of Children
- */
 public class LEET_2236 {
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
         if (root1 == null && root2 == null) return null;

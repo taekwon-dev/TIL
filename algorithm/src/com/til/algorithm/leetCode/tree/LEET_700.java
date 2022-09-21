@@ -1,21 +1,9 @@
 package com.til.algorithm.leetCode.tree;
 
-/**
- *  Search in a Binary Search Tree
- */
 public class LEET_700 {
-
-    public static TreeNode searchBST(TreeNode root, int val) {
+    public TreeNode searchBST(TreeNode root, int val) {
         if (root == null || root.val == val) return root;
         if (root.val > val) return searchBST(root.left, val);
         return searchBST(root.right, val);
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(4);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(7);
-
-        searchBST(root, 7);
     }
 }

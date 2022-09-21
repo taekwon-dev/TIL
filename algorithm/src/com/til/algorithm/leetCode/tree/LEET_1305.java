@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- *  All Elements in Two Binary Search Trees
- */
 public class LEET_1305 {
     List<Integer> answer = new ArrayList<>();
+
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
         inorder(root1);
         inorder(root2);

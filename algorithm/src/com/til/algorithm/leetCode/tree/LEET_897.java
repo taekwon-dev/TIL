@@ -1,8 +1,5 @@
 package com.til.algorithm.leetCode.tree;
 
-/**
- *  Increasing Order Search Tree
- */
 public class LEET_897 {
     private TreeNode head;
     private TreeNode curr;

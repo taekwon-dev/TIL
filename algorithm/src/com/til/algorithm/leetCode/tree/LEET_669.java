@@ -1,8 +1,5 @@
 package com.til.algorithm.leetCode.tree;
 
-/**
- *  Trim a Binary Search Tree
- */
 public class LEET_669 {
     public TreeNode trimBST(TreeNode root, int low, int high) {
         if (root == null) return root;
