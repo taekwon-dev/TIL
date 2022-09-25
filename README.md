@@ -29,6 +29,7 @@
 - **Data Structure & Algorithm**
     - [DS - ADT(Abstract Data Type)](https://medium.com/taekwon-v/ds-adt-abstract-data-type-cfa313bf80f1)
     - [DS - AVL Tree](https://medium.com/taekwon-v/ds-avl-tree-md-8648744d2ec6)
+    - [DS - Red Black Tree - 5 Properties, Insertion](https://medium.com/taekwon-v/ds-red-black-tree-1-5-properties-insertion-9834f6c42831)
 
 
 - **Database**
