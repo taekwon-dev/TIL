@@ -7,16 +7,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-/**
- * 벽 부수고 이동하기
- * <p>
- * 0 -> 이동 가능
- * 1 -> 이동 불가능
- * <p>
- * (1, 1) -> (N, M) 이동 할 때 최단 경로로 이동하려고 한다. (이 때 시작하는 칸과 끝나는 칸도 포함해서 센다)
- * <p>
- * 이동 간 벽을 부수고 이동하는 것이 좀 더 경로가 짧아진다면, 벽을 한 개 까지 부수고 이동해도 된다.
- */
 public class BOJ_2206 {
     static class Node {
         int x;

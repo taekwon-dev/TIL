@@ -7,13 +7,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-/**
- * 최단거리
- * BFS
- * - 가중치가 모두 1로 동일
- * <p>
- * (1, 1) -> (N, M) 이동 (시작, 도착 위치도 이동거리에 포함)
- */
 public class BOJ_2178 {
     public static class Node {
         int x;

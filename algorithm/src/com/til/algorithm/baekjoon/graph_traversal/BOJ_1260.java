@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-/**
- * DFS와 BFS
- */
 public class BOJ_1260 {
     static int n, m, v;
     static boolean[] visited;
