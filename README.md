@@ -31,6 +31,8 @@
     - [DS - AVL Tree](https://medium.com/taekwon-v/ds-avl-tree-md-8648744d2ec6)
     - [DS - Red Black Tree [1] - 5 Properties, Insertion](https://medium.com/taekwon-v/ds-red-black-tree-1-5-properties-insertion-9834f6c42831)
     - [DS - Red Black Tree [2] - BST Deletion, Extra Black, Red-Black Node](https://medium.com/taekwon-v/ds-red-black-tree-2-bst-deletion-extra-black-red-black-node-bc1b9af1b951)
+    - [DS - Red Black Tree [3] - 4 Cases on Double Black](https://medium.com/taekwon-v/ds-red-black-tree-3-4-cases-on-double-black-58896cf247de)
+    - [DS - B-Tree [1] - Balanced Tree, Binary Search Tree, Self-Balancing BST](https://medium.com/taekwon-v/ds-b-tree-1-balanced-tree-binary-search-tree-self-balancing-bst-bf16d334c096)
 
 
 - **Database**
