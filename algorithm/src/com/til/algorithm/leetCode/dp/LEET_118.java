@@ -22,4 +22,35 @@ public class LEET_118 {
         }
         return result;
     }
+    static class Node {
+        int x;
+        int y;
+
+        public Node(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public void setX(int x) {
+            this.x = x;
+        }
+
+        public int getY() {
+            return y;
+        }
+
+        public void setY(int y) {
+            this.y = y;
+        }
+    }
+    public static void main(String[] args) {
+        Node n11 = new Node(1, 1);
+        System.out.println("n11.hashCode() = " + n11.hashCode());
+        Node n12 = new Node(1, 2);
+        System.out.println("n12.hashCode() = " + n12.hashCode());
+    }
 }

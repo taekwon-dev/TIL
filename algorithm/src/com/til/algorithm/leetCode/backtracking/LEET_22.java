@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  Generate Parentheses
+ * Generate Parentheses
  */
 public class LEET_22 {
     static List<String> answer = new ArrayList<>();
+
     public static List<String> generateParenthesis(int n) {
         backtracking(n, 0, 0, "");
         return answer;
