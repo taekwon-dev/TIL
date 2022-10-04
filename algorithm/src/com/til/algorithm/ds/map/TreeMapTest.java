@@ -3,35 +3,32 @@ package com.til.algorithm.ds.map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- *  https://coding-factory.tistory.com/556
+ * https://coding-factory.tistory.com/557
  */
-class HashMapTest {
+class TreeMapTest {
 
     @Test
-    @DisplayName("HashMap 선언")
-    void createHashMap() {
-        HashMap<String, String> map1 = new HashMap<String, String>();
-        HashMap<String, String> map2 = new HashMap<>();
-        HashMap<String, String> map3 = new HashMap<>(map1);
-        HashMap<String, String> map4 = new HashMap<>(10);
-        HashMap<String, String> map5 = new HashMap<>(10, 0.5f);
-        HashMap<String, String> map6 = new HashMap<>(){{
-            put("Map", "HashMap");
+    @DisplayName("TreeMap 선언")
+    void createTreeMap() {
+        TreeMap<Integer, String> map1 = new TreeMap<Integer, String>();
+        TreeMap<Integer, String> map2 = new TreeMap<>();
+        TreeMap<Integer, String> map3 = new TreeMap<>(map1);
+        TreeMap<Integer, String> map4 = new TreeMap<>(){{
+            put(1, "TreeMap");
         }};
     }
 
     @Test
-    @DisplayName("HashMap 값 추가")
+    @DisplayName("TreeMap 값 추가")
     void add() {
-        HashMap<Integer, String> map = new HashMap<>();
+        TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
         map.put(2, "2등");
         map.put(3, "3등");
@@ -44,9 +41,9 @@ class HashMapTest {
     }
 
     @Test
-    @DisplayName("HashMap 값 삭제")
+    @DisplayName("TreeMap 값 삭제")
     void remove() {
-        HashMap<Integer, String> map = new HashMap<>();
+        TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
         map.put(2, "2등");
         map.put(3, "3등");
@@ -59,21 +56,33 @@ class HashMapTest {
     }
 
     @Test
-    @DisplayName("HashMap 값 출력")
+    @DisplayName("TreeMap 단일 값 출력")
     void print() {
-        HashMap<Integer, String> map = new HashMap<>();
+        TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
         map.put(2, "2등");
         map.put(3, "3등");
 
-        System.out.println("map = " + map); // {1=1등, 2=2등, 3=3등}
-        System.out.println("map.get(1) = " + map.get(1)); // 1등
+        /**
+         *  map = {1=1등, 2=2등, 3=3등}
+         *  map.get(1) = 1등
+         *  map.firstEntry() = 1=1등
+         *  map.firstKey() = 1
+         *  map.lastEntry() = 3=3등
+         *  map.lastKey() = 3
+         */
+        System.out.println("map = " + map);
+        System.out.println("map.get(1) = " + map.get(1));
+        System.out.println("map.firstEntry() = " + map.firstEntry());
+        System.out.println("map.firstKey() = " + map.firstKey());
+        System.out.println("map.lastEntry() = " + map.lastEntry());
+        System.out.println("map.lastKey() = " + map.lastKey());
     }
 
     @Test
     @DisplayName("HashMap 값 출력 via KeySet()")
     void printWithKeySet() {
-        HashMap<Integer, String> map = new HashMap<>();
+        TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
         map.put(2, "2등");
         map.put(3, "3등");
@@ -89,9 +98,9 @@ class HashMapTest {
     }
 
     @Test
-    @DisplayName("HashMap 값 출력 via EntrySet()")
+    @DisplayName("TreeMap 값 출력 via EntrySet()")
     void printWithEntrySet() {
-        HashMap<Integer, String> map = new HashMap<>();
+        TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
         map.put(2, "2등");
         map.put(3, "3등");
@@ -109,7 +118,7 @@ class HashMapTest {
     @Test
     @DisplayName("HashMap 값 출력 via Iterator() + KeySet()")
     void printWithIteratorKeySet() {
-        HashMap<Integer, String> map = new HashMap<>();
+        TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
         map.put(2, "2등");
         map.put(3, "3등");
@@ -124,7 +133,7 @@ class HashMapTest {
     @Test
     @DisplayName("HashMap 값 출력 via Iterator() + EntrySet()")
     void printWithIteratorEntrySet() {
-        HashMap<Integer, String> map = new HashMap<>();
+        TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
         map.put(2, "2등");
         map.put(3, "3등");
@@ -136,33 +145,4 @@ class HashMapTest {
         }
     }
 
-    @Test
-    @DisplayName("HashMap Key 기준 최댓값 / 최솟값 구하기")
-    void getMaxOnKeys() {
-        HashMap<Integer, String> map = new HashMap<>();
-        map.put(1, "1등");
-        map.put(2, "2등");
-        map.put(3, "3등");
-
-        Integer maxKey = Collections.max(map.keySet());
-        assertTrue(maxKey == 3);
-
-        Integer minKey = Collections.min(map.keySet());
-        assertTrue(minKey == 1);
-    }
-
-    @Test
-    @DisplayName("HashMap Value 기준 최댓값 / 최솟값 구하기")
-    void getMaxOnValues() {
-        HashMap<Integer, String> map = new HashMap<>();
-        map.put(1, "1등");
-        map.put(2, "2등");
-        map.put(3, "3등");
-
-        String maxValue = Collections.max(map.values());
-        assertTrue(maxValue.equals("3등"));
-
-        String minValue = Collections.min(map.values());
-        assertTrue(minValue.equals("1등"));
-    }
 }
