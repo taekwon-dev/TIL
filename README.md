@@ -34,6 +34,7 @@
     - [DS - Red Black Tree [3] - 4 Cases on Double Black](https://medium.com/taekwon-v/ds-red-black-tree-3-4-cases-on-double-black-58896cf247de)
     - [DS - B-Tree [1] - Balanced Tree, Binary Search Tree, Self-Balancing BST](https://medium.com/taekwon-v/ds-b-tree-1-balanced-tree-binary-search-tree-self-balancing-bst-bf16d334c096)
     - [DS - B-Tree [2] - 5 Properties, Search, Insertion](https://medium.com/taekwon-v/ds-b-tree-2-5-properties-search-insertion-957fed90a51d)
+    - [DS - B-Tree [3] - Deletion](https://medium.com/taekwon-v/ds-b-tree-3-deletion-da5e3503a97c)
 
 
 - **Database**
@@ -41,15 +42,14 @@
   
 
 - **Java**
-    - [Java - How is a Java Program executed - JVM, JRE, JDK](https://medium.com/taekwon-v/java-how-is-a-java-program-is-executed-1-jvm-jre-jdk-713397acb98b)
     - [Java - Object Class - equals()](https://medium.com/taekwon-v/java-object-class-equals-e4851181af0c)
     - [Java - Object Class - hashCode()](https://medium.com/taekwon-v/java-object-class-hashcode-20e32a61e6cb)
     - [Java - Call by Value VS Call by Reference](https://medium.com/taekwon-v/java-call-by-value-vs-call-by-reference-1908c91f54c8)
-    - [Servlet Series (1) - Servlet, Servlet Container](https://medium.com/taekwon-v/servlet-series-1-servlet-servlet-container-38e039d7fc3c)
-    - [Servlet Series (2) - How the Servlet Container Handles a request](https://medium.com/taekwon-v/how-the-servlet-container-handles-a-request-5d1f49e95a92)
-    - [Servlet Series (3) - How to Maintain a User State (HttpSession)](https://medium.com/taekwon-v/servlet-series-3-how-the-servlet-container-handles-multithreading-6e96391902e0)
-    - [Servlet Series (4) - How the Servlet Container Handles multithreading](https://medium.com/taekwon-v/servlet-series-4-how-to-maintain-a-user-state-httpsession-e4d95799617b)
-    - [Servlet Series (5) - Servlet Scopes](https://medium.com/taekwon-v/servlet-series-5-servlet-scopes-f68f0c44ed38)
+    - [Servlet Series [1] - Servlet, Servlet Container](https://medium.com/taekwon-v/servlet-series-1-servlet-servlet-container-38e039d7fc3c)
+    - [Servlet Series [2] - How the Servlet Container Handles a request](https://medium.com/taekwon-v/how-the-servlet-container-handles-a-request-5d1f49e95a92)
+    - [Servlet Series [3] - How to Maintain a User State (HttpSession)](https://medium.com/taekwon-v/servlet-series-3-how-the-servlet-container-handles-multithreading-6e96391902e0)
+    - [Servlet Series [4] - How the Servlet Container Handles multithreading](https://medium.com/taekwon-v/servlet-series-4-how-to-maintain-a-user-state-httpsession-e4d95799617b)
+    - [Servlet Series [5] - Servlet Scopes](https://medium.com/taekwon-v/servlet-series-5-servlet-scopes-f68f0c44ed38)
 
 
 - **Spring Core**
