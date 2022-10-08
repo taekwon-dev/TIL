@@ -5,21 +5,17 @@ import java.util.List;
 
 public class LEET_78 {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> results = new ArrayList<>();
-        if (nums == null || nums.length == 0) {
-            return results;
-        }
-        List<Integer> subset = new ArrayList<>();
-        backtracking(nums, results, subset, 0);
-        return results;
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        backtracking(nums, result, list, 0);
+        return result;
     }
-
-    private void backtracking(int[] nums, List<List<Integer>> results, List<Integer> subset, int start) {
-        results.add(new ArrayList<>(subset));
+    private void backtracking(int[] nums, List<List<Integer>> result, List<Integer> list, int start) {
+        result.add(new ArrayList<>(list));
         for (int i = start; i < nums.length; i++) {
-            subset.add(nums[i]);
-            backtracking(nums, results, subset, i + 1);
-            subset.remove(subset.size() - 1);
+            list.add(nums[i]);
+            backtracking(nums, result, list, start + 1);
+            list.remove(list.size() - 1);
         }
     }
 }

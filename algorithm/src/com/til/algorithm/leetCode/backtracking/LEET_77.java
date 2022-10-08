@@ -5,22 +5,21 @@ import java.util.List;
 
 public class LEET_77 {
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> results = new ArrayList<>();
-        List<Integer> combi = new ArrayList<>();
-        backtracking(n, k, results, combi, 0, 1);
-        return results;
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        backtracking(n, k, result, list, 0, 1);
+        return result;
     }
 
-    private void backtracking(int n, int k, List<List<Integer>> results, List<Integer> combi, int depth, int start) {
+    private void backtracking(int n, int k, List<List<Integer>> result, List<Integer> list, int depth, int idx) {
         if (depth == k) {
-            results.add(new ArrayList<>(combi));
+            result.add(new ArrayList<>(list));
             return;
         }
-
-        for (int i = start; i <= n; i++) {
-            combi.add(i);
-            backtracking(n, k, results, combi, depth + 1, i + 1);
-            combi.remove(combi.size() - 1);
+        for (int i = idx; i <= n; i++) {
+            list.add(i);
+            backtracking(n, k, result, list, depth + 1, i + 1);
+            list.remove(list.size() - 1);
         }
     }
 }
