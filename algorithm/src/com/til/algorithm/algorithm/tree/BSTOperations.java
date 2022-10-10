@@ -20,8 +20,12 @@ class BinarySearchTreeForOps {
     Node root;
 
     public Node search(Node root, int key) {
-        if (root == null || root.data == key) return root;
-        if (root.data > key) return search(root.left, key);
+        if (root == null || root.data == key) {
+            return root;
+        }
+        if (root.data > key) {
+            return search(root.left, key);
+        }
         return search(root.right, key);
     }
 
@@ -47,16 +51,21 @@ class BinarySearchTreeForOps {
     }
 
     public Node delete(Node root, int data) {
-        if (root == null) return root;
-        if (data < root.data) {
+        if (root == null) {
+            return root;
+        }
+        if (root.val > data) {
             root.left = delete(root.left, data);
-        } else if (data > root.data) {
+        } else if (root.val < data) {
             root.right = delete(root.right, data);
-        } else {
-            if (root.left == null && root.right == null) return null;
-            else if (root.left == null) return root.right;
-            else if (root.right == null) return root.left;
-
+        } else if (root.val == data) {
+            if (root.left == null && root.right == null) {
+                return root;
+            } else if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
             root.data = findMin(root.right);
             root.right = delete(root.right, root.data);
         }

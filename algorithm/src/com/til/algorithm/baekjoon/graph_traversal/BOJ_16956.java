@@ -17,12 +17,13 @@ public class BOJ_16956 {
             this.y = y;
         }
     }
-
     static int r, c;
     static char[][] map;
-    static boolean flag = true;
+    static boolean[][] visited;
     static int[] dx = {1, -1, 0, 0};
     static int[] dy = {0, 0, 1, -1};
+    static Queue<Node> queue = new LinkedList<>();
+    static boolean flag = false;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,58 +31,54 @@ public class BOJ_16956 {
         r = Integer.parseInt(st.nextToken());
         c = Integer.parseInt(st.nextToken());
         map = new char[r][c];
-
+        visited = new boolean[r][c];
         for (int i = 0; i < r; i++) {
             String row = br.readLine();
             for (int j = 0; j < c; j++) {
-                map[i][j] = row.charAt(j);
-            }
-        }
-        bfs();
-        if (flag) {
-            System.out.println(1);
-            for (int i = 0; i < r; i++) {
-                for (int j = 0; j < c; j++) {
-                    System.out.print(map[i][j]);
-                }
-                System.out.println();
-            }
-        } else {
-            System.out.println(0);
-        }
-
-    }
-
-    private static void bfs() {
-        Queue<Node> queue = new LinkedList<>();
-
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                if (map[i][j] == 'W') {
+                char c = row.charAt(j);
+                map[i][j] = c;
+                if (c == 'W') {
                     queue.add(new Node(i, j));
                 }
             }
         }
+        bfs();
+        if (flag) {
+            System.out.println(0);
+        } else {
+            System.out.println(1);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < r; i++) {
+                for (int j = 0; j < c; j++) {
+                    sb.append(map[i][j]);
+                }
+                sb.append("\n");
+            }
+            System.out.println(sb.toString());
+        }
+    }
 
+    private static void bfs() {
         while (!queue.isEmpty()) {
-            Node node = queue.poll();
+            Node now = queue.poll();
 
             for (int i = 0; i < 4; i++) {
-                int nx = node.x + dx[i];
-                int ny = node.y + dy[i];
+                int nx = now.x + dx[i];
+                int ny = now.y + dy[i];
 
                 if (nx >= 0 && ny >= 0 && nx < r && ny < c) {
-                    if (map[nx][ny] == '.') {
-                        map[nx][ny] = 'D';
-                    }
-
-                    if (map[nx][ny] == 'S') {
-                        flag = false;
-                        return;
+                    if (!visited[nx][ny]) {
+                        if (map[nx][ny] == '.') {
+                            map[nx][ny] = 'D';
+                            visited[nx][ny] = true;
+                        }
+                        else if (map[nx][ny] == 'S') {
+                            flag = true;
+                            return;
+                        }
                     }
                 }
             }
         }
-
     }
 }
