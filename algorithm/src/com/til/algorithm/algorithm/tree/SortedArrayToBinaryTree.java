@@ -9,30 +9,23 @@ class Tree2 {
         public Node(int data) {
             this.data = data;
         }
-
-        @Override
-        public String toString() {
-            return "Node{" +
-                    "data=" + data +
-                    ", left=" + left +
-                    ", right=" + right +
-                    '}';
-        }
     }
 
     Node root;
 
     public void makeTree(int[] arr) {
-        root = makeTreeR(arr, 0, arr.length - 1);
+        root = makeBST(arr, 0, arr.length - 1);
     }
 
-    public Node makeTreeR(int[] arr, int start, int end) {
-        if (start > end) return null;
+    public Node makeBST(int[] arr, int start, int end) {
+        if (start > end) {
+            return null;
+        }
         int mid = (start + end) / 2;
-        Node node = new Node(arr[mid]);
-        node.left = makeTreeR(arr, start, mid - 1);
-        node.right = makeTreeR(arr, mid + 1, end);
-        return node;
+        Node root = new Node(arr[mid]);
+        root.left = makeBST(arr, start, mid - 1);
+        root.right = makeBST(arr, mid + 1, end);
+        return root;
     }
 
     public void searchBTree(Node n, int find) {
@@ -51,7 +44,9 @@ class Tree2 {
         if (root == null || root.data == key) {
             return root;
         }
-        if (root.data > key) return searchNode(root.left, key);
+        if (root.data > key) {
+            return searchNode(root.left, key);
+        }
         return searchNode(root.right, key);
     }
 }

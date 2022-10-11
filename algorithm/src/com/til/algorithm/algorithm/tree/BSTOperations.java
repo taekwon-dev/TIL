@@ -54,11 +54,11 @@ class BinarySearchTreeForOps {
         if (root == null) {
             return root;
         }
-        if (root.val > data) {
+        if (root.data > data) {
             root.left = delete(root.left, data);
-        } else if (root.val < data) {
+        } else if (root.data < data) {
             root.right = delete(root.right, data);
-        } else if (root.val == data) {
+        } else if (root.data == data) {
             if (root.left == null && root.right == null) {
                 return root;
             } else if (root.left == null) {
@@ -79,6 +79,15 @@ class BinarySearchTreeForOps {
             root = root.left;
         }
         return min;
+    }
+
+    private int findMax(Node root) {
+        int max = root.data;
+        while (root.right != null) {
+            max = root.right.data;
+            root = root.right;
+        }
+        return max;
     }
 
     public void inorder() {
