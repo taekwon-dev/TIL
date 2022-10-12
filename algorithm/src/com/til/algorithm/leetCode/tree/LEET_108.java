@@ -5,12 +5,15 @@ public class LEET_108 {
         return makeBST(nums, 0, nums.length - 1);
     }
 
-    private TreeNode makeBST(int[] nums, int start, int end) {
-        if (start > end) return null;
-        int mid = (start + end) / 2;
-        TreeNode node = new TreeNode(nums[mid]);
-        node.left = makeBST(nums, start, mid - 1);
-        node.right = makeBST(nums, mid + 1, end);
-        return node;
+
+    private TreeNode makeBST(int[] nums, int s, int e) {
+        if (s > e) {
+            return null;
+        }
+        int mid = (s + e) / 2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = makeBST(nums, s, mid - 1);
+        root.right = makeBST(nums, mid + 1, e);
+        return root;
     }
 }

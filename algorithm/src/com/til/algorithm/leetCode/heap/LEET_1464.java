@@ -3,9 +3,6 @@ package com.til.algorithm.leetCode.heap;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
-/**
- * Maximum Product of Two Elements in an Array
- */
 public class LEET_1464 {
     public int maxProduct(int[] nums) {
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());

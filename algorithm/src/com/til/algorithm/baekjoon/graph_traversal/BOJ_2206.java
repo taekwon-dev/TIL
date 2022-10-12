@@ -21,7 +21,6 @@ public class BOJ_2206 {
             this.wall = wall;
         }
     }
-
     static int n, m;
     static int[][] map;
     static boolean[][][] visited;
@@ -33,8 +32,8 @@ public class BOJ_2206 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
-        map = new int[n + 1][m + 1];
         visited = new boolean[n + 1][m + 1][2];
+        map = new int[n + 1][m + 1];
         for (int i = 1; i <= n; i++) {
             String row = br.readLine();
             for (int j = 1; j <= m; j++) {
@@ -57,7 +56,6 @@ public class BOJ_2206 {
             }
 
             for (int i = 0; i < 4; i++) {
-
                 int nx = node.x + dx[i];
                 int ny = node.y + dy[i];
 
@@ -69,8 +67,8 @@ public class BOJ_2206 {
                         }
                     } else if (map[nx][ny] == 1) {
                         if (node.wall == 0 && !visited[nx][ny][1]) {
-                            queue.add(new Node(nx, ny, node.dist + 1, node.wall + 1));
-                            visited[nx][ny][node.wall + 1] = true;
+                            queue.add(new Node(nx, ny, node.dist + 1, 1));
+                            visited[nx][ny][1] = true;
                         }
                     }
                 }

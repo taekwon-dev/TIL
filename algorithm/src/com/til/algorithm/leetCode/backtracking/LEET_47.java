@@ -7,16 +7,16 @@ import java.util.List;
 public class LEET_47 {
     public List<List<Integer>> permuteUnique(int[] nums) {
         Arrays.sort(nums);
-        List<List<Integer>> results = new ArrayList<>();
-        List<Integer> pm = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         boolean[] visited = new boolean[nums.length];
-        backtracking(nums, results, pm, visited, 0);
-        return results;
+        backtracking(nums, result, list, visited, 0);
+        return result;
     }
 
-    private void backtracking(int[] nums, List<List<Integer>> results, List<Integer> pm, boolean[] visited, int depth) {
+    private void backtracking(int[] nums, List<List<Integer>> result, List<Integer> list, boolean[] visited, int depth) {
         if (depth == nums.length) {
-            results.add(new ArrayList<>(pm));
+            result.add(new ArrayList<>(list));
             return;
         }
         int prev = -11;
@@ -24,9 +24,9 @@ public class LEET_47 {
             if (!visited[i] && prev != nums[i]) {
                 visited[i] = true;
                 prev = nums[i];
-                pm.add(nums[i]);
-                backtracking(nums, results, pm, visited, depth + 1);
-                pm.remove(pm.size() - 1);
+                list.add(nums[i]);
+                backtracking(nums, result, list, visited, depth + 1);
+                list.remove(list.size() - 1);
                 visited[i] = false;
             }
         }
