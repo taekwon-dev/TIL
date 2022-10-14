@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_230 {
-    List<Integer> nums = new ArrayList<>();
-
     public int kthSmallest(TreeNode root, int k) {
-        inorder(root);
-        return nums.get(k - 1);
+        List<Integer> result = new ArrayList<>();
+        inorder(root, result);
+        return result.get(k - 1);
     }
 
-    private void inorder(TreeNode root) {
-        if (root != null) {
-            inorder(root.left);
-            if (!nums.contains(root.val)) nums.add(root.val);
-            inorder(root.right);
+    private void inorder(TreeNode root, List<Integer> result) {
+        if (root == null) {
+            return;
         }
+        inorder(root.left, result);
+        result.add(root.val);
+        inorder(root.right, result);
     }
 }
