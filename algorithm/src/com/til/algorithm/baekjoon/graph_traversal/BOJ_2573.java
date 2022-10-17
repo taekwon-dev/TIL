@@ -26,7 +26,7 @@ public class BOJ_2573 {
             }
         }
 
-        int answer = 0;
+        int year = 0;
         int region_size = 0;
         int ice_num = -1;
 
@@ -37,15 +37,14 @@ public class BOJ_2573 {
             } else {
                 region_size = getRegionSize();
                 if (region_size >= 2) {
-                    System.out.println(answer);
+                    System.out.println(year);
                     break;
                 }
             }
             ice_num = melting();
-            answer++;
+            year++;
             region_size = 0;
         }
-
     }
 
     private static int getRegionSize() {
@@ -88,7 +87,9 @@ public class BOJ_2573 {
                         int ny = j + dy[k];
                         if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
                             if (!visited[nx][ny] && map[nx][ny] == 0) {
-                                if (map[i][j] > 0) map[i][j]--;
+                                if (map[i][j] > 0) {
+                                    map[i][j]--;
+                                }
                             }
                         }
                     }
