@@ -7,19 +7,18 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_13549 {
-    static int n, k;
-    static int[] dx = {1, -1};
+public class BOJ_13549_a {
+    static int[] dx = {-1, 1};
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        k = Integer.parseInt(st.nextToken());
-        bfs();
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
+        bfs(n, k);
     }
 
-    private static void bfs() {
+    private static void bfs(int n, int k) {
         Queue<int[]> queue = new LinkedList<>();
         boolean[] visited = new boolean[100_001];
         queue.add(new int[]{n, 0});
@@ -34,13 +33,13 @@ public class BOJ_13549 {
                 return;
             }
             int jump = x * 2;
-            if (jump <= 100_000 && !visited[jump]) {
+            if (jump < 100_001 && !visited[jump]) {
                 visited[jump] = true;
                 queue.add(new int[]{jump, cost});
             }
             for (int i = 0; i < 2; i++) {
                 int nx = x + dx[i];
-                if (nx >= 0 && nx <= 100_000 && !visited[nx]) {
+                if (nx >= 0 && nx < 100_001 && !visited[nx]) {
                     visited[nx] = true;
                     queue.add(new int[]{nx, cost + 1});
                 }

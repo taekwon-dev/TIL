@@ -8,7 +8,7 @@ public class LEET_47 {
     public List<List<Integer>> permuteUnique(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list  = new ArrayList<>();
         boolean[] visited = new boolean[nums.length];
         backtracking(nums, result, list, visited, 0);
         return result;
@@ -26,8 +26,8 @@ public class LEET_47 {
                 prev = nums[i];
                 list.add(nums[i]);
                 backtracking(nums, result, list, visited, depth + 1);
-                list.remove(list.size() - 1);
                 visited[i] = false;
+                list.remove(list.size() - 1);
             }
         }
     }

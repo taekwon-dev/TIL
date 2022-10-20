@@ -3,31 +3,23 @@ package com.til.algorithm.leetCode.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Generate Parentheses
- */
 public class LEET_22 {
-    static List<String> answer = new ArrayList<>();
-
-    public static List<String> generateParenthesis(int n) {
-        backtracking(n, 0, 0, "");
-        return answer;
+    public List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<>();
+        backtracking(n, result, 0, 0, "");
+        return result;
     }
 
-    private static void backtracking(int n, int open, int close, String str) {
+    private void backtracking(int n, List<String> result, int open, int close, String s) {
         if (open == n && close == n) {
-            answer.add(str);
+            result.add(s);
             return;
         }
         if (open < n) {
-            backtracking(n, open + 1, close, str + "(");
+            backtracking(n, result, open + 1, close, s + "(");
         }
         if (open > close) {
-            backtracking(n, open, close + 1, str + ")");
+            backtracking(n, result, open, close + 1, s + ")");
         }
-    }
-
-    public static void main(String[] args) {
-        generateParenthesis(2);
     }
 }

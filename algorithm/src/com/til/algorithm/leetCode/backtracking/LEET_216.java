@@ -11,16 +11,14 @@ public class LEET_216 {
         return result;
     }
 
-    private void backtracking(int k, int n, List<List<Integer>> result, List<Integer> list, int depth, int index, int sum) {
+    private void backtracking(int k, int n, List<List<Integer>> result, List<Integer> list, int depth, int start, int sum) {
         if (depth == k) {
-            if (sum > n) {
-                return;
-            } else if (sum == n) {
+            if (sum == n) {
                 result.add(new ArrayList<>(list));
-                return;
             }
+            return;
         }
-        for (int i = index; i <= 9; i++) {
+        for (int i = start; i <= 9; i++) {
             list.add(i);
             backtracking(k, n, result, list, depth + 1, i + 1, sum + i);
             list.remove(list.size() - 1);

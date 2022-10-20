@@ -1,6 +1,6 @@
 package com.til.algorithm.leetCode.tree;
 
-public class LEET_938 {
+public class LEET_938_a {
     private int rangeSum;
 
     public int rangeSumBST(TreeNode root, int low, int high) {

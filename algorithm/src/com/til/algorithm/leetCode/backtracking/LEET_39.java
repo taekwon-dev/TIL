@@ -11,7 +11,7 @@ public class LEET_39 {
         return result;
     }
 
-    private void backtracking(int[] candidates, int target, List<List<Integer>> result, List<Integer> list, int index, int sum) {
+    private void backtracking(int[] candidates, int target, List<List<Integer>> result, List<Integer> list, int start, int sum) {
         if (sum > target) {
             return;
         }
@@ -19,7 +19,7 @@ public class LEET_39 {
             result.add(new ArrayList<>(list));
             return;
         }
-        for (int i = index; i < candidates.length; i++) {
+        for (int i = start; i < candidates.length; i++) {
             list.add(candidates[i]);
             backtracking(candidates, target, result, list, i, sum + candidates[i]);
             list.remove(list.size() - 1);

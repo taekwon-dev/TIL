@@ -6,22 +6,23 @@ import java.util.List;
 
 public class LEET_90 {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<List<Integer>> answer = new ArrayList<>();
-        if (nums == null || nums.length == 0) {
-            return answer;
-        }
         Arrays.sort(nums);
-        List<Integer> subset = new ArrayList<>();
-        backtracking(nums, answer, subset, 0);
-        return answer;
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        backtracking(nums, result, list, 0);
+        return result;
     }
-    private void backtracking(int[] nums, List<List<Integer>> answer, List<Integer> subset, int start) {
-        answer.add(new ArrayList<>(subset));
-        for (int i = start; i < nums.length; i++) {
-            if (i != start && nums[i] == nums[i - 1]) continue;
-            subset.add(nums[i]);
-            backtracking(nums, answer, subset, i + 1);
-            subset.remove(subset.size() - 1);
+
+    private void backtracking(int[] nums, List<List<Integer>> result, List<Integer> list, int depth) {
+        result.add(new ArrayList<>(list));
+
+        for (int i = depth; i < nums.length; i++) {
+            if (i > depth && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            list.add(nums[i]);
+            backtracking(nums, result, list, i + 1);
+            list.remove(list.size() - 1);
         }
     }
 }

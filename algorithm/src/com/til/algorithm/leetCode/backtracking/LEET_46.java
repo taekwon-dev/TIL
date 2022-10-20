@@ -11,6 +11,7 @@ public class LEET_46 {
         backtracking(nums, result, list, visited, 0);
         return result;
     }
+
     private void backtracking(int[] nums, List<List<Integer>> result, List<Integer> list, boolean[] visited, int depth) {
         if (depth == nums.length) {
             result.add(new ArrayList<>(list));
@@ -21,8 +22,8 @@ public class LEET_46 {
                 visited[i] = true;
                 list.add(nums[i]);
                 backtracking(nums, result, list, visited, depth + 1);
-                list.remove(list.size() - 1);
                 visited[i] = false;
+                list.remove(list.size() - 1);
             }
         }
     }
