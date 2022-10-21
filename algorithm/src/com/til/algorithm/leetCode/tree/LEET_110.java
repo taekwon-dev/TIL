@@ -5,9 +5,9 @@ public class LEET_110 {
         if (root == null) {
             return true;
         }
-        int left = getDepth(root.left);
-        int right = getDepth(root.right);
-        return Math.abs(right - left) < 2 && isBalanced(root.left) && isBalanced(root.right);
+        int lh = getDepth(root.left);
+        int rh = getDepth(root.right);
+        return Math.abs(rh - lh) < 2 && isBalanced(root.left) && isBalanced(root.right);
     }
 
     private int getDepth(TreeNode root) {

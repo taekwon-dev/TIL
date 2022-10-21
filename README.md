@@ -41,7 +41,8 @@
 
 - **Database**
     - [MySQL - 트랜잭션 격리 수준](https://medium.com/taekwon-v/mysql-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80-e96c49083f7c)
-  
+    - [MySQL - Index [1] - 인덱스 사용 배경, 인덱스 자료구조 (Hash Table)](https://medium.com/taekwon-v/mysql-index-1-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%82%AC%EC%9A%A9-%EB%B0%B0%EA%B2%BD-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0-hash-table-3a2fe3a003bc)
+
 
 - **Java**
     - [Java - Object Class - equals()](https://medium.com/taekwon-v/java-object-class-equals-e4851181af0c)
