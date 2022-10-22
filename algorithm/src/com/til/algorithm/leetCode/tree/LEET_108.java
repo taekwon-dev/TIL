@@ -2,18 +2,17 @@ package com.til.algorithm.leetCode.tree;
 
 public class LEET_108 {
     public TreeNode sortedArrayToBST(int[] nums) {
-        return makeBST(nums, 0, nums.length - 1);
+        return sortedArrayToBST(nums, 0, nums.length - 1);
     }
 
-
-    private TreeNode makeBST(int[] nums, int s, int e) {
-        if (s > e) {
+    private TreeNode sortedArrayToBST(int[] nums, int start, int end) {
+        if (start > end) {
             return null;
         }
-        int mid = (s + e) / 2;
+        int mid = (start + end) / 2;
         TreeNode root = new TreeNode(nums[mid]);
-        root.left = makeBST(nums, s, mid - 1);
-        root.right = makeBST(nums, mid + 1, e);
+        root.left = sortedArrayToBST(nums, start, mid - 1);
+        root.right = sortedArrayToBST(nums, mid + 1, end);
         return root;
     }
 }

@@ -6,17 +6,13 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BOJ_11404 {
-    static int n, m;
-    static int[][] map;
-    static final int INF = 99 * 100000 + 1;
+    static final int INF = (int) 1e9;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = null;
-        n = Integer.parseInt(br.readLine());
-        m = Integer.parseInt(br.readLine());
-        map = new int[n + 1][n + 1];
-
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
+        int[][] map = new int[n + 1][n + 1];
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
                 map[i][j] = INF;
@@ -25,18 +21,20 @@ public class BOJ_11404 {
                 }
             }
         }
+        StringTokenizer st = null;
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
-            int start = Integer.parseInt(st.nextToken());
-            int end = Integer.parseInt(st.nextToken());
+            int from = Integer.parseInt(st.nextToken());
+            int to = Integer.parseInt(st.nextToken());
             int cost = Integer.parseInt(st.nextToken());
-            map[start][end] = Math.min(map[start][end], cost);
+            map[from][to] = Math.min(map[from][to], cost);
         }
-        for (int v = 1; v <= n; v++) {
+
+        for (int k = 1; k <= n; k++) {
             for (int i = 1; i <= n; i++) {
                 for (int j = 1; j <= n; j++) {
-                    if (map[i][j] > map[i][v] + map[v][j]) {
-                        map[i][j] = map[i][v] + map[v][j];
+                    if (map[i][j] > map[i][k] + map[k][j]) {
+                        map[i][j] = map[i][k] + map[k][j];
                     }
                 }
             }
@@ -45,13 +43,13 @@ public class BOJ_11404 {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
                 if (map[i][j] == INF) {
-                    map[i][j] = 0;
+                    sb.append("0" + " ");
+                } else {
+                    sb.append(map[i][j] + " ");
                 }
-                sb.append(map[i][j] + " ");
             }
             sb.append("\n");
         }
         System.out.println(sb.toString());
-        br.close();
     }
 }
