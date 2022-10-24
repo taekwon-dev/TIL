@@ -1,4 +1,6 @@
-package com.til.algorithm.leetCode.tree;
+package com.til.algorithm.leetCode.set;
+
+import com.til.algorithm.leetCode.tree.TreeNode;
 
 import java.util.HashSet;
 
