@@ -7,21 +7,21 @@ import java.util.Set;
 
 public class LEET_491 {
     public List<List<Integer>> findSubsequences(int[] nums) {
-        Set<List<Integer>> results = new HashSet<>();
-        if (nums == null || nums.length == 0) return new ArrayList<>(results);
-        List<Integer> sub = new ArrayList<>();
-        backtracking(nums, results, sub, 0);
-        return new ArrayList<>(results);
+        Set<List<Integer>> set = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
+        backtracking(nums, set, list, 0);
+        return new ArrayList<>(set);
     }
 
-    private void backtracking(int[] nums, Set<List<Integer>> results, List<Integer> sub, int start) {
-        if (sub.size() >= 2) results.add(new ArrayList<>(sub));
-        for (int i = start; i < nums.length; i++) {
-
-            if (sub.size() == 0 || sub.get(sub.size() - 1) <= nums[i]) {
-                sub.add(nums[i]);
-                backtracking(nums, results, sub, i + 1);
-                sub.remove(sub.size() - 1);
+    private void backtracking(int[] nums, Set<List<Integer>> set, List<Integer> list, int index) {
+        if (list.size() >= 2) {
+            set.add(new ArrayList<>(list));
+        }
+        for (int i = index; i < nums.length; i++) {
+            if (list.size() == 0 || list.get(list.size() - 1) <= nums[i]) {
+                list.add(nums[i]);
+                backtracking(nums, set, list, i + 1);
+                list.remove(list.size() - 1);
             }
         }
     }

@@ -39,8 +39,7 @@ public class BOJ_1956 {
                 }
             }
         }
-
-        int min = Integer.MAX_VALUE;
+        int min = INF;
         for (int i = 1; i <= v; i++) {
             for (int j = 1; j <= v; j++) {
                 if (i == j) {
@@ -51,7 +50,7 @@ public class BOJ_1956 {
                 }
             }
         }
-        if (min == Integer.MAX_VALUE) {
+        if (min == INF) {
             System.out.println(-1);
         } else {
             System.out.println(min);

@@ -6,21 +6,23 @@ import java.util.List;
 
 public class LEET_783 {
     public int minDiffInBST(TreeNode root) {
-        int min = Integer.MAX_VALUE;
-        List<Integer> list = new ArrayList<>();
-        preorder(root, list);
-        Collections.sort(list);
-        for (int i = 0; i < list.size() - 1; i++) {
-            min = Math.min(min, Math.abs(list.get(i) - list.get(i + 1)));
+        List<Integer> nums = new ArrayList<>();
+        inorder(root, nums);
+        int min = 100_000;
+        for (int i = 0; i < nums.size() - 1; i++) {
+            if (min > Math.abs(nums.get(i) - nums.get(i + 1))) {
+                min = Math.abs(nums.get(i) - nums.get(i + 1));
+            }
         }
         return min;
-
     }
 
-    private void preorder(TreeNode root, List<Integer> list) {
-        if (root == null) return;
-        list.add(root.val);
-        preorder(root.left, list);
-        preorder(root.right, list);
+    private void inorder(TreeNode root, List<Integer> nums) {
+        if (root == null) {
+            return;
+        }
+        inorder(root.left, nums);
+        nums.add(root.val);
+        inorder(root.right, nums);
     }
 }

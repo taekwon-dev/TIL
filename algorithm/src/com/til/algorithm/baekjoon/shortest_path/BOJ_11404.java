@@ -15,10 +15,10 @@ public class BOJ_11404 {
         int[][] map = new int[n + 1][n + 1];
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
-                map[i][j] = INF;
                 if (i == j) {
-                    map[i][j] = 0;
+                    continue;
                 }
+                map[i][j] = INF;
             }
         }
         StringTokenizer st = null;
@@ -33,6 +33,9 @@ public class BOJ_11404 {
         for (int k = 1; k <= n; k++) {
             for (int i = 1; i <= n; i++) {
                 for (int j = 1; j <= n; j++) {
+                    if (i == j) {
+                        continue;
+                    }
                     if (map[i][j] > map[i][k] + map[k][j]) {
                         map[i][j] = map[i][k] + map[k][j];
                     }
@@ -43,7 +46,7 @@ public class BOJ_11404 {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
                 if (map[i][j] == INF) {
-                    sb.append("0" + " ");
+                    sb.append(map[i][j] + " ");
                 } else {
                     sb.append(map[i][j] + " ");
                 }

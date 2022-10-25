@@ -11,13 +11,13 @@ public class BOJ_17836 {
     static class Node {
         int x;
         int y;
-        int cost;
+        int dist;
         boolean hasGram;
 
-        public Node(int x, int y, int cost, boolean hasGram) {
+        public Node(int x, int y, int dist, boolean hasGram) {
             this.x = x;
             this.y = y;
-            this.cost = cost;
+            this.dist = dist;
             this.hasGram = hasGram;
         }
     }
@@ -42,27 +42,24 @@ public class BOJ_17836 {
             }
         }
         int result = bfs();
-        if (result == -1) {
+        if (result == -1 || result > t) {
             System.out.println("Fail");
         } else {
             System.out.println(result);
         }
+
     }
 
     private static int bfs() {
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(new Node(1, 1, 0, false));
+        Queue<Node> q = new LinkedList<>();
+        q.add(new Node(1, 1, 0, false));
         visited[1][1][0] = true;
 
-        while (!queue.isEmpty()) {
-            Node node = queue.poll();
-
-            if (node.cost > t) {
-                break;
-            }
+        while (!q.isEmpty()) {
+            Node node = q.poll();
 
             if (node.x == n && node.y == m) {
-                return node.cost;
+                return node.dist;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -70,16 +67,17 @@ public class BOJ_17836 {
                 int ny = node.y + dy[i];
                 if (nx >= 1 && ny >= 1 && nx <= n && ny <= m) {
                     if (!node.hasGram) {
-                        if (!visited[nx][ny][0] && map[nx][ny] == 0) {
-                            queue.add(new Node(nx, ny, node.cost + 1, node.hasGram));
-                            visited[nx][ny][0] = true;
-                        } else if (!visited[nx][ny][0] && map[nx][ny] == 2) {
-                            queue.add(new Node(nx, ny, node.cost + 1, true));
+                        if (!visited[nx][ny][0]) {
+                            if (map[nx][ny] == 0) {
+                                q.add(new Node(nx, ny, node.dist + 1, node.hasGram));
+                            } else if (map[nx][ny] == 2) {
+                                q.add(new Node(nx, ny, node.dist + 1, true));
+                            }
                             visited[nx][ny][0] = true;
                         }
-                    } else {
+                    } else if (node.hasGram) {
                         if (!visited[nx][ny][1]) {
-                            queue.add(new Node(nx, ny, node.cost + 1, node.hasGram));
+                            q.add(new Node(nx, ny, node.dist + 1, node.hasGram));
                             visited[nx][ny][1] = true;
                         }
                     }
@@ -88,4 +86,5 @@ public class BOJ_17836 {
         }
         return -1;
     }
+
 }

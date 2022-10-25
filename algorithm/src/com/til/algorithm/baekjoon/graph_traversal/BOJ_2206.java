@@ -50,11 +50,9 @@ public class BOJ_2206 {
 
         while (!queue.isEmpty()) {
             Node node = queue.poll();
-
             if (node.x == n && node.y == m) {
                 return node.dist;
             }
-
             for (int i = 0; i < 4; i++) {
                 int nx = node.x + dx[i];
                 int ny = node.y + dy[i];
