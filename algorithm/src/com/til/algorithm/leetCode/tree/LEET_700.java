@@ -1,13 +1,13 @@
 package com.til.algorithm.leetCode.tree;
 
 public class LEET_700 {
-    public TreeNode searchBST(TreeNode root, int key) {
-        if (root == null || root.val == key) {
+    public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null || root.val == val) {
             return root;
         }
-        if (root.val > key) {
-            return searchBST(root.left, key);
+        if (root.val > val) {
+            return searchBST(root.left, val);
         }
-        return searchBST(root.right, key);
+        return searchBST(root.right, val);
     }
 }
