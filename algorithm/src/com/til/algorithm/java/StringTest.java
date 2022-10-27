@@ -3,8 +3,7 @@ package com.til.algorithm.java;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class StringTest {
 
@@ -31,7 +30,7 @@ class StringTest {
     }
 
     @Test
-    @DisplayName("substring(int begin) : begin 가 문자열 길이와 같거나(공란 반환) 큰 경우(StringIndexOutOfBoundsException)")
+    @DisplayName("substring(int begin) : begin 이 문자열 길이와 같거나(공란 반환) 큰 경우(StringIndexOutOfBoundsException)")
     void substringWithBeginOnlyOverLen() {
         /**
          int subLen = length() - beginIndex;
@@ -61,6 +60,10 @@ class StringTest {
     @Test
     @DisplayName("substring(int begin, int end) :  begin ~ end - 1")
     void substringWithBeginEnd() {
+
+        // A B C D E
+        // 0 1 2 3 4
+
         assertTrue(CONTAINS_NON_BLANK.substring(0, 0).equals(""));
         assertTrue(CONTAINS_NON_BLANK.substring(0, 1).equals("A"));
         assertTrue(CONTAINS_NON_BLANK.substring(0, 2).equals("AB"));
@@ -84,9 +87,9 @@ class StringTest {
     @DisplayName("substring(int begin, int end) : StringIndexOutOfBoundsException 발생")
     void substringWithBeginEndThrowsStringIndexOutOfBoundsException() {
         /**
-             if (begin < 0 || begin > end || end > length) {
-                throw new StringIndexOutOfBoundsException("begin " + begin + ", end " + end + ", length " + length);
-             }
+         if (begin < 0 || begin > end || end > length) {
+         throw new StringIndexOutOfBoundsException("begin " + begin + ", end " + end + ", length " + length);
+         }
          */
         // begin < 0
         assertThrows(StringIndexOutOfBoundsException.class, () -> {
@@ -100,14 +103,47 @@ class StringTest {
 
         // end > length()
         assertThrows(StringIndexOutOfBoundsException.class, () -> {
-           CONTAINS_NON_BLANK.substring(0, CONTAINS_NON_BLANK.length() + 1);
+            CONTAINS_NON_BLANK.substring(0, CONTAINS_NON_BLANK.length() + 1);
         });
     }
 
     @Test
-    @DisplayName("startsWith()")
+    @DisplayName("startsWith(), endsWith()")
     void startsWith() {
         assertTrue(CONTAINS_NON_BLANK.startsWith("A"));
+        assertTrue(CONTAINS_NON_BLANK.endsWith("E"));
     }
 
+    @Test
+    @DisplayName("문자열 대체 - replace()")
+    void replace() {
+        String a = "무궁화 삼천리 화려강산 대한사람 대한으로";
+
+        a = a.replace("대한", "민국");
+        assertEquals(a, "무궁화 삼천리 화려강산 민국사람 민국으로");
+    }
+
+    @Test
+    @DisplayName("문자열 대체 - replace() vs replaceAll() 차이")
+    void diff_replace_replaceAll() {
+        String a = "무궁화. 삼천리. 화려강산. 대한사람. 대한으로.";
+
+        a = a.replace(".", "/");
+        assertEquals(a, "무궁화/ 삼천리/ 화려강산/ 대한사람/ 대한으로/");
+
+        // "그래서 replace() 는 특수문자로도 치환이 되는데 반하여 replaceAll() 은 특수문자로 치환이 어렵다"
+
+        String b = "무궁화. 삼천리. 화려강산. 대한사람. 대한으로.";
+        b = b.replaceAll(".", "/");
+        // b = ///////////////////////////
+        System.out.println("b = " + b);
+    }
+
+    @Test
+    @DisplayName("문자열 대체 - replaceFirst()")
+    void replaceFirst() {
+        String a = "무궁화 삼천리 화려강산 대한사람 대한으로";
+        a = a.replaceFirst("대한", "민국");
+        assertEquals(a, "무궁화 삼천리 화려강산 민국사람 대한으로");
+    }
 }

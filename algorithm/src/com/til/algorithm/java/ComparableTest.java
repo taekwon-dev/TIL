@@ -38,10 +38,6 @@ public class ComparableTest {
                 return 1;
             }
             return -1;
-//            if (this.age == o.age) {
-//                return this.money - o.money;
-//            }
-//            return this.age - o.age;
         }
     }
 

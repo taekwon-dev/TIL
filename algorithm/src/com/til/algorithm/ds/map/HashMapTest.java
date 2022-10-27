@@ -83,8 +83,14 @@ class HashMapTest {
          * [Key]:2 [Value]:2등
          * [Key]:3 [Value]:3등
          */
+
         for (Integer i : map.keySet()) {
             System.out.println("[Key]:" + i + " [Value]:" + map.get(i));
+        }
+
+        // Auto Unboxing
+        for (int i : map.keySet()) {
+            System.out.println("[Key]: " + i + " [Value]:" + map.get(i));
         }
     }
 
@@ -114,9 +120,9 @@ class HashMapTest {
         map.put(2, "2등");
         map.put(3, "3등");
 
-        Iterator<Integer> iterator = map.keySet().iterator();
-        while (iterator.hasNext()) {
-            int key = iterator.next();
+        Iterator<Integer> iter = map.keySet().iterator();
+        while (iter.hasNext()) {
+            int key = iter.next();
             System.out.println("[Key]:" + key + " [Value]:" +  map.get(key));
         }
     }
@@ -129,9 +135,9 @@ class HashMapTest {
         map.put(2, "2등");
         map.put(3, "3등");
 
-        Iterator<Map.Entry<Integer, String>> entryIterator = map.entrySet().iterator();
-        while (entryIterator.hasNext()) {
-            Map.Entry<Integer, String> entry = entryIterator.next();
+        Iterator<Map.Entry<Integer, String>> entryIter = map.entrySet().iterator();
+        while (entryIter.hasNext()) {
+            Map.Entry<Integer, String> entry = entryIter.next();
             System.out.println("[Key]:" + entry.getKey() + " [Value]:" + entry.getValue());
         }
     }

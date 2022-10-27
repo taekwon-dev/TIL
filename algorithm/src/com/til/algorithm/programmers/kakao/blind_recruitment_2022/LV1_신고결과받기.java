@@ -4,38 +4,37 @@ import java.util.HashSet;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Map (HashMap)
- * Set (HashSet)
- */
 class LV1_신고결과받기 {
     public int[] solution(String[] id_list, String[] report, int k) {
-        int[] answer = new int[id_list.length];
-        Map<String, HashSet<String>> map = new HashMap<>();
-        Map<String, Integer> idxMap = new HashMap<>();
+        HashMap<String, Integer> resultMap = new HashMap<>();
+        HashMap<String, HashSet<String>> reportMap = new HashMap<>();
 
-        for (int i = 0; i < id_list.length; i++) {
-            String name = id_list[i];
-            map.put(name, new HashSet<>());
-            idxMap.put(name, i);
+        for (String id : id_list) {
+            resultMap.put(id, 0);
+            reportMap.put(id, new HashSet<>());
         }
 
-        for (String s : report) {
-            String[] str = s.split(" ");
-            String from = str[0];
-            String to = str[1];
-            map.get(to).add(from);
+        for (String r : report) {
+            String[] tmp = r.split(" ");
+            String from = tmp[0];
+            String to = tmp[1];
+
+            reportMap.get(to).add(from);
         }
 
-        for (int i = 0; i < id_list.length; i++) {
-            HashSet<String> reporter = map.get(id_list[i]);
-            if (reporter.size() >= k) {
-                for (String name : reporter) {
-                    answer[idxMap.get(name)]++;
+        for (String key : reportMap.keySet()) {
+            if (reportMap.get(key).size() >= k) {
+                for (String receiver : reportMap.get(key)) {
+                    int cnt = resultMap.get(receiver) + 1;
+                    resultMap.put(receiver, cnt);
                 }
             }
         }
 
+        int[] answer = new int[id_list.length];
+        for (int i = 0; i < id_list.length; i++) {
+            answer[i] = resultMap.get(id_list[i]);
+        }
         return answer;
     }
 }

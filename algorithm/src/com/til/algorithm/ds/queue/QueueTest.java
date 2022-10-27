@@ -43,7 +43,10 @@ class QueueTest {
         q.clear();
         assertEquals(q.size(), 0);
 
+        // Empty -> poll() -> return null
         assertEquals(q.poll(), null);
+
+        // Empty -> remove() -> throw NoSuchElementException
         assertThrows(NoSuchElementException.class, () -> {
             q.remove();
         });
