@@ -51,6 +51,14 @@ public class LinkedListTest {
     }
 
     @Test
+    @DisplayName("LinkedList 값 조회")
+    void get() {
+        LinkedList<Integer> list = new LinkedList<>(Arrays.asList(1, 2, 3));
+        assertEquals(list.getFirst(), 1);
+        assertEquals(list.getLast(), 3);
+    }
+
+    @Test
     @DisplayName("LinkedList 값 출력")
     void print() {
         LinkedList<Integer> list = new LinkedList<>(Arrays.asList(1, 2, 3));

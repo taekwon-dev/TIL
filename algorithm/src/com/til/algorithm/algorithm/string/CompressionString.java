@@ -1,13 +1,11 @@
 package com.til.algorithm.algorithm.string;
 
-/**
- *  aaabbc = a3b2c1
- */
 public class CompressionString {
 
     public static void main(String[] args) {
-        System.out.println(compressString("aaaaabbbbcccdde"));
-        System.out.println("abcde");
+        System.out.println(compressString("aaabbc"));
+        System.out.println(compressString("aaabbb"));
+        System.out.println(compressString("aaabbbc"));
     }
 
     private static String compressString(String str) {
@@ -17,12 +15,22 @@ public class CompressionString {
 
     private static String compress(String str) {
         int count = 0;
+        /**
+         *     private void ensureCapacityInternal(int minimumCapacity) {
+         *         // overflow-conscious code
+         *         int oldCapacity = value.length >> coder;
+         *         if (minimumCapacity - oldCapacity > 0) {
+         *             value = Arrays.copyOf(value,
+         *                     newCapacity(minimumCapacity) << coder);
+         *         }
+         *     }
+         */
         StringBuilder sb = new StringBuilder(getTotal(str));
         for (int i = 0; i < str.length(); i++) {
             count++;
             if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
-                sb.append(str.charAt(i));
                 sb.append(count);
+                sb.append(str.charAt(i));
                 count = 0;
             }
         }

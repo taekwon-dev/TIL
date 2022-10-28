@@ -43,6 +43,7 @@ public class StringBuilderTest {
              주어진 문자열을 기반으로 StringBuilder 생성 시, Capacity 를 해당 문자열 길이 + 16으로 설정
          */
         assertTrue(sb.capacity() != sb.toString().length());
+        assertTrue(sb.capacity() == sb.length() + 16);
     }
     
 }
