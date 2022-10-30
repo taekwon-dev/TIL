@@ -1,11 +1,17 @@
 package com.til.algorithm.algorithm.string;
 
+/**
+ *  인접한 문자(= 한 문자 단위) 압축
+ *  aabbcc = 2a2b2c
+ *  aabbcccc = 2a2b4c
+ *  aabbc = 2a2bc
+ */
 public class CompressionString {
 
     public static void main(String[] args) {
-        System.out.println(compressString("aaabbc"));
-        System.out.println(compressString("aaabbb"));
-        System.out.println(compressString("aaabbbc"));
+        System.out.println(compressString("aabbcc"));   // 2a2b2c
+        System.out.println(compressString("aabbcccc")); // 2a2b4c
+        System.out.println(compressString("aabbc"));    // 2a2bc
     }
 
     private static String compressString(String str) {
@@ -15,38 +21,17 @@ public class CompressionString {
 
     private static String compress(String str) {
         int count = 0;
-        /**
-         *     private void ensureCapacityInternal(int minimumCapacity) {
-         *         // overflow-conscious code
-         *         int oldCapacity = value.length >> coder;
-         *         if (minimumCapacity - oldCapacity > 0) {
-         *             value = Arrays.copyOf(value,
-         *                     newCapacity(minimumCapacity) << coder);
-         *         }
-         *     }
-         */
-        StringBuilder sb = new StringBuilder(getTotal(str));
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
             count++;
             if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
-                sb.append(count);
+                if (count != 1) {
+                    sb.append(count);
+                }
                 sb.append(str.charAt(i));
                 count = 0;
             }
         }
         return sb.toString();
-    }
-
-    private static int getTotal(String str) {
-        int count = 0;
-        int total = 0;
-        for (int i = 0; i < str.length(); i++) {
-            count++;
-            if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
-                total += 1 + String.valueOf(count).length();
-                count = 0;
-            }
-        }
-        return total;
     }
 }

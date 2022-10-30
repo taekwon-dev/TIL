@@ -11,12 +11,13 @@ public class LEET_77 {
         return result;
     }
 
-    private void backtracking(int n, int k, List<List<Integer>> result, List<Integer> list, int depth, int idx) {
+    private void backtracking(int n, int k, List<List<Integer>> result, List<Integer> list, int depth, int start) {
         if (depth == k) {
             result.add(new ArrayList<>(list));
             return;
         }
-        for (int i = idx; i <= n; i++) {
+        // start - starting from 1
+        for (int i = start; i <= n; i++) {
             list.add(i);
             backtracking(n, k, result, list, depth + 1, i + 1);
             list.remove(list.size() - 1);
