@@ -1,19 +1,27 @@
 package com.til.algorithm.algorithm.backtracking;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Subsets {
     public static void main(String[] args) {
-        String order = "ABCDE";
-        backtracking(order.toCharArray(), 0, "");
+        int[] nums = {1, 2, 3};
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        backtracking(nums, result, list, 0);
+
+        // result = [[1, 2, 3], [1, 2], [1, 3], [1], [2, 3], [2], [3], []]
+        System.out.println("result = " + result);
     }
 
-    private static void backtracking(char[] menu, int depth, String s) {
-        if (depth == menu.length) {
-            if (s.length() >= 2) {
-                System.out.println(s);
-            }
+    private static void backtracking(int[] nums, List<List<Integer>> result, List<Integer> list, int depth) {
+        if (depth == nums.length) {
+            result.add(new ArrayList<>(list));
             return;
         }
-        backtracking(menu, depth + 1, s + menu[depth]);
-        backtracking(menu, depth + 1, s);
+        list.add(nums[depth]);
+        backtracking(nums, result, list, depth + 1);
+        list.remove(list.size() - 1);
+        backtracking(nums, result, list, depth + 1);
     }
 }
