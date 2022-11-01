@@ -26,10 +26,13 @@ public class CharacterTest {
 
     @Test
     @DisplayName("Character.isUpperCase, isLowerCase")
-    void is() {
+    void isUpperCase() {
         assertTrue(Character.isUpperCase(UPPER_LETER));
-        assertTrue(Character.isLowerCase(LOWER_LETER));
     }
 
-
+    @Test
+    @DisplayName("Character.isLowerCase")
+    void isLowerCase() {
+        assertTrue(Character.isLowerCase(LOWER_LETER));
+    }
 }

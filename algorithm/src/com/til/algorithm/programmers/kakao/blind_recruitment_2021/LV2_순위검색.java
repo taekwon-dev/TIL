@@ -11,10 +11,7 @@ public class LV2_순위검색 {
             String[] strs = row.split(" ");
             backtracking(strs, "", 0);
         }
-        Iterator<Map.Entry<String, List<Integer>>> iter = map.entrySet().iterator();
-        while (iter.hasNext()) {
-            Collections.sort(iter.next().getValue());
-        }
+
         int[] answer = new int[query.length];
         for (int i = 0; i < query.length; i++) {
             String s = query[i].replace(" and ", "");
