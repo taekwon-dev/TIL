@@ -146,4 +146,15 @@ class StringTest {
         a = a.replaceFirst("대한", "민국");
         assertEquals(a, "무궁화 삼천리 화려강산 민국사람 대한으로");
     }
+
+    // https://mine-it-record.tistory.com/133
+    @Test
+    @DisplayName("문자열 비교 - compareTo()")
+    void compareTo() {
+        String a0 = "a";
+        String a = "apple";
+        String b = "banana";
+        System.out.println("a.compareTo(b) = " + a.compareTo(b));
+        System.out.println("a.compareTo(a0) = " + a.compareTo(a0));
+    }
 }

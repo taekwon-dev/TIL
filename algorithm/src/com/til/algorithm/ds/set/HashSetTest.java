@@ -75,9 +75,9 @@ class HashSetTest {
         HashSet<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
         System.out.println("set = " + set); // [1, 2, 3, 4, 5]
 
-        Iterator iterator = set.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+        Iterator<Integer> iter = set.iterator();
+        while (iter.hasNext()) {
+            System.out.println(iter.next());
         }
     }
 
