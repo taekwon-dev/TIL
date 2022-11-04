@@ -9,11 +9,6 @@ import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *  https://coding-factory.tistory.com/551
- *
- *  한 번 생성되면 크기가 변하지 않는 배열과는 달리 ArrayList 는 객체들이 추가되어 저장 용량(Capacity)을 초과한다면 자동으로 부족한 크기만큼 저장 용량이 늘어난다는 특징을 가지고 있다.
- */
 public class ArrayListTest {
 
     @Test
@@ -78,5 +73,5 @@ public class ArrayListTest {
         assertTrue(list.contains(1));
         assertTrue(list.indexOf(-1) == -1); // 해당 인덱스에 해당하는 값이 없는 경우 -1 리턴
         assertEquals(list.indexOf(1), 0); // 특정 값을 기준으로 인덱스 값 구하기
-    }
+
 }

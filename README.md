@@ -43,6 +43,7 @@
     - [MySQL - 트랜잭션 격리 수준](https://medium.com/taekwon-v/mysql-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EC%88%98%EC%A4%80-e96c49083f7c)
     - [MySQL - Index [1] - 인덱스 사용 배경, 인덱스 자료구조 (Hash Table)](https://medium.com/taekwon-v/mysql-index-1-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%82%AC%EC%9A%A9-%EB%B0%B0%EA%B2%BD-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0-hash-table-3a2fe3a003bc)
     - [MySQL - Index [2] - 인덱스 자료구조 (B+Tree)](https://medium.com/taekwon-v/mysql-index-2-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0-b-tree-fbbce62c6005)
+    - [MySQL - Index [3] - Index(B+Tree) 특징 및 Index 사용 관련 고려사항](https://medium.com/taekwon-v/mysql-index-3-index-b-tree-%ED%8A%B9%EC%A7%95-%EB%B0%8F-index-%EC%82%AC%EC%9A%A9-%EA%B4%80%EB%A0%A8-%EA%B3%A0%EB%A0%A4%EC%82%AC%ED%95%AD-547808f93c8d)
 
 
 - **Java**
