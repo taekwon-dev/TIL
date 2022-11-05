@@ -73,5 +73,5 @@ public class ArrayListTest {
         assertTrue(list.contains(1));
         assertTrue(list.indexOf(-1) == -1); // 해당 인덱스에 해당하는 값이 없는 경우 -1 리턴
         assertEquals(list.indexOf(1), 0); // 특정 값을 기준으로 인덱스 값 구하기
-
+    }
 }

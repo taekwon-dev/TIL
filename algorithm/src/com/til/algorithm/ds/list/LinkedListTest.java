@@ -46,8 +46,14 @@ public class LinkedListTest {
         LinkedList<Integer> list = new LinkedList<>(Arrays.asList(1, 2, 3));
         assertEquals(list.removeFirst(), 1);
         assertEquals(list.removeLast(), 3);
+        assertEquals(list.remove(0), 2);
         list.clear();
         assertEquals(list.size(), 0);
+    }
+
+    @Test
+    @DisplayName("LinkedList remove(Object o) 대상 객체 존재 시 true 반환")
+    void removeObject() {
     }
 
     @Test

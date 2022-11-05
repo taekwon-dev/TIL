@@ -147,14 +147,19 @@ class StringTest {
         assertEquals(a, "무궁화 삼천리 화려강산 민국사람 대한으로");
     }
 
-    // https://mine-it-record.tistory.com/133
     @Test
-    @DisplayName("문자열 비교 - compareTo()")
-    void compareTo() {
-        String a0 = "a";
-        String a = "apple";
-        String b = "banana";
-        System.out.println("a.compareTo(b) = " + a.compareTo(b));
-        System.out.println("a.compareTo(a0) = " + a.compareTo(a0));
+    @DisplayName("알파벳 문자열 - 소문자 변환")
+    void toLowerCase() {
+        String str = "ABCDE";
+        str = str.toLowerCase();
+        assertEquals(str, "abcde");
+    }
+
+    @Test
+    @DisplayName("알파벳 문자열 - 대문자 변환")
+    void toUpperCase() {
+        String str = "abcde";
+        str = str.toUpperCase();
+        assertEquals(str, "ABCDE");
     }
 }
