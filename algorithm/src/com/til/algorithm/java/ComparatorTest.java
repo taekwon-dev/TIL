@@ -55,8 +55,10 @@ class ComparatorTest {
         
         Collections.sort(students, (s1, s2) -> {
             if (s1.score == s2.score) {
+                // 아이디 오름차순
                 return s1.id - s2.id;
             }
+            // 점수 내림차순
             return s2.score - s1.score;
         });
 
