@@ -22,8 +22,8 @@ public class LEET_46 {
                 visited[i] = true;
                 list.add(nums[i]);
                 backtracking(nums, result, list, visited, depth + 1);
-                visited[i] = false;
                 list.remove(list.size() - 1);
+                visited[i] = false;
             }
         }
     }

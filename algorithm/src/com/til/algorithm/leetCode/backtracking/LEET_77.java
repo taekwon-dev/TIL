@@ -16,7 +16,6 @@ public class LEET_77 {
             result.add(new ArrayList<>(list));
             return;
         }
-        // start - starting from 1
         for (int i = start; i <= n; i++) {
             list.add(i);
             backtracking(n, k, result, list, depth + 1, i + 1);
