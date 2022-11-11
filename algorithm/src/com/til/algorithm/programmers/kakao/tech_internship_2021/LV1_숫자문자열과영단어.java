@@ -16,6 +16,7 @@ public class LV1_숫자문자열과영단어 {
             put("eight", 8);
             put("nine", 9);
         }};
+
         for (String key : map.keySet()) {
             if (s.contains(key)) {
                 s = s.replace(key, String.valueOf(map.get(key)));
