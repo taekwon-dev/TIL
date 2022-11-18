@@ -4,25 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_39 {
+
+    private List<List<Integer>> result = new ArrayList<>();
+    private List<Integer> combination = new ArrayList<>();
+
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        backtracking(candidates, target, result, list, 0, 0);
+        backtracking(candidates, target, 0, 0);
         return result;
     }
 
-    private void backtracking(int[] candidates, int target, List<List<Integer>> result, List<Integer> list, int start, int sum) {
+    private void backtracking(int[] candidates, int target, int start, int sum) {
         if (sum > target) {
             return;
         }
         if (sum == target) {
-            result.add(new ArrayList<>(list));
+            result.add(new ArrayList<>(combination));
             return;
         }
         for (int i = start; i < candidates.length; i++) {
-            list.add(candidates[i]);
-            backtracking(candidates, target, result, list, i, sum + candidates[i]);
-            list.remove(list.size() - 1);
+            combination.add(candidates[i]);
+            backtracking(candidates, target, i, sum + candidates[i]);
+            combination.remove(combination.size() - 1);
         }
     }
 }

@@ -4,21 +4,24 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class LV2_캐시 {
+
+    private final int HIT = 1;
+    private final int MISS = 5;
+
     public int solution(int cacheSize, String[] cities) {
         if (cacheSize == 0) {
-            return 5 * cities.length;
+            return cities.length * MISS;
         }
-        List<String> cache = new LinkedList<>();
         int answer = 0;
-
+        List<String> cache = new LinkedList<>();
         for (String city : cities) {
             city = city.toLowerCase();
             if (cache.remove(city)) {
-                answer += 1;
+                answer += HIT;
                 cache.add(city);
             } else {
-                answer += 5;
-                if (cache.size() >= cacheSize) {
+                answer += MISS;
+                if (cache.size() == cacheSize) {
                     cache.remove(0);
                 }
                 cache.add(city);

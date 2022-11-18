@@ -1,20 +1,19 @@
-package com.til.algorithm.leetCode.backtracking;
-
-import com.til.algorithm.leetCode.tree.TreeNode;
+package com.til.algorithm.leetCode.tree;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LEET_113_b {
+public class LEET_113_a {
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
-        return preorder(root, targetSum, result, list, 0);
+        preorder(root, targetSum, result, list, 0);
+        return result;
     }
 
-    private List<List<Integer>> preorder(TreeNode root, int targetSum, List<List<Integer>> result, List<Integer> list, int sum) {
+    private void preorder(TreeNode root, int targetSum, List<List<Integer>> result, List<Integer> list, int sum) {
         if (root == null) {
-            return result;
+            return;
         }
         sum += root.val;
         list.add(root.val);
@@ -31,6 +30,5 @@ public class LEET_113_b {
             }
         }
         list.remove(list.size() - 1);
-        return result;
     }
 }
