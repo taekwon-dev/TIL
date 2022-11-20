@@ -1,7 +1,7 @@
 package com.til.algorithm.algorithm.bitmask;
 
 /**
- *  int = 4 bytes (32 bit)
+ * int = 4 bytes (32 bit)
  */
 
 public class GetBit {

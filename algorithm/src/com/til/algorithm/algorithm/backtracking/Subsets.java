@@ -22,6 +22,7 @@ public class Subsets {
         list.add(nums[depth]);
         backtracking(nums, result, list, depth + 1);
         list.remove(list.size() - 1);
+
         backtracking(nums, result, list, depth + 1);
     }
 }

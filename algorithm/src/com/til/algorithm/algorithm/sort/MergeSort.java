@@ -1,15 +1,5 @@
 package com.til.algorithm.algorithm.sort;
 
-/**
- * Merge Sort
- * <p>
- * 장점
- * 1. 항상 두 부분 리스트로 쪼개어 들어가기 때문에 최악의 경우에도 O(NlogN) 으로 유지 된다.
- * 2. 안정정렬
- * <p>
- * 단점
- * 1. 정렬 과정에서 추가적인보조 배열 공간을 사용
- */
 public class MergeSort {
 
     public static void main(String[] args) {
@@ -31,7 +21,6 @@ public class MergeSort {
             mergeSort(arr, tmp, start, mid);
             mergeSort(arr, tmp, mid + 1, end);
 
-            // 나누고 나서 병합
             merge(arr, tmp, start, mid, end);
         }
     }
@@ -56,7 +45,6 @@ public class MergeSort {
             index++;
         }
 
-        // Part1에 남은 경우
         for (int i = 0; i <= mid - part1; i++) {
             arr[index + i] = tmp[part1 + i];
         }
