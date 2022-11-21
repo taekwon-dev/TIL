@@ -5,15 +5,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LEET_40 {
+
+    private List<List<Integer>> result = new ArrayList<>();
+    private List<Integer> list = new ArrayList<>();
+
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        backtracking(candidates, target, result, list, 0, 0);
+        backtracking(candidates, target, 0, 0);
         return result;
     }
 
-    private void backtracking(int[] candidates, int target, List<List<Integer>> result, List<Integer> list, int start, int sum) {
+    private void backtracking(int[] candidates, int target, int start, int sum) {
         if (sum > target) {
             return;
         }
@@ -26,7 +28,7 @@ public class LEET_40 {
             if (prev != candidates[i]) {
                 prev = candidates[i];
                 list.add(candidates[i]);
-                backtracking(candidates, target, result, list, i + 1, sum + candidates[i]);
+                backtracking(candidates, target, i + 1, sum + candidates[i]);
                 list.remove(list.size() - 1);
             }
         }

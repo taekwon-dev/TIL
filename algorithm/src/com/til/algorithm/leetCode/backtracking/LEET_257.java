@@ -3,9 +3,6 @@ package com.til.algorithm.leetCode.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Binary Tree Paths
- */
 public class LEET_257 {
     class TreeNode {
         int val;
