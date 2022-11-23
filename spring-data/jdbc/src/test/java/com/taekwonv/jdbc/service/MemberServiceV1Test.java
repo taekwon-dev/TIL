@@ -15,9 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- *  트랜잭션이 없어서 문제 발생
- *  (ACID)
- *
+ * 트랜잭션이 없어서 문제 발생
+ * (ACID)
  */
 class MemberServiceV1Test {
 
@@ -78,7 +77,7 @@ class MemberServiceV1Test {
         Member findMemberA = memberRepository.findById(memberA.getMemberId());
         Member findMemberEx = memberRepository.findById(memberEx.getMemberId());
         //memberA의 돈만 2000원 줄었고, ex의 돈은 10000원 그대로이다. (❗Auto Commit)
-         assertThat(findMemberA.getMoney()).isEqualTo(8000);
-         assertThat(findMemberEx.getMoney()).isEqualTo(10000);
+        assertThat(findMemberA.getMoney()).isEqualTo(8000);
+        assertThat(findMemberEx.getMoney()).isEqualTo(10000);
     }
 }

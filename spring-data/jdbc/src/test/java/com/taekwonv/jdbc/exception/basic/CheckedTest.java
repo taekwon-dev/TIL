@@ -20,7 +20,7 @@ public class CheckedTest {
     }
 
     /**
-     *  Exception 상속 받은 예외는 체크 예외가 된다.
+     * Exception 상속 받은 예외는 체크 예외가 된다.
      */
     static class MyCheckedException extends Exception {
         public MyCheckedException(String message) {
@@ -30,6 +30,7 @@ public class CheckedTest {
 
     static class Service {
         Repository repository = new Repository();
+
         /**
          * 예외를 잡아서 처리하는 부분
          */
@@ -43,6 +44,7 @@ public class CheckedTest {
 
         /**
          * 체크 예외는 직접 처리하기 않고 호출자에 위임하려면 `throws` 키워드를 반드시 선언
+         *
          * @throws MyCheckedException
          */
         public void callThrow() throws MyCheckedException {

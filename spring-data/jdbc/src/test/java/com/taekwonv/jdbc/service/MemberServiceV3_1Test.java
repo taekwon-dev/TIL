@@ -56,7 +56,9 @@ class MemberServiceV3_1Test {
         assertThat(findMemberA.getMoney()).isEqualTo(8000);
         assertThat(findMemberB.getMoney()).isEqualTo(12000);
 
-    } @Test
+    }
+
+    @Test
     @DisplayName("이체중 예외 발생")
     void accountTransferEx() throws SQLException {
         //given
@@ -77,4 +79,5 @@ class MemberServiceV3_1Test {
         assertThat(findMemberEx.getMoney()).isEqualTo(10000);
 
 
-    } }
+    }
+}

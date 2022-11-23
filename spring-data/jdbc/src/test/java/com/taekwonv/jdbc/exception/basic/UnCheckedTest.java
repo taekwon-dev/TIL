@@ -28,8 +28,9 @@ public class UnCheckedTest {
 
     static class Service {
         Repository repository = new Repository();
+
         /**
-         *  필요한 경우 예외를 잡아서 처리한다.
+         * 필요한 경우 예외를 잡아서 처리한다.
          */
         public void callCatch() {
             try {
@@ -40,7 +41,7 @@ public class UnCheckedTest {
         }
 
         /**
-         *  예외를 별도로 선언하지 않아도 호출자에서 예외 발생
+         * 예외를 별도로 선언하지 않아도 호출자에서 예외 발생
          */
         public void callThrow() {
             repository.call();

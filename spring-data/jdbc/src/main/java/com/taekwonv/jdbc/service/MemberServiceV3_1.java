@@ -11,8 +11,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import java.sql.SQLException;
 
 /**
- *
- *  트랜잭션 - 트랜잭션 매니저
+ * 트랜잭션 - 트랜잭션 매니저
  */
 
 @Slf4j

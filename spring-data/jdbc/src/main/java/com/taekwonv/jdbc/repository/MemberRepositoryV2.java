@@ -9,8 +9,7 @@ import java.sql.*;
 import java.util.NoSuchElementException;
 
 /**
- *  JDBC - DataSource 사용, JdbcUtils 사용
- *
+ * JDBC - DataSource 사용, JdbcUtils 사용
  */
 @Slf4j
 public class MemberRepositoryV2 {
@@ -21,7 +20,7 @@ public class MemberRepositoryV2 {
         this.dataSource = dataSource;
     }
 
-    public Member save(Member member) throws SQLException{
+    public Member save(Member member) throws SQLException {
         String sql = "insert into member(member_id, money) values (?, ?)";
 
         Connection con = null;

@@ -10,10 +10,9 @@ import java.sql.*;
 import java.util.NoSuchElementException;
 
 /**
- *  트랜잭션 - 트랜잭션 매니저
- *  DataSourceUtils.getConnection()
- *  DataSourceUtils.releaseConnection()
- *
+ * 트랜잭션 - 트랜잭션 매니저
+ * DataSourceUtils.getConnection()
+ * DataSourceUtils.releaseConnection()
  */
 @Slf4j
 public class MemberRepositoryV3 {
@@ -24,7 +23,7 @@ public class MemberRepositoryV3 {
         this.dataSource = dataSource;
     }
 
-    public Member save(Member member) throws SQLException{
+    public Member save(Member member) throws SQLException {
         String sql = "insert into member(member_id, money) values (?, ?)";
 
         Connection con = null;

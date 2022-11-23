@@ -1,6 +1,0 @@
-2022-07-07 05:02:13 jdbc[6]: exception
-org.h2.jdbc.JdbcSQLException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
-ALTER TABLE DATABASECHANGELOGLOCK ALTER COLUMN LOCKED CHAR(5) [42102-197]
-2022-07-07 05:02:13 jdbc[7]: exception
-org.h2.jdbc.JdbcSQLException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
-select count(*) from PUBLIC.DATABASECHANGELOGLOCK [42102-197]

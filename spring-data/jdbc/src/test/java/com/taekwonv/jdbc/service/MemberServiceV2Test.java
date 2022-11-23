@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import java.sql.SQLException;
 
 import static com.taekwonv.jdbc.connection.ConnectionConst.*;
@@ -17,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class MemberServiceV2Test {
     private MemberRepositoryV2 memberRepository;
     private MemberServiceV2 memberService;
+
     @BeforeEach
     void before() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource(URL,
@@ -24,6 +26,7 @@ class MemberServiceV2Test {
         memberRepository = new MemberRepositoryV2(dataSource);
         memberService = new MemberServiceV2(dataSource, memberRepository);
     }
+
     @AfterEach
     void after() throws SQLException {
         memberRepository.delete("memberA");
@@ -64,7 +67,7 @@ class MemberServiceV2Test {
         Member findMemberA = memberRepository.findById(memberA.getMemberId());
         Member findMemberEx = memberRepository.findById(memberEx.getMemberId());
         //memberA의 돈이 롤백 되어야함
-         assertThat(findMemberA.getMoney()).isEqualTo(10000);
-         assertThat(findMemberEx.getMoney()).isEqualTo(10000);
+        assertThat(findMemberA.getMoney()).isEqualTo(10000);
+        assertThat(findMemberEx.getMoney()).isEqualTo(10000);
     }
 }

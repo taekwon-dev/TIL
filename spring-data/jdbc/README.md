@@ -1,4 +1,4 @@
-### Blog 
+### Blog
 
 - [인프런 스프링 DB 1편 [1] - JDBC 등장](https://medium.com/taekwon-v/jdbc-jdbc-1-jdbc-%EB%93%B1%EC%9E%A5-21983c110001)
 - [인프런 스프링 DB 1편 [2] - 커넥션 풀과 데이터소스 이해](https://medium.com/taekwon-v/jdbc-jdbc-2-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EA%B3%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%86%8C%EC%8A%A4-%EC%9D%B4%ED%95%B4-726caa313773)
