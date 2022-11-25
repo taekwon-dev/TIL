@@ -10,6 +10,7 @@ public class LV2_튜플 {
         s = s.replace("{{", "");
         s = s.replace("}}", "");
         String[] strs = s.split("},\\{");
+
         Arrays.sort(strs, (s1, s2) -> s1.length() - s2.length());
 
         for (String str : strs) {
