@@ -47,14 +47,15 @@
 
 
 - **Java**
+    - [Java - How is a Java Program executed [1] - JVM, JRE, and JDK](https://medium.com/taekwon-v/java-how-is-a-java-program-executed-1-jvm-jre-and-jdk-841ca78c5f83)
     - [Java - Object Class - equals()](https://medium.com/taekwon-v/java-object-class-equals-e4851181af0c)
     - [Java - Object Class - hashCode()](https://medium.com/taekwon-v/java-object-class-hashcode-20e32a61e6cb)
     - [Java - Call by Value VS Call by Reference](https://medium.com/taekwon-v/java-call-by-value-vs-call-by-reference-1908c91f54c8)
-    - [Servlet Series [1] - Servlet, Servlet Container](https://medium.com/taekwon-v/servlet-series-1-servlet-servlet-container-38e039d7fc3c)
-    - [Servlet Series [2] - How the Servlet Container Handles a request](https://medium.com/taekwon-v/how-the-servlet-container-handles-a-request-5d1f49e95a92)
-    - [Servlet Series [3] - How to Maintain a User State (HttpSession)](https://medium.com/taekwon-v/servlet-series-3-how-the-servlet-container-handles-multithreading-6e96391902e0)
-    - [Servlet Series [4] - How the Servlet Container Handles multithreading](https://medium.com/taekwon-v/servlet-series-4-how-to-maintain-a-user-state-httpsession-e4d95799617b)
-    - [Servlet Series [5] - Servlet Scopes](https://medium.com/taekwon-v/servlet-series-5-servlet-scopes-f68f0c44ed38)
+    - [Java Servlet [1] - Servlet, Servlet Container](https://medium.com/taekwon-v/servlet-series-1-servlet-servlet-container-38e039d7fc3c)
+    - [Java Servlet [2] - How the Servlet Container Handles a request](https://medium.com/taekwon-v/how-the-servlet-container-handles-a-request-5d1f49e95a92)
+    - [Java Servlet [3] - How to Maintain a User State (HttpSession)](https://medium.com/taekwon-v/servlet-series-3-how-the-servlet-container-handles-multithreading-6e96391902e0)
+    - [Java Servlet [4] - How the Servlet Container Handles multithreading](https://medium.com/taekwon-v/servlet-series-4-how-to-maintain-a-user-state-httpsession-e4d95799617b)
+    - [Java Servlet [5] - Servlet Scopes](https://medium.com/taekwon-v/servlet-series-5-servlet-scopes-f68f0c44ed38)
 
 
 - **Spring Core**
@@ -79,9 +80,9 @@
     - [Spring MVC - How Spring MVC handles Exceptions](https://medium.com/taekwon-v/spring-mvc-how-spring-mvc-handles-exceptions-7a6910c956f)
     - [Spring MVC - 멀티 스레드 [1] — 스레드 생성 시점과 ThreadLocal](https://medium.com/taekwon-v/spring-mvc-%EB%A9%80%ED%8B%B0-%EC%8A%A4%EB%A0%88%EB%93%9C-1-%EC%8A%A4%EB%A0%88%EB%93%9C-%EC%83%9D%EC%84%B1-%EC%8B%9C%EC%A0%90%EA%B3%BC-threadlocal-3245a0ec9331)
     - [Spring MVC - 멀티 스레드 [2] — ThreadPool](https://medium.com/taekwon-v/spring-mvc-%EB%A9%80%ED%8B%B0-%EC%8A%A4%EB%A0%88%EB%93%9C-2-threadpool-1f067ad086b1)
-    - [Spring MVC - 핸들러 인터셉터에서 유저 인증 여부 및 권한 검사하기 [1] - GET /api/post/{postId} vs POST /api/post/{postId}](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EB%B0%8F-%EA%B6%8C%ED%95%9C-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-1-2e736844d46b)
-    - [Spring MVC - 핸들러 인터셉터에서 유저 인증 여부 및 권한 검사하기 [2] - pick-git 팀 해결 아이디어 소개 (Java Annotation, Reflection, Proxy Pattern)](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-2-pick-git-%ED%8C%80-%ED%95%B4%EA%B2%B0-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EC%86%8C%EA%B0%9C-java-annotation-reflection-85d02cc20b32)
-    - [Spring MVC - 핸들러 인터셉터에서 유저 인증 여부 및 권한 검사하기 [3] - pick-git 팀 소스 코드 분석하기](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-3-pick-git-%ED%8C%80-%EC%86%8C%EC%8A%A4-%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0-7aad4ffc8297)
+    - [Spring MVC - 핸들러 인터셉터 & 프록시 패턴 [1] - GET /api/post/{postId} vs POST /api/post/{postId}](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EB%B0%8F-%EA%B6%8C%ED%95%9C-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-1-2e736844d46b)
+    - [Spring MVC - 핸들러 인터셉터 & 프록시 패턴 [2] - pick-git 팀 해결 아이디어 소개 (Java Annotation, Reflection, Proxy Pattern)](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-2-pick-git-%ED%8C%80-%ED%95%B4%EA%B2%B0-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EC%86%8C%EA%B0%9C-java-annotation-reflection-85d02cc20b32)
+    - [Spring MVC - 핸들러 인터셉터 & 프록시 패턴 [3] - pick-git 팀 소스 코드 분석하기](https://medium.com/taekwon-v/spring-mvc-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0%EC%97%90%EC%84%9C-%EC%9C%A0%EC%A0%80-%EC%9D%B8%EC%A6%9D-%EC%97%AC%EB%B6%80-%EA%B2%80%EC%82%AC%ED%95%98%EA%B8%B0-3-pick-git-%ED%8C%80-%EC%86%8C%EC%8A%A4-%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0-7aad4ffc8297)
 
 
 - **Spring Security**
