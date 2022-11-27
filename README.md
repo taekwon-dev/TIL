@@ -48,6 +48,7 @@
 
 - **Java**
     - [Java - How is a Java Program executed [1] - JVM, JRE, and JDK](https://medium.com/taekwon-v/java-how-is-a-java-program-executed-1-jvm-jre-and-jdk-841ca78c5f83)
+    - [Java - How is a Java Program executed [2–1] JVM 구성 요소 — Class Loader](https://medium.com/taekwon-v/java-how-is-a-java-program-executed-2-1-jvm-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C-class-loader-91e650e412c5)
     - [Java - Object Class - equals()](https://medium.com/taekwon-v/java-object-class-equals-e4851181af0c)
     - [Java - Object Class - hashCode()](https://medium.com/taekwon-v/java-object-class-hashcode-20e32a61e6cb)
     - [Java - Call by Value VS Call by Reference](https://medium.com/taekwon-v/java-call-by-value-vs-call-by-reference-1908c91f54c8)
