@@ -3,43 +3,41 @@ package com.til.algorithm.baekjoon.backtracking;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class BOJ_6603 {
-    static int k;
-    static int[] arr;
-    static int[] tmp = new int[6];
-    static StringBuilder sb = new StringBuilder();
+
+    private static List<Integer> nums;
+    private static StringBuilder sb;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
+        StringTokenizer st = null;
         while (true) {
+            sb = new StringBuilder();
             st = new StringTokenizer(br.readLine());
-            k = Integer.parseInt(st.nextToken());
-            if (k == 0) break;
-            arr = new int[k];
-            for (int i = 0; i < k; i++) {
-                arr[i] = Integer.parseInt(st.nextToken());
+            int n = Integer.parseInt(st.nextToken());
+            if (n == 0) {
+                break;
             }
-            backtracking(0, 0);
-            sb.append("\n");
+            nums = new ArrayList<>(n);
+            for (int i = 0; i < n; i++) {
+                nums.add(Integer.parseInt(st.nextToken()));
+            }
+            backtracking(0, 0, "");
+            System.out.println(sb.toString());
         }
-        System.out.println(sb.toString());
     }
 
-    private static void backtracking(int depth, int start) {
+    private static void backtracking(int depth, int start, String s) {
         if (depth == 6) {
-            for (int i = 0; i < 6; i++) {
-                sb.append(tmp[i] + " ");
-            }
-            sb.append("\n");
+            sb.append(s).append("\n");
             return;
         }
-        for (int i = start; i < k; i++) {
-            tmp[depth] = arr[i];
-            backtracking(depth + 1, i + 1);
+        for (int i = start; i < nums.size(); i++) {
+            backtracking(depth + 1, i + 1, s + nums.get(i) + " ");
         }
     }
-
 }

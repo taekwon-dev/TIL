@@ -14,14 +14,15 @@ public class BubbleSort {
     }
 
     private static void bubbleSort(int[] arr, int last) {
-        if (last > 0) {
-            for (int i = 1; i <= last; i++) {
-                if (arr[i - 1] > arr[i]) {
-                    swap(arr, i - 1, i);
-                }
-            }
-            bubbleSort(arr, last - 1);
+        if (last < 1) {
+            return;
         }
+        for (int idx = 1; idx <= last; idx++) {
+            if (arr[idx - 1] > arr[idx]) {
+                swap(arr, idx - 1, idx);
+            }
+        }
+        bubbleSort(arr, last - 1);
     }
 
     private static void swap(int[] arr, int index1, int index2) {

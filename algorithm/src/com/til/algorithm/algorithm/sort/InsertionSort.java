@@ -3,7 +3,7 @@ package com.til.algorithm.algorithm.sort;
 public class InsertionSort {
 
     public static void main(String[] args) {
-        int[] arr = {7, 6, 2, 1, 4, 5};
+        int[] arr = {7, 6, 2, 1, 4, 5, 10};
         printArray(arr);
         insertionSort(arr);
         printArray(arr);
@@ -23,7 +23,7 @@ public class InsertionSort {
 
     private static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
