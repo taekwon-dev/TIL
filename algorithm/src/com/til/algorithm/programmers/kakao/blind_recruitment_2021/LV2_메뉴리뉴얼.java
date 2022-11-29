@@ -1,51 +1,51 @@
 package com.til.algorithm.programmers.kakao.blind_recruitment_2021;
 
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Arrays;
+import java.util.*;
 
 public class LV2_메뉴리뉴얼 {
 
-    private Map<String, Integer> menu = new HashMap<>();
     private List<String> result = new ArrayList<>();
+    private Map<String, Integer> map;
+    private char[] menu;
 
     public String[] solution(String[] orders, int[] course) {
-        for (int c : course) {
+        for (int courseLength : course) {
+            map = new HashMap<>();
             for (String order : orders) {
-                char[] food = order.toCharArray();
-                Arrays.sort(food);
-                backtracking(food, c, 0, 0, "");
+                if (order.length() < courseLength) {
+                    continue;
+                }
+                menu = order.toCharArray();
+                Arrays.sort(menu);
+                backtracking(courseLength, 0, 0, "");
             }
-            if (menu.size() == 0) {
+            if (map.size() == 0) {
                 continue;
             }
-            int maxOrderedCount = Collections.max(menu.values());
-            for (String key : menu.keySet()) {
-                if (maxOrderedCount >= 2 && menu.get(key) == maxOrderedCount) {
-                    result.add(key);
+            int maxOrderedCount = Collections.max(map.values());
+            Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+            while (iter.hasNext()) {
+                Map.Entry<String, Integer> entry = iter.next();
+                if (maxOrderedCount >= 2 && entry.getValue() == maxOrderedCount) {
+                    result.add(entry.getKey());
                 }
             }
-            menu.clear();
         }
         Collections.sort(result);
-        System.out.println("result = " + result);
         String[] answer = new String[result.size()];
-        for (int i = 0; i < result.size(); i++) {
+        for (int i = 0; i < answer.length; i++) {
             answer[i] = result.get(i);
         }
         return answer;
     }
 
-    private void backtracking(char[] food, int course, int depth, int start, String s) {
-        if (depth == course) {
-            menu.put(s, menu.getOrDefault(s, 0) + 1);
+    private void backtracking(int courseLength, int depth, int index, String combination) {
+        if (depth == courseLength) {
+            map.put(combination, map.getOrDefault(combination, 0) + 1);
             return;
         }
-        for (int i = start; i < food.length; i++) {
-            backtracking(food, course, depth + 1, i + 1, s + food[i]);
+        for (int i = index; i < menu.length; i++) {
+            backtracking(courseLength, depth + 1, i + 1, combination + menu[i]);
         }
     }
 }

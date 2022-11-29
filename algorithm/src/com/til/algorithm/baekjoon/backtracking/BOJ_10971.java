@@ -8,14 +8,16 @@ import java.util.StringTokenizer;
 public class BOJ_10971 {
 
     private static int n;
-    private static int[][] map;
     private static boolean[] visited;
+    private static int[][] map;
     private static int min = Integer.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
+        visited = new boolean[n];
         map = new int[n][n];
+
         StringTokenizer st = null;
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
@@ -24,15 +26,13 @@ public class BOJ_10971 {
             }
         }
         for (int i = 0; i < n; i++) {
-            visited = new boolean[n];
-            backtracking(0, i, i, 0);
+            backtracking(i, i, 0, 0);
         }
         System.out.println(min);
     }
 
-    private static void backtracking(int depth, int start, int prev, int cost) {
+    private static void backtracking(int start, int prev, int depth, int cost) {
         visited[start] = true;
-
         if (depth == n - 1) {
             if (map[prev][start] != 0) {
                 min = Math.min(min, cost + map[prev][start]);
@@ -41,15 +41,11 @@ public class BOJ_10971 {
         }
 
         for (int i = 0; i < n; i++) {
-            if (!visited[i]) {
+            if (!visited[i] && map[prev][i] != 0) {
                 visited[i] = true;
-                if (map[prev][i] != 0) {
-                    backtracking(depth + 1, start, i, cost + map[prev][i]);
-                }
+                backtracking(start, i, depth + 1, cost + map[prev][i]);
                 visited[i] = false;
             }
         }
     }
-
-
 }

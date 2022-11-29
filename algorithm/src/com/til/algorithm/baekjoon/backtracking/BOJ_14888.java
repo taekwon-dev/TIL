@@ -9,9 +9,9 @@ public class BOJ_14888 {
 
     private static int n;
     private static int[] arr;
-    private static int[] ops = new int[4];
     private static int min = Integer.MAX_VALUE;
     private static int max = Integer.MIN_VALUE;
+    private static int[] ops = new int[4];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -54,5 +54,6 @@ public class BOJ_14888 {
                 ops[i]++;
             }
         }
+
     }
 }

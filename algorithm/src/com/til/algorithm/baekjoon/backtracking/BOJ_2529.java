@@ -5,48 +5,49 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class BOJ_2529 {
-    static int k;
-    static char[] arr;
-    static boolean[] visited;
-    static ArrayList<String> nums = new ArrayList<>();
+
+    private static int n;
+    private static char[] sign;
+    private static boolean[] visited;
+    private static List<String> nums = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        k = Integer.parseInt(br.readLine());
-        arr = new char[k];
-        visited = new boolean[9 + 1];
+        n = Integer.parseInt(br.readLine());
+        sign = new char[n];
+        visited = new boolean[10];
+
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < k; i++) {
-            arr[i] = st.nextToken().charAt(0);
+        for (int i = 0; i < n; i++) {
+            sign[i] = st.nextToken().charAt(0);
         }
         backtracking(0, "");
-        Collections.sort(nums);
-        System.out.println(nums.get(nums.size() - 1));
-        System.out.println(nums.get(0));
+        System.out.println(Collections.max(nums));
+        System.out.println(Collections.min(nums));
     }
 
-    private static void backtracking(int depth, String num) {
-        if (depth == k + 1) {
-            nums.add(num);
+    private static void backtracking(int depth, String s) {
+        if (depth == n + 1) {
+            nums.add(s);
             return;
         }
         for (int i = 0; i <= 9; i++) {
-            if (depth == 0 || !visited[i] && compare(arr[depth - 1], num.charAt(num.length() - 1) - '0', i)) {
+            if (depth == 0 || !visited[i] && compare(sign[depth - 1], s.charAt(s.length() - 1) - '0', i)) {
                 visited[i] = true;
-                backtracking(depth + 1, num + i);
+                backtracking(depth + 1, s + i);
                 visited[i] = false;
             }
         }
     }
 
-    private static boolean compare(char sign, int x, int y) {
+    private static boolean compare(char sign, int prev, int curr) {
         if (sign == '<') {
-            return x < y;
-        } else {
-            return x > y;
+            return prev < curr;
         }
+        return prev > curr;
     }
 }
