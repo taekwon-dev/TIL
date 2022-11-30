@@ -8,7 +8,7 @@ package com.til.algorithm.algorithm.backtracking;
  * false true false true
  * false false true true
  */
-public class CombinationWithVisited {
+public class 조합_방문여부체크 {
 
     private static int n = 4;
     private static boolean[] visited = new boolean[4];

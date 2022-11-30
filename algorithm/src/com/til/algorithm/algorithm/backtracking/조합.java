@@ -6,7 +6,7 @@ import java.util.List;
 
 // {1, 2, 3, 4} 중 두 개 선택
 // answer = [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
-public class Combinations {
+public class 조합 {
 
     static List<List<Integer>> answer = new ArrayList<>();
     static List<Integer> list = new ArrayList<>();

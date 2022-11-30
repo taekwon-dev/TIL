@@ -31,12 +31,12 @@ public class BOJ_9663 {
         }
     }
 
-    private static boolean isLocatable(int depth) {
-        for (int i = 0; i < depth; i++) {
-            if (queen[depth] == queen[i]) {
+    private static boolean isLocatable(int row) {
+        for (int i = 0; i < row; i++) {
+            if (queen[row] == queen[i]) {
                 return false;
             }
-            if (Math.abs(depth - i) == Math.abs(queen[depth] - queen[i])) {
+            if (Math.abs(row - i) == Math.abs(queen[row] - queen[i])) {
                 return false;
             }
         }
