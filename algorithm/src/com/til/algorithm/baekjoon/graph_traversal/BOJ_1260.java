@@ -6,58 +6,63 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class BOJ_1260 {
-    static int n, m, v;
-    static boolean[] visited;
-    static ArrayList<Integer>[] adjList;
-    static StringBuilder sb = new StringBuilder();
+
+    private static List<Integer>[] adjList;
+    private static boolean[] visited;
+    private static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        v = Integer.parseInt(st.nextToken());
-        visited = new boolean[n + 1];
-        adjList = new ArrayList[n + 1];
-        for (int i = 1; i <= n; i++) {
+
+        int v = Integer.parseInt(st.nextToken());
+        int e = Integer.parseInt(st.nextToken());
+        int s = Integer.parseInt(st.nextToken());
+
+        adjList = new ArrayList[v + 1];
+        for (int i = 1; i <= v; i++) {
             adjList[i] = new ArrayList<>();
         }
-        for (int i = 0; i < m; i++) {
+
+        for (int i = 0; i < e; i++) {
             st = new StringTokenizer(br.readLine());
             int from = Integer.parseInt(st.nextToken());
             int to = Integer.parseInt(st.nextToken());
             adjList[from].add(to);
             adjList[to].add(from);
         }
-        for (int i = 1; i <= n; i++) {
+
+        for (int i = 1; i <= v; i++) {
             Collections.sort(adjList[i]);
         }
-        dfs(v);
-        sb.append("\n");
-        bfs(v);
+
+        visited = new boolean[v + 1];
+        dfs(s);
+        visited = new boolean[v + 1];
+        bfs(s);
         System.out.println(sb.toString());
     }
 
-    private static void dfs(int v) {
-        visited[v] = true;
-        sb.append(v + " ");
+    private static void dfs(int start) {
+        visited[start] = true;
+        sb.append(start + " ");
 
-        for (int adj : adjList[v]) {
+        for (int adj : adjList[start]) {
             if (!visited[adj]) {
                 dfs(adj);
             }
         }
     }
 
-    private static void bfs(int v) {
-        visited = new boolean[n + 1];
+    private static void bfs(int start) {
         Queue<Integer> queue = new LinkedList<>();
-        visited[v] = true;
-        queue.add(v);
-        sb.append(v + " ");
+        queue.add(start);
+        visited[start] = true;
+        sb.append("\n").append(start + " ");
 
         while (!queue.isEmpty()) {
             int now = queue.poll();
+
             for (int adj : adjList[now]) {
                 if (!visited[adj]) {
                     visited[adj] = true;

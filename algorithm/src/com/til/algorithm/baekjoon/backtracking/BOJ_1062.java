@@ -9,8 +9,8 @@ public class BOJ_1062 {
 
     private static int n;
     private static int k;
-    private static boolean[] visited;
     private static String[] words;
+    private static boolean[] visited = new boolean[26];
     private static int max;
 
     public static void main(String[] args) throws IOException {
@@ -22,9 +22,7 @@ public class BOJ_1062 {
         if (k < 5) {
             System.out.println(0);
             return;
-        }
-
-        if (k == 26) {
+        } else if (k == 26) {
             System.out.println(n);
             return;
         }
@@ -37,18 +35,17 @@ public class BOJ_1062 {
             words[i] = word;
         }
 
-        visited = new boolean[26];
         visited['a' - 'a'] = true;
-        visited['c' - 'a'] = true;
-        visited['i' - 'a'] = true;
         visited['n' - 'a'] = true;
         visited['t' - 'a'] = true;
+        visited['i' - 'a'] = true;
+        visited['c' - 'a'] = true;
 
         backtracking(0, 0);
         System.out.println(max);
     }
 
-    private static void backtracking(int depth, int start) {
+    private static void backtracking(int depth, int index) {
         if (depth == k - 5) {
             int readableCount = 0;
             for (int i = 0; i < n; i++) {
@@ -66,7 +63,7 @@ public class BOJ_1062 {
             max = Math.max(max, readableCount);
             return;
         }
-        for (int i = start; i < 26; i++) {
+        for (int i = index; i < 26; i++) {
             if (!visited[i]) {
                 visited[i] = true;
                 backtracking(depth + 1, i + 1);

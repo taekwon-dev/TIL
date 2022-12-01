@@ -4,51 +4,46 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class BOJ_2606 {
 
-    static int n, m;
-    static boolean[] visited;
-    static ArrayList<Integer>[] adjList;
-    static int answer = 0;
+    private static boolean[] visited;
+    private static List<Integer>[] adjList;
+    private static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        m = Integer.parseInt(br.readLine());
-        visited = new boolean[n + 1];
-        adjList = new ArrayList[n + 1];
-        for (int i = 1; i <= n; i++) {
+        int v = Integer.parseInt(br.readLine());
+
+        visited = new boolean[v + 1];
+        adjList = new ArrayList[v + 1];
+        for (int i = 1; i <= v; i++) {
             adjList[i] = new ArrayList<>();
         }
-        StringTokenizer st;
-        for (int i = 0; i < m; i++) {
+
+        int e = Integer.parseInt(br.readLine());
+        StringTokenizer st = null;
+        for (int i = 0; i < e; i++) {
             st = new StringTokenizer(br.readLine());
             int from = Integer.parseInt(st.nextToken());
             int to = Integer.parseInt(st.nextToken());
             adjList[from].add(to);
             adjList[to].add(from);
         }
-        bfs(1);
+
+        dfs(1);
         System.out.println(answer);
     }
 
-    private static void bfs(int start) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
+    private static void dfs(int start) {
         visited[start] = true;
 
-        while (!queue.isEmpty()) {
-            int now = queue.poll();
-            for (int adj : adjList[now]) {
-                if (!visited[adj]) {
-                    answer++;
-                    queue.add(adj);
-                    visited[adj] = true;
-                }
+        for (int adj : adjList[start]) {
+            if (!visited[adj]) {
+                answer++;
+                dfs(adj);
             }
         }
     }
