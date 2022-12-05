@@ -1,7 +1,9 @@
 package com.til.algorithm.leetCode.backtracking;
 
 public class LEET_526 {
+
     int result;
+
     public int countArrangement(int n) {
         int[] arr = new int[n + 1];
         boolean[] visited = new boolean[n + 1];

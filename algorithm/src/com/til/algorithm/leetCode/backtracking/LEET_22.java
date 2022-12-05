@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_22 {
+
     public List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
         backtracking(n, result, 0, 0, "");

@@ -3,7 +3,9 @@ package com.til.algorithm.leetCode.backtracking;
 import java.util.HashSet;
 
 public class LEET_1980 {
-    String result;
+
+    private String result;
+
     public String findDifferentBinaryString(String[] nums) {
         HashSet<String> set = new HashSet<>();
         for (String num : nums) {

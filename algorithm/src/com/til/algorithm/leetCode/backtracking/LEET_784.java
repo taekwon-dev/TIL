@@ -3,9 +3,6 @@ package com.til.algorithm.leetCode.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Letter Case Permutations
- */
 public class LEET_784 {
     public List<String> letterCasePermutation(String s) {
         List<String> answer = new ArrayList<>();

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_257 {
+
     class TreeNode {
+
         int val;
         TreeNode left;
         TreeNode right;

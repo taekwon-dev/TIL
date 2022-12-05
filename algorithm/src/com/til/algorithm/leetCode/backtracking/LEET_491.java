@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public class LEET_491 {
+
     public List<List<Integer>> findSubsequences(int[] nums) {
         Set<List<Integer>> set = new HashSet<>();
         List<Integer> list = new ArrayList<>();

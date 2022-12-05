@@ -4,9 +4,11 @@ package com.til.algorithm.leetCode.backtracking;
  * Path with Maximum Gold
  */
 public class LEET_1219 {
+
     int[] dx = {1, -1, 0, 0};
     int[] dy = {0, 0, 1, -1};
     int max = 0;
+
     public int getMaximumGold(int[][] grid) {
         boolean[][] visited = new boolean[grid.length][grid[0].length];
 

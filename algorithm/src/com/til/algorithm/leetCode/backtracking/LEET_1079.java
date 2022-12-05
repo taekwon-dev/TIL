@@ -2,9 +2,6 @@ package com.til.algorithm.leetCode.backtracking;
 
 import java.util.HashSet;
 
-/**
- * Letter Tile Possibilities
- */
 public class LEET_1079 {
     public static int numTilePossibilities(String tiles) {
         if (tiles == null || tiles.length() == 0) {

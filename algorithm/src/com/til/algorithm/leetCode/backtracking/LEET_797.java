@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_797 {
+
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> list = new ArrayList<>();

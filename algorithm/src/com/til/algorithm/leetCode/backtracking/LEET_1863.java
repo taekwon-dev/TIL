@@ -1,9 +1,7 @@
 package com.til.algorithm.leetCode.backtracking;
 
-/**
- * Sum of All Subset XOR Totals
- */
 public class LEET_1863 {
+
     public int subsetXORSum(int[] nums) {
         return backtracking(nums, 0, 0);
     }
