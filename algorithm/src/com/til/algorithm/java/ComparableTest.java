@@ -16,22 +16,6 @@ public class ComparableTest {
             this.money = money;
         }
 
-        public int getAge() {
-            return age;
-        }
-
-        public int getMoney() {
-            return money;
-        }
-
-        @Override
-        public String toString() {
-            return "Node{" +
-                    "age=" + age +
-                    ", money=" + money +
-                    '}';
-        }
-
         @Override
         public int compareTo(Node o) {
             if (this.age > o.age) {
