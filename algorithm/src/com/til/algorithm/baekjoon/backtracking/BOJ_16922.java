@@ -19,14 +19,13 @@ public class BOJ_16922 {
         System.out.println(set.size());
     }
 
-    private static void backtracking(int depth, int start, int num) {
+    private static void backtracking(int depth, int index, int sum) {
         if (depth == n) {
-            System.out.println("num = " + num);
-            set.add(num);
+            set.add(sum);
             return;
         }
-        for (int i = start; i < 4; i++) {
-            backtracking(depth + 1, i, num + arr[i]);
+        for (int i = index; i < arr.length; i++) {
+            backtracking(depth + 1, i, sum + arr[i]);
         }
     }
 }

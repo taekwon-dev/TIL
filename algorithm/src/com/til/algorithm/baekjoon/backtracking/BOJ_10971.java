@@ -7,16 +7,15 @@ import java.util.StringTokenizer;
 
 public class BOJ_10971 {
 
-    private static int n;
-    private static boolean[] visited;
     private static int[][] map;
+    private static boolean[] visited;
     private static int min = Integer.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        visited = new boolean[n];
+        int n = Integer.parseInt(br.readLine());
         map = new int[n][n];
+        visited = new boolean[n];
 
         StringTokenizer st = null;
         for (int i = 0; i < n; i++) {
@@ -33,14 +32,13 @@ public class BOJ_10971 {
 
     private static void backtracking(int start, int prev, int depth, int cost) {
         visited[start] = true;
-        if (depth == n - 1) {
+        if (depth == map.length - 1) {
             if (map[prev][start] != 0) {
                 min = Math.min(min, cost + map[prev][start]);
             }
             return;
         }
-
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < map.length; i++) {
             if (!visited[i] && map[prev][i] != 0) {
                 visited[i] = true;
                 backtracking(start, i, depth + 1, cost + map[prev][i]);

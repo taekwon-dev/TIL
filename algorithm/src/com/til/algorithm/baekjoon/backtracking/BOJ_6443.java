@@ -7,38 +7,31 @@ import java.util.Arrays;
 
 public class BOJ_6443 {
 
-    private static boolean[] visited;
-    private static StringBuilder sb;
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        String[] words = new String[n];
-        for (int i = 0; i < n; i++) {
-            words[i] = br.readLine();
-        }
 
+        char[] word = null;
+        boolean[] visited = null;
         for (int i = 0; i < n; i++) {
-            sb = new StringBuilder();
-            char[] word = words[i].toCharArray();
+            word = br.readLine().toCharArray();
             visited = new boolean[word.length];
             Arrays.sort(word);
-            backtracking(word, 0, "");
-            System.out.print(sb.toString());
+            backtracking(word, visited, 0, "");
         }
     }
 
-    private static void backtracking(char[] word, int depth, String s) {
+    private static void backtracking(char[] word, boolean[] visited, int depth, String s) {
         if (depth == word.length) {
-            sb.append(s).append("\n");
+            System.out.println(s);
             return;
         }
-        char prev = 'A';
+        int prev = 'A';
         for (int i = 0; i < word.length; i++) {
             if (!visited[i] && prev != word[i]) {
                 prev = word[i];
                 visited[i] = true;
-                backtracking(word, depth + 1, s + word[i]);
+                backtracking(word, visited, depth + 1, s + word[i]);
                 visited[i] = false;
             }
         }

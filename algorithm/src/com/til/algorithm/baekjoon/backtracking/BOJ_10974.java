@@ -7,32 +7,24 @@ import java.io.InputStreamReader;
 public class BOJ_10974 {
 
     private static int n;
-    private static int[] arr;
     private static boolean[] visited;
-    private static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        arr = new int[n];
-        visited = new boolean[n];
-        backtracking(0);
-        System.out.println(sb.toString());
+        visited = new boolean[n + 1];
+        backtracking(0, "");
     }
 
-    private static void backtracking(int depth) {
+    private static void backtracking(int depth, String s) {
         if (depth == n) {
-            for (int i = 0; i < n; i++) {
-                sb.append(arr[i] + " ");
-            }
-            sb.append("\n");
+            System.out.println(s);
             return;
         }
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                arr[depth] = i + 1;
-                backtracking(depth + 1);
+                backtracking(depth + 1, s + i + " ");
                 visited[i] = false;
             }
         }

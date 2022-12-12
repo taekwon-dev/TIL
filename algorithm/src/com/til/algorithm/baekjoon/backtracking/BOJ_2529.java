@@ -10,34 +10,32 @@ import java.util.StringTokenizer;
 
 public class BOJ_2529 {
 
-    private static int n;
+    private static int k;
     private static char[] sign;
-    private static boolean[] visited;
+    private static boolean[] visited = new boolean[10];
     private static List<String> nums = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        sign = new char[n];
-        visited = new boolean[10];
+        k = Integer.parseInt(br.readLine());
+        sign = new char[k];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < k; i++) {
             sign[i] = st.nextToken().charAt(0);
         }
-
         backtracking(0, "");
         System.out.println(Collections.max(nums));
         System.out.println(Collections.min(nums));
     }
 
     private static void backtracking(int depth, String s) {
-        if (depth == n + 1) {
+        if (depth == k + 1) {
             nums.add(s);
             return;
         }
         for (int i = 0; i <= 9; i++) {
-            if (depth == 0 || !visited[i] && isLocatable(sign[depth - 1], s.charAt(s.length() - 1) - '0', i)) {
+            if (depth == 0 || !visited[i] && capableOfSettingDown(sign[depth - 1], s.charAt(s.length() - 1) - '0', i)) {
                 visited[i] = true;
                 backtracking(depth + 1, s + i);
                 visited[i] = false;
@@ -45,7 +43,7 @@ public class BOJ_2529 {
         }
     }
 
-    private static boolean isLocatable(char sign, int former, int latter) {
+    private static boolean capableOfSettingDown(char sign, int former, int latter) {
         if (sign == '>') {
             return former > latter;
         }

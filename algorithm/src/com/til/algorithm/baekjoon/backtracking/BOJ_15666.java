@@ -3,46 +3,43 @@ package com.til.algorithm.baekjoon.backtracking;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_15666 {
 
     private static int n;
     private static int m;
-    private static List<Integer> nums;
-    private static StringBuilder sb = new StringBuilder();
-
+    private static int[] arr;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
-        nums = new ArrayList<>(n);
+        arr = new int[n];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            nums.add(Integer.parseInt(st.nextToken()));
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        Collections.sort(nums);
+        Arrays.sort(arr);
         backtracking(0, 0, "");
-        System.out.println(sb.toString());
     }
 
-    private static void backtracking(int depth, int start, String s) {
+    private static void backtracking(int depth, int index, String s) {
         if (depth == m) {
-            sb.append(s).append("\n");
+            System.out.println(s);
             return;
         }
         int prev = 0;
-        for (int i = start; i < n; i++) {
-            if (prev != nums.get(i)) {
-                prev = nums.get(i);
-                backtracking(depth + 1, i, s + nums.get(i) + " ");
+        for (int i = index; i < n; i++) {
+            if (prev == arr[i]) {
+                continue;
             }
+            prev = arr[i];
+            backtracking(depth + 1, i, s + arr[i] + " ");
         }
+
     }
 }

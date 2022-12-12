@@ -9,30 +9,28 @@ public class BOJ_1062 {
 
     private static int n;
     private static int k;
-    private static String[] words;
+    private static String[] word;
     private static boolean[] visited = new boolean[26];
-    private static int max;
+    private static int max = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
+        word = new String[n];
 
         if (k < 5) {
             System.out.println(0);
             return;
-        } else if (k == 26) {
+        }
+        if (k == 26) {
             System.out.println(n);
             return;
         }
 
-        words = new String[n];
         for (int i = 0; i < n; i++) {
-            String word = br.readLine();
-            word = word.replace("anta", "");
-            word = word.replace("tica", "");
-            words[i] = word;
+            word[i] = br.readLine();
         }
 
         visited['a' - 'a'] = true;
@@ -40,27 +38,13 @@ public class BOJ_1062 {
         visited['t' - 'a'] = true;
         visited['i' - 'a'] = true;
         visited['c' - 'a'] = true;
-
         backtracking(0, 0);
         System.out.println(max);
     }
 
     private static void backtracking(int depth, int index) {
         if (depth == k - 5) {
-            int readableCount = 0;
-            for (int i = 0; i < n; i++) {
-                boolean readable = true;
-                for (int j = 0; j < words[i].length(); j++) {
-                    if (!visited[words[i].charAt(j) - 'a']) {
-                        readable = false;
-                        break;
-                    }
-                }
-                if (readable) {
-                    readableCount++;
-                }
-            }
-            max = Math.max(max, readableCount);
+            max = Math.max(max, countReadableWord());
             return;
         }
         for (int i = index; i < 26; i++) {
@@ -70,5 +54,18 @@ public class BOJ_1062 {
                 visited[i] = false;
             }
         }
+    }
+
+    private static int countReadableWord() {
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            for (char c : word[i].toCharArray()) {
+                if (!visited[c - 'a']) {
+                    count++;
+                    break;
+                }
+            }
+        }
+        return n - count;
     }
 }

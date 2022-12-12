@@ -1,7 +1,11 @@
 package com.til.algorithm.java;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -161,5 +165,13 @@ class StringTest {
         String str = "abcde";
         str = str.toUpperCase();
         assertEquals(str, "ABCDE");
+    }
+
+    @Test
+    @DisplayName("문자열 연결")
+    void join() {
+        List<String> members = Arrays.asList("pobi, jason");
+        String result = String.join(",", members); // pobi, jason
+        assertEquals(result, "pobi, jason");
     }
 }
