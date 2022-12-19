@@ -9,13 +9,16 @@ import java.util.StringTokenizer;
 
 public class BOJ_2606 {
 
+    private static int v;
+    private static int e;
     private static boolean[] visited;
     private static List<Integer>[] adjList;
-    private static int answer;
+    private static int answer = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int v = Integer.parseInt(br.readLine());
+        v = Integer.parseInt(br.readLine());
+        e = Integer.parseInt(br.readLine());
 
         visited = new boolean[v + 1];
         adjList = new ArrayList[v + 1];
@@ -23,7 +26,6 @@ public class BOJ_2606 {
             adjList[i] = new ArrayList<>();
         }
 
-        int e = Integer.parseInt(br.readLine());
         StringTokenizer st = null;
         for (int i = 0; i < e; i++) {
             st = new StringTokenizer(br.readLine());
@@ -32,7 +34,6 @@ public class BOJ_2606 {
             adjList[from].add(to);
             adjList[to].add(from);
         }
-
         dfs(1);
         System.out.println(answer);
     }
