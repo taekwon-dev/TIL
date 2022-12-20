@@ -6,22 +6,26 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BOJ_4963 {
-    static int w, h;
-    static int[][] map;
-    static boolean[][] visited;
-    static int[] dx = {1, -1, 0, 0, -1, -1, 1, 1};
-    static int[] dy = {0, 0, -1, 1, -1, 1, -1, 1};
+
+    private static int w;
+    private static int h;
+    private static boolean[][] visited;
+    private static int[][] map;
+    private static int dx[] = {1, -1, 0, 0, -1, 1, -1, 1};
+    private static int dy[] = {0, 0, -1, 1, -1, -1, 1, 1};
+    private static int answer = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input = null;
         StringTokenizer st = null;
-        String row = null;
-        while (!(row = br.readLine()).equals("0 0")) {
-            st = new StringTokenizer(row);
+        while (!(input = br.readLine()).equals("0 0")) {
+            answer = 0;
+            st = new StringTokenizer(input);
             w = Integer.parseInt(st.nextToken());
             h = Integer.parseInt(st.nextToken());
-            map = new int[h][w];
             visited = new boolean[h][w];
+            map = new int[h][w];
 
             for (int i = 0; i < h; i++) {
                 st = new StringTokenizer(br.readLine());
@@ -30,21 +34,21 @@ public class BOJ_4963 {
                 }
             }
 
-            int count = 0;
             for (int i = 0; i < h; i++) {
                 for (int j = 0; j < w; j++) {
                     if (!visited[i][j] && map[i][j] == 1) {
                         dfs(i, j);
-                        count++;
+                        answer++;
                     }
                 }
             }
-            System.out.println(count);
+            System.out.println(answer);
         }
     }
 
     private static void dfs(int x, int y) {
         visited[x][y] = true;
+
         for (int i = 0; i < 8; i++) {
             int nx = x + dx[i];
             int ny = y + dy[i];
