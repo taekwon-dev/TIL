@@ -5,10 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
+/**
+ *  https://st-lab.tistory.com/243
+ *  " 우리가 원하는 것은 Comparator 비교 기능만 따로 두고 싶은 것이다. "
+ *    Comparator 기능만 따로 두고 싶다면 어떻게 해야할까?
+ *    익명 객체(클래스)를 활용한다
+ */
 class ComparatorTest {
 
     @Test
-    @DisplayName("Integer 오름차순")
+    @DisplayName("Integer 오름차순 + 익명 객체 활용(인터페이스 구현)")
     void ascendingInteger() {
         List<Integer> list = new ArrayList<>(Arrays.asList(3, 1, 7, 5, 9));
         Collections.sort(list, new Comparator<Integer>() {
@@ -21,59 +27,10 @@ class ComparatorTest {
     }
 
     @Test
-    @DisplayName("Integer 내림차순")
+    @DisplayName("Integer 내림차순 + 람다식 활용")
     void descendingInteger() {
         List<Integer> list = new ArrayList<>(Arrays.asList(3, 1, 7, 5, 9));
         Collections.sort(list, (o1, o2) -> o2 - o1);
         list.equals(new ArrayList<>(Arrays.asList(9, 7, 5, 3, 1)));
     }
-
-    @Test
-    @DisplayName("Student 점수 기준 내림차순 (점수가 같으면 ID 기준 오름차순)")
-    void studentSort() {
-        class Student {
-            int id;
-            int score;
-            
-            public Student(int id, int score) {
-                this.id = id;
-                this.score = score;
-            }
-        }
-        Student st1 = new Student(1, 50);
-        Student st2 = new Student(2, 20);
-        Student st3 = new Student(3, 30);
-        Student st4 = new Student(4, 30);
-        Student st5 = new Student(5, 10);
-        
-        List<Student> students = new ArrayList<>();
-        students.add(st1);
-        students.add(st2);
-        students.add(st3);
-        students.add(st4);
-        students.add(st5);
-        
-        Collections.sort(students, (s1, s2) -> {
-            if (s1.score == s2.score) {
-                // 아이디 오름차순
-                return s1.id - s2.id;
-            }
-            // 점수 내림차순
-            return s2.score - s1.score;
-        });
-
-        /**
-         * SCORE : 50 ID : 1
-         * SCORE : 30 ID : 3
-         * SCORE : 30 ID : 4
-         * SCORE : 20 ID : 2
-         * SCORE : 10 ID : 5
-         */
-        for (Student student : students) {
-            System.out.println("SCORE : " + student.score + " ID : " + student.id);
-        }
-    }
-
-
-
 }

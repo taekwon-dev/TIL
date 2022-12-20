@@ -1,4 +1,4 @@
-package com.til.algorithm.programmers.kit;
+package com.til.algorithm.programmers.kit.novice;
 
 public class LV0_잘라서배열로저장하기 {
     public String[] solution(String my_str, int n) {

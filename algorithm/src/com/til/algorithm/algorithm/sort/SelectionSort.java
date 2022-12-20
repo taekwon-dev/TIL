@@ -17,20 +17,20 @@ public class SelectionSort {
         if (start > arr.length - 1) {
             return;
         }
-        int minIndex = start;
+        int minIdx = start;
         for (int idx = start; idx < arr.length; idx++) {
-            if (arr[minIndex] > arr[idx]) {
-                minIndex = idx;
+            if (arr[minIdx] > arr[idx]) {
+                minIdx = idx;
             }
         }
-        swap(arr, start, minIndex);
+        swap(arr, start, minIdx);
         selectionSort(arr, start + 1);
     }
 
-    private static void swap(int[] arr, int index1, int index2) {
-        int tmp = arr[index1];
-        arr[index1] = arr[index2];
-        arr[index2] = tmp;
+    private static void swap(int[] arr, int former, int latter) {
+        int tmp = arr[former];
+        arr[former] = arr[latter];
+        arr[latter] = tmp;
     }
 
     private static void printArray(int[] arr) {
