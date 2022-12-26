@@ -1,25 +1,36 @@
 package com.til.algorithm.algorithm.string;
 
-/**
- *  https://www.geeksforgeeks.org/reverse-a-string-in-java/?ref=leftbar-rightbar
- */
 public class ReverseAString {
+
     public static void main(String[] args) {
+        String target = "abcde";
 
-        String str = "How To Do In Java";
-        String reverseStringRecursion = reverseStringWithRecursion(str);
-        System.out.println("reverseStringRecursion = " + reverseStringRecursion);
-
-        String reverseStringWithSB = reverseStringWithSB(str);
+        String reverseStringWithSB = reverseStringWithSB(target);
         System.out.println("reverseStringWithSB = " + reverseStringWithSB);
-    }
 
-    private static String reverseStringWithRecursion(String str) {
-        if (str == null || str.isEmpty()) return str;
-        return reverseStringWithRecursion(str.substring(1)) + str.charAt(0);
+        String reverseStringRecursion = reverseStringWithRecursion(target);
+        System.out.println("reverseStringRecursion = " + reverseStringRecursion);
     }
 
     private static String reverseStringWithSB(String str) {
         return new StringBuilder(str).reverse().toString();
+    }
+
+    /**
+     *   target = abcde
+     *
+     *   bcde + a
+     *   cde + b
+     *   de + c
+     *   e + d
+     *   e
+     *
+     *   add e -> d -> c -> b -> a
+     */
+    private static String reverseStringWithRecursion(String target) {
+        if (target == null || target.isEmpty()) {
+            return target;
+        }
+        return reverseStringWithRecursion(target.substring(1)) + target.charAt(0);
     }
 }
