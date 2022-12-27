@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.lang.StringBuilder;
 
-public class LV1_성격유형검사하기 {
+public class LV1_성격유형검사하기_a {
+
     public String solution(String[] survey, int[] choices) {
         Map<Character, Integer> map = new HashMap<>();
 

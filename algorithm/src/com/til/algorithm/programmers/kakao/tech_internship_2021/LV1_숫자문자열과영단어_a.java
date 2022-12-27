@@ -1,10 +1,12 @@
 package com.til.algorithm.programmers.kakao.tech_internship_2021;
 
 import java.util.HashMap;
+import java.util.Map;
 
-public class LV1_숫자문자열과영단어 {
+public class LV1_숫자문자열과영단어_a {
+
     public int solution(String s) {
-        HashMap<String, Integer> map = new HashMap<>(){{
+        Map<String, Integer> dictionary = new HashMap<>(){{
             put("zero", 0);
             put("one", 1);
             put("two", 2);
@@ -17,11 +19,11 @@ public class LV1_숫자문자열과영단어 {
             put("nine", 9);
         }};
 
-        for (String key : map.keySet()) {
-            if (s.contains(key)) {
-                s = s.replace(key, String.valueOf(map.get(key)));
+        for (String word : dictionary.keySet()) {
+            if (s.contains(word)) {
+                s = s.replace(word, String.valueOf(dictionary.get(word)));
             }
         }
-        return Integer.valueOf(s);
+        return Integer.parseInt(s);
     }
 }

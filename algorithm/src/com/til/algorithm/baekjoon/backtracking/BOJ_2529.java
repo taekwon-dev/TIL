@@ -10,17 +10,18 @@ import java.util.StringTokenizer;
 
 public class BOJ_2529 {
 
-    private static boolean[] visited = new boolean[10];
-    private static int k;
+    private static int n;
     private static char[] sign;
+    private static boolean[] visited;
     private static List<String> nums = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        k = Integer.parseInt(br.readLine());
-        sign = new char[k];
+        n = Integer.parseInt(br.readLine());
+        sign = new char[n];
+        visited = new boolean[10];
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < n; i++) {
             sign[i] = st.nextToken().charAt(0);
         }
         backtracking(0, "");
@@ -29,11 +30,11 @@ public class BOJ_2529 {
     }
 
     private static void backtracking(int depth, String s) {
-        if (depth == k + 1) {
+        if (depth == n + 1) {
             nums.add(s);
             return;
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i <= 9; i++) {
             if (depth == 0 || !visited[i] && isLocatable(sign[depth - 1], s.charAt(s.length() - 1) - '0', i)) {
                 visited[i] = true;
                 backtracking(depth + 1, s + i);

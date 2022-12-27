@@ -174,4 +174,36 @@ class StringTest {
         String result = String.join(",", members); // pobi, jason
         assertEquals(result, "pobi, jason");
     }
+
+    @Test
+    @DisplayName("문자열 비교 - compareTo() - 비교 대상에 문자열이 포함되어 있는 경우")
+    void compareTo1() {
+        String str = "abcd";
+
+        // 기준 값에 비교 대상이 포함되어 있는 경우, 서로의 문자열 길이의 차이 값을 반환한다.
+        assertEquals(str.compareTo("a"), 3);
+        assertEquals(str.compareTo("ab"), 2);
+        assertEquals(str.compareTo("abc"), 1);
+
+        // 주의 !
+        // compareTo() 는 같은 위치의 문자만 비교한다. 따라서 첫 번째 문자부터 순차적으로 비교해서 다를 경우 바로 아스키 값을 기준으로 처리한다.
+        // abcd 의 a(97) vs c(99) -> -2
+        assertEquals(str.compareTo("c"), -2);
+
+        // 위와 같은 예시
+        // a(97) vs h(104)
+        assertEquals("abhg".compareTo("h"), -7);
+
+        // 위와 다른 예시 (같은 원리 적용)
+        // c(99) vs d (100)
+        assertEquals("abcd".compareTo("abde"), -1);
+    }
+
+    @Test
+    @DisplayName("문자열 비교 - compareTo() - 비교 대상과 전혀 다른 문자열의 경우")
+    void compareTo2() {
+        // 비교 대상과 전혀 다른 경우 -> 첫 번째 문자(= 서로 다름)의 아스키 코드 값으로 비교
+        // a(97) vs e(101)
+        assertEquals("abcd".compareTo("efgh"), -4);
+    }
 }

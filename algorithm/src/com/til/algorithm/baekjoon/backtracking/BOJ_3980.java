@@ -7,25 +7,27 @@ import java.util.StringTokenizer;
 
 public class BOJ_3980 {
 
-    private static boolean[] visited = new boolean[11];
-    private static int[][] map = new int[11][11];
+    private static boolean[] visited;
+    private static int[][] map;
     private static int max = 0;
-
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int tc = Integer.parseInt(br.readLine());
         StringTokenizer st = null;
         for (int t = 0; t < tc; t++) {
+            visited = new boolean[11];
+            map = new int[11][11];
             for (int i = 0; i < 11; i++) {
                 st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < 11; j++) {
                     map[i][j] = Integer.parseInt(st.nextToken());
                 }
             }
+            backtracking(0, 0);
+            System.out.println(max);
+            max = 0;
         }
-        backtracking(0, 0);
-        System.out.println(max);
     }
 
     private static void backtracking(int depth, int sum) {

@@ -1,4 +1,4 @@
-package com.til.algorithm.baekjoon.graph_traversal;
+package com.til.algorithm.baekjoon.bigstone.week_3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
