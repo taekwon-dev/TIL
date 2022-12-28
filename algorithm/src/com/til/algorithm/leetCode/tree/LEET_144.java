@@ -5,17 +5,17 @@ import java.util.List;
 
 public class LEET_144 {
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> answer = new ArrayList<>();
-        preorder(root, answer);
-        return answer;
+        List<Integer> result = new ArrayList<>();
+        preorder(root, result);
+        return result;
     }
 
-    private void preorder(TreeNode root, List<Integer> answer) {
+    private void preorder(TreeNode root, List<Integer> result) {
         if (root == null) {
             return;
         }
-        answer.add(root.val);
-        preorder(root.left, answer);
-        preorder(root.right, answer);
+        result.add(root.val);
+        preorder(root.left, result);
+        preorder(root.right, result);
     }
 }

@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_145 {
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        postorder(root, result);
+        inorder(root, result);
         return result;
     }
 
-    private void postorder(TreeNode root, List<Integer> result) {
+    private void inorder(TreeNode root, List<Integer> result) {
         if (root == null) {
             return;
         }
-        postorder(root.left, result);
-        postorder(root.right, result);
+        inorder(root.left, result);
         result.add(root.val);
+        inorder(root.right, result);
     }
 }
