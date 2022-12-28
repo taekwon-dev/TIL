@@ -1,4 +1,4 @@
-package com.til.algorithm.baekjoon.bigstone.week_3;
+package com.til.algorithm.baekjoon.bigstone.week_2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
