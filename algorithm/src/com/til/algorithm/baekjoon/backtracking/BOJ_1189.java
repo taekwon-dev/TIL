@@ -1,4 +1,4 @@
-package com.til.algorithm.baekjoon.bigstone.week_3;
+package com.til.algorithm.baekjoon.backtracking;
 
 import java.io.*;
 import java.util.StringTokenizer;
