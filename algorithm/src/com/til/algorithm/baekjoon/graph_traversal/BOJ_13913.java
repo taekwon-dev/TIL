@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_1697 {
+public class BOJ_13913 {
 
     static class Node {
         int x;
@@ -19,8 +19,8 @@ public class BOJ_1697 {
 
     private static int N;
     private static int K;
-    private static int[] step = {-1, 1, 2};
-    private static boolean[] visited = new boolean[100_001];
+    private static boolean[] visited;
+    private static int[] step = {-1, 1};
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -28,6 +28,7 @@ public class BOJ_1697 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
+        visited = new boolean[100_001];
 
         bw.write(bfs(N) + "\n");
         bw.flush();
@@ -46,21 +47,19 @@ public class BOJ_1697 {
             if (node.x == K) {
                 return node.dist;
             }
-
-            int nx;
-            for (int i = 0; i < step.length; i++) {
-                nx = node.x + step[i];
-                if (i == 2) {
-                    nx = node.x * step[i];
-                }
-
+            int jump = node.x * 2;
+            if (jump <= 100_000 && !visited[jump]) {
+                visited[jump] = true;
+                queue.add(new Node(jump, node.dist));
+            }
+            for (int i = 0; i < 2; i++) {
+                int nx = node.x + step[i];
                 if (nx < 0 || nx > 100_000) {
                     continue;
                 }
-
                 if (!visited[nx]) {
-                    queue.add(new Node(nx, node.dist + 1));
                     visited[nx] = true;
+                    queue.add(new Node(nx, node.dist + 1));
                 }
             }
         }
