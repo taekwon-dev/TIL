@@ -15,27 +15,24 @@ public class BOJ_9934 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int K = Integer.parseInt(br.readLine());
         int size = (int) Math.pow(2, K) - 1;
+
         nodes = new int[size];
-
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < size; i++) {
-            nodes[i] = Integer.parseInt(st.nextToken());
-        }
-
         adjList = new ArrayList[K];
         for (int i = 0; i < K; i++) {
             adjList[i] = new ArrayList<>();
         }
-
-        solution(0, 0, nodes.length - 1);
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < size; i++) {
+            nodes[i] = Integer.parseInt(st.nextToken());
+        }
+        solution(0, 0, size - 1);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < K; i++) {
-            for (int adj : adjList[i]) {
-                sb.append(adj).append(" ");
+            for (int j = 0; j < adjList[i].size(); j++) {
+                sb.append(adjList[i].get(j)).append(" ");
             }
             sb.append("\n");
         }
-
         bw.write(sb.toString() + "\n");
         bw.flush();
         bw.close();
@@ -48,6 +45,7 @@ public class BOJ_9934 {
         }
         int mid = (left + right) / 2;
         adjList[depth].add(nodes[mid]);
+
         solution(depth + 1, left, mid - 1);
         solution(depth + 1, mid + 1, right);
     }

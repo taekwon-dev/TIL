@@ -31,9 +31,29 @@ public class KMP {
     }
 
     /**
-     *  탐색 과정
-     *  https://www.youtube.com/watch?v=yWWbLrV4PZ8
-     *  https://bowbowbow.tistory.com/6
-     *  https://loosie.tistory.com/192
+     * 탐색 과정
+     * https://www.youtube.com/watch?v=yWWbLrV4PZ8
+     * https://bowbowbow.tistory.com/6
+     * https://loosie.tistory.com/192
      */
+    private static void KMP(String parent, String pattern) {
+        int[] table = makeTable(pattern);
+
+        int n1 = parent.length();
+        int n2 = pattern.length();
+
+        int idx = 0;
+        for (int i = 0; i < n1; i++) {
+            while (idx > 0 && parent.charAt(i) != parent.charAt(idx)) {
+                idx = table[idx - 1];
+            }
+            if (parent.charAt(i) == pattern.charAt(idx)) {
+                if (idx == n2 - 1) {
+
+                } else {
+                    idx++;
+                }
+            }
+        }
+    }
 }
