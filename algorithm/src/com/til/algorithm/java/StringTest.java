@@ -204,6 +204,7 @@ class StringTest {
     void compareTo2() {
         // 비교 대상과 전혀 다른 경우 -> 첫 번째 문자(= 서로 다름)의 아스키 코드 값으로 비교
         // a(97) vs e(101)
+        // 사전 순 정렬에 활용 가능
         assertEquals("abcd".compareTo("efgh"), -4);
     }
 }
