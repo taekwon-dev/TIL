@@ -30,6 +30,7 @@ public class BOJ_16916 {
             }
             if (P.charAt(i) == S.charAt(idx)) {
                 if (idx == SL - 1) {
+                    // parent 의 모든 범위에서 검색할 때
                     idx = table[idx];
                     return 1;
                 } else {

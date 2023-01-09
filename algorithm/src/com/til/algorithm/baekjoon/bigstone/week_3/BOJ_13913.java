@@ -10,7 +10,6 @@ public class BOJ_13913 {
 
     private static int N;
     private static int K;
-    private static int[] step = {-1, 1, 2};
     private static int[] dist = new int[100_001];
     private static int[] prev = new int[100_001];
 
@@ -23,17 +22,17 @@ public class BOJ_13913 {
 
         bfs(N);
         Stack<Integer> stack = new Stack<>();
-        int index = K;
-        while (index != N) {
-            stack.push(index);
-            index = prev[index];
+        int idx = K;
+        while (idx != N) {
+            stack.push(idx);
+            idx = prev[idx];
         }
-        stack.push(index);
-
+        stack.push(idx);
         StringBuilder sb = new StringBuilder();
         while (!stack.isEmpty()) {
             sb.append(stack.pop()).append(" ");
         }
+
         bw.write(dist[K] + "\n");
         bw.write(sb.toString() + "\n");
         bw.flush();
@@ -53,21 +52,22 @@ public class BOJ_13913 {
                 return;
             }
 
-            int next;
-            for (int i = 0; i < step.length; i++) {
-                next = now + step[i];
-                if (i == 2) {
-                    next = now * step[i];
+            int nx = -1;
+            for (int i = 0; i < 3; i++) {
+                if (i == 0) {
+                    nx = now - 1;
+                } else if (i == 1) {
+                    nx = now + 1;
+                } else if (i == 2) {
+                    nx = now * 2;
                 }
-
-                if (next < 0 || next > 100_000) {
+                if (nx < 0 || nx > 100_000) {
                     continue;
                 }
-
-                if (dist[next] == 0 || dist[next] == dist[now] + 1) {
-                    queue.add(next);
-                    dist[next] = dist[now] + 1;
-                    prev[next] = now;
+                if (dist[nx] == 0 || dist[nx] == dist[now] + 1) {
+                    queue.add(nx);
+                    dist[nx] = dist[now] + 1;
+                    prev[nx] = now;
                 }
             }
         }

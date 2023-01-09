@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_1697 {
+public class BOJ_13549 {
 
     static class Node {
         int x;
@@ -46,16 +46,18 @@ public class BOJ_1697 {
                 return node.dist;
             }
 
+            int jump = node.x * 2;
+            if (jump <= 100_000 && !visited[jump]) {
+                queue.add(new Node(jump, node.dist));
+                visited[jump] = true;
+            }
             int nx = -1;
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 2; i++) {
                 if (i == 0) {
                     nx = node.x - 1;
                 } else if (i == 1) {
                     nx = node.x + 1;
-                } else if (i == 2) {
-                    nx = node.x * 2;
                 }
-
                 if (nx < 0 || nx > 100_000) {
                     continue;
                 }

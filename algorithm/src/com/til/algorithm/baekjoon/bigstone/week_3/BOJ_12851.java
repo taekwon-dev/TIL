@@ -9,9 +9,10 @@ public class BOJ_12851 {
 
     private static int N;
     private static int K;
-    private static int[] dist = new int[100_001];
     private static int min = Integer.MAX_VALUE;
-    private static int min_way = 0;
+    private static int minCount;
+    private static int[] dist = new int[100_001];
+
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,16 +27,16 @@ public class BOJ_12851 {
         } else {
             bfs(N);
             bw.write(min + "\n");
-            bw.write(min_way + "\n");
+            bw.write(minCount + "\n");
         }
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void bfs(int start) {
+    private static void bfs(int N) {
         Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
+        queue.add(N);
         dist[N] = 1;
 
         while (!queue.isEmpty()) {
@@ -45,22 +46,25 @@ public class BOJ_12851 {
                 continue;
             }
 
-            int[] step = {now - 1, now + 1, now * 2};
-            for (int i = 0; i < step.length; i++) {
-                int next = step[i];
-
-                if (next < 0 || next > 100_000) {
+            int nx = -1;
+            for (int i = 0; i < 3; i++) {
+                if (i == 0) {
+                    nx = now - 1;
+                } else if (i == 1) {
+                    nx = now + 1;
+                } else if (i == 2) {
+                    nx = now * 2;
+                }
+                if (nx < 0 || nx > 100_000) {
                     continue;
                 }
-
-                if (next == K) {
+                if (nx == K) {
                     min = dist[now];
-                    min_way++;
+                    minCount++;
                 }
-
-                if (dist[next] == 0 || dist[next] == dist[now] + 1) {
-                    queue.add(next);
-                    dist[next] = dist[now] + 1;
+                if (dist[nx] == 0 || dist[nx] == dist[now] + 1) {
+                    queue.add(nx);
+                    dist[nx] = dist[now] + 1;
                 }
             }
         }

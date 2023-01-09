@@ -50,4 +50,21 @@ class StackTest {
 
         assertEquals(stack.peek(), 3);
     }
+
+    @Test
+    @DisplayName("Stack get(int idx)")
+    void get() {
+        Stack<Integer> stack = new Stack<>();
+
+        // 3 -> (idx = 2) -> peek
+        // 2 -> (idx = 1)
+        // 1 -> (idx = 0)
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        assertEquals(stack.get(0), 1);
+        assertEquals(stack.get(1), 2);
+        assertEquals(stack.get(2), 3);
+    }
 }
