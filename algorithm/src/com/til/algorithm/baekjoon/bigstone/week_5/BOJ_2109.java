@@ -1,34 +1,48 @@
 package com.til.algorithm.baekjoon.bigstone.week_5;
 
-import java.awt.*;
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_2109 {
 
+    static class Lecture {
+        int pay;
+        int day;
+
+        public Lecture(int pay, int day) {
+            this.pay = pay;
+            this.day = day;
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
         int N = Integer.parseInt(br.readLine());
-        Point[] points = new Point[N];
+        Lecture[] lectures = new Lecture[N];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            int p = Integer.parseInt(st.nextToken());
-            int d = Integer.parseInt(st.nextToken());
-            points[i] = new Point(p, d);
+            int pay = Integer.parseInt(st.nextToken());
+            int day = Integer.parseInt(st.nextToken());
+            lectures[i] = new Lecture(pay, day);
         }
+        Arrays.sort(lectures, (l1, l2) -> {
+            if (l1.pay == l2.pay) {
+                return l2.day - l1.day;
+            }
+            return l2.pay - l1.pay;
+        });
 
-        Arrays.sort(points, (p1, p2) -> (p1.x == p2.x) ? p2.y - p1.y : p2.x - p1.x);
         int answer = 0;
-        boolean[] picked = new boolean[10_001];
+        boolean[] fixed = new boolean[10_001];
         for (int i = 0; i < N; i++) {
-            for (int j = points[i].y; j >= 1; j--) {
-                if (!picked[j]) {
-                    picked[j] = true;
-                    answer += points[i].x;
+            for (int j = lectures[i].day; j >= 1; j--) {
+                if (!fixed[j]) {
+                    fixed[j] = true;
+                    answer += lectures[i].pay;
                     break;
                 }
             }

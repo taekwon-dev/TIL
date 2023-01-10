@@ -23,13 +23,20 @@ public class BOJ_1781 {
         StringTokenizer st;
         int N = Integer.parseInt(br.readLine());
         Question[] questions = new Question[N];
+
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             int deadline = Integer.parseInt(st.nextToken());
             int cup = Integer.parseInt(st.nextToken());
             questions[i] = new Question(deadline, cup);
         }
-        Arrays.sort(questions, (q1, q2) -> (q1.deadline == q2.deadline) ? q2.cup - q1.cup : q1.deadline - q2.deadline);
+        Arrays.sort(questions, (q1, q2) -> {
+            if (q1.deadline == q2.deadline) {
+                return q2.cup - q1.cup;
+            }
+            return q1.deadline - q2.deadline;
+        });
+
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         for (Question question : questions) {
             if (pq.size() < question.deadline) {
