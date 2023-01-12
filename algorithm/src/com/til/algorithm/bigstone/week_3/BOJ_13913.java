@@ -1,17 +1,14 @@
 package com.til.algorithm.bigstone.week_3;
 
 import java.io.*;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class BOJ_12851 {
+public class BOJ_13913 {
 
     private static int N;
     private static int K;
     private static int[] dist = new int[100_001];
-    private static int shortestPath = Integer.MAX_VALUE;
-    private static int shortestPathCount;
+    private static int[] prev = new int[100_001];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,15 +16,23 @@ public class BOJ_12851 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
+        Arrays.fill(dist, -1);
 
-        if (N == K) {
-            bw.write("0" + "\n");
-            bw.write("1" + "\n");
-        } else {
-            bfs(N);
-            bw.write(shortestPath + "\n");
-            bw.write(shortestPathCount + "\n");
+        bfs(N);
+        Stack<Integer> stack = new Stack<>();
+        int index = K;
+        while (index != N) {
+            stack.push(index);
+            index = prev[index];
         }
+        stack.push(N);
+
+        StringBuilder sb = new StringBuilder();
+        while (!stack.isEmpty()) {
+            sb.append(stack.pop()).append(" ");
+        }
+        bw.write(dist[K] + "\n");
+        bw.write(sb.toString() + "\n");
         bw.flush();
         bw.close();
         br.close();
@@ -36,12 +41,13 @@ public class BOJ_12851 {
     private static void bfs(int N) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(N);
-        dist[N] = 1;
+        dist[N] = 0;
 
         while (!queue.isEmpty()) {
             int now = queue.poll();
-            if (shortestPath < dist[now]) {
-                continue;
+
+            if (now == K) {
+                break;
             }
             int nx = -1;
             for (int i = 0; i < 3; i++) {
@@ -55,13 +61,10 @@ public class BOJ_12851 {
                 if (nx < 0 || nx > 100_000) {
                     continue;
                 }
-                if (nx == K) {
-                    shortestPath = dist[now];
-                    shortestPathCount++;
-                }
-                if (dist[nx] == 0 || dist[nx] == dist[now] + 1) {
+                if (dist[nx] == -1) {
                     queue.add(nx);
                     dist[nx] = dist[now] + 1;
+                    prev[nx] = now;
                 }
             }
         }
