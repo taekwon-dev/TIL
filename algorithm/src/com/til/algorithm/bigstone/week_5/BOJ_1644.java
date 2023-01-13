@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BOJ_1644 {
+public class  BOJ_1644 {
 
     private static List<Integer> prime = new ArrayList<>();
 

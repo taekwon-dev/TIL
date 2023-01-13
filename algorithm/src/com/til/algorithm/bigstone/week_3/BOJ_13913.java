@@ -1,7 +1,10 @@
 package com.til.algorithm.bigstone.week_3;
 
 import java.io.*;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class BOJ_13913 {
 
@@ -16,8 +19,6 @@ public class BOJ_13913 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
-        Arrays.fill(dist, -1);
-
         bfs(N);
         Stack<Integer> stack = new Stack<>();
         int index = K;
@@ -26,11 +27,11 @@ public class BOJ_13913 {
             index = prev[index];
         }
         stack.push(N);
-
         StringBuilder sb = new StringBuilder();
         while (!stack.isEmpty()) {
             sb.append(stack.pop()).append(" ");
         }
+
         bw.write(dist[K] + "\n");
         bw.write(sb.toString() + "\n");
         bw.flush();
@@ -45,7 +46,6 @@ public class BOJ_13913 {
 
         while (!queue.isEmpty()) {
             int now = queue.poll();
-
             if (now == K) {
                 break;
             }
@@ -61,7 +61,7 @@ public class BOJ_13913 {
                 if (nx < 0 || nx > 100_000) {
                     continue;
                 }
-                if (dist[nx] == -1) {
+                if (dist[nx] == 0) {
                     queue.add(nx);
                     dist[nx] = dist[now] + 1;
                     prev[nx] = now;
