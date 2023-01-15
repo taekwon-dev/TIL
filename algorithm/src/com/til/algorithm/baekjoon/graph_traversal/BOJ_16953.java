@@ -7,7 +7,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/**
+ *  BFS - 연산의 `최솟값`
+ */
 public class BOJ_16953 {
+
     static class Node {
         long num;
         int count;

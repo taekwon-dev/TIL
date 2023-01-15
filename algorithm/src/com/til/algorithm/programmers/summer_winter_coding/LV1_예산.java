@@ -1,4 +1,4 @@
-package com.til.algorithm.programmers.extra.summer_winter_coding;
+package com.til.algorithm.programmers.summer_winter_coding;
 
 import java.util.Arrays;
 
