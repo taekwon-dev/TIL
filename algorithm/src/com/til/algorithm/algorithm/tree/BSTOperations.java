@@ -8,6 +8,7 @@ package com.til.algorithm.algorithm.tree;
  * (3) Delete
  */
 class BinarySearchTreeForOps {
+
     class Node {
         int data;
         Node left;

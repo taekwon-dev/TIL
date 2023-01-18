@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class BOJ_15686 {
+public class BOJ_15686_timeout {
 
     static class Node {
         int x;
@@ -19,9 +19,9 @@ public class BOJ_15686 {
     private static int N;
     private static int M;
     private static int[][] map;
+    private static boolean[][] picked;
     private static ArrayList<Node> homes = new ArrayList<>();
     private static ArrayList<Node> chickens = new ArrayList<>();
-    private static boolean[] open;
     private static int min = Integer.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
@@ -31,6 +31,7 @@ public class BOJ_15686 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         map = new int[N + 1][N + 1];
+        picked = new boolean[N + 1][N + 1];
 
         for (int i = 1; i <= N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -38,31 +39,31 @@ public class BOJ_15686 {
                 map[i][j] = Integer.parseInt(st.nextToken());
                 if (map[i][j] == 1) {
                     homes.add(new Node(i, j));
-                } else if (map[i][j] == 2) {
-                    chickens.add(new Node(i, j));
                 }
             }
         }
-        open = new boolean[chickens.size()];
-
-        backtracking(0, 0);
+        backtracking(0);
         bw.write(min + "\n");
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void backtracking(int depth, int index) {
+    private static void backtracking(int depth) {
         if (depth == M) {
             // 치킨 집 M개 고르고, 치킨 거리의 최솟값 계산
             min = Math.min(min, chickenDistance());
             return;
         }
-        for (int i = index; i < chickens.size(); i++) {
-            if (!open[i]) {
-                open[i] = true;
-                backtracking(depth + 1, i + 1);
-                open[i] = false;
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= N; j++) {
+                if (!picked[i][j] && map[i][j] == 2) {
+                    chickens.add(new Node(i, j));
+                    picked[i][j] = true;
+                    backtracking(depth + 1);
+                    chickens.remove(chickens.size() - 1);
+                    picked[i][j] = false;
+                }
             }
         }
     }
@@ -71,11 +72,8 @@ public class BOJ_15686 {
         int minChickenDistance = 0;
         for (Node home : homes) {
             int chickenDistance = Integer.MAX_VALUE;
-            for (int i = 0; i < chickens.size(); i++) {
-                if (!open[i]) {
-                    continue;
-                }
-                chickenDistance = Math.min(chickenDistance, Math.abs(home.x - chickens.get(i).x) + Math.abs(home.y - chickens.get(i).y));
+            for (Node chicken : chickens) {
+                chickenDistance = Math.min(chickenDistance, Math.abs(home.x - chicken.x) + Math.abs(home.y - chicken.y));
             }
             minChickenDistance += chickenDistance;
         }
