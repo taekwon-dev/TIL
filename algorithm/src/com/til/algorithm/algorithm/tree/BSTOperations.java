@@ -2,7 +2,7 @@ package com.til.algorithm.algorithm.tree;
 
 /**
  * Binary Search Tree Operations
- * <p>
+ *
  * (1) Search
  * (2) Insert
  * (3) Delete
@@ -61,14 +61,15 @@ class BinarySearchTreeForOps {
             root.right = delete(root.right, data);
         } else if (root.data == data) {
             if (root.left == null && root.right == null) {
-                return root;
+                return null;
             } else if (root.left == null) {
                 return root.right;
             } else if (root.right == null) {
                 return root.left;
+            } else if (root.left != null && root.right != null) {
+                root.data = findMin(root.right);
+                root.right = delete(root.right, root.data);
             }
-            root.data = findMin(root.right);
-            root.right = delete(root.right, root.data);
         }
         return root;
     }

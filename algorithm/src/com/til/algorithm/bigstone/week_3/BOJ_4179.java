@@ -6,14 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-/**
- *  1) 불 관점
- *
- *  2) 지훈 관점
- *
- *  불이 이동하는 상황을 시뮬레이션 진행한 뒤, 지훈이가 미로를 탈출할 수 있는지를 판단
- */
-public class BOJ_4197 {
+public class BOJ_4179 {
 
     static class Node {
         int x;
@@ -27,13 +20,13 @@ public class BOJ_4197 {
 
     private static int R;
     private static int C;
+    private static char[][] map;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
-    private static char[][] map;
-    private static int[][] jihoonDist;
-    private static int[][] fireDist;
     private static Queue<Node> jihoonQ = new LinkedList<>();
     private static Queue<Node> fireQ = new LinkedList<>();
+    private static int[][] jihoonMap;
+    private static int[][] fireMap;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -41,40 +34,45 @@ public class BOJ_4197 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         R = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
-        map = new char[R + 1][C + 1];
-        jihoonDist = new int[R + 1][C + 1];
-        fireDist = new int[R + 1][C + 1];
+        map = new char[R][C];
+        jihoonMap = new int[R][C];
+        fireMap = new int[R][C];
 
-        for (int i = 1; i <= R; i++) {
-            Arrays.fill(jihoonDist[i], -1);
-            Arrays.fill(fireDist[i], -1);
+        for (int i = 0; i < R; i++) {
+            Arrays.fill(jihoonMap[i], -1);
+            Arrays.fill(fireMap[i], -1);
         }
-        for (int i = 1; i <= R; i++) {
+
+        for (int i = 0; i < R; i++) {
             String row = br.readLine();
-            for (int j = 1; j <= C; j++) {
-                map[i][j] = row.charAt(j - 1);
+            for (int j = 0; j < C; j++) {
+                map[i][j] = row.charAt(j);
                 if (map[i][j] == 'J') {
-                    jihoonQ.add(new Node(i, j));
-                    jihoonDist[i][j] = 0;
-                } else if (map[i][j] == 'F') {
-                    fireQ.add(new Node(i, j));
-                    fireDist[i][j] = 0;
+                    jihoonQ.offer(new Node(i, j));
+                    jihoonMap[i][j] = 0;
+                    continue;
+                }
+                if (map[i][j] == 'F') {
+                    fireQ.offer(new Node(i, j));
+                    fireMap[i][j] = 0;
+                    continue;
                 }
             }
         }
-        do_fire();
-        int answer = do_jihoon();
-        if (answer == -1) {
+
+        fire();
+        int result = jihoon();
+        if (result == -1) {
             bw.write("IMPOSSIBLE" + "\n");
         } else {
-            bw.write(answer + "\n");
+            bw.write(result + "\n");
         }
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void do_fire() {
+    private static void fire() {
         while (!fireQ.isEmpty()) {
             Node fire = fireQ.poll();
 
@@ -82,46 +80,47 @@ public class BOJ_4197 {
                 int nx = fire.x + dx[i];
                 int ny = fire.y + dy[i];
 
-                if (nx >= 1 && ny >= 1 && nx <= R && ny <= C) {
-                    if (map[nx][ny] == '#' || fireDist[nx][ny] >= 0) {
+                if (nx >= 0 && ny >= 0 && nx < R && ny < C) {
+                    if (map[nx][ny] == '#' || fireMap[nx][ny] != -1) {
                         continue;
                     }
-                    fireQ.add(new Node(nx, ny));
-                    fireDist[nx][ny] = fireDist[fire.x][fire.y] + 1;
+                    fireMap[nx][ny] = fireMap[fire.x][fire.y] + 1;
+                    fireQ.offer(new Node(nx, ny));
                 }
             }
         }
     }
 
-    private static int do_jihoon() {
+    private static int jihoon() {
         while (!jihoonQ.isEmpty()) {
             Node jihoon = jihoonQ.poll();
 
             if (isOnEdge(jihoon.x, jihoon.y)) {
-                return jihoonDist[jihoon.x][jihoon.y] + 1;
+                return jihoonMap[jihoon.x][jihoon.y] + 1;
             }
 
             for (int i = 0; i < 4; i++) {
                 int nx = jihoon.x + dx[i];
                 int ny = jihoon.y + dy[i];
 
-                if (nx >= 1 && ny >= 1 && nx <= R && ny <= C) {
-                    if (map[nx][ny] == '#' || jihoonDist[nx][ny] >= 0) {
+                if (nx >= 0 && ny >= 0 && nx < R && ny < C) {
+                    if (map[nx][ny] == '#' || jihoonMap[nx][ny] != -1) {
                         continue;
                     }
-                    if (fireDist[nx][ny] != -1 && fireDist[nx][ny] <= jihoonDist[jihoon.x][jihoon.y] + 1) {
+                    if (fireMap[nx][ny] != -1 && fireMap[nx][ny] <= jihoonMap[jihoon.x][jihoon.y] + 1) {
                         continue;
                     }
-                    jihoonQ.add(new Node(nx, ny));
-                    jihoonDist[nx][ny] = jihoonDist[jihoon.x][jihoon.y] + 1;
+                    jihoonQ.offer(new Node(nx, ny));
+                    jihoonMap[nx][ny] = jihoonMap[jihoon.x][jihoon.y] + 1;
                 }
             }
+
         }
         return -1;
     }
 
     private static boolean isOnEdge(int x, int y) {
-        if (x == 1 || x == R || y == 1 || y == C) {
+        if (x == 0 || x == R - 1 || y == 0 || y == C - 1) {
             return true;
         }
         return false;

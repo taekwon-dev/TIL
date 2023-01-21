@@ -7,9 +7,9 @@ public class LEET_701 {
             root = new TreeNode(val);
             return root;
         }
-        if (val < root.val) {
+        if (root.val > val) {
             root.left = insertIntoBST(root.left, val);
-        } else if (val > root.val) {
+        } else if (root.val < val) {
             root.right = insertIntoBST(root.right, val);
         }
         return root;

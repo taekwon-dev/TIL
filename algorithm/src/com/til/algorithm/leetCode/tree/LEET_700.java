@@ -6,7 +6,7 @@ public class LEET_700 {
         if (root == null || root.val == val) {
             return root;
         }
-        if (val < root.val) {
+        if (root.val > val) {
             return searchBST(root.left, val);
         }
         return searchBST(root.right, val);

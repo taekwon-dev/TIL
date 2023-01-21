@@ -4,21 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_257 {
+
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> result = new ArrayList<>();
-        dfs(root, result, "");
-        return result;
+        List<String> paths = new ArrayList<>();
+        rootToLeafPath(root, paths, "");
+        return paths;
     }
 
-    private void dfs(TreeNode root, List<String> result, String s) {
+    private void rootToLeafPath(TreeNode root, List<String> paths, String path) {
         if (root == null) {
             return;
         }
+        /**
+         *  A Leaf Node is a node with no children.
+         */
         if (root.left == null && root.right == null) {
-            result.add(s + root.val);
+            paths.add(path + root.val);
             return;
         }
-        dfs(root.left, result, s + root.val + "->");
-        dfs(root.right, result, s + root.val + "->");
+        rootToLeafPath(root.left, paths, path + root.val + "->");
+        rootToLeafPath(root.right, paths, path + root.val + "->");
     }
 }

@@ -18,8 +18,19 @@ public class LEET_450 {
             } else if (root.right == null) {
                 return root.left;
             } else if (root.left != null && root.right != null) {
+                /**
+                 *  오른쪽 자식 노드를 기준으로 하는 서브 트리에서 가장 작은 키 값을 가지는 노드를
+                 *  삭제할 노드의 위치로 올 수 있도록 값을 덮어쓴다.
+                 */
                 root.val = findMin(root.right);
                 root.right = deleteNode(root.right, root.val);
+
+                /**
+                 *  왼쪽 자식 노드를 기준으로 하는 서브 트리에서 가장 큰 값을 가지는 노드를
+                 *  삭제할 노드의 위치로 올 수 있도록 값을 덮어쓴다.
+                 */
+                root.val = findMax(root.left);
+                root.left = deleteNode(root.left, root.val);
             }
         }
         return root;
