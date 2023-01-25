@@ -1,4 +1,4 @@
-package com.til.algorithm.bigstone.week_5;
+package com.til.algorithm.bigstone.hidden_1.greedy;
 
 import java.io.*;
 import java.util.Arrays;
