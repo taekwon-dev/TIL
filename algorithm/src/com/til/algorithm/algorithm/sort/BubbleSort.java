@@ -1,9 +1,12 @@
 package com.til.algorithm.algorithm.sort;
 
+/**
+ *  - 시간 복잡도 O(N^2) (정렬 여부 상관 없이)
+ */
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] arr = {5, 2, 1, 3, 4};
+        int[] arr = {3, 2, 5, 4, 1};
         printArray(arr);
         bubbleSort(arr);
         printArray(arr);

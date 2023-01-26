@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/**
+ *  부분집합 + 조합
+ */
 public class BOJ_1182_a {
 
     private static int n;

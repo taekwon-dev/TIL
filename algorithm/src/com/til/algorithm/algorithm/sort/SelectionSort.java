@@ -1,9 +1,13 @@
 package com.til.algorithm.algorithm.sort;
 
+/**
+ *  - 시간 복잡도 O(N^2)
+ *  - (n - 1) + (n - 2) + (n - 3 ) + ... + 2 + 1 = n(n - 1) / 2
+ */
 public class SelectionSort {
 
     public static void main(String[] args) {
-        int[] arr = {3, 2, 3, 2, 1};
+        int[] arr = {3, 2, 5, 4, 1};
         printArray(arr);
         selectionSort(arr);
         printArray(arr);
