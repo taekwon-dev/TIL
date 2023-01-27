@@ -26,6 +26,7 @@ public class BOJ_2580 {
             return;
         }
         if (row == 9) {
+            // 문제 종료 조건 (모든 스도쿠 빈칸을 채운 상태)
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
@@ -36,7 +37,6 @@ public class BOJ_2580 {
             System.out.println(sb.toString());
             System.exit(0);
         }
-        // 숫자를 채워 넣어야 하는 공간
         if (map[row][col] == 0) {
             for (int val = 1; val <= 9; val++) {
                 if (isLocatable(row, col, val)) {
@@ -56,19 +56,17 @@ public class BOJ_2580 {
                 return false;
             }
         }
-
         for (int i = 0; i < 9; i++) {
             if (map[i][col] == val) {
                 return false;
             }
         }
-
-        // 숫자를 채워 넣을 공간이 위치한 3 X 3 박스의 행/열 첫 위치
-        int row3 = (row / 3) * 3;
-        int col3 = (col / 3) * 3;
-
-        for (int i = row3; i < row3 + 3; i++) {
-            for (int j = col3; j < col3 + 3; j++) {
+        // '0' = 스도쿠 숫자를 채워 놓을 공간
+        // 해당 공간이 포함된 3 X 3 의 행/열 첫 위치
+        int r = (row / 3) * 3;
+        int c = (col / 3) * 3;
+        for (int i = r; i < r + 3; i++) {
+            for (int j = c; j < c + 3; j++) {
                 if (map[i][j] == val) {
                     return false;
                 }

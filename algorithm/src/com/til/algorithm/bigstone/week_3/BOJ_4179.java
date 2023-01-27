@@ -21,25 +21,26 @@ public class BOJ_4179 {
     private static int R;
     private static int C;
     private static char[][] map;
+    private static int[][] jhMap;
+    private static int[][] fireMap;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
-    private static Queue<Node> jihoonQ = new LinkedList<>();
+    private static Queue<Node> jhQ = new LinkedList<>();
     private static Queue<Node> fireQ = new LinkedList<>();
-    private static int[][] jihoonMap;
-    private static int[][] fireMap;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         R = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
         map = new char[R][C];
-        jihoonMap = new int[R][C];
+        jhMap = new int[R][C];
         fireMap = new int[R][C];
 
         for (int i = 0; i < R; i++) {
-            Arrays.fill(jihoonMap[i], -1);
+            Arrays.fill(jhMap[i], -1);
             Arrays.fill(fireMap[i], -1);
         }
 
@@ -48,20 +49,18 @@ public class BOJ_4179 {
             for (int j = 0; j < C; j++) {
                 map[i][j] = row.charAt(j);
                 if (map[i][j] == 'J') {
-                    jihoonQ.offer(new Node(i, j));
-                    jihoonMap[i][j] = 0;
+                    jhMap[i][j] = 0;
+                    jhQ.offer(new Node(i, j));
                     continue;
                 }
                 if (map[i][j] == 'F') {
-                    fireQ.offer(new Node(i, j));
                     fireMap[i][j] = 0;
-                    continue;
+                    fireQ.offer(new Node(i, j));
                 }
             }
         }
-
         fire();
-        int result = jihoon();
+        int result = jh();
         if (result == -1) {
             bw.write("IMPOSSIBLE" + "\n");
         } else {
@@ -80,47 +79,48 @@ public class BOJ_4179 {
                 int nx = fire.x + dx[i];
                 int ny = fire.y + dy[i];
 
-                if (nx >= 0 && ny >= 0 && nx < R && ny < C) {
-                    if (map[nx][ny] == '#' || fireMap[nx][ny] != -1) {
-                        continue;
-                    }
-                    fireMap[nx][ny] = fireMap[fire.x][fire.y] + 1;
-                    fireQ.offer(new Node(nx, ny));
+                if (nx < 0 || ny < 0 || nx > R - 1 || ny > C - 1) {
+                    continue;
                 }
+                if (map[nx][ny] == '#' || fireMap[nx][ny] != -1) {
+                    continue;
+                }
+                fireQ.offer(new Node(nx, ny));
+                fireMap[nx][ny] = fireMap[fire.x][fire.y] + 1;
             }
         }
     }
 
-    private static int jihoon() {
-        while (!jihoonQ.isEmpty()) {
-            Node jihoon = jihoonQ.poll();
+    private static int jh() {
+        while (!jhQ.isEmpty()) {
+            Node jh = jhQ.poll();
 
-            if (isOnEdge(jihoon.x, jihoon.y)) {
-                return jihoonMap[jihoon.x][jihoon.y] + 1;
+            if (isOnEdge(jh.x, jh.y)) {
+                // + 1 = 경계 값을 넘어서야 미로를 탈출하는 것이기 때문에, + 1 을 해서 반환
+                return jhMap[jh.x][jh.y] + 1;
             }
-
             for (int i = 0; i < 4; i++) {
-                int nx = jihoon.x + dx[i];
-                int ny = jihoon.y + dy[i];
+                int nx = jh.x + dx[i];
+                int ny = jh.y + dy[i];
 
-                if (nx >= 0 && ny >= 0 && nx < R && ny < C) {
-                    if (map[nx][ny] == '#' || jihoonMap[nx][ny] != -1) {
-                        continue;
-                    }
-                    if (fireMap[nx][ny] != -1 && fireMap[nx][ny] <= jihoonMap[jihoon.x][jihoon.y] + 1) {
-                        continue;
-                    }
-                    jihoonQ.offer(new Node(nx, ny));
-                    jihoonMap[nx][ny] = jihoonMap[jihoon.x][jihoon.y] + 1;
+                if (nx < 0 || ny < 0 || nx > R - 1 || ny > C - 1) {
+                    continue;
                 }
+                if (map[nx][ny] == '#' || jhMap[nx][ny] != -1) {
+                    continue;
+                }
+                if (fireMap[nx][ny] != -1 && fireMap[nx][ny] <= jhMap[jh.x][jh.y] + 1) {
+                    continue;
+                }
+                jhQ.offer(new Node(nx, ny));
+                jhMap[nx][ny] = jhMap[jh.x][jh.y] + 1;
             }
-
         }
         return -1;
     }
 
     private static boolean isOnEdge(int x, int y) {
-        if (x == 0 || x == R - 1 || y == 0 || y == C - 1) {
+        if (x == 0 || y == 0 || x == R - 1 || y == C - 1) {
             return true;
         }
         return false;

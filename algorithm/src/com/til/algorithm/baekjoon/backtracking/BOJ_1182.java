@@ -3,6 +3,9 @@ package com.til.algorithm.baekjoon.backtracking;
 import java.io.*;
 import java.util.StringTokenizer;
 
+/**
+ *  부분 집합 + 조합
+ */
 public class BOJ_1182 {
 
     private static int N;
@@ -14,6 +17,7 @@ public class BOJ_1182 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         N = Integer.parseInt(st.nextToken());
         S = Integer.parseInt(st.nextToken());
         arr = new int[N];
@@ -22,25 +26,20 @@ public class BOJ_1182 {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        backtracking(0, 0);
-        if (S == 0) {
-            bw.write(answer - 1 + "\n");
-        } else {
-            bw.write(answer + "\n");
-        }
+        backtracking(0, 0, 0);
+
+        bw.write(answer + "\n");
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void backtracking(int depth, int sum) {
-        if (depth == N) {
-            if (sum == S) {
-                answer++;
-            }
-            return;
+    private static void backtracking(int depth, int index, int sum) {
+        if (depth > 0 && sum == S) {
+            answer++;
         }
-        backtracking(depth + 1, sum + arr[depth]);
-        backtracking(depth + 1, sum);
+        for (int i = index; i < N; i++) {
+            backtracking(depth + 1, i + 1, sum + arr[i]);
+        }
     }
 }

@@ -11,6 +11,7 @@ public class BOJ_9663 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
         N = Integer.parseInt(br.readLine());
         queens = new int[N];
         backtracking(0);
@@ -23,6 +24,7 @@ public class BOJ_9663 {
 
     private static void backtracking(int depth) {
         if (depth == N) {
+            // N개의 퀸을 착수할 수 있을 때, 카운트
             answer++;
             return;
         }
@@ -32,17 +34,14 @@ public class BOJ_9663 {
                 backtracking(depth + 1);
             }
         }
-
     }
 
-    private static boolean isLocatable(int depth) {
-        for (int i = 0; i < depth; i++) {
-            // 현재 착수한 곳과 겹치는 곳이 있는 지 세로 방향으로 검사
-            if (queens[depth] == queens[i]) {
+    private static boolean isLocatable(int row) {
+        for (int i = 0; i < row; i++) {
+            if (queens[i] == queens[row]) {
                 return false;
             }
-            // 대각선 방향 (열의 차와 행의 차가 동일한 경우)
-            if (Math.abs(depth - i) == Math.abs(queens[depth] - queens[i])) {
+            if (Math.abs(row - i) == Math.abs(queens[row] - queens[i])) {
                 return false;
             }
         }

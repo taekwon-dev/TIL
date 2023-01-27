@@ -22,6 +22,7 @@ public class BOJ_1202 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
         Jewel[] jewels = new Jewel[N];
@@ -32,12 +33,7 @@ public class BOJ_1202 {
             int value = Integer.parseInt(st.nextToken());
             jewels[i] = new Jewel(mass, value);
         }
-        Arrays.sort(jewels, (j1, j2) -> {
-            if (j1.mass == j2.mass) {
-                return j2.value - j1.value;
-            }
-            return j1.mass - j2.mass;
-        });
+        Arrays.sort(jewels, Comparator.comparingInt(j -> j.mass));
 
         int[] bags = new int[K];
         for (int i = 0; i < K; i++) {

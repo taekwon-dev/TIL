@@ -5,14 +5,15 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- *  https://steady-coding.tistory.com/55
+ *  멀티탭 스케줄링
  *
- *  1. 사용하려는 전기 용품의 콘센트가 꽂혀있는 경우, 아무런 행동도 취하지 않는다.
- *  2. 사용하려는 전기 용품의 콘센트가 꽂혀있지 않은 경우
- *      2-1. 멀티탭이 넉넉한 경우, 비어있는 공간에 콘센트를 꽂는다.
- *      2-2. 멀티탭이 넉넉하지 않는 경우, 현재 꽂혀있는 콘센트들이 나중에 사용되는지 확인한다.
- *          2-2-1. 현재 꽂혀있는 콘센트들 중 일부만 나중에 사용된다면, 나중에도 사용되지 않는 콘센트를 제거하고 현재 사용하려는 콘센트를 꽂는다.
- *          2-2-2. 현재 꽂혀있는 콘센트들 중 모두 나중에 사용된다면, 그 중 가장 늦게 사용되는 콘센트를 제거하고 현재 사용하려는 콘센트를 꽂는다.
+ *  0. 이미 멀티탭에 꽂혀 있는 경우
+ *  1. 멀티탭 자리가 있는 경우
+ *  2. 멀티탭 자리가 없는 경우
+ *      2.1 멀티탭에 꽂혀 있는 콘센트가 모두 나중에 사용되는 경우
+ *          2.1.1 멀티탭에 꽂혀 있는 콘센트 중 가장 나중에 사용되는 콘센트를 뺀다.
+ *      2.2 멀티탭에 꽂혀 있는 콘센트 중 일부만 나중에 사용되는 경우
+ *          2.2.1 멀티탭에 꽂혀 있는 콘센트 중 나중에 사용되지 않는 콘센트를 뺀다.
  */
 public class BOJ_1700 {
 
@@ -20,43 +21,44 @@ public class BOJ_1700 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
-
         int[] order = new int[K];
+
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < K; i++) {
             order[i] = Integer.parseInt(st.nextToken());
         }
-        boolean[] used = new boolean[101];
+        boolean[] put = new boolean[100 + 1];
         int occupied = 0;
         int answer = 0;
         for (int i = 0; i < K; i++) {
-            int tmp = order[i];
-            if (!used[tmp]) {
+            int product = order[i];
+            if (!put[product]) {
                 if (occupied < N) {
-                    used[tmp] = true;
+                    put[product] = true;
                     occupied++;
                 } else {
                     ArrayList<Integer> offline = new ArrayList<>();
                     for (int j = i; j < K; j++) {
-                        if (used[order[j]] && !offline.contains(order[j])) {
+                        if (put[order[j]] && !offline.contains(order[j])) {
                             offline.add(order[j]);
                         }
                     }
                     if (offline.size() != N) {
-                        for (int j = 0; j < used.length; j++) {
-                            if (used[j] && !offline.contains(j)) {
-                                used[j] = false;
+                        for (int j = 0; j < put.length; j++) {
+                            if (put[j] && !offline.contains(j)) {
+                                put[j] = false;
                                 break;
                             }
                         }
                     } else {
                         int remove = offline.get(offline.size() - 1);
-                        used[remove] = false;
+                        put[remove] = false;
                     }
                     answer++;
-                    used[tmp] = true;
+                    put[product] = true;
                 }
             }
         }

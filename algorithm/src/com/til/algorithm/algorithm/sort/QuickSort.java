@@ -1,9 +1,13 @@
 package com.til.algorithm.algorithm.sort;
 
+/**
+ * - 시간 복잡도 - O(N^2)
+ * - 평균 - N log N
+ */
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] arr = {3, 9, 4, 7, 5, 0};
+        int[] arr = {3, 9, 4, 7, 0, 1, 5, 8, 6, 2};
         printArray(arr);
         quickSort(arr);
         printArray(arr);
@@ -24,11 +28,14 @@ public class QuickSort {
     }
 
     private static int partition(int[] arr, int start, int end) {
-        System.out.println(start + " ~ " + end);
         int pivot = arr[(start + end) / 2];
         while (start <= end) {
-            while (arr[start] < pivot) start++;
-            while (pivot < arr[end]) end--;
+            while (arr[start] < pivot) {
+                start++;
+            }
+            while (arr[end] > pivot) {
+                end--;
+            }
             if (start <= end) {
                 swap(arr, start, end);
                 start++;
