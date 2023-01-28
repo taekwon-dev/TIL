@@ -1,29 +1,33 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class BOJ_9663 {
 
-    private static int n;
+    private static int N;
     private static int[] queen;
     private static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        queen = new int[n];
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        N = Integer.parseInt(br.readLine());
+        queen = new int[N];
         backtracking(0);
-        System.out.println(answer);
+
+        bw.write(answer + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static void backtracking(int depth) {
-        if (depth == n) {
+        if (depth == N) {
             answer++;
             return;
         }
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             queen[depth] = i;
             if (isLocatable(depth)) {
                 backtracking(depth + 1);
@@ -31,12 +35,12 @@ public class BOJ_9663 {
         }
     }
 
-    private static boolean isLocatable(int row) {
-        for (int i = 0; i < row; i++) {
-            if (queen[row] == queen[i]) {
+    private static boolean isLocatable(int depth) {
+        for (int row = 0; row < depth; row++) {
+            if (queen[row] == queen[depth]) {
                 return false;
             }
-            if (Math.abs(row - i) == Math.abs(queen[row] - queen[i])) {
+            if (Math.abs(depth - row) == Math.abs(queen[depth] - queen[row])) {
                 return false;
             }
         }

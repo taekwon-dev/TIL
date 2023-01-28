@@ -3,10 +3,7 @@ package com.til.algorithm.ds.map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -24,6 +21,10 @@ class TreeMapTest {
         TreeMap<Integer, String> map4 = new TreeMap<>(){{
             put(1, "TreeMap");
         }};
+
+        // Comparator 구현 객체를 파라미터로 갖는 생성자
+        TreeMap<String, Integer> map5 = new TreeMap<>((s1, s2) -> s1.length() - s2.length());
+        TreeMap<String, Integer> map6 = new TreeMap<>(Comparator.comparingInt(String::length));
     }
 
     @Test

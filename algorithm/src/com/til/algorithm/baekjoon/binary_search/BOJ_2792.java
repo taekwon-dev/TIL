@@ -3,43 +3,25 @@ package com.til.algorithm.baekjoon.binary_search;
 import java.io.*;
 import java.util.StringTokenizer;
 
-/**
- *  Binary Search
- *  - 정렬된 ...
- *  - 중간 값과 찾고 싶은 값
- *  - O(log N)
- */
 public class BOJ_2792 {
-
-    private static int[] jewels;
-    private static int max;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        jewels = new int[M];
+        int[] jewels = new int[M];
 
+        int low = 1;
+        int high = 0;
         for (int i = 0; i < M; i++) {
             jewels[i] = Integer.parseInt(br.readLine());
-            if (max < jewels[i]) {
-                max = jewels[i];
-            }
+            high = Math.max(high, jewels[i]);
         }
 
-        bw.write(binary_search(N) + "\n");
-        bw.flush();
-        bw.close();
-        br.close();
-    }
-
-    private static int binary_search(int N) {
-        int min = Integer.MAX_VALUE;
-        int low = 1;
-        int high = max;
-
+        int answer = 0;
         while (low <= high) {
             int mid = (low + high) / 2;
             int people = 0;
@@ -53,9 +35,13 @@ public class BOJ_2792 {
                 low = mid + 1;
             } else {
                 high = mid - 1;
-                min = mid;
+                answer = mid;
             }
         }
-        return min;
+
+        bw.write(answer + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 }

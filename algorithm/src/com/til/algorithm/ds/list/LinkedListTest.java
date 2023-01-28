@@ -11,12 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- *  https://coding-factory.tistory.com/552
- *
  *  중간에 데이터를 추가나 삭제하더라도 전체의 인덱스가 한 칸씩 뒤로 밀리거나 당겨지는 일이 없기에 ArrayList에 비해서 데이터의 추가나 삭제가 용이하나
  *  인덱스가 없기에 특정 요소에 접근하기 위해서는 순차 탐색이 필요로 하여 탐색 속도가 떨어진다는 단점이 있다.
  *  따라서 데이터의 추가 및 삭제가 많은 경우 연결 리스트를 사용하는 것이 좋다.
- *
  */
 public class LinkedListTest {
 
