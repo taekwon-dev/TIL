@@ -1,5 +1,8 @@
 package com.til.algorithm.algorithm.sort;
 
+/**
+ *  - 시간 복잡도 : O(N log N)
+ */
 public class MergeSort {
 
     public static void main(String[] args) {
@@ -46,7 +49,7 @@ public class MergeSort {
 
         // 7, 8, 3, 1, 6, 5, 2, 4
         for (int i = 0; i <= mid - part1; i++) {
-            arr[index + 1] = tmp[part1 + i];
+            arr[index + i] = tmp[part1 + i];
         }
     }
 
