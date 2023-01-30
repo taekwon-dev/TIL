@@ -1,5 +1,13 @@
 package com.til.algorithm.algorithm.sort;
 
+/**
+ *  시간 복잡도 : O(N log N)
+ *
+ *  0 - Indexed
+ *  부모 노드 N
+ *  왼쪽 자식 노드 N * 2 + 1
+ *  오른쪽 자식 노드 N * 2 + 2
+ */
 public class HeapSort {
 
     public static void main(String[] args) {
@@ -9,8 +17,10 @@ public class HeapSort {
         printArray(arr);
     }
 
+    /**
+     *
+     */
     private static void heapSort(int[] arr) {
-
         if (arr.length < 2) {
             return;
         }
@@ -26,18 +36,14 @@ public class HeapSort {
         }
     }
 
+    /**
+     *  자식 노드 인덱스를 통해 해당 노드의 부모 노드 인덱스 반환
+     */
     private static int getParent(int child) {
         return (child - 1) / 2;
     }
 
-    private static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-    }
-
     private static void heapify(int[] arr, int parentIdx, int lastIdx) {
-
         int parent = parentIdx;
         int left = parentIdx * 2 + 1;
         int right = parentIdx * 2 + 2;
@@ -63,4 +69,9 @@ public class HeapSort {
         System.out.println();
     }
 
+    private static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
 }

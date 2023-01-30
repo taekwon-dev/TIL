@@ -14,6 +14,7 @@ public class BOJ_9663 {
 
         N = Integer.parseInt(br.readLine());
         queen = new int[N];
+
         backtracking(0);
 
         bw.write(answer + "\n");
@@ -22,25 +23,25 @@ public class BOJ_9663 {
         br.close();
     }
 
-    private static void backtracking(int depth) {
-        if (depth == N) {
+    private static void backtracking(int row) {
+        if (row == N) {
             answer++;
             return;
         }
         for (int i = 0; i < N; i++) {
-            queen[depth] = i;
-            if (isLocatable(depth)) {
-                backtracking(depth + 1);
+            queen[row] = i;
+            if (isLocatable(row)) {
+                backtracking(row + 1);
             }
         }
     }
 
-    private static boolean isLocatable(int depth) {
-        for (int row = 0; row < depth; row++) {
-            if (queen[row] == queen[depth]) {
+    private static boolean isLocatable(int row) {
+        for (int i = 0; i < row; i++) {
+            if (queen[row] == queen[i]) {
                 return false;
             }
-            if (Math.abs(depth - row) == Math.abs(queen[depth] - queen[row])) {
+            if (Math.abs(row - i) == Math.abs(queen[row] - queen[i])) {
                 return false;
             }
         }

@@ -207,4 +207,13 @@ class StringTest {
         // 사전 순 정렬에 활용 가능
         assertEquals("abcd".compareTo("efgh"), -4);
     }
+
+    @Test
+    @DisplayName("문자 배열을 new String() 인자로 활용")
+    void 문자열배열_String_생성자인자() {
+        char[] c = {'a', 'b', 'c'};
+        String s = new String(c);
+
+        assertEquals(s, "abc");
+    }
 }
