@@ -3,7 +3,7 @@ package com.til.algorithm.algorithm.string;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class ReverseStringByWords {
+public class 문장내단어순서역순출력 {
     public static void main(String[] args) {
         String description = "Java technology blog for smart java concepts and coding practices";
         StringBuilder sb = new StringBuilder();

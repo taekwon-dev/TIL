@@ -6,7 +6,7 @@ package com.til.algorithm.algorithm.string;
  *  aabbcccc = 2a2b4c
  *  aabbc = 2a2bc
  */
-public class CompressionString {
+public class 문자열압축 {
 
     public static void main(String[] args) {
         System.out.println(compressString("aabbcc"));   // 2a2b2c

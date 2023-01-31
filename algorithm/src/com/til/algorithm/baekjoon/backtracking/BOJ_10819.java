@@ -1,41 +1,45 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class BOJ_10819 {
 
-    private static int n;
-    private static boolean[] visited;
+    private static int N;
     private static int[] arr;
-    private static int[] copy;
-    private static int max = 0;
+    private static int[] tmp;
+    private static boolean[] visited;
+    private static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        visited = new boolean[n];
-        arr = new int[n];
-        copy = new int[n];
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        N = Integer.parseInt(br.readLine());
+        arr = new int[N];
+        tmp = new int[N];
+        visited = new boolean[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         backtracking(0);
-        System.out.println(max);
+
+        bw.write(answer + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static void backtracking(int depth) {
-        if (depth == n) {
-            max = Math.max(max, calculate());
+        if (depth == N) {
+            answer = Math.max(answer, cal());
             return;
         }
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             if (!visited[i]) {
-                copy[depth] = arr[i];
+                tmp[depth] = arr[i];
                 visited[i] = true;
                 backtracking(depth + 1);
                 visited[i] = false;
@@ -43,10 +47,10 @@ public class BOJ_10819 {
         }
     }
 
-    private static int calculate() {
+    private static int cal() {
         int sum = 0;
-        for (int i = 0; i < n - 1; i++) {
-            sum += Math.abs(copy[i] - copy[i + 1]);
+        for (int i = 0; i < N - 1; i++) {
+            sum += Math.abs(tmp[i] - tmp[i + 1]);
         }
         return sum;
     }

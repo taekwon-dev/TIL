@@ -34,7 +34,6 @@ public class BOJ_1182_a {
         if (depth > 0 && sum == s) {
             answer++;
         }
-
         for (int i = index; i < n; i++) {
             backtracking(depth + 1, i + 1, sum + arr[i]);
         }

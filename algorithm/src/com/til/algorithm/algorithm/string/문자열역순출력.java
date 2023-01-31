@@ -1,6 +1,6 @@
 package com.til.algorithm.algorithm.string;
 
-public class ReverseAString {
+public class 문자열역순출력 {
 
     public static void main(String[] args) {
         String target = "abcde";

@@ -3,10 +3,6 @@ package com.til.algorithm.bigstone.week_5;
 import java.io.*;
 import java.util.StringTokenizer;
 
-/**
- *  1) https://katastrophe.tistory.com/138
- *  2) https://jellyinghead.tistory.com/53
- */
 public class BOJ_12100 {
 
     private static int N;
@@ -25,9 +21,15 @@ public class BOJ_12100 {
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
-                map[i][j] = Integer.parseInt(br.readLine());
+                map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
+        backtracking(0);
+
+        bw.write(answer + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static void backtracking(int depth) {
@@ -40,7 +42,11 @@ public class BOJ_12100 {
             copy[i] = map[i].clone();
         }
         for (int i = 0; i < 4; i++) {
-
+            move(i);
+            backtracking(depth + 1);
+            for (int j = 0; j < N; j++) {
+                map[j] = copy[j].clone();
+            }
         }
     }
 
@@ -56,6 +62,7 @@ public class BOJ_12100 {
 
     private static void move(int direction) {
         if (direction == 0) {
+            // 상
             for (int i = 0; i < N; i++) {
                 int idx = 0;
                 int prev = 0;
@@ -74,6 +81,7 @@ public class BOJ_12100 {
                 }
             }
         } else if (direction == 1) {
+            // 하
             for (int i = 0; i < N; i++) {
                 int idx = N - 1;
                 int prev = 0;
@@ -92,7 +100,43 @@ public class BOJ_12100 {
                 }
             }
         } else if (direction == 2) {
+            // 좌
+            for (int i = 0; i < N; i++) {
+                int idx = 0;
+                int prev = 0;
+                for (int j = 0; j < N; j++) {
+                    if (map[i][j] != 0) {
+                        if (prev == map[i][j]) {
+                            map[i][idx - 1] = prev * 2;
+                            prev = 0;
+                            map[i][j] = 0;
+                        } else {
+                            prev = map[i][j];
+                            map[i][j] = 0;
+                            map[i][idx++] = prev;
+                        }
+                    }
+                }
+            }
         } else if (direction == 3) {
+            // 우
+            for (int i = 0; i < N; i++) {
+                int idx = N - 1;
+                int prev = 0;
+                for (int j = N - 1; j >= 0; j--) {
+                    if (map[i][j] != 0) {
+                        if (prev == map[i][j]) {
+                            map[i][idx + 1] = prev * 2;
+                            prev = 0;
+                            map[i][j] = 0;
+                        } else {
+                            prev = map[i][j];
+                            map[i][j] = 0;
+                            map[i][idx--] = prev;
+                        }
+                    }
+                }
+            }
         }
     }
 }
