@@ -34,7 +34,7 @@ public class BOJ_10819 {
 
     private static void backtracking(int depth) {
         if (depth == N) {
-            answer = Math.max(answer, cal());
+            answer = Math.max(answer, getMax());
             return;
         }
         for (int i = 0; i < N; i++) {
@@ -47,7 +47,7 @@ public class BOJ_10819 {
         }
     }
 
-    private static int cal() {
+    private static int getMax() {
         int sum = 0;
         for (int i = 0; i < N - 1; i++) {
             sum += Math.abs(tmp[i] - tmp[i + 1]);
