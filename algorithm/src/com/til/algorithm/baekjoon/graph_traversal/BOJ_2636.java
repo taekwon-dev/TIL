@@ -7,51 +7,60 @@ import java.util.StringTokenizer;
 
 public class BOJ_2636 {
 
-    private static int n;
-    private static int m;
+    static class Node {
+        int x;
+        int y;
+
+        public Node(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    private static int N;
+    private static int M;
     private static int[][] map;
-    private static boolean[][] melted;
-    private static boolean[][] marked;
+    private static boolean[][] visited;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
-    private static Queue<int[]> queue = new LinkedList<>();
-    private static int hour;
+    private static Queue<Node> cheeseQ = new LinkedList<>();
     private static int currCheeseNum;
-    private static int lastCheeseNum;
+    private static int prevCheeseNum;
+    private static int hour;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        map = new int[n][m];
 
-        for (int i = 0; i < n; i++) {
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        map = new int[N][M];
+
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < M; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
         while (true) {
             currCheeseNum = 0;
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < m; j++) {
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < M; j++) {
                     if (map[i][j] == 1) {
                         currCheeseNum++;
-                        queue.add(new int[]{i, j});
+                        cheeseQ.offer(new Node(i, j));
                     }
                 }
             }
             if (currCheeseNum == 0) {
                 bw.write(hour + "\n");
-                bw.write(lastCheeseNum + "\n");
+                bw.write(prevCheeseNum + "\n");
                 break;
             }
-
-            lastCheeseNum = currCheeseNum;
-            marked = new boolean[n][m];
+            prevCheeseNum = currCheeseNum;
+            visited = new boolean[N][M];
             mark(0, 0);
             melt();
             hour++;
@@ -62,36 +71,38 @@ public class BOJ_2636 {
     }
 
     private static void mark(int x, int y) {
-        marked[x][y] = true;
+        visited[x][y] = true;
         map[x][y] = -1;
 
         for (int i = 0; i < 4; i++) {
             int nx = x + dx[i];
             int ny = y + dy[i];
 
-            if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
-                if (!marked[nx][ny] && (map[nx][ny] == 0 || map[nx][ny] == -1)) {
-                    map[nx][ny] = -1;
-                    mark(nx, ny);
-                }
+            if (nx < 0 || ny < 0 || nx > N - 1 || ny > M - 1) {
+                continue;
+            }
+            if (!visited[nx][ny] && (map[nx][ny] == 0 || map[nx][ny] == -1)) {
+                map[nx][ny] = -1;
+                mark(nx, ny);
             }
         }
     }
 
     private static void melt() {
-        melted = new boolean[n][m];
-        while (!queue.isEmpty()) {
-            int[] curr = queue.poll();
-            melted[curr[0]][curr[1]] = true;
+        visited = new boolean[N][M];
+        while (!cheeseQ.isEmpty()) {
+            Node cheese = cheeseQ.poll();
+            visited[cheese.x][cheese.y] = true;
 
             for (int i = 0; i < 4; i++) {
-                int nx = curr[0] + dx[i];
-                int ny = curr[1] + dy[i];
+                int nx = cheese.x + dx[i];
+                int ny = cheese.y + dy[i];
 
-                if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
-                    if (!melted[nx][ny] && map[nx][ny] == -1) {
-                        map[curr[0]][curr[1]] = 0;
-                    }
+                if (nx < 0 || ny < 0 || nx > N - 1 || ny > M - 1) {
+                    continue;
+                }
+                if (!visited[nx][ny] && map[nx][ny] == -1) {
+                    map[cheese.x][cheese.y] = 0;
                 }
             }
         }

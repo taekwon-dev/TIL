@@ -29,6 +29,7 @@ public class HeapSort {
 
         for (int i = arr.length - 1; i > 0; i--) {
             swap(arr, 0, i);
+            // 이미 위 과정을 통해 Heapify를 수행 했으므로 루트 노드 기준으로만 Heapify 진행
             heapify(arr, 0, i - 1);
         }
     }

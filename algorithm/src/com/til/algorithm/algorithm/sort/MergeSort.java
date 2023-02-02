@@ -39,11 +39,9 @@ public class MergeSort {
 
         while (part1 <= mid && part2 <= end) {
             if (tmp[part1] <= tmp[part2]) {
-                arr[index++] = tmp[part1];
-                part1++;
+                arr[index++] = tmp[part1++];
             } else {
-                arr[index++] = tmp[part2];
-                part2++;
+                arr[index++] = tmp[part2++];
             }
         }
 

@@ -26,9 +26,9 @@ public class BOJ_1182 {
         backtracking(0, 0);
 
         if (S == 0) {
-            bw.write(answer - 1);
+            bw.write(answer - 1 + "\n");
         } else {
-            bw.write(answer);
+            bw.write(answer + "\n");
         }
         bw.flush();
         bw.close();
