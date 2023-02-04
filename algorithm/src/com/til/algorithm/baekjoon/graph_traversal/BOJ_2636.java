@@ -61,18 +61,19 @@ public class BOJ_2636 {
             }
             prevCheeseNum = currCheeseNum;
             visited = new boolean[N][M];
-            mark(0, 0);
+            partition(0, 0);
             melt();
             hour++;
         }
+
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void mark(int x, int y) {
-        visited[x][y] = true;
+    private static void partition(int x, int y) {
         map[x][y] = -1;
+        visited[x][y] = true;
 
         for (int i = 0; i < 4; i++) {
             int nx = x + dx[i];
@@ -83,7 +84,7 @@ public class BOJ_2636 {
             }
             if (!visited[nx][ny] && (map[nx][ny] == 0 || map[nx][ny] == -1)) {
                 map[nx][ny] = -1;
-                mark(nx, ny);
+                partition(nx, ny);
             }
         }
     }
@@ -92,7 +93,6 @@ public class BOJ_2636 {
         visited = new boolean[N][M];
         while (!cheeseQ.isEmpty()) {
             Node cheese = cheeseQ.poll();
-            visited[cheese.x][cheese.y] = true;
 
             for (int i = 0; i < 4; i++) {
                 int nx = cheese.x + dx[i];

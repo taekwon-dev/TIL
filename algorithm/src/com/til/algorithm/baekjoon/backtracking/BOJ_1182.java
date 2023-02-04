@@ -23,6 +23,7 @@ public class BOJ_1182 {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
+
         backtracking(0, 0);
 
         if (S == 0) {

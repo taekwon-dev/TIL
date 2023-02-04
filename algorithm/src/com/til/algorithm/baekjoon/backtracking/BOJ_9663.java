@@ -14,7 +14,6 @@ public class BOJ_9663 {
 
         N = Integer.parseInt(br.readLine());
         queen = new int[N];
-
         backtracking(0);
 
         bw.write(answer + "\n");
@@ -28,8 +27,8 @@ public class BOJ_9663 {
             answer++;
             return;
         }
-        for (int i = 0; i < N; i++) {
-            queen[row] = i;
+        for (int col = 0; col < N; col++) {
+            queen[row] = col;
             if (isLocatable(row)) {
                 backtracking(row + 1);
             }

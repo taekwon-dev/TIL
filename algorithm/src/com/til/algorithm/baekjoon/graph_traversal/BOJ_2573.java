@@ -1,6 +1,8 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
 import java.io.*;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_2573 {
@@ -30,26 +32,24 @@ public class BOJ_2573 {
 
         int answer = 0;
         int ice = -1;
-        int region = 0;
 
         while (true) {
+            int region = 0;
             if (ice == 0) {
                 bw.write(0 + "\n");
                 break;
-            } else {
-                region = getRegion();
-                if (region >= 2) {
-                    bw.write(answer + "\n");
-                    break;
-                }
+            }
+            region = getRegion();
+            if (region >= 2) {
+                bw.write(answer + "\n");
+                break;
             }
             ice = getIce();
             answer++;
-            region = 0;
         }
         bw.flush();
         bw.close();
-        br.read();
+        br.close();
     }
 
     private static int getRegion() {
@@ -77,7 +77,7 @@ public class BOJ_2573 {
                 continue;
             }
             if (!visited[nx][ny] && map[nx][ny] != 0) {
-                dfs(nx, ny);
+                dfs(nx , ny);
             }
         }
     }
