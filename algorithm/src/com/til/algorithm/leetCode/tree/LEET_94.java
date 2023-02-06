@@ -3,6 +3,10 @@ package com.til.algorithm.leetCode.tree;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  In order
+ *  L -> Root -> R
+ */
 public class LEET_94 {
 
     public List<Integer> inorderTraversal(TreeNode root) {

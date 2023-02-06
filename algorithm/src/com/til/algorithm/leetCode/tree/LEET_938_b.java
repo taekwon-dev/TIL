@@ -1,6 +1,7 @@
 package com.til.algorithm.leetCode.tree;
 
 public class LEET_938_b {
+
     public int rangeSumBST(TreeNode root, int low, int high) {
         if (root == null) {
             return 0;

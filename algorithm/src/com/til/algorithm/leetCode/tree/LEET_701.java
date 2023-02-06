@@ -9,7 +9,7 @@ public class LEET_701 {
         }
         if (root.val > val) {
             root.left = insertIntoBST(root.left, val);
-        } else if (root.val < val) {
+        } else {
             root.right = insertIntoBST(root.right, val);
         }
         return root;

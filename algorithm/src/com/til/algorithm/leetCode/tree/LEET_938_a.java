@@ -1,5 +1,9 @@
 package com.til.algorithm.leetCode.tree;
 
+/**
+ *  Binary Search Tree + in order (오름차순)
+ *  - 모든 노드를 탐색 기반 방식
+ */
 public class LEET_938_a {
 
     private int rangeSum;
@@ -9,16 +13,14 @@ public class LEET_938_a {
         return rangeSum;
     }
 
-    /**
-     *  Binary Search Tree + in order
-     */
-    private void inorder(TreeNode node, int low, int high) {
-        if (node != null) {
-            inorder(node.left, low, high);
-            if (node.val >= low && node.val <= high) {
-                rangeSum += node.val;
-            }
-            inorder(node.right, low, high);
+    private void inorder(TreeNode root, int low, int high) {
+        if (root == null) {
+            return;
         }
+        inorder(root.left, low, high);
+        if (root.val >= low && root.val <= high) {
+            rangeSum += root.val;
+        }
+        inorder(root.right, low, high);
     }
 }

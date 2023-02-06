@@ -8,13 +8,14 @@ public class BOJ_3986 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int n = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
         int answer = 0;
-        while (n-- > 0) {
+        while (N-- > 0) {
             if (isGoodWord(br.readLine())) {
                 answer++;
             }
         }
+
         bw.write(answer + "\n");
         bw.flush();
         bw.close();
@@ -28,7 +29,7 @@ public class BOJ_3986 {
                 stack.push(c);
                 continue;
             }
-            if (c == stack.peek()) {
+            if (stack.peek() == c) {
                 stack.pop();
                 continue;
             }
