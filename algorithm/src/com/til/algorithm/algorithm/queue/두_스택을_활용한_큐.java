@@ -19,7 +19,7 @@ public class 두_스택을_활용한_큐<T> {
         stack1.push(t);
     }
 
-    public T peek() {
+    public T poll() {
         moveIfAbsent();
         return stack2.pop();
     }

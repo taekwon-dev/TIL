@@ -1,9 +1,9 @@
-package com.til.algorithm.baekjoon.backtracking;
+package com.til.algorithm.bigstone.week_5;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class BOJ_17406_a {
+public class BOJ_17406 {
 
     private static int N;
     private static int M;
@@ -13,7 +13,6 @@ public class BOJ_17406_a {
     private static int[][] map;
     private static int[][] rotate;
     private static int answer = Integer.MAX_VALUE;
-
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -50,13 +49,7 @@ public class BOJ_17406_a {
 
     private static void backtracking(int depth) {
         if (depth == K) {
-            int[][] copy = new int[N][M];
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < M; j++) {
-                    copy[i][j] = map[i][j];
-                }
-            }
-            findMin(copy);
+            rotate();
             return;
         }
         for (int i = 0; i < K; i++) {
@@ -69,53 +62,57 @@ public class BOJ_17406_a {
         }
     }
 
-    private static void rotate(int lx, int ly, int rx, int ry, int[][] copy) {
-        if (lx == rx && ly == ry) {
-            return;
-        }
-        int rightTmp = copy[lx][ry];
-        int downTmp = copy[rx][ry];
-        int leftTmp = copy[rx][ly];
+    private static void rotate() {
+        int[][] tmp = copy();
+        for (int i = 0; i < K; i++) {
+            int R = rotate[arr[i]][0];
+            int C = rotate[arr[i]][1];
+            int S = rotate[arr[i]][2];
 
-        for (int i = ry; i > ly; i--) {
-            copy[lx][i] = copy[lx][i - 1];
-        }
-        for (int i = rx; i > lx; i--) {
-            if (i == lx + 1) {
-                copy[i][ry] = rightTmp;
-                continue;
+            for (int s = 1; s <= S; s++) {
+                int rightTmp = tmp[R - s][C + s];
+                int downTmp = tmp[R + s][C + s];
+                int leftTmp = tmp[R + s][C - s];
+
+                for (int y = C + s; y > C - s; y--) {
+                    tmp[R - s][y] = tmp[R - s][y - 1];
+                }
+
+                for (int x = R + s; x > R - s; x--) {
+                    tmp[x][C + s] = tmp[x - 1][C + s];
+                }
+                tmp[R - s + 1][C + s] = rightTmp;
+
+                for (int y = C - s; y < C + s; y++) {
+                    tmp[R + s][y] = tmp[R + s][y + 1];
+                }
+                tmp[R + s][C + s - 1] = downTmp;
+
+                for (int x = R - s; x < R + s; x++) {
+                    tmp[x][C - s] = tmp[x + 1][C - s];
+                }
+                tmp[R + s - 1][C - s] = leftTmp;
             }
-            copy[i][ry] = copy[i - 1][ry];
         }
-        for (int i = ly; i < ry; i++) {
-            if (i == ry - 1) {
-                copy[rx][i] = downTmp;
-                continue;
-            }
-            copy[rx][i] = copy[rx][i + 1];
-        }
-        for (int i = lx; i < rx; i++) {
-            if (i == rx - 1) {
-                copy[i][ly] = leftTmp;
-                continue;
-            }
-            copy[i][ly] = copy[i + 1][ly];
-        }
-        rotate(lx + 1, ly + 1, rx - 1, ry - 1, copy);
+        findMin(tmp);
+
     }
 
-    private static void findMin(int[][] copy) {
-        for (int i = 0; i < arr.length; i++) {
-            int lx = rotate[arr[i]][0] - rotate[arr[i]][2];
-            int ly = rotate[arr[i]][1] - rotate[arr[i]][2];
-            int rx = rotate[arr[i]][0] + rotate[arr[i]][2];
-            int ry = rotate[arr[i]][1] + rotate[arr[i]][2];
-            rotate(lx, ly, rx, ry, copy);
+    private static int[][] copy() {
+        int[][] tmp = new int[N][M];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                tmp[i][j] = map[i][j];
+            }
         }
+        return tmp;
+    }
+
+    private static void findMin(int[][] tmp) {
         for (int i = 0; i < N; i++) {
             int sum = 0;
             for (int j = 0; j < M; j++) {
-                sum += copy[i][j];
+                sum += tmp[i][j];
             }
             if (answer > sum) {
                 answer = sum;

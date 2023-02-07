@@ -7,27 +7,26 @@ public class BOJ_14888 {
 
     private static int N;
     private static int[] arr;
-    private static int[] operations;
+    private static int[] operation = new int[4];
     private static int max = Integer.MIN_VALUE;
     private static int min = Integer.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
         N = Integer.parseInt(br.readLine());
         arr = new int[N];
-        operations = new int[4];
-        st = new StringTokenizer(br.readLine());
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < operations.length; i++) {
-            operations[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < operation.length; i++) {
+            operation[i] = Integer.parseInt(st.nextToken());
         }
+        backtracking(1, arr[0]);
 
-        backtracking(0, arr[0]);
         bw.write(max + "\n");
         bw.write(min + "\n");
         bw.flush();
@@ -35,26 +34,29 @@ public class BOJ_14888 {
         br.close();
     }
 
-    private static void backtracking(int depth, int sum) {
-        if (depth == N - 1) {
-            // N개의 숫자 → N-1개의 연산자
-            max = Math.max(max, sum);
-            min = Math.min(min, sum);
+    private static void backtracking(int depth, int result) {
+        if (depth == N) {
+            min = Math.min(min, result);
+            max = Math.max(max, result);
             return;
         }
-        for (int i = 0; i < operations.length; i++) {
-            if (operations[i] > 0) {
-                operations[i]--;
+        for (int i = 0; i < operation.length; i++) {
+            if (operation[i] > 0) {
+                operation[i]--;
                 if (i == 0) {
-                    backtracking(depth + 1, sum + arr[depth + 1]);
+                    // +
+                    backtracking(depth + 1, result + arr[depth]);
                 } else if (i == 1) {
-                    backtracking(depth + 1, sum - arr[depth + 1]);
+                    // -
+                    backtracking(depth + 1, result - arr[depth]);
                 } else if (i == 2) {
-                    backtracking(depth + 1, sum * arr[depth + 1]);
+                    // *
+                    backtracking(depth + 1, result * arr[depth]);
                 } else if (i == 3) {
-                    backtracking(depth + 1, sum / arr[depth + 1]);
+                    // /
+                    backtracking(depth + 1, result / arr[depth]);
                 }
-                operations[i]++;
+                operation[i]++;
             }
         }
     }
