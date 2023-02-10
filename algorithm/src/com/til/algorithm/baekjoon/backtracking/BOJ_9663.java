@@ -11,6 +11,7 @@ public class BOJ_9663 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
         N = Integer.parseInt(br.readLine());
         queen = new int[N];
         backtracking(0);
@@ -35,11 +36,12 @@ public class BOJ_9663 {
     }
 
     private static boolean isLocatable(int row) {
-        for (int i = 0; i < row; i++) {
-            if (queen[i] == queen[row]) {
+        for (int r = 0; r < row; r++) {
+            if (queen[r] == queen[row]) {
                 return false;
             }
-            if (Math.abs(row - i) == Math.abs(queen[row] - queen[i])) {
+
+            if (Math.abs(r - row) == Math.abs(queen[r] - queen[row])) {
                 return false;
             }
         }

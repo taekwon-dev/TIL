@@ -4,19 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_589 {
+
     public List<Integer> preorder(Node root) {
-        List<Integer> result = new ArrayList<>();
-        if (root == null) {
-            return result;
-        }
-        preorder(root, result);
-        return result;
+        List<Integer> answer = new ArrayList<>();
+        preorder(answer, root);
+        return answer;
     }
 
-    private void preorder(Node root, List<Integer> result) {
-        result.add(root.val);
+    private void preorder(List<Integer> answer, Node root) {
+        if (root == null) {
+            return;
+        }
+        answer.add(root.val);
         for (Node child : root.children) {
-            preorder(child, result);
+            preorder(answer, child);
         }
     }
 }

@@ -4,19 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_590 {
+
     public List<Integer> postorder(Node root) {
-        List<Integer> result = new ArrayList<>();
-        postorder(root, result);
-        return result;
+        List<Integer> answer = new ArrayList<>();
+        postorder(answer, root);
+        return answer;
     }
 
-    private void postorder(Node root, List<Integer> result) {
+    private void postorder(List<Integer> answer, Node root) {
         if (root == null) {
             return;
         }
-        for (Node node : root.children) {
-            postorder(node, result);
+        for (Node child : root.children) {
+            postorder(answer, child);
         }
-        result.add(root.val);
+        answer.add(root.val);
     }
 }

@@ -25,9 +25,9 @@ public class BOJ_10971 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        for (int start = 0; start < N; start++) {
-            visited[start] = true;
-            backtracking(0, start, start, 0);
+        for (int i = 0; i < N; i++) {
+            visited[i] = true;
+            backtracking(0, i, i, 0);
         }
 
         bw.write(answer + "\n");
@@ -36,18 +36,17 @@ public class BOJ_10971 {
         br.close();
     }
 
-    private static void backtracking(int depth, int start, int prev, int cost) {
+    private static void backtracking(int depth, int start, int prev, int sum) {
         if (depth == N - 1) {
-            // 마지막으로 도착한 위치에서 출발 했던 도시로 이동가능한지 여부 확인
             if (map[prev][start] != 0) {
-                answer = Math.min(answer, cost + map[prev][start]);
+                answer = Math.min(answer, sum + map[prev][start]);
             }
             return;
         }
         for (int i = 0; i < N; i++) {
             if (!visited[i] && map[prev][i] != 0) {
                 visited[i] = true;
-                backtracking(depth + 1, start, i, cost + map[prev][i]);
+                backtracking(depth + 1, start, i, sum + map[prev][i]);
                 visited[i] = false;
             }
         }
