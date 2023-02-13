@@ -1,23 +1,25 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class BOJ_3980 {
 
-    private static boolean[] visited;
     private static int[][] map;
-    private static int max = 0;
+    private static boolean[] visited;
+    private static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
         int tc = Integer.parseInt(br.readLine());
-        StringTokenizer st = null;
+
         for (int t = 0; t < tc; t++) {
-            visited = new boolean[11];
+            answer = 0;
             map = new int[11][11];
+            visited = new boolean[11];
+
             for (int i = 0; i < 11; i++) {
                 st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < 11; j++) {
@@ -25,14 +27,16 @@ public class BOJ_3980 {
                 }
             }
             backtracking(0, 0);
-            System.out.println(max);
-            max = 0;
+            bw.write(answer + "\n");
+            bw.flush();
         }
+        bw.close();
+        br.close();
     }
 
     private static void backtracking(int depth, int sum) {
         if (depth == 11) {
-            max = Math.max(max, sum);
+            answer = Math.max(answer, sum);
             return;
         }
         for (int i = 0; i < 11; i++) {

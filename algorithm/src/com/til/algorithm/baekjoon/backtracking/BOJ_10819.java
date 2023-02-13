@@ -9,7 +9,7 @@ public class BOJ_10819 {
     private static int[] arr;
     private static int[] tmp;
     private static boolean[] visited;
-    private static int answer;
+    private static int answer = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -34,7 +34,7 @@ public class BOJ_10819 {
 
     private static void backtracking(int depth) {
         if (depth == N) {
-            answer = Math.max(answer, getMax());
+            answer = Math.max(answer, findMax());
             return;
         }
         for (int i = 0; i < N; i++) {
@@ -47,7 +47,7 @@ public class BOJ_10819 {
         }
     }
 
-    private static int getMax() {
+    private static int findMax() {
         int sum = 0;
         for (int i = 0; i < N - 1; i++) {
             sum += Math.abs(tmp[i] - tmp[i + 1]);

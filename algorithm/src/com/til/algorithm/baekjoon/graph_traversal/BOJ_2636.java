@@ -50,7 +50,7 @@ public class BOJ_2636 {
             }
             prevCheeseNum = currentCheeseNum;
             visited = new boolean[N][M];
-            partition(0, 0);
+            mark(0, 0);
             melt();
             hour++;
         }
@@ -60,7 +60,7 @@ public class BOJ_2636 {
         br.close();
     }
 
-    private static void partition(int x, int y) {
+    private static void mark(int x, int y) {
         map[x][y] = -1;
         visited[x][y] = true;
 
@@ -73,7 +73,7 @@ public class BOJ_2636 {
             }
             if (!visited[nx][ny] && (map[nx][ny] == 0 || map[nx][ny] == -1)) {
                 map[nx][ny] = -1;
-                partition(nx, ny);
+                mark(nx, ny);
             }
         }
     }

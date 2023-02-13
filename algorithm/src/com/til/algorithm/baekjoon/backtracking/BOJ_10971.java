@@ -36,17 +36,17 @@ public class BOJ_10971 {
         br.close();
     }
 
-    private static void backtracking(int depth, int start, int prev, int sum) {
+    private static void backtracking(int depth, int start, int prev, int cost) {
         if (depth == N - 1) {
             if (map[prev][start] != 0) {
-                answer = Math.min(answer, sum + map[prev][start]);
+                answer = Math.min(answer, cost + map[prev][start]);
             }
             return;
         }
         for (int i = 0; i < N; i++) {
             if (!visited[i] && map[prev][i] != 0) {
                 visited[i] = true;
-                backtracking(depth + 1, start, i, sum + map[prev][i]);
+                backtracking(depth + 1, start, i, cost + map[prev][i]);
                 visited[i] = false;
             }
         }

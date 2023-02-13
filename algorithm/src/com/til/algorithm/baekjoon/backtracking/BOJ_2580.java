@@ -1,8 +1,6 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class BOJ_2580 {
@@ -53,16 +51,15 @@ public class BOJ_2580 {
 
     private static boolean isLocatable(int row, int col, int val) {
         for (int i = 0; i < 9; i++) {
-            if (map[i][col] == val) {
+            if (map[row][i] == val) {
                 return false;
             }
-            if (map[row][i] == val) {
+            if (map[i][col] == val) {
                 return false;
             }
         }
         int r = row / 3 * 3;
         int c = col / 3 * 3;
-
         for (int i = r; i < r + 3; i++) {
             for (int j = c; j < c + 3; j++) {
                 if (map[i][j] == val) {

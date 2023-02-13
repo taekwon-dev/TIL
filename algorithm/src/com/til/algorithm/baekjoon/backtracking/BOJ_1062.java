@@ -7,7 +7,7 @@ public class BOJ_1062 {
 
     private static int N;
     private static int K;
-    private static boolean[] alphabet = new boolean[26];
+    private static boolean[] visited;
     private static String[] words;
     private static int answer;
 
@@ -15,63 +15,58 @@ public class BOJ_1062 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
-        words = new String[N];
-
-        for (int i = 0; i < N; i++) {
-            words[i] = br.readLine();
-        }
 
         if (K < 5) {
-            bw.write("0" + "\n");
+            bw.write(0 + "\n");
         } else {
-            alphabet['a' - 'a'] = true;
-            alphabet['t' - 'a'] = true;
-            alphabet['n' - 'a'] = true;
-            alphabet['i' - 'a'] = true;
-            alphabet['c' - 'a'] = true;
+            words = new String[N];
+            for (int i = 0; i < N; i++) {
+                words[i] = br.readLine();
+            }
 
-            backtracking(0, 0);
+            visited = new boolean[26];
+            visited['a' - 'a'] = true;
+            visited['n' - 'a'] = true;
+            visited['t' - 'a'] = true;
+            visited['i' - 'a'] = true;
+            visited['c' - 'a'] = true;
+
+            backtracking(0);
 
             bw.write(answer + "\n");
         }
-
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void backtracking(int depth, int index) {
+    private static void backtracking(int depth) {
         if (depth == K - 5) {
-            answer = Math.max(answer, getReadableNumber());
+            answer = Math.max(answer, getReadableCount());
             return;
         }
-        for (int i = index; i < alphabet.length; i++) {
-            if (!alphabet[i]) {
-                alphabet[i] = true;
-                backtracking(depth + 1, i + 1);
-                alphabet[i] = false;
+        for (int i = 0; i < 26; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                backtracking(depth + 1);
+                visited[i] = false;
             }
         }
     }
 
-    private static int getReadableNumber() {
-        int num = 0;
+    private static int getReadableCount() {
+        int count = words.length;
         for (String word : words) {
-            if (isReadable(word)) {
-                num++;
+            for (int i = 0; i < word.length(); i++) {
+                if (!visited[word.charAt(i) - 'a']) {
+                     count--;
+                     break;
+                }
             }
         }
-        return num;
-    }
-
-    private static boolean isReadable(String word) {
-        for (char c : word.toCharArray()) {
-            if (!alphabet[c - 'a']) {
-                return false;
-            }
-        }
-        return true;
+        return count;
     }
 }

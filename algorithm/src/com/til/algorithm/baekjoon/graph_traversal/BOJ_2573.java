@@ -16,6 +16,7 @@ public class BOJ_2573 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         map = new int[N][M];
@@ -26,13 +27,12 @@ public class BOJ_2573 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-
         int answer = 0;
         int ice = -1;
         while (true) {
-            int region;
+            int region ;
             if (ice == 0) {
-                bw.write(0 + " \n");
+                bw.write(0 + "\n");
                 break;
             }
             region = getRegion();
@@ -40,17 +40,19 @@ public class BOJ_2573 {
                 bw.write(answer + "\n");
                 break;
             }
-            ice = melt();
+            ice = getLeftIces();
             answer++;
         }
+
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static int melt() {
+    private static int getLeftIces() {
         int ice = 0;
         visited = new boolean[N][M];
+
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 if (map[i][j] != 0) {
