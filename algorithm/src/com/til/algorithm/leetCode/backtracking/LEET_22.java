@@ -5,13 +5,20 @@ import java.util.List;
 
 public class LEET_22 {
 
-    public List<String> generateParenthesis(int n) {
+    public static void main(String[] args) {
+        List<String> result = generateParenthesis(3);
+        for (String s : result) {
+            System.out.println(s);
+        }
+    }
+
+    public static List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
         backtracking(n, result, 0, 0, "");
         return result;
     }
 
-    private void backtracking(int n, List<String> result, int open, int close, String s) {
+    private static void backtracking(int n, List<String> result, int open, int close, String s) {
         if (open == n && close == n) {
             result.add(s);
             return;

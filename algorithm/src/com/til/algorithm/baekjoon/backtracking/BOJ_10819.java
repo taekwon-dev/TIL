@@ -7,7 +7,7 @@ public class BOJ_10819 {
 
     private static int N;
     private static int[] arr;
-    private static int[] tmp;
+    private static int[] temp;
     private static boolean[] visited;
     private static int answer = Integer.MIN_VALUE;
 
@@ -17,7 +17,7 @@ public class BOJ_10819 {
 
         N = Integer.parseInt(br.readLine());
         arr = new int[N];
-        tmp = new int[N];
+        temp = new int[N];
         visited = new boolean[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -39,7 +39,7 @@ public class BOJ_10819 {
         }
         for (int i = 0; i < N; i++) {
             if (!visited[i]) {
-                tmp[depth] = arr[i];
+                temp[depth] = arr[i];
                 visited[i] = true;
                 backtracking(depth + 1);
                 visited[i] = false;
@@ -48,10 +48,10 @@ public class BOJ_10819 {
     }
 
     private static int findMax() {
-        int sum = 0;
+        int max = 0;
         for (int i = 0; i < N - 1; i++) {
-            sum += Math.abs(tmp[i] - tmp[i + 1]);
+            max += Math.abs(temp[i] - temp[i + 1]);
         }
-        return sum;
+        return max;
     }
 }

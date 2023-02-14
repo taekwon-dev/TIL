@@ -17,9 +17,9 @@ public class BOJ_9934 {
         K = Integer.parseInt(br.readLine());
         int size = (int) (Math.pow(2, K) - 1);
         arr = new int[size];
+        adjList = new ArrayList[K];
 
-        adjList = new ArrayList[size];
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < K; i++) {
             adjList[i] = new ArrayList<>();
         }
 
@@ -30,9 +30,9 @@ public class BOJ_9934 {
         inorder(0, 0, size - 1);
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < size; i++) {
-            for (int adj : adjList[i]) {
-                sb.append(adj).append(" ");
+        for (int i = 0; i < adjList.length; i++) {
+            for (int j = 0; j < adjList[i].size(); j++) {
+                sb.append(adjList[i].get(j)).append(" ");
             }
             sb.append("\n");
         }

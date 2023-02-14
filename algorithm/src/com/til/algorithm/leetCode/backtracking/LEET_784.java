@@ -4,23 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_784 {
+
+    private List<String> answer = new ArrayList<>();
+
     public List<String> letterCasePermutation(String s) {
-        List<String> answer = new ArrayList<>();
-        backtracking(answer, s, 0, 0, "");
+        backtracking(s, 0, 0, "");
         return answer;
     }
 
-    private void backtracking(List<String> answer, String s, int depth, int index, String item) {
+    private void backtracking(String s, int depth, int index, String result) {
         if (depth == s.length()) {
-            answer.add(item);
+            answer.add(result);
             return;
         }
         for (int i = index; i < s.length(); i++) {
-            if (Character.isLetter(s.charAt(i))) {
-                backtracking(answer, s, depth + 1, i + 1, item + Character.toLowerCase(s.charAt(i)));
-                backtracking(answer, s, depth + 1, i + 1, item + Character.toUpperCase(s.charAt(i)));
+            if (Character.isDigit(s.charAt(i))) {
+                backtracking(s, depth + 1, i + 1, result + s.charAt(i));
             } else {
-                backtracking(answer, s, depth + 1, i + 1, item + s.charAt(i));
+                backtracking(s, depth + 1, i + 1, result + Character.toLowerCase(s.charAt(i)));
+                backtracking(s, depth + 1, i + 1, result + Character.toUpperCase(s.charAt(i)));
             }
         }
     }

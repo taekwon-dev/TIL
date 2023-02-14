@@ -25,6 +25,7 @@ public class BOJ_10971 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
+
         for (int i = 0; i < N; i++) {
             visited[i] = true;
             backtracking(0, i, i, 0);

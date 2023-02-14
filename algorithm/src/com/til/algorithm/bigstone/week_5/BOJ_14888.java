@@ -6,27 +6,33 @@ import java.util.StringTokenizer;
 public class BOJ_14888 {
 
     private static int N;
-    private static int[] nums;
-    private static int[] ops;
-    private static int max = Integer.MIN_VALUE;
-    private static int min = Integer.MAX_VALUE;
+    private static int[] arr;
+    private static int[] operation;
+    private static int max;
+    private static int min;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        N = Integer.parseInt(br.readLine());
-        nums = new int[N];
-        ops = new int[4];
+        StringTokenizer st;
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
-            nums[i] = Integer.parseInt(st.nextToken());
-        }
+        N = Integer.parseInt(br.readLine());
+        arr = new int[N];
+        operation = new int[4];
+        max = Integer.MIN_VALUE;
+        min = Integer.MAX_VALUE;
+
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < ops.length; i++) {
-            ops[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        backtracking(0, nums[0]);
+
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < operation.length; i++) {
+            operation[i] = Integer.parseInt(st.nextToken());
+        }
+        backtracking(0, arr[0]);
+
         bw.write(max + "\n");
         bw.write(min + "\n");
         bw.flush();
@@ -40,19 +46,19 @@ public class BOJ_14888 {
             min = Math.min(min, result);
             return;
         }
-        for (int i = 0; i < ops.length; i++) {
-            if (ops[i] > 0) {
-                ops[i]--;
+        for (int i = 0; i < operation.length; i++) {
+            if (operation[i] > 0) {
+                operation[i]--;
                 if (i == 0) {
-                    backtracking(depth + 1, result + nums[depth + 1]);
+                    backtracking(depth + 1, result + arr[depth + 1]);
                 } else if (i == 1) {
-                    backtracking(depth + 1, result - nums[depth + 1]);
+                    backtracking(depth + 1, result - arr[depth + 1]);
                 } else if (i == 2) {
-                    backtracking(depth + 1, result * nums[depth + 1]);
+                    backtracking(depth + 1, result * arr[depth + 1]);
                 } else if (i == 3) {
-                    backtracking(depth + 1, result / nums[depth + 1]);
+                    backtracking(depth + 1, result / arr[depth + 1]);
                 }
-                ops[i]++;
+                operation[i]++;
             }
         }
     }
