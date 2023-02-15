@@ -1,4 +1,4 @@
-package com.til.algorithm.baekjoon.two_pointer;
+package com.til.algorithm.baekjoon.prefix_sum;
 
 import java.io.*;
 import java.util.*;

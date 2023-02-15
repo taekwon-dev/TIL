@@ -2,12 +2,11 @@ package com.til.algorithm.java;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- *  https://coding-factory.tistory.com/546
+ * https://coding-factory.tistory.com/546
  */
 public class StringBuilderTest {
 
@@ -18,10 +17,10 @@ public class StringBuilderTest {
     void create() {
 
         /**
-            public StringBuilder() {
-                super(16);
-            }
-            생성자 인자 없는 경우, Capacity 16 으로 지정 (디폴트)
+         public StringBuilder() {
+         super(16);
+         }
+         생성자 인자 없는 경우, Capacity 16 으로 지정 (디폴트)
          */
         StringBuilder sb = new StringBuilder();
         assertTrue(sb.capacity() == 16);
@@ -36,14 +35,20 @@ public class StringBuilderTest {
         StringBuilder sb = new StringBuilder(S);
 
         /**
-             public StringBuilder(String str) {
-                super(str.length() + 16);
-                append(str);
-             }
-             주어진 문자열을 기반으로 StringBuilder 생성 시, Capacity 를 해당 문자열 길이 + 16으로 설정
+         public StringBuilder(String str) {
+         super(str.length() + 16);
+         append(str);
+         }
+         주어진 문자열을 기반으로 StringBuilder 생성 시, Capacity 를 해당 문자열 길이 + 16으로 설정
          */
         assertTrue(sb.capacity() != sb.toString().length());
         assertTrue(sb.capacity() == sb.length() + 16);
     }
-    
+
+    @Test
+    @DisplayName("StringBuilder Length()")
+    void calStringBuilderLength() {
+        StringBuilder sb = new StringBuilder("abcde");
+        assertTrue(sb.length() == "abcde".length());
+    }
 }

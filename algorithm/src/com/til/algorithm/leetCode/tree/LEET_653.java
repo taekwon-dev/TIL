@@ -3,12 +3,14 @@ package com.til.algorithm.leetCode.tree;
 import java.util.HashSet;
 
 public class LEET_653 {
+
+    private HashSet<Integer> set = new HashSet<>();
+
     public boolean findTarget(TreeNode root, int k) {
-        HashSet<Integer> set = new HashSet<>();
-        return dfs(root, k, set);
+        return dfs(root, k);
     }
 
-    private boolean dfs(TreeNode root, int k, HashSet<Integer> set) {
+    private boolean dfs(TreeNode root, int k) {
         if (root == null) {
             return false;
         }
@@ -16,6 +18,6 @@ public class LEET_653 {
             return true;
         }
         set.add(root.val);
-        return dfs(root.left, k, set) || dfs(root.right, k, set);
+        return dfs(root.left, k) || dfs(root.right, k);
     }
 }

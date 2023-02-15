@@ -13,27 +13,29 @@ public class LV1_로또의최고순위와최저순위 {
     }};
 
     public int[] solution(int[] lottos, int[] win_nums) {
-        int lost = 0;
-        int same = 0;
+        int match = 0;
+        int zero = 0;
         for (int lotto : lottos) {
             if (lotto == 0) {
-                lost++;
+                zero++;
                 continue;
             }
             for (int win_num : win_nums) {
                 if (lotto == win_num) {
-                    same++;
-                    continue;
+                    match++;
+                    break;
                 }
             }
         }
-        int[] answer = {6, 6};
-        if (same + lost >= 2) {
-            answer[0] = rank.get(same + lost);
+        int high = 6;
+        int low = 6;
+        if (rank.containsKey(match)) {
+            low = rank.get(match);
         }
-        if (same >= 2) {
-            answer[1] = rank.get(same);
+        if (rank.containsKey(match + zero)) {
+            high = rank.get(match + zero);
         }
+        int[] answer = {high, low};
         return answer;
     }
 }

@@ -1,6 +1,5 @@
 package com.til.algorithm.java;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -215,5 +214,20 @@ class StringTest {
         String s = new String(c);
 
         assertEquals(s, "abc");
+    }
+
+    @Test
+    @DisplayName("문자열 앞 뒤 공백 제거 - trim()")
+    void 문자열_앞_뒤_공백제거() {
+        String s = "  Hello   World  ";
+        assertEquals(s.trim(), "Hello   World");
+    }
+
+    @Test
+    @DisplayName("문자열 내 여러 개의 공백 제거 - replaceAll()")
+    void 문자열_내_여러_개의_공백제거() {
+        String s = "Hello   World";
+        assertEquals(s.replaceAll(" +", ""), "HelloWorld");
+        assertEquals(s.replaceAll(" +", " "), "Hello World");
     }
 }
