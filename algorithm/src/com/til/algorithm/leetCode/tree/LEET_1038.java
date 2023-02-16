@@ -1,6 +1,7 @@
 package com.til.algorithm.leetCode.tree;
 
 public class LEET_1038 {
+
     int sum = 0;
 
     public TreeNode bstToGst(TreeNode root) {

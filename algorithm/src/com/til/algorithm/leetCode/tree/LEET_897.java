@@ -1,18 +1,18 @@
 package com.til.algorithm.leetCode.tree;
 
-public class LEET_897_a {
+/**
+ *  Binary Search Tree + In Order
+ */
+public class LEET_897 {
+
     TreeNode head;
     TreeNode curr;
-    public TreeNode increasingBST(TreeNode root) {
-        inorder(root);
-        return head;
-    }
 
-    private void inorder(TreeNode root) {
+    public TreeNode increasingBST(TreeNode root) {
         if (root == null) {
-            return;
+            return root;
         }
-        inorder(root.left);
+        increasingBST(root.left);
         TreeNode node = new TreeNode(root.val);
         if (head == null) {
             head = node;
@@ -21,6 +21,7 @@ public class LEET_897_a {
             curr.right = node;
             curr = curr.right;
         }
-        inorder(root.right);
+        increasingBST(root.right);
+        return head;
     }
 }
