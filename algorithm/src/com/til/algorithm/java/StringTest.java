@@ -230,4 +230,11 @@ class StringTest {
         assertEquals(s.replaceAll(" +", ""), "HelloWorld");
         assertEquals(s.replaceAll(" +", " "), "Hello World");
     }
+
+    @Test
+    @DisplayName("indexOf() 활용 시 같은 문자열 비교 하면 0 반환")
+    void 문자열_인덱스기반_탐색() {
+        String s = "BCD";
+        assertEquals(s.indexOf(s), 0);
+    }
 }
