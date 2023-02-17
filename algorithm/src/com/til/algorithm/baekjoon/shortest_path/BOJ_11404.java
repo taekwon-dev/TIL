@@ -4,8 +4,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 /**
- *  플로이드-워셜 최단거리 알고리즘 O(N^3)
- *  모든 쌍 최단 거리 알고리즘, u에서 v로 가는데 경유점을 거치는게 더 빠르다면 완하를 시켜 dist[u][v]를 갱신 시킨다.
+ *  플로이드-워셜 최단거리 알고리즘 - O(N^3)
  */
 public class BOJ_11404 {
 
