@@ -34,10 +34,13 @@ public class BOJ_21921 {
         }
         int max = sum;
 
+        // - 이전 윈도우에서 첫 번째 원소 제거
+        // + 새로운 윈도우에 포함되는 원소 추가
         for (int i = X; i < N; i++) {
             sum -= visitors[i - X];
             sum += visitors[i];
-            if (max < sum) {
+            // 새로운 윈도우의 크기가 큰 경우 최댓값 갱신
+            if (sum > max) {
                 count = 0;
                 count++;
                 max = sum;

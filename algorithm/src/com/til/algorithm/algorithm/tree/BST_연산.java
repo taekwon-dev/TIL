@@ -7,7 +7,7 @@ package com.til.algorithm.algorithm.tree;
  * (2) Insert
  * (3) Delete
  */
-class BinarySearchTreeForOps {
+class BST {
 
     class Node {
         int data;
@@ -107,9 +107,9 @@ class BinarySearchTreeForOps {
     }
 }
 
-public class BSTOperations {
+public class BST_연산 {
     public static void main(String[] args) {
-        BinarySearchTreeForOps bst = new BinarySearchTreeForOps();
+        BST bst = new BST();
         /*
                 4
                / \

@@ -64,4 +64,65 @@ public class LinkedList {
         }
         return node;
     }
+
+    public String toString() {
+        if (head == null) {
+            return "[]";
+        }
+        Node temp = head;
+        String str = "[";
+        while (temp.next != null) {
+            str += temp.data + ",";
+            temp = temp.next;
+        }
+        str += temp.data;
+        return str + "]";
+    }
+
+    public Object removeFirst() {
+        Node temp = head;
+        head = temp.next;
+        Object returnData = temp.data;
+        temp = null;
+        size--;
+        return returnData;
+    }
+
+    public Object remove(int index) {
+        if (index == 0) {
+            return removeFirst();
+        }
+        Node temp = node(index - 1);
+        Node todoDeleted = temp.next;
+        temp.next = temp.next.next;
+        Object retrunData = todoDeleted.data;
+        if (todoDeleted == tail) {
+            tail = temp;
+        }
+        todoDeleted = null;
+        size--;
+        return retrunData;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public Object get(int index) {
+        Node temp = node(index);
+        return temp.data;
+    }
+
+    public int indexOf(Object data) {
+        Node temp = head;
+        int index = 0;
+        while (temp.data != data) {
+            temp = temp.next;
+            index++;
+            if (temp == null) {
+                return -1;
+            }
+        }
+        return index;
+    }
 }

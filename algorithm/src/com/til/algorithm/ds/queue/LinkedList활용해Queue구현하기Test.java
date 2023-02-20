@@ -12,7 +12,7 @@ import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class QueueTest {
+class LinkedList활용해Queue구현하기Test {
 
     @Test
     @DisplayName("Queue 생성")

@@ -6,7 +6,6 @@ public class LEET_669 {
         if (root == null) {
             return root;
         }
-
         if (root.val < low) {
             return trimBST(root.right, low, high);
         }

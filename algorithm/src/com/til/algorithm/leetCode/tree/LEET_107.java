@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_107 {
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
-        if (root == null) return result;
 
+    private List<List<Integer>> result = new ArrayList<>();
+
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        if (root == null) {
+             return result;
+        }
         List<TreeNode> nodesToTraverse = new ArrayList<>();
         nodesToTraverse.add(root);
 
@@ -17,8 +20,12 @@ public class LEET_107 {
 
             for (TreeNode node : nodesToTraverse) {
                 list.add(node.val);
-                if (node.left != null) nodesToTraverseNext.add(node.left);
-                if (node.right != null) nodesToTraverseNext.add(node.right);
+                if (node.left != null) {
+                    nodesToTraverseNext.add(node.left);
+                }
+                if (node.right != null) {
+                    nodesToTraverseNext.add(node.right);
+                }
             }
             result.add(0, list);
             nodesToTraverse = nodesToTraverseNext;

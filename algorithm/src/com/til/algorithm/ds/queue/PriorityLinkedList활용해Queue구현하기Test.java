@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class PriorityQueueTest {
+class PriorityLinkedList활용해Queue구현하기Test {
 
     @Test
     @DisplayName("우선순위 큐 생성")

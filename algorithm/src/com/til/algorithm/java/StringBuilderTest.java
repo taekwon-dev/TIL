@@ -3,6 +3,7 @@ package com.til.algorithm.java;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -50,5 +51,13 @@ public class StringBuilderTest {
     void calStringBuilderLength() {
         StringBuilder sb = new StringBuilder("abcde");
         assertTrue(sb.length() == "abcde".length());
+    }
+
+    @Test
+    @DisplayName("StringBuilder Delete()")
+    void deleteStringBuilder() {
+        StringBuilder sb = new StringBuilder("abcde");
+        sb.delete(0, sb.length());
+        assertEquals(sb.toString(), "");
     }
 }
