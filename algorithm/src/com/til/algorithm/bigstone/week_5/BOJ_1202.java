@@ -18,13 +18,16 @@ public class BOJ_1202 {
         }
     }
 
+    private static int N;
+    private static int K;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
         Jewel[] jewels = new Jewel[N];
 
         for (int i = 0; i < N; i++) {

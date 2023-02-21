@@ -212,7 +212,6 @@ class StringTest {
     void 문자열배열_String_생성자인자() {
         char[] c = {'a', 'b', 'c'};
         String s = new String(c);
-
         assertEquals(s, "abc");
     }
 

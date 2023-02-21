@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ *  Root to Leaf via Queue
+ */
 public class LEET_102 {
 
     private List<List<Integer>> result = new ArrayList<>();
@@ -18,19 +21,19 @@ public class LEET_102 {
         return bfs(root, q);
     }
 
-    private List<List<Integer>> bfs(TreeNode root, Queue<TreeNode> q) {
-        q.add(root);
+    private List<List<Integer>> bfs(TreeNode root, Queue<TreeNode> queue) {
+        queue.add(root);
 
-        while (!q.isEmpty()) {
-            int size = q.size();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode curr = q.poll();
+                TreeNode curr = queue.poll();
                 list.add(curr.val);
                 if (curr.left != null) {
-                    q.add(curr.left);
+                    queue.add(curr.left);
                 }
                 if (curr.right != null) {
-                    q.add(curr.right);
+                    queue.add(curr.right);
                 }
             }
             result.add(new ArrayList<>(list));

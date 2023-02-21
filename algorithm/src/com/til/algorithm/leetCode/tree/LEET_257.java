@@ -15,9 +15,6 @@ public class LEET_257 {
         if (root == null) {
             return;
         }
-        /**
-         *  A Leaf Node is a node with no children.
-         */
         if (root.left == null && root.right == null) {
             paths.add(path + root.val);
             return;
