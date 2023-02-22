@@ -16,6 +16,9 @@ public class LEET_203_a {
                 curr = curr.next;
             }
         }
+        /**
+         *  Dummy Node를 만들고, 최종적으로 Dummy 노드 다음을 리턴 (= Head)
+         */
         return dummy.next;
     }
 }

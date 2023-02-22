@@ -7,45 +7,39 @@ import java.util.Collections;
 
 public class LV2_메뉴리뉴얼 {
 
-    private HashMap<String, Integer> map = new HashMap<>();
+    private HashMap<String, Integer> table = new HashMap<>();
 
     public String[] solution(String[] orders, int[] course) {
         ArrayList<String> answer = new ArrayList<>();
-        for (int len : course) {
+        for (int menuSize : course) {
             for (String order : orders) {
-                if (order.length() < len) {
-                    continue;
-                }
                 char[] menu = order.toCharArray();
                 Arrays.sort(menu);
-                backtracking(menu, len, 0, 0, "");
+                backtracking(menuSize, menu, 0, 0, "");
             }
-            if (map.isEmpty()) {
-                continue;
-            }
-            ArrayList<Integer> menuSizes = new ArrayList<>(map.values());
-            int max = Collections.max(menuSizes);
+            ArrayList<Integer> count = new ArrayList<>(table.values());
+            int max = Collections.max(count);
             if (max < 2) {
                 continue;
             }
-            map.forEach((k, v) -> {
+            table.forEach((k, v) -> {
                 if (v == max) {
                     answer.add(k);
                 }
             });
-            map.clear();
+            table.clear();
         }
         Collections.sort(answer);
-        return answer.toArray(new String[0]);
+        return answer.toArray(new String[answer.size()]);
     }
 
-    private void backtracking(char[] menu, int len, int depth, int idx, String result) {
-        if (depth == len) {
-            map.put(result, map.getOrDefault(result, 0) + 1);
+    private void backtracking(int menuSize, char[] menu, int depth, int index, String combination) {
+        if (depth == menuSize) {
+            table.put(combination, table.getOrDefault(combination, 0) + 1);
             return;
         }
-        for (int i = idx; i < menu.length; i++) {
-            backtracking(menu, len, depth + 1, i + 1, result + menu[i]);
+        for (int i = index; i < menu.length; i++) {
+            backtracking(menuSize, menu, depth + 1, i + 1, combination + menu[i]);
         }
     }
 }

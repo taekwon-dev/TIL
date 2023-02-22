@@ -179,10 +179,13 @@ class StringTest {
     void compareTo1() {
         String str = "abcd";
 
-        // 기준 값에 비교 대상이 포함되어 있는 경우, 서로의 문자열 길이의 차이 값을 반환한다.
+        // 기준 값에 비교 대상이 포함되어 있는 경우, 서로의 문자열 길이의 차이 값을 반환
         assertEquals(str.compareTo("a"), 3);
         assertEquals(str.compareTo("ab"), 2);
         assertEquals(str.compareTo("abc"), 1);
+
+        // 동일한 문자열인 경우 0 반환
+        assertEquals(str.compareTo("abcd"), 0);
 
         // 주의 !
         // compareTo() 는 같은 위치의 문자만 비교한다. 따라서 첫 번째 문자부터 순차적으로 비교해서 다를 경우 바로 아스키 값을 기준으로 처리한다.

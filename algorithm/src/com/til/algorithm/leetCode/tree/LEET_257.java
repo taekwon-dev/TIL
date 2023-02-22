@@ -5,13 +5,14 @@ import java.util.List;
 
 public class LEET_257 {
 
+    private List<String> paths = new ArrayList<>();
+
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> paths = new ArrayList<>();
-        rootToLeafPath(root, paths, "");
+        root2Leaf(root, "");
         return paths;
     }
 
-    private void rootToLeafPath(TreeNode root, List<String> paths, String path) {
+    private void root2Leaf(TreeNode root, String path) {
         if (root == null) {
             return;
         }
@@ -19,7 +20,7 @@ public class LEET_257 {
             paths.add(path + root.val);
             return;
         }
-        rootToLeafPath(root.left, paths, path + root.val + "->");
-        rootToLeafPath(root.right, paths, path + root.val + "->");
+        root2Leaf(root.left, path + root.val + "->");
+        root2Leaf(root.right, path + root.val + "->");
     }
 }

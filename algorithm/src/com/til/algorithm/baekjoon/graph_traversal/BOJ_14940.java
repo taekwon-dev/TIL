@@ -1,80 +1,75 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_14940 {
 
-    private static int n;
-    private static int m;
-    private static boolean[][] visited;
+    private static int N;
+    private static int M;
     private static int[][] map;
-    private static int[][] print;
+    private static boolean[][] visited;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
-    private static Queue<int[]> queue = new LinkedList<>();
+    private static Queue<int[]> queue;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        visited = new boolean[n][m];
-        map = new int[n][m];
-        print = new int[n][m];
 
-        for (int i = 0; i < n; i++) {
-            Arrays.fill(print[i], -1);
-        }
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        map = new int[N][M];
+        visited = new boolean[N][M];
+        queue = new LinkedList<>();
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < m; j++) {
-                int val = Integer.parseInt(st.nextToken());
-                if (val == 0) {
-                    print[i][j] = 0;
-                }
-                if (val == 2) {
-                    queue.add(new int[]{i, j, 0});
+            for (int j = 0; j < M; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
+                if (map[i][j] == 2) {
+                    queue.offer(new int[]{i, j});
                     visited[i][j] = true;
-                    print[i][j] = 0;
+                    map[i][j] = 0;
+                } else if (map[i][j] == 1) {
+                    map[i][j] = -1;
                 }
-                map[i][j] = val;
             }
         }
         bfs();
+
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                sb.append(print[i][j]).append(" ");
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                sb.append(map[i][j]).append(" ");
             }
             sb.append("\n");
         }
-        System.out.println(sb.toString());
+
+        bw.write(sb.toString() + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static void bfs() {
         while (!queue.isEmpty()) {
             int[] curr = queue.poll();
-            int currX = curr[0];
-            int currY = curr[1];
-            int dist = curr[2];
 
             for (int i = 0; i < 4; i++) {
-                int nx = currX + dx[i];
-                int ny = currY + dy[i];
+                int nx = curr[0] + dx[i];
+                int ny = curr[1] + dy[i];
 
-                if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
-                    if (!visited[nx][ny] && map[nx][ny] == 1) {
-                        queue.add(new int[]{nx, ny, dist + 1});
-                        visited[nx][ny] = true;
-                        print[nx][ny] = dist + 1;
-                    }
+                if (nx < 0 || ny < 0 || nx > N - 1 || ny > M - 1) {
+                    continue;
+                }
+                if (!visited[nx][ny] && map[nx][ny] == -1) {
+                    queue.offer(new int[]{nx, ny});
+                    visited[nx][ny] = true;
+                    map[nx][ny] = map[curr[0]][curr[1]] + 1;
                 }
             }
         }

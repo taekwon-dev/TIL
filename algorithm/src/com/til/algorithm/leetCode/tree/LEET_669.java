@@ -8,7 +8,8 @@ public class LEET_669 {
         }
         if (root.val < low) {
             return trimBST(root.right, low, high);
-        } else if (root.val > high) {
+        }
+        if (root.val > high) {
             return trimBST(root.left, low, high);
         }
         root.left = trimBST(root.left, low, high);

@@ -8,32 +8,32 @@ public class LV1_개인정보수집유효기간 {
     public int[] solution(String today, String[] terms, String[] privacies) {
         HashMap<String, String> map = new HashMap<>();
         for (String term : terms) {
-            String[] temp = term.split(" ");
-            map.put(temp[0], temp[1]);
+            String[] termSplit = term.split(" ");
+            map.put(termSplit[0], termSplit[1]);
         }
-        int todayTotalDate = getTotalDate(today);
-        ArrayList<Integer> expiration = new ArrayList<>();
+        ArrayList<Integer> answer = new ArrayList<>();
+        int todayHashCode = hashCode(today, 0);
         int idx = 1;
         for (String privacy : privacies) {
-            String[] temp = privacy.split(" ");
-            String date = temp[0];
-            String type = temp[1];
-            int period = Integer.parseInt(map.get(type)) * 28;
-            int validation = getTotalDate(date) + period - 1;
-            if (validation < todayTotalDate) {
-                expiration.add(idx);
+            String[] privacySplit = privacy.split(" ");
+            String date = privacySplit[0];
+            int validation = Integer.parseInt(map.get(privacySplit[1]));
+            int targetHashCode = hashCode(date, validation) - 1;
+
+            if (todayHashCode > targetHashCode) {
+                answer.add(idx);
             }
             idx++;
         }
-        return expiration.stream().mapToInt(Integer::intValue).toArray();
+        return answer.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    private int getTotalDate(String date) {
-        String[] temp = date.split("\\.");
-        int year = Integer.parseInt(temp[0]);
-        int month = Integer.parseInt(temp[1]);
-        int day = Integer.parseInt(temp[2]);
+    private int hashCode(String date, int validation) {
+        String[] dateSplit = date.split("\\.");
+        int year = Integer.parseInt(dateSplit[0]) * 12 * 28;
+        int month = (Integer.parseInt(dateSplit[1]) + validation) * 28;
+        int day = Integer.parseInt(dateSplit[2]);
 
-        return (year * 12 * 28) + (month * 28) + day;
+        return year + month + day;
     }
 }
