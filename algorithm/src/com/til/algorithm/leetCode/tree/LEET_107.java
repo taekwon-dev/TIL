@@ -8,21 +8,21 @@ import java.util.List;
  */
 public class LEET_107 {
 
-    private List<List<Integer>> result = new ArrayList<>();
+    private List<List<Integer>> answer = new ArrayList<>();
 
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         if (root == null) {
-             return result;
+            return answer;
         }
         List<TreeNode> nodesToTraverse = new ArrayList<>();
         nodesToTraverse.add(root);
 
         while (!nodesToTraverse.isEmpty()) {
-            List<Integer> list = new ArrayList<>();
+            List<Integer> element = new ArrayList<>();
             List<TreeNode> nodesToTraverseNext = new ArrayList<>();
 
             for (TreeNode node : nodesToTraverse) {
-                list.add(node.val);
+                element.add(node.val);
                 if (node.left != null) {
                     nodesToTraverseNext.add(node.left);
                 }
@@ -30,9 +30,12 @@ public class LEET_107 {
                     nodesToTraverseNext.add(node.right);
                 }
             }
-            result.add(0, list);
+            /**
+             *   0번 인덱스에 엘리먼트를 추가함으로써, 데이터 입력 순서 조정
+             */
+            answer.add(0, element);
             nodesToTraverse = nodesToTraverseNext;
         }
-        return result;
+        return answer;
     }
 }

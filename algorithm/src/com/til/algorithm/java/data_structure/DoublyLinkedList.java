@@ -70,6 +70,7 @@ public class DoublyLinkedList {
 
     /**
      *  인덱스의 위치에 따라서 탐색 방향을 달리할 수 있고, 이를 통해 탐색 시간을 약 두 배 향상 시킬 수 있다.
+     *  (한 노드를 기준으로 양방향 탐색이 가능하기 때문에, 더 가까운 쪽을 기준으로 대상 노드를 탐색할 수 있다)
      */
     private Node node(int index) {
         if (index < size / 2) {
@@ -84,5 +85,57 @@ public class DoublyLinkedList {
             node = node.prev;
         }
         return node;
+    }
+
+    public Object removeFirst() {
+        Node temp = head;
+        head = temp.next;
+        Object returnData = temp.data;
+        temp = null;
+        if (head != null) {
+            head.prev = null;
+        }
+        size--;
+        return returnData;
+    }
+
+    public Object remove(int index) {
+        if (index == 0) {
+            return removeFirst();
+        }
+        Node prev = node(index - 1);
+        Node target = prev.next;
+        prev.next = prev.next.next;
+        if (prev.next != null) {
+            prev.next.prev = prev;
+        }
+        Object returnData = target.data;
+        if (target == tail) {
+            tail = prev;
+        }
+        target = null;
+        size--;
+        return returnData;
+    }
+
+    public Object removeLast() {
+        return remove(size - 1);
+    }
+
+    public Object get(int index) {
+        return node(index);
+    }
+
+    public int indexOf(Object data) {
+        Node node = head;
+        int index = 0;
+        while (node.data != data) {
+            node = node.next;
+            index++;
+            if (node == null) {
+                return -1;
+            }
+        }
+        return index;
     }
 }

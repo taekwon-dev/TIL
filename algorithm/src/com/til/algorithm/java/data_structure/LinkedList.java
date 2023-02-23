@@ -116,13 +116,13 @@ public class LinkedList {
             return removeFirst();
         }
         Node temp = node(index - 1);
-        Node todoDeleted = temp.next;
+        Node target = temp.next;
         temp.next = temp.next.next;
-        Object retrunData = todoDeleted.data;
-        if (todoDeleted == tail) {
+        Object retrunData = target.data;
+        if (target == tail) {
             tail = temp;
         }
-        todoDeleted = null;
+        target = null;
         size--;
         return retrunData;
     }

@@ -10,35 +10,35 @@ import java.util.Queue;
  */
 public class LEET_102 {
 
-    private List<List<Integer>> result = new ArrayList<>();
-    private List<Integer> list = new ArrayList<>();
+    private List<List<Integer>> answer = new ArrayList<>();
+    private List<Integer> element = new ArrayList<>();
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         if (root == null) {
-            return result;
+            return answer;
         }
-        Queue<TreeNode> q = new LinkedList<>();
-        return bfs(root, q);
+        return bfs(root);
     }
 
-    private List<List<Integer>> bfs(TreeNode root, Queue<TreeNode> queue) {
-        queue.add(root);
+    private List<List<Integer>> bfs(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
 
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode curr = queue.poll();
-                list.add(curr.val);
+                element.add(curr.val);
                 if (curr.left != null) {
-                    queue.add(curr.left);
+                    queue.offer(curr.left);
                 }
                 if (curr.right != null) {
-                    queue.add(curr.right);
+                    queue.offer(curr.right);
                 }
             }
-            result.add(new ArrayList<>(list));
-            list.clear();
+            answer.add(new ArrayList<>(element));
+            element.clear();
         }
-        return result;
+        return answer;
     }
 }
