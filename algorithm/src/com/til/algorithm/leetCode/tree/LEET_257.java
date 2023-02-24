@@ -8,11 +8,11 @@ public class LEET_257 {
     private List<String> paths = new ArrayList<>();
 
     public List<String> binaryTreePaths(TreeNode root) {
-        root2Leaf(root, "");
+        dfs(root, "");
         return paths;
     }
 
-    private void root2Leaf(TreeNode root, String path) {
+    private void dfs(TreeNode root, String path) {
         if (root == null) {
             return;
         }
@@ -20,7 +20,7 @@ public class LEET_257 {
             paths.add(path + root.val);
             return;
         }
-        root2Leaf(root.left, path + root.val + "->");
-        root2Leaf(root.right, path + root.val + "->");
+        dfs(root.left, path + root.val + "->");
+        dfs(root.right, path + root.val + "->");
     }
 }
