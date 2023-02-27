@@ -1,6 +1,8 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
 import java.io.*;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_2573 {
@@ -11,6 +13,7 @@ public class BOJ_2573 {
     private static boolean[][] visited;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
+
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,32 +30,68 @@ public class BOJ_2573 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
+
         int answer = 0;
         int ice = -1;
+        int region = 0;
         while (true) {
-            int region ;
             if (ice == 0) {
                 bw.write(0 + "\n");
                 break;
             }
-            region = getRegion();
+            visited = new boolean[N][M];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < M; j++) {
+                    if (!visited[i][j] && map[i][j] != 0) {
+                        dfs(i, j);
+                        region++;
+                    }
+                }
+            }
             if (region >= 2) {
                 bw.write(answer + "\n");
                 break;
             }
-            ice = getLeftIces();
+            ice = melt();
+            region = 0;
             answer++;
         }
-
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static int getLeftIces() {
+    private static void dfs(int x, int y) {
+        visited[x][y] = true;
+
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            if (nx < 0 || ny < 0 || nx > N - 1 || ny > M - 1) {
+                continue;
+            }
+            if (!visited[nx][ny] && map[nx][ny] > 0) {
+                dfs(nx, ny);
+            }
+        }
+    }
+
+    private static int getIceNum() {
+        int ice = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                if (map[i][j] > 0) {
+                    ice++;
+                }
+            }
+        }
+        return ice;
+    }
+
+    private static int melt() {
         int ice = 0;
         visited = new boolean[N][M];
-
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 if (map[i][j] != 0) {
@@ -78,35 +117,5 @@ public class BOJ_2573 {
             }
         }
         return ice;
-    }
-
-    private static void dfs(int x, int y) {
-        visited[x][y] = true;
-
-        for (int i = 0; i < 4; i++) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-
-            if (nx < 0 || ny < 0 || nx > N - 1 || ny > M - 1) {
-                continue;
-            }
-            if (!visited[nx][ny] && map[nx][ny] != 0) {
-                dfs(nx, ny);
-            }
-        }
-    }
-
-    private static int getRegion() {
-        int region = 0;
-        visited = new boolean[N][M];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                if (!visited[i][j] && map[i][j] != 0) {
-                    dfs(i, j);
-                    region++;
-                }
-            }
-        }
-        return region;
     }
 }

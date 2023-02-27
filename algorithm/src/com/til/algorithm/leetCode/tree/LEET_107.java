@@ -1,41 +1,40 @@
 package com.til.algorithm.leetCode.tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  *  Leaf to Root
  */
 public class LEET_107 {
 
-    private List<List<Integer>> answer = new ArrayList<>();
+    List<List<Integer>> levels = new ArrayList<>();
+    List<Integer> level = new ArrayList<>();
 
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         if (root == null) {
-            return answer;
+            return levels;
         }
-        List<TreeNode> nodesToTraverse = new ArrayList<>();
-        nodesToTraverse.add(root);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
 
-        while (!nodesToTraverse.isEmpty()) {
-            List<Integer> element = new ArrayList<>();
-            List<TreeNode> nodesToTraverseNext = new ArrayList<>();
-
-            for (TreeNode node : nodesToTraverse) {
-                element.add(node.val);
-                if (node.left != null) {
-                    nodesToTraverseNext.add(node.left);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode curr = queue.poll();
+                level.add(curr.val);
+                if (curr.left != null) {
+                    queue.offer(curr.left);
                 }
-                if (node.right != null) {
-                    nodesToTraverseNext.add(node.right);
+                if (curr.right != null) {
+                    queue.offer(curr.right);
                 }
             }
-            /**
-             *   0번 인덱스에 엘리먼트를 추가함으로써, 데이터 입력 순서 조정
-             */
-            answer.add(0, element);
-            nodesToTraverse = nodesToTraverseNext;
+            levels.add(0, new ArrayList<>(level));
+            level.clear();
         }
-        return answer;
+        return levels;
     }
 }
