@@ -1,4 +1,6 @@
-package com.til.algorithm.java.data_structure;
+package com.til.algorithm.java.data_structure.stack;
+
+import com.til.algorithm.java.data_structure.list.ArrayList;
 
 import java.util.EmptyStackException;
 

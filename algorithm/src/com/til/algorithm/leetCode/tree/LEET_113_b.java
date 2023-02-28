@@ -1,34 +1,38 @@
 package com.til.algorithm.leetCode.tree;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LEET_113_b {
+
+    private List<List<Integer>> paths = new ArrayList<>();
+    private int targetSum = 0;
+
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        return preorder(root, targetSum, result, list, 0);
+        this.targetSum = targetSum;
+        dfs(root, 0, "");
+        return paths;
     }
 
-    private List<List<Integer>> preorder(TreeNode root, int targetSum, List<List<Integer>> result, List<Integer> list, int sum) {
+    private void dfs(TreeNode root, int sum, String s) {
         if (root == null) {
-            return result;
-        }
-        sum += root.val;
-        list.add(root.val);
-        if (root.left != null) {
-            preorder(root.left, targetSum, result, list, sum);
-        }
-
-        if (root.right != null) {
-            preorder(root.right, targetSum, result, list, sum);
+            return;
         }
         if (root.left == null && root.right == null) {
-            if (sum == targetSum) {
-                result.add(new ArrayList<>(list));
+            if (sum + root.val == targetSum) {
+                System.out.println(s + root.val);
+                List<Integer> path = Arrays.asList(s.split("->"))
+                        .stream()
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
+                paths.add(new ArrayList<>(path));
             }
+            return;
         }
-        list.remove(list.size() - 1);
-        return result;
+        dfs(root.left, sum + root.val, s + root.val + "->");
+        dfs(root.right, sum + root.val, s + root.val + "->");
     }
 }

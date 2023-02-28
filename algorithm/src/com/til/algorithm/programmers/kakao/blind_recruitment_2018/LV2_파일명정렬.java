@@ -8,7 +8,6 @@ public class LV2_파일명정렬 {
         Arrays.sort(files, (o1, o2) -> {
             String s1 = o1.split("[0-9]")[0];
             String s2 = o2.split("[0-9]")[0];
-
             int result = s1.toLowerCase().compareTo(s2.toLowerCase());
             if (result == 0) {
                 result = findNumber(o1, s1) - findNumber(o2, s2);
@@ -20,14 +19,14 @@ public class LV2_파일명정렬 {
 
     private int findNumber(String origin, String head) {
         origin = origin.replace(head, "");
-        String number = "";
+        StringBuilder number = new StringBuilder();
         for (char c : origin.toCharArray()) {
             if (Character.isDigit(c) && number.length() < 5) {
-                number += c;
+                number.append(c);
             } else {
                 break;
             }
         }
-        return Integer.parseInt(number);
+        return Integer.parseInt(number.toString());
     }
 }

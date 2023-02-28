@@ -17,13 +17,14 @@ public class LV2_순위검색 {
         for (String key : map.keySet()) {
             Collections.sort(map.get(key));
         }
-
         int[] answer = new int[query.length];
         for (int i = 0; i < query.length; i++) {
             String q = query[i].replace(" and ", "");
-            String[] querySplit = q.split(" ");
-            if (map.containsKey(querySplit[0])) {
-                answer[i] = binarySearch(querySplit[0], Integer.parseInt(querySplit[1]));
+            String[] rowSplit = q.split(" ");
+            String key = rowSplit[0];
+            int standard = Integer.parseInt(rowSplit[1]);
+            if (map.containsKey(key)) {
+                answer[i] = binarySearch(key, standard);
             } else {
                 answer[i] = 0;
             }
@@ -36,25 +37,26 @@ public class LV2_순위검색 {
             if (!map.containsKey(s)) {
                 map.put(s, new ArrayList<>());
             }
-            map.get(s).add(Integer.parseInt(rowSplit[4]));
+            int score = Integer.parseInt(rowSplit[4]);
+            map.get(s).add(score);
             return;
         }
-        backtracking(rowSplit, depth + 1, s + "-");
         backtracking(rowSplit, depth + 1, s + rowSplit[depth]);
+        backtracking(rowSplit, depth + 1, s + "-");
     }
 
-    private int binarySearch(String combination, int score) {
-        List<Integer> scores = map.get(combination);
-        int start = 0;
-        int end = scores.size() - 1;
-        while (start <= end) {
-            int mid = (start + end) / 2;
-            if (scores.get(mid) < score) {
-                start = mid + 1;
+    private int binarySearch(String key, int standard) {
+        List<Integer> scores = map.get(key);
+        int low = 0;
+        int high = scores.size() - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (scores.get(mid) < standard) {
+                low = mid + 1;
             } else {
-                end = mid - 1;
+                high = mid - 1;
             }
         }
-        return scores.size() - start;
+        return scores.size() - low;
     }
 }

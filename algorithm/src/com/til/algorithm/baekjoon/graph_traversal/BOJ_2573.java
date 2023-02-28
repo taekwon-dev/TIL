@@ -1,8 +1,6 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
 import java.io.*;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_2573 {

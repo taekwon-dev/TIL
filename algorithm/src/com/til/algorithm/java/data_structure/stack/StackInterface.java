@@ -1,4 +1,4 @@
-package com.til.algorithm.java.data_structure;
+package com.til.algorithm.java.data_structure.stack;
 
 public interface StackInterface<E> {
 
