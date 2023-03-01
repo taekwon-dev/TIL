@@ -1,47 +1,50 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_15664 {
 
-    private static int n;
-    private static int m;
+    private static int N;
+    private static int M;
     private static int[] arr;
-    private static boolean[] visited;
+    private static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        arr = new int[n];
-        visited = new boolean[n];
+
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        arr = new int[N];
 
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
         backtracking(0, 0, "");
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static void backtracking(int depth, int index, String s) {
-        if (depth == m) {
-            System.out.println(s);
+        if (depth == M) {
+            sb.append(s).append("\n");
             return;
         }
         int prev = 0;
-        for (int i = index; i < n; i++) {
-            if (!visited[i] && prev != arr[i]) {
-                prev = arr[i];
-                visited[i] = true;
-                backtracking(depth + 1, i, s + arr[i] + " ");
-                visited[i] = false;
+        for (int i = index; i < N; i++) {
+            if (prev == arr[i]) {
+                continue;
             }
+            prev = arr[i];
+            backtracking(depth + 1, i + 1, s + arr[i] + " ");
         }
     }
 }

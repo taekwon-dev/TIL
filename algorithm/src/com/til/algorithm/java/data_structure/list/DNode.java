@@ -1,12 +1,14 @@
 package com.til.algorithm.java.data_structure.list;
 
-public class Node<E> {
+public class DNode<E> {
 
     E data;
-    Node<E> next;
+    DNode<E> prev;
+    DNode<E> next;
 
-    public Node(E data) {
+    public DNode(E data) {
         this.data = data;
+        this.prev = null;
         this.next = null;
     }
 }

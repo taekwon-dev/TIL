@@ -29,6 +29,7 @@ public class BinarySearch {
 
     private static int binarySearch2(int target, int low, int high) {
         if (low > high) {
+            // 배열 내 탐색 대상이 없는 경우 `-1` 반환
             return -1;
         }
         int mid = (low + high) / 2;

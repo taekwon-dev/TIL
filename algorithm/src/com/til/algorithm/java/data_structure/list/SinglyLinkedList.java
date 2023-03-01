@@ -4,8 +4,8 @@ import java.util.NoSuchElementException;
 
 public class SinglyLinkedList<E> implements List<E> {
 
-    private Node<E> head;
-    private Node<E> tail;
+    private SNode<E> head;
+    private SNode<E> tail;
     private int size;
 
     public SinglyLinkedList() {
@@ -14,11 +14,11 @@ public class SinglyLinkedList<E> implements List<E> {
         this.size = 0;
     }
 
-    private Node<E> search(int index) {
+    private SNode<E> search(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
-        Node<E> node = head;
+        SNode<E> node = head;
         for (int i = 0; i < index; i++) {
             node = node.next;
         }
@@ -26,7 +26,7 @@ public class SinglyLinkedList<E> implements List<E> {
     }
 
     public void addFirst(E value) {
-        Node<E> newNode = new Node<>(value);
+        SNode<E> newNode = new SNode<>(value);
         newNode.next = head;
         head = newNode;
         size++;
@@ -47,7 +47,7 @@ public class SinglyLinkedList<E> implements List<E> {
             addFirst(value);
             return;
         }
-        Node<E> newNode = new Node<>(value);
+        SNode<E> newNode = new SNode<>(value);
         tail.next = newNode;
         tail = newNode;
         size++;
@@ -66,21 +66,21 @@ public class SinglyLinkedList<E> implements List<E> {
             addLast(value);
             return;
         }
-        Node<E> prev = search(index - 1);
-        Node<E> next = prev.next;
-        Node<E> newNode = new Node<>(value);
+        SNode<E> prev = search(index - 1);
+        SNode<E> next = prev.next;
+        SNode<E> newNode = new SNode<>(value);
         prev.next = newNode;
         newNode.next = next;
         size++;
     }
 
     public E remove() {
-        Node<E> headNode = head;
+        SNode<E> headNode = head;
         if (headNode == null) {
             throw new NoSuchElementException();
         }
         E element = headNode.data;
-        Node<E> next = headNode.next;
+        SNode<E> next = headNode.next;
         head.data = null;
         head.next = null;
         head = next;
@@ -99,9 +99,9 @@ public class SinglyLinkedList<E> implements List<E> {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
-        Node<E> prev = search(index - 1);
-        Node<E> target = prev.next;
-        Node<E> next = target.next;
+        SNode<E> prev = search(index - 1);
+        SNode<E> target = prev.next;
+        SNode<E> next = target.next;
         E element = target.data;
         prev.next = next;
         if (prev.next == null) {
@@ -115,8 +115,8 @@ public class SinglyLinkedList<E> implements List<E> {
 
     @Override
     public boolean remove(Object value) {
-        Node<E> prev = head;
-        Node<E> curr = head;
+        SNode<E> prev = head;
+        SNode<E> curr = head;
 
         while (curr != null) {
             if (value.equals(curr.data)) {
@@ -143,36 +143,52 @@ public class SinglyLinkedList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        return search(index).data;
     }
 
     @Override
     public void set(int index, E value) {
-
-    }
-
-    @Override
-    public boolean contains(Object value) {
-        return false;
+        SNode<E> replaceNode = search(index);
+        replaceNode.data = value;
     }
 
     @Override
     public int indexOf(Object value) {
-        return 0;
+        int index = 0;
+        SNode<E> curr = head;
+        while (curr != null) {
+            if (value.equals(curr.data)) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean contains(Object value) {
+        return indexOf(value) >= 0;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public void clear() {
-
+        for (SNode<E> curr = head; curr != null;) {
+            SNode<E> next = curr.next;
+            curr.data = null;
+            curr.next = null;
+            curr = next;
+        }
+        head = tail = null;
+        size = 0;
     }
 }
