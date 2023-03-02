@@ -6,33 +6,28 @@ import java.util.List;
 public class LEET_113_a {
 
     private List<List<Integer>> paths = new ArrayList<>();
-    private int targetSum = 0;
+    private List<Integer> path = new ArrayList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        this.targetSum = targetSum;
-        List<Integer> list = new ArrayList<>();
-        preorder(root, list, 0);
+        if (root == null) {
+            return paths;
+        }
+        dfs(root, targetSum);
         return paths;
     }
 
-    private void preorder(TreeNode root, List<Integer> list, int sum) {
+    private void dfs(TreeNode root, int targetSum) {
         if (root == null) {
             return;
         }
-        sum += root.val;
-        list.add(root.val);
-        if (root.left != null) {
-            preorder(root.left, list, sum);
-        }
-
-        if (root.right != null) {
-            preorder(root.right, list, sum);
-        }
+        path.add(root.val);
+        dfs(root.left, targetSum - root.val);
+        dfs(root.right, targetSum - root.val);
         if (root.left == null && root.right == null) {
-            if (sum == targetSum) {
-                paths.add(new ArrayList<>(list));
+            if (targetSum - root.val == 0) {
+                paths.add(new ArrayList<>(path));
             }
         }
-        list.remove(list.size() - 1);
+        path.remove(path.size() - 1);
     }
 }

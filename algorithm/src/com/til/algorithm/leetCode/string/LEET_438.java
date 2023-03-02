@@ -1,6 +1,7 @@
 package com.til.algorithm.leetCode.string;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,41 +9,30 @@ import java.util.List;
  */
 public class LEET_438 {
 
-    public static void main(String[] args) {
-        List<Integer> answer = findAnagrams("abracadabra", "abr");
-        for (int i : answer) {
-            System.out.print(i + " ");
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        int[] anagram = countChar(p);
+
+        int left = 0;
+        int right = p.length();
+
+        while (right <= s.length()) {
+            String temp = s.substring(left, right);
+            int[] tempCountChar = countChar(temp);
+            if (Arrays.equals(anagram, tempCountChar)) {
+                result.add(left);
+            }
+            left++;
+            right++;
         }
+        return result;
     }
 
-    public static List<Integer> findAnagrams(String s, String p) {
-        List<Integer> answer = new ArrayList<>();
-        int lenS = s.length();
-        int lenP = p.length();
-        int[] alphabet = new int[26];
-        for (int i = 0; i < lenP; i++) {
-            alphabet[p.charAt(i) - 'a']++;
+    private int[] countChar(String target) {
+        int[] arr = new int[26];
+        for (char c : target.toCharArray()) {
+            arr[c - 'a']++;
         }
-
-        int start = 0;
-        for (int i = 0; i < lenS; i++) {
-            alphabet[s.charAt(i) - 'a']--;
-            if (i - start >= lenP) {
-                alphabet[s.charAt(start++) - 'a']++;
-            }
-            if (isAllZero(alphabet)) {
-                answer.add(start);
-            }
-        }
-        return answer;
-    }
-
-    private static boolean isAllZero(int[] alphabet) {
-        for (int i = 0; i < alphabet.length; i++) {
-            if (alphabet[i] != 0) {
-                return false;
-            }
-        }
-        return true;
+        return arr;
     }
 }

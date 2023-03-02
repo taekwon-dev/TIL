@@ -7,9 +7,9 @@ public class BOJ_14888 {
 
     private static int N;
     private static int[] arr;
-    private static int[] operation;
-    private static int min = Integer.MAX_VALUE;
-    private static int max = Integer.MIN_VALUE;
+    private static int[] operators;
+    private static int min;
+    private static int max;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,7 +18,9 @@ public class BOJ_14888 {
 
         N = Integer.parseInt(br.readLine());
         arr = new int[N];
-        operation = new int[4];
+        operators = new int[4];
+        min = Integer.MAX_VALUE;
+        max = Integer.MIN_VALUE;
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
@@ -26,8 +28,8 @@ public class BOJ_14888 {
         }
 
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < operation.length; i++) {
-            operation[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < operators.length; i++) {
+            operators[i] = Integer.parseInt(st.nextToken());
         }
         backtracking(0, arr[0]);
 
@@ -44,23 +46,19 @@ public class BOJ_14888 {
             max = Math.max(max, sum);
             return;
         }
-        for (int i = 0; i < operation.length; i++) {
-            if (operation[i] > 0) {
-                operation[i]--;
+        for (int i = 0; i < operators.length; i++) {
+            if (operators[i] > 0) {
+                operators[i]--;
                 if (i == 0) {
-                    // +
                     backtracking(depth + 1, sum + arr[depth + 1]);
                 } else if (i == 1) {
-                    // -
                     backtracking(depth + 1, sum - arr[depth + 1]);
                 } else if (i == 2) {
-                    // *
                     backtracking(depth + 1, sum * arr[depth + 1]);
                 } else if (i == 3) {
-                    // /
                     backtracking(depth + 1, sum / arr[depth + 1]);
                 }
-                operation[i]++;
+                operators[i]++;
             }
         }
     }
