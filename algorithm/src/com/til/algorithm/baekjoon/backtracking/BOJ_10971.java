@@ -8,7 +8,7 @@ public class BOJ_10971 {
     private static int N;
     private static int[][] map;
     private static boolean[] visited;
-    private static int answer = Integer.MAX_VALUE;
+    private static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,6 +18,7 @@ public class BOJ_10971 {
         N = Integer.parseInt(br.readLine());
         map = new int[N][N];
         visited = new boolean[N];
+        answer = Integer.MAX_VALUE;
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());

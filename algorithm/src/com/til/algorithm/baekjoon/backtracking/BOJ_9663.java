@@ -1,6 +1,7 @@
 package com.til.algorithm.baekjoon.backtracking;
 
 import java.io.*;
+import java.util.StringTokenizer;
 
 public class BOJ_9663 {
 
@@ -14,6 +15,7 @@ public class BOJ_9663 {
 
         N = Integer.parseInt(br.readLine());
         queen = new int[N];
+
         backtracking(0);
 
         bw.write(answer + "\n");
@@ -40,7 +42,6 @@ public class BOJ_9663 {
             if (queen[row] == queen[i]) {
                 return false;
             }
-
             if (Math.abs(row - i) == Math.abs(queen[row] - queen[i])) {
                 return false;
             }
