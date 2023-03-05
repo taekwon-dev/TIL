@@ -76,6 +76,7 @@ public class BOJ_17406_b {
             int S = rotate[arr[i]][2];
 
             for (int s = 1; s <= S; s++) {
+                // →, ↓, ← 방향으로 회전 시킬 때 주어진 맵의 범위를 초과하는 대상의 위치를 재조정하기 위해 임시로 해당 값을 저장.
                 int rightTmp = tmp[R - s][C + s];
                 int downTmp = tmp[R + s][C + s];
                 int leftTmp = tmp[R + s][C - s];

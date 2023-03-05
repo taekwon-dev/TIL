@@ -31,6 +31,7 @@ public class BOJ_14888 {
         for (int i = 0; i < operators.length; i++) {
             operators[i] = Integer.parseInt(st.nextToken());
         }
+        // 연산자와 연산 대상 숫자의 관계를 고려해서 시작 값을 첫 번째 숫자로 지정
         backtracking(0, arr[0]);
 
         bw.write(max + "\n");

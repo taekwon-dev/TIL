@@ -25,6 +25,8 @@ public class BOJ_9663 {
     }
 
     private static void backtracking(int row) {
+        // 행을 기준으로 생각했을 때, 각 행에 하나의 퀸을 놓는 과정이 반복되어 결국 마지막 행에 도달할 수 있다면,
+        // 문제 조건에 부합하는 케이스임을 생각할 수 있다.
         if (row == N) {
             answer++;
             return;
