@@ -2,6 +2,9 @@ package com.til.algorithm.java.data_structure.queue;
 
 import java.util.Comparator;
 
+/**
+ *  우선순위 큐 (Min Heap을 통한 구현)
+ */
 public class PriorityQueue<E> implements Queue<E> {
 
     private final Comparator<? super E> comparator;
@@ -52,7 +55,50 @@ public class PriorityQueue<E> implements Queue<E> {
 
     @Override
     public boolean offer(E item) {
-        return false;
+        if (size + 1 == array.length) {
+            resize(array.length * 2);
+        }
+        shiftUp(size + 1, item);
+        size++;
+        return true;
+    }
+
+    private void shiftUp(int index, E target) {
+        if (comparator != null) {
+            shiftUpComparator(index, target, comparator);
+        } else {
+            shiftUpComparable(index, target);
+        }
+    }
+
+    private void shiftUpComparator(int index, E target, Comparator<? super E> comparator) {
+        while (index > 1) {
+            int parent = getParent(index);
+            Object parentVal = array[parent];
+
+            if (comparator.compare(target, (E) parentVal) >= 0) {
+                break;
+            }
+            array[index] = parentVal;
+            index = parent;
+        }
+        array[index] = target;
+    }
+
+    private void shiftUpComparable(int index, E target) {
+        Comparable<? super E> comparable = (Comparable<? super E>) target;
+
+        while (index > 1) {
+            int parent = getParent(index);
+            Object parentVal = array[parent];
+
+            if (comparable.compareTo((E) parentVal) >= 0) {
+                break;
+            }
+            array[index] = parentVal;
+            index = parent;
+        }
+        array[index] = target;
     }
 
     @Override
