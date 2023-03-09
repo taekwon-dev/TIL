@@ -37,6 +37,11 @@ public class ArrayQueue<E> implements Queue {
         rear = size;
     }
 
+    /**
+     *  큐를 배열 기반으로 구현할 때, 데이터 삽입 / 삭제 과정에서 점차 뒤쪽으로 데이터가 쌓이는 구조를 갖게된다.
+     *  이러한 양상을 막기 위해 데이터 삽입 시, 앞 쪽의 빈 공간이 있으면 해당 공간에 데이터를 추가하는 식으로 처리하고
+     *  빈 공간이 없으면 동적으로 사이즈를 재할당하는 방식으로 처리한다.
+     */
     @Override
     public boolean offer(Object item) {
         if ((rear + 1) % array.length == front) {
@@ -86,5 +91,30 @@ public class ArrayQueue<E> implements Queue {
             throw new NoSuchElementException();
         }
         return item;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public boolean contains(Object item) {
+        int start = (front + 1) % array.length;
+        for (int i = 0, index = start; i < size; i++, index = (index + 1) % array.length) {
+            if (array[index].equals(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void clear() {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = null;
+        }
+        front = rear = size = 0;
     }
 }
