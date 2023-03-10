@@ -25,6 +25,13 @@ public class SinglyLinkedList<E> implements List<E> {
         return node;
     }
 
+    /**
+     *  1) 노드 생성
+     *  2) 생성한 노드의 다음 노드를 헤드로 지정
+     *  3) 헤드 재지정
+     *  4) 사이즈 업
+     *  5) (재지정된 헤드의 다음 노드가 Null 인 경우 테일노드로 지정)
+     */
     public void addFirst(E value) {
         SNode<E> newNode = new SNode<>(value);
         newNode.next = head;
@@ -36,12 +43,23 @@ public class SinglyLinkedList<E> implements List<E> {
         }
     }
 
+    /**
+     *  List 인터페이스에서 정의한 add(E value)는 맨 뒤에 추가하는 것을 의미
+     */
     @Override
     public boolean add(E value) {
         addLast(value);
         return true;
     }
 
+    /**
+     *  사이즈가 0인 경우 선두에 새로운 노드를 추가하는 것과 동일
+     *
+     *  1) 새로운 노드 생성
+     *  2) 테일의 다음 노드를 생성한 노드로 지정
+     *  3) 테일 재지정
+     *  4) 사이즈 업
+     */
     public void addLast(E value) {
         if (size == 0) {
             addFirst(value);
@@ -53,9 +71,21 @@ public class SinglyLinkedList<E> implements List<E> {
         size++;
     }
 
+    /**
+     *  - 주어진 인덱스가 유효한 범위에 있는지 체크
+     *  - 주어진 인데스가 0인 경우 ... addFirst(E value)
+     *  - 주어진 인덱스가 size인 경우 ... addLast(E value)
+     *
+     *  1) 주어진 인덱스 이전 노드를 가리키는 변수 생성 (prev)
+     *  2) 새로운 노드의 다음 노드로 가리키는 변수 생성 (next)
+     *  3) 노드 생성
+     *  4) prev 다음 노드를 생성한 노드로 지정
+     *  5) 새로 생성한 노드의 다음 노드를 next 노드로 지정
+     *  6) 사이즈 업
+     */
     @Override
     public void add(int index, E value) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
         if (index == 0) {
@@ -74,6 +104,9 @@ public class SinglyLinkedList<E> implements List<E> {
         size++;
     }
 
+    /**
+     *  헤드 노드 삭제
+     */
     public E remove() {
         SNode<E> headNode = head;
         if (headNode == null) {
@@ -91,6 +124,9 @@ public class SinglyLinkedList<E> implements List<E> {
         return element;
     }
 
+    /**
+     *  주어진 인덱스에 위치한 노드 삭제
+     */
     @Override
     public E remove(int index) {
         if (index == 0) {
@@ -113,13 +149,18 @@ public class SinglyLinkedList<E> implements List<E> {
         return element;
     }
 
+    /**
+     *  특정 값을 갖는 노드 삭제 (해당 값을 갖는 첫 번째 노드)
+     */
     @Override
     public boolean remove(Object value) {
         SNode<E> prev = head;
         SNode<E> curr = head;
+        boolean hasValue = false;
 
-        while (curr != null) {
+        for (; curr != null; curr = curr.next) {
             if (value.equals(curr.data)) {
+                hasValue = true;
                 break;
             }
             prev = curr;
