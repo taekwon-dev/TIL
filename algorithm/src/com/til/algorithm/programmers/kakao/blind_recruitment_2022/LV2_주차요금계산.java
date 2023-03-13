@@ -1,55 +1,60 @@
 package com.til.algorithm.programmers.kakao.blind_recruitment_2022;
 
+import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
 
 public class LV2_주차요금계산 {
 
-    public int[] solution(int[] fees, String[] records) {
-        HashMap<String, Integer> table = new HashMap<>();
-        TreeMap<String, Integer> result = new TreeMap<>();
+    /**
+     *  주차된 차 별로 주차 요금을 반환할 때, 차 번호 기준으로 정렬을 해야하므로
+     *  차 번호(Key)를 기준으로 오름차순으로 정렬된 상태로 관리할 수 있도록 TreeMap 활용
+     */
+    private Map<String, Integer> totalTime = new TreeMap<>();
+    private Map<String, Integer> currentStatus = new HashMap<>();
 
+    public int[] solution(int[] fees, String[] records) {
         for (String record : records) {
             String[] recordSplit = record.split(" ");
             String time = recordSplit[0];
             String number = recordSplit[1];
-            String status = recordSplit[2];
+            String flag = recordSplit[2];
 
-            if (status.equals("IN")) {
-                if (!result.containsKey(number)) {
-                    result.put(number, 0);
-                }
-                table.put(number, hashCode(time));
-            } else if (status.equals("OUT")) {
-                int exit = hashCode(time);
-                int entrance = table.get(number);
-                result.put(number, result.get(number) + (exit - entrance));
-                table.remove(number);
+            if (flag.equals("IN")) {
+                currentStatus.put(number, convertToMinute(time));
+                continue;
             }
+            int lastInTime = currentStatus.get(number);
+            currentStatus.remove(number);
+            totalTime.put(number, totalTime.getOrDefault(number, 0) + convertToMinute(time) - lastInTime);
         }
-        if (!table.isEmpty()) {
-            table.forEach((k, v) -> {
-                int exit = hashCode("23:59");
-                int entrance = v;
-                result.put(k, result.get(k) + (exit - entrance));
-            });
-        }
-        int[] answer = new int[result.size()];
-        int idx = 0;
-        for (int serviceTime : result.values()) {
-            answer[idx] = fees[1];
-            if (serviceTime > fees[0]) {
-                answer[idx] += Math.ceil((serviceTime - fees[0]) / (double) fees[2]) * fees[3];
+        /**
+         *  현재 주차된 상태를 기준으로 요금을 계산할 때 출차되지 않은 차는 23:59에 출차된 것으로 계산
+         */
+        currentStatus.forEach((k, v) -> {
+            totalTime.put(k, totalTime.getOrDefault(k, 0) + convertToMinute("23:59") - v);
+        });
+
+        int[] answer = new int[totalTime.size()];
+        int index = 0;
+        for (int parkingTime : totalTime.values()) {
+            answer[index] = fees[1];
+            if (parkingTime > fees[0]) {
+                answer[index] += Math.ceil((parkingTime - fees[0]) / (double) fees[2]) * fees[3];
             }
-            idx++;
+            index++;
         }
         return answer;
     }
 
-    private int hashCode(String time) {
+    /**
+     *  시간 계산할 때 '분'으로 통일해서 계산하면 편하므로, 아래와 같이 단위를 통일
+     */
+    private int convertToMinute(String time) {
         String[] timeSplit = time.split(":");
-        int hour = Integer.parseInt(timeSplit[0]) * 60;
-        int minute = Integer.parseInt(timeSplit[1]);
-        return hour + minute;
+        int h = Integer.parseInt(timeSplit[0]) * 60;
+        int m = Integer.parseInt(timeSplit[1]);
+
+        return h + m;
     }
 }

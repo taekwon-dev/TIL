@@ -23,7 +23,6 @@ public class LEET_113_b {
         }
         if (root.left == null && root.right == null) {
             if (sum + root.val == targetSum) {
-                System.out.println(s + root.val);
                 List<Integer> path = Arrays.asList(s.split("->"))
                         .stream()
                         .map(Integer::parseInt)

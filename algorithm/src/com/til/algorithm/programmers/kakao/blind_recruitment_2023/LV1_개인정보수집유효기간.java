@@ -5,33 +5,39 @@ import java.util.HashMap;
 
 public class LV1_개인정보수집유효기간 {
 
+    private HashMap<String, String> expiration = new HashMap<>();
+
     public int[] solution(String today, String[] terms, String[] privacies) {
-        HashMap<String, String> map = new HashMap<>();
         for (String term : terms) {
             String[] termSplit = term.split(" ");
-            map.put(termSplit[0], termSplit[1]);
+            expiration.put(termSplit[0], termSplit[1]);
         }
         ArrayList<Integer> answer = new ArrayList<>();
-        int todayHashCode = hashCode(today, 0);
-        int idx = 1;
+        int index = 1;
         for (String privacy : privacies) {
             String[] privacySplit = privacy.split(" ");
             String date = privacySplit[0];
-            int validation = Integer.parseInt(map.get(privacySplit[1]));
-            int targetHashCode = hashCode(date, validation) - 1;
+            String type = privacySplit[1];
+            int duration = Integer.parseInt(expiration.get(type));
+
+            int todayHashCode = hashCode(today, 0);
+            int targetHashCode = hashCode(date, duration) - 1;
 
             if (todayHashCode > targetHashCode) {
-                answer.add(idx);
+                answer.add(index);
             }
-            idx++;
+            index++;
         }
+        /**
+         *  List<Integer> to int[]
+         */
         return answer.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    private int hashCode(String date, int validation) {
+    private int hashCode(String date, int duration) {
         String[] dateSplit = date.split("\\.");
         int year = Integer.parseInt(dateSplit[0]) * 12 * 28;
-        int month = (Integer.parseInt(dateSplit[1]) + validation) * 28;
+        int month = (Integer.parseInt(dateSplit[1]) + duration) * 28;
         int day = Integer.parseInt(dateSplit[2]);
 
         return year + month + day;
