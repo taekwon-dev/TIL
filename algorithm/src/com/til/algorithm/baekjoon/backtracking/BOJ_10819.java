@@ -9,7 +9,7 @@ public class BOJ_10819 {
     private static int[] arr;
     private static int[] candidate;
     private static boolean[] visited;
-    private static int answer;
+    private static int max = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,7 +19,6 @@ public class BOJ_10819 {
         arr = new int[N];
         candidate = new int[N];
         visited = new boolean[N];
-        answer = Integer.MIN_VALUE;
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
@@ -27,7 +26,7 @@ public class BOJ_10819 {
         }
         backtracking(0);
 
-        bw.write(answer + "\n");
+        bw.write(max + "\n");
         bw.flush();
         bw.close();
         br.close();
@@ -35,7 +34,7 @@ public class BOJ_10819 {
 
     private static void backtracking(int depth) {
         if (depth == N) {
-            answer = Math.max(answer, findMax());
+            max = Math.max(max, findMax());
             return;
         }
         for (int i = 0; i < N; i++) {
@@ -49,10 +48,10 @@ public class BOJ_10819 {
     }
 
     private static int findMax() {
-        int result = 0;
+        int sum = 0;
         for (int i = 0; i < N - 1; i++) {
-            result += Math.abs(candidate[i] - candidate[i + 1]);
+            sum += Math.abs(candidate[i] - candidate[i + 1]);
         }
-        return result;
+        return sum;
     }
 }

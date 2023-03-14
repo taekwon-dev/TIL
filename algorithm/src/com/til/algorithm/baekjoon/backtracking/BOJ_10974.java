@@ -1,27 +1,35 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class BOJ_10974 {
 
-    private static int n;
+    private static int N;
     private static boolean[] visited;
+    private static StringBuilder sb;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        visited = new boolean[n + 1];
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        N = Integer.parseInt(br.readLine());
+        visited = new boolean[N + 1];
+        sb = new StringBuilder();
+
         backtracking(0, "");
+
+        bw.write(sb.toString() + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static void backtracking(int depth, String s) {
-        if (depth == n) {
-            System.out.println(s);
+        if (depth == N) {
+            sb.append(s).append("\n");
             return;
         }
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= N; i++) {
             if (!visited[i]) {
                 visited[i] = true;
                 backtracking(depth + 1, s + i + " ");
