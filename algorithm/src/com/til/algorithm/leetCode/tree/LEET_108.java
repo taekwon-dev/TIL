@@ -1,5 +1,8 @@
 package com.til.algorithm.leetCode.tree;
 
+/**
+ *  오름차순 정렬된 배열을 통해 BST 구축하기
+ */
 public class LEET_108 {
 
     public TreeNode sortedArrayToBST(int[] nums) {

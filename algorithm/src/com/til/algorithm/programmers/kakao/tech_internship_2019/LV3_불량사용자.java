@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class LV3_불량사용자 {
 
-    private Set<String> set = new HashSet<>();
+    private Set<String> answer = new HashSet<>();
     private String[] userIds;
     private String[] banIds;
     private boolean[] visited;
@@ -20,24 +20,25 @@ public class LV3_불량사용자 {
             banIds[i] = banIds[i].replace("*", ".");
         }
         backtracking(0, "");
-        return set.size();
+
+        return answer.size();
     }
 
-    private void backtracking(int depth, String s) {
+    private void backtracking(int depth, String candidate) {
         if (depth == banIds.length) {
-            String[] candidate = s.split(" ");
-            Arrays.sort(candidate);
+            String[] candidateSplit = candidate.split(" ");
+            Arrays.sort(candidateSplit);
             StringBuilder sb = new StringBuilder();
-            for (String id : candidate) {
+            for (String id : candidateSplit) {
                 sb.append(id);
             }
-            set.add(sb.toString());
+            answer.add(sb.toString());
             return;
         }
         for (int i = 0; i < userIds.length; i++) {
             if (!visited[i] && userIds[i].matches(banIds[depth])) {
                 visited[i] = true;
-                backtracking(depth + 1, s + " " + userIds[i]);
+                backtracking(depth + 1, candidate + " " + userIds[i]);
                 visited[i] = false;
             }
         }

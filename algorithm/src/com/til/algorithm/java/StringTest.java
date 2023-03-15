@@ -239,4 +239,13 @@ class StringTest {
         String s = "BCD";
         assertEquals(s.indexOf(s), 0);
     }
+
+    @Test
+    @DisplayName("mathces() 활용하여 정규식 패턴 일치여부 확인")
+    void matches() {
+        String source = "frodo";
+        String target = "fr.d.";
+
+        assertTrue(source.matches(target));
+    }
 }
