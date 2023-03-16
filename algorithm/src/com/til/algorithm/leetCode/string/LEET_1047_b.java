@@ -1,24 +1,30 @@
 package com.til.algorithm.leetCode.string;
 
-
 import java.util.Stack;
 
+/**
+ *  Stack 자료구조 활용
+ */
 public class LEET_1047_b {
+
     public String removeDuplicates(String s) {
         Stack<Character> stack = new Stack<>();
-        char[] arr = s.toCharArray();
-        for (char c : arr) {
-            if (!stack.isEmpty() && stack.peek() == c) {
-                stack.pop();
-            } else {
+        char[] word = s.toCharArray();
+
+        for (char c : word) {
+            if (stack.isEmpty()) {
                 stack.push(c);
+                continue;
             }
+            if (stack.peek() != c) {
+                stack.push(c);
+                continue;
+            }
+            stack.pop();
         }
-        if (stack.size() == 0) {
-            return "";
-        }
+
         StringBuilder sb = new StringBuilder();
-        while (stack.size() != 0) {
+        while (!stack.isEmpty()) {
             sb.append(stack.pop());
         }
         return sb.reverse().toString();

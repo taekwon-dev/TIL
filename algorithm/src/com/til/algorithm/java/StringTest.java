@@ -248,4 +248,20 @@ class StringTest {
 
         assertTrue(source.matches(target));
     }
+
+    @Test
+    @DisplayName("String empty vs blank")
+    void emptyVSblank() {
+        String s1 = "";
+        String s2 = " ";
+
+        assertTrue(s1.isEmpty());
+        assertFalse(s2.isEmpty());
+
+        /**
+         *  If a string only consists of whitespace, then we call it blank.
+         */
+        assertTrue(s1.isBlank());
+        assertTrue(s2.isBlank());
+    }
 }
