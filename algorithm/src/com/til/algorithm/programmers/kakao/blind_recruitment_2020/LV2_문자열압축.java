@@ -2,13 +2,12 @@ package com.til.algorithm.programmers.kakao.blind_recruitment_2020;
 
 public class LV2_문자열압축 {
 
-
     public int solution(String s) {
         int answer = s.length();
         for (int i = 1; i <= s.length() / 2; i++) {
+            int prefix = 1;
             String curr = s.substring(0, i);
             StringBuilder sb = new StringBuilder();
-            int prefix = 1;
             for (int j = i; j <= s.length(); j += i) {
                 String next;
                 if (j + i > s.length()) {

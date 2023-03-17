@@ -1,8 +1,6 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class BOJ_2580 {
@@ -19,36 +17,29 @@ public class BOJ_2580 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        sudoku(0, 0);
+        backtracking(0, 0);
     }
 
-    private static void sudoku(int row, int col) {
+    private static void backtracking(int row, int col) {
         if (col == 9) {
-            sudoku(row + 1, 0);
+            backtracking(row + 1, 0);
             return;
         }
         if (row == 9) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 9; i++) {
-                for (int j = 0; j < 9; j++) {
-                    sb.append(map[i][j]).append(" ");
-                }
-                sb.append("\n");
-            }
-            System.out.println(sb.toString());
+            printSudoku();
             System.exit(0);
         }
         if (map[row][col] == 0) {
             for (int val = 1; val <= 9; val++) {
                 if (isLocatable(row, col, val)) {
                     map[row][col] = val;
-                    sudoku(row, col + 1);
+                    backtracking(row, col + 1);
                 }
             }
             map[row][col] = 0;
             return;
         }
-        sudoku(row, col + 1);
+        backtracking(row, col + 1);
     }
 
     private static boolean isLocatable(int row, int col, int val) {
@@ -70,5 +61,16 @@ public class BOJ_2580 {
             }
         }
         return true;
+    }
+
+    private static void printSudoku() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                sb.append(map[i][j]).append(" ");
+            }
+            sb.append("\n");
+        }
+        System.out.println(sb.toString());
     }
 }

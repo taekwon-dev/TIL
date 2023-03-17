@@ -24,6 +24,12 @@ public class 문자열압축 {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
             count++;
+            /**
+             *  - 기준이 되는 문자 다음 포인터가 문자열 길이 이상인 경우
+             *  - 앞 뒤가 서로 다른 문자인 경우
+             *
+             *  -> 해당 문자에 대한 압축 결과를 입력
+             */
             if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
                 if (count != 1) {
                     sb.append(count);

@@ -1,34 +1,37 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class BOJ_2661 {
-    static int n;
+
+    private static int N;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
+        N = Integer.parseInt(br.readLine());
         backtracking("");
     }
 
-    private static void backtracking(String s) {
-        if (s.length() == n) {
-            System.out.println(s);
+    private static void backtracking(String candidate) {
+        if (candidate.length() == N) {
+            System.out.println(candidate);
             System.exit(0);
             return;
         }
         for (int i = 1; i <= 3; i++) {
-            if (isGood(s + i)) backtracking(s + i);
+            if (isGood(candidate + i)) {
+                backtracking(candidate + i);
+            }
         }
     }
 
-    private static boolean isGood(String s) {
-        for (int i = 1; i <= s.length() / 2; i++) {
-            String front = s.substring(s.length() - i * 2, s.length() - i);
-            String back = s.substring(s.length() - i, s.length());
-            if (front.equals(back)) return false;
+    private static boolean isGood(String candidate) {
+        for (int i = 1; i <= candidate.length() / 2; i++) {
+            String former = candidate.substring(candidate.length() - i * 2, candidate.length() - i);
+            String latter = candidate.substring(candidate.length() - i);
+            if (former.equals(latter)) {
+                return false;
+            }
         }
         return true;
     }

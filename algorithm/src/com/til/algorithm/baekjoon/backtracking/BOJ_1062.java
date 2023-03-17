@@ -3,13 +3,16 @@ package com.til.algorithm.baekjoon.backtracking;
 import java.io.*;
 import java.util.StringTokenizer;
 
+/**
+ *  백트랙킹 + 조합
+ */
 public class BOJ_1062 {
 
     private static int N;
     private static int K;
     private static String[] words;
-    private static boolean[] alphabet;
-    private static int answer;
+    private static boolean[] visited;
+    private static int max;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,60 +23,58 @@ public class BOJ_1062 {
         K = Integer.parseInt(st.nextToken());
 
         if (K < 5) {
-            bw.write(0 + "\n");
+            bw.write("0" + "\n");
             bw.flush();
         } else {
             words = new String[N];
-            alphabet = new boolean[26];
-            answer = Integer.MIN_VALUE;
-
-            alphabet['a' - 'a'] = true;
-            alphabet['n' - 'a'] = true;
-            alphabet['t' - 'a'] = true;
-            alphabet['i' - 'a'] = true;
-            alphabet['c' - 'a'] = true;
+            visited = new boolean[26];
 
             for (int i = 0; i < N; i++) {
                 words[i] = br.readLine();
             }
+            visited['a' - 'a'] = true;
+            visited['n' - 'a'] = true;
+            visited['t' - 'a'] = true;
+            visited['i' - 'a'] = true;
+            visited['c' - 'a'] = true;
             backtracking(0, 0);
 
-            bw.write(answer + "\n");
+            bw.write(max + "\n");
             bw.flush();
         }
+
         bw.close();
         br.close();
     }
 
     private static void backtracking(int depth, int index) {
         if (depth == K - 5) {
-            answer = Math.max(answer, readableWordCount());
+            max = Math.max(max, findMax());
             return;
         }
-        for (int i = index; i < alphabet.length; i++) {
-            if (!alphabet[i]) {
-                alphabet[i] = true;
+        for (int i = index; i < 26; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
                 backtracking(depth + 1, i + 1);
-                alphabet[i] = false;
+                visited[i] = false;
             }
         }
     }
 
-    private static int readableWordCount() {
-        int result = 0;
-        for (int i = 0; i < N; i++) {
-            String word = words[i];
-            boolean flag = false;
-            for (int j = 0; j < word.length(); j++) {
-                if (alphabet[word.charAt(j) - 'a']) {
-                    continue;
+    private static int findMax() {
+        int count = 0;
+        for (String word : words) {
+            boolean flag = true;
+            for (int i = 0; i < word.length(); i++) {
+                if (!visited[word.charAt(i) - 'a']) {
+                    flag = false;
+                    break;
                 }
-                flag = true;
             }
-            if (!flag) {
-                result++;
+            if (flag) {
+                count++;
             }
         }
-        return result;
+        return count;
     }
 }

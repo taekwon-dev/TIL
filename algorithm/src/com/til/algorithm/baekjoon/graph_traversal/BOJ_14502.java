@@ -1,29 +1,19 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_14502 {
 
-    static class Node {
-        int x;
-        int y;
-
-        public Node(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
     private static int N;
     private static int M;
     private static int[][] map;
-    private static boolean[][] visited;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
-    private static Queue<Node> virusQ = new LinkedList<>();
+    private static Queue<int[]> queue = new LinkedList<>();
     private static int answer;
 
     public static void main(String[] args) throws IOException {
@@ -49,63 +39,68 @@ public class BOJ_14502 {
         br.close();
     }
 
-    private static void backtracking(int depth) {
-        if (depth == 3) {
-            spread();
+    private static void backtracking(int wall) {
+        if (wall == 3) {
+            answer = Math.max(answer, spreadAndGetSafetySize());
             return;
         }
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 if (map[i][j] == 0) {
                     map[i][j] = 1;
-                    backtracking(depth + 1);
+                    backtracking(wall + 1);
                     map[i][j] = 0;
                 }
             }
         }
     }
 
-    private static void spread() {
-        visited = new boolean[N][M];
-        int[][] copy = new int[N][M];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                copy[i][j] = map[i][j];
-                if (copy[i][j] == 2) {
-                    virusQ.offer(new Node(i, j));
-                    visited[i][j] = true;
-                }
-            }
-        }
-        while (!virusQ.isEmpty()) {
-            Node virus = virusQ.poll();
+    private static int spreadAndGetSafetySize() {
+        boolean[][] virus = new boolean[N][M];
+        int[][] copyMap = copyMap();
+        while (!queue.isEmpty()) {
+            int[] curr = queue.poll();
+            virus[curr[0]][curr[1]] = true;
 
             for (int i = 0; i < 4; i++) {
-                int nx = virus.x + dx[i];
-                int ny = virus.y + dy[i];
+                int nx = curr[0] + dx[i];
+                int ny = curr[1] + dy[i];
 
                 if (nx < 0 || ny < 0 || nx > N - 1 || ny > M - 1) {
                     continue;
                 }
-                if (!visited[nx][ny] && map[nx][ny] == 0) {
-                    virusQ.offer(new Node(nx, ny));
-                    copy[nx][ny] = 2;
-                    visited[nx][ny] = true;
+                if (!virus[nx][ny] && copyMap[nx][ny] == 0) {
+                    queue.offer(new int[]{nx, ny});
+                    virus[nx][ny] = true;
+                    copyMap[nx][ny] = 2;
                 }
             }
         }
-        answer = Math.max(answer, getSafetySize(copy));
+        return getSafetySize(copyMap);
     }
 
-    private static int getSafetySize(int[][] copy) {
+    private static int getSafetySize(int[][] copyMap) {
         int safetySize = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                if (copy[i][j] == 0) {
+                if (copyMap[i][j] == 0) {
                     safetySize++;
                 }
             }
         }
         return safetySize;
+    }
+
+    private static int[][] copyMap() {
+        int[][] copy = new int[N][M];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                copy[i][j] = map[i][j];
+                if (copy[i][j] == 2) {
+                    queue.offer(new int[]{i, j});
+                }
+            }
+        }
+        return copy;
     }
 }

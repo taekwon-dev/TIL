@@ -1,41 +1,47 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class BOJ_12101 {
 
-    private static int n;
-    private static int k;
-    private static List<String> list = new ArrayList<>();
+    private static int N;
+    private static int K;
+    private static ArrayList<String> candidates;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        k = Integer.parseInt(st.nextToken());
+
+        N = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
+        candidates = new ArrayList<>();
         backtracking(0, "");
-        if (k > list.size()) {
-            System.out.println(-1);
-            return;
+        Collections.sort(candidates);
+
+        if (K > candidates.size()) {
+            bw.write("-1" + "\n");
+        } else {
+            bw.write(candidates.get(K - 1));
         }
-        System.out.println(list.get(k - 1));
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
-    private static void backtracking(int sum, String s) {
-        if (sum > n) {
+    private static void backtracking(int sum, String candidate) {
+        if (sum > N) {
             return;
         }
-        if (sum == n) {
-            list.add(s.substring(0, s.length() - 1));
+        if (sum == N) {
+            candidates.add(candidate.substring(0, candidate.length() - 1));
             return;
         }
         for (int i = 1; i <= 3; i++) {
-            backtracking(sum + i, s + i + "+");
+            backtracking(sum + i, candidate + i + "+");
         }
     }
 }
