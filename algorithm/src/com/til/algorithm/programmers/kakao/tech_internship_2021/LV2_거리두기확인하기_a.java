@@ -9,23 +9,23 @@ public class LV2_거리두기확인하기_a {
     private int[] dy = {0, 0, 1, -1};
 
     public int[] solution(String[][] places) {
-        int[] answer = new int[5];
+        int[] answer = new int[places.length];
         for (int idx = 0; idx < places.length; idx++) {
             String[] place = places[idx];
 
-            boolean flag = true;
+            boolean isOk = true;
             outer:
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 5; j++) {
                     if (place[i].charAt(j) == 'P') {
                         if (!bfs(i, j, place)) {
-                            flag = false;
+                            isOk = false;
                             break outer;
                         }
                     }
                 }
             }
-            answer[idx] = flag ? 1 : 0;
+            answer[idx] = isOk ? 1 : 0;
         }
         return answer;
     }
