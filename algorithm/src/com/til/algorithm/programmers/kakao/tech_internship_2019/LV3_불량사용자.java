@@ -6,39 +6,39 @@ import java.util.HashSet;
 
 public class LV3_불량사용자 {
 
-    private Set<String> answer = new HashSet<>();
-    private String[] userIds;
-    private String[] banIds;
+    private String[] userId;
+    private String[] bannedId;
     private boolean[] visited;
+    private HashSet<String> set = new HashSet<>();
 
     public int solution(String[] user_id, String[] banned_id) {
-        userIds = user_id;
-        banIds = banned_id;
-        visited = new boolean[user_id.length];
+        userId = user_id;
+        bannedId = banned_id;
+        visited = new boolean[userId.length];
 
-        for (int i = 0; i < banIds.length; i++) {
-            banIds[i] = banIds[i].replace("*", ".");
+        for (int i = 0; i < bannedId.length; i++) {
+            bannedId[i] = bannedId[i].replace("*", ".");
         }
         backtracking(0, "");
-
-        return answer.size();
+        return set.size();
     }
 
     private void backtracking(int depth, String candidate) {
-        if (depth == banIds.length) {
+        if (depth == bannedId.length) {
             String[] candidateSplit = candidate.split(" ");
             Arrays.sort(candidateSplit);
+
             StringBuilder sb = new StringBuilder();
-            for (String id : candidateSplit) {
-                sb.append(id);
+            for (String name : candidateSplit) {
+                sb.append(name);
             }
-            answer.add(sb.toString());
+            set.add(sb.toString());
             return;
         }
-        for (int i = 0; i < userIds.length; i++) {
-            if (!visited[i] && userIds[i].matches(banIds[depth])) {
+        for (int i = 0; i < userId.length; i++) {
+            if (!visited[i] && userId[i].matches(bannedId[depth])) {
                 visited[i] = true;
-                backtracking(depth + 1, candidate + " " + userIds[i]);
+                backtracking(depth + 1, candidate + userId[i] + " ");
                 visited[i] = false;
             }
         }
