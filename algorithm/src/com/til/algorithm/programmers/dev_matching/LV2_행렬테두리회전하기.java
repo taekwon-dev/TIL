@@ -3,7 +3,7 @@ package com.til.algorithm.programmers.dev_matching;
 public class LV2_행렬테두리회전하기 {
 
     public int[] solution(int rows, int columns, int[][] queries) {
-        int[][] map = new int[rows + 1][columns + 1];
+        int[][] map =  new int[rows][columns];
         int val = 1;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
