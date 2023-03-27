@@ -8,7 +8,7 @@ package com.til.algorithm.algorithm.sort;
  *  왼쪽 자식 노드 N * 2 + 1
  *  오른쪽 자식 노드 N * 2 + 2
  */
-public class HeapSort_Recursion {
+public class HeapSort {
 
     public static void main(String[] args) {
         int[] arr = {3, 10, 35, 23, 19, 47, 60, 35, 80, 44};
