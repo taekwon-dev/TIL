@@ -41,7 +41,7 @@ public class BOJ_2776 {
                 sb.append(number).append("\n");
             }
 
-            bw.write(sb.toString() + "\n");
+            bw.write(sb.toString());
             bw.flush();
         }
 
