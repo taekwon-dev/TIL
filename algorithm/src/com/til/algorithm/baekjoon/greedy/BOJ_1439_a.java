@@ -3,7 +3,7 @@ package com.til.algorithm.baekjoon.greedy;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class BOJ_1439 {
+public class BOJ_1439_a {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
