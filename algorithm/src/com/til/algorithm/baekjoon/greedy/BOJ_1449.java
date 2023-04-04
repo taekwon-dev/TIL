@@ -1,9 +1,10 @@
 package com.til.algorithm.baekjoon.greedy;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BOJ_17521 {
+public class BOJ_1449 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,28 +12,25 @@ public class BOJ_17521 {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(st.nextToken());
-        long W = Long.parseLong(st.nextToken());
-        long coin = 0;
-        int[] chart = new int[N];
+        int L = Integer.parseInt(st.nextToken());
+        int[] leak = new int[N];
 
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            chart[i] = Integer.parseInt(br.readLine());
+            leak[i] = Integer.parseInt(st.nextToken());
         }
+        Arrays.sort(leak);
 
-        for (int i = 0; i < N - 1; i++) {
-            if (chart[i] < chart[i + 1]) {
-                if (W >= chart[i]) {
-                    coin += W / chart[i];
-                    W %= chart[i];
-                }
-            } else if (chart[i] > chart[i + 1]) {
-                W += coin * chart[i];
-                coin = 0;
+        int answer = 1;
+        double left = leak[0] - 0.5;
+        for (int i = 0; i < N; i++) {
+            if (left + L < leak[i]) {
+                left = leak[i] - 0.5;
+                answer++;
             }
         }
-        W += coin * chart[N - 1];
 
-        bw.write(W + "\n");
+        bw.write(answer + "\n");
         bw.flush();
         bw.close();
         br.close();
