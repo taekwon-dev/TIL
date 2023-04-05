@@ -22,18 +22,18 @@ public class BOJ_2003 {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-
         int j = 0;
-        int prefix_sum = 0;
+        int prefixSum = 0;
         int answer = 0;
         for (int i = 0; i < N; i++) {
-            while (prefix_sum < M && j < N) {
-                prefix_sum += arr[j++];
+            while (prefixSum < M && j < N) {
+                prefixSum += arr[j];
+                j++;
             }
-            if (prefix_sum == M) {
+            if (prefixSum == M) {
                 answer++;
             }
-            prefix_sum -= arr[i];
+            prefixSum -= arr[i];
         }
 
         bw.write(answer + "\n");

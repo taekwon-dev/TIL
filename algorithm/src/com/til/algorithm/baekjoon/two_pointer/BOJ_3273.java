@@ -19,9 +19,11 @@ public class BOJ_3273 {
         Arrays.sort(arr);
 
         int X = Integer.parseInt(br.readLine());
+
         int start = 0;
         int end = N - 1;
         int answer = 0;
+
         while (start < end) {
             int sum = arr[start] + arr[end];
             if (sum == X) {
@@ -38,6 +40,7 @@ public class BOJ_3273 {
                 start++;
             }
         }
+
         bw.write(answer + "\n");
         bw.flush();
         bw.close();

@@ -12,39 +12,42 @@ public class BOJ_11728 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        int[] arrN = new int[N];
-        int[] arrM = new int[M];
+        int[] A = new int[N];
+        int[] B = new int[M];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            arrN[i] = Integer.parseInt(st.nextToken());
+            A[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arrN);
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
-            arrM[i] = Integer.parseInt(st.nextToken());
+            B[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arrM);
 
         StringBuilder sb = new StringBuilder();
         int i = 0;
         int j = 0;
         while (i < N && j < M) {
-            if (arrN[i] < arrM[j]) {
-                sb.append(arrN[i++]).append(" ");
+            if (A[i] < B[j]) {
+                sb.append(A[i]).append(" ");
+                i++;
                 continue;
             }
-            sb.append(arrM[j++]).append(" ");
+            sb.append(B[j]).append(" ");
+            j++;
         }
 
         while (i < N) {
-            sb.append(arrN[i++]).append(" ");
+            sb.append(A[i]).append(" ");
+            i++;
         }
 
         while (j < M) {
-            sb.append(arrM[j++]).append(" ");
+            sb.append(B[j]).append(" ");
+            j++;
         }
+
         bw.write(sb.toString() + "\n");
         bw.flush();
         bw.close();
