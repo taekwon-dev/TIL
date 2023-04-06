@@ -3,41 +3,35 @@ package com.til.algorithm.baekjoon.two_pointer;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class BOJ_2003 {
-
-    private static int N;
-    private static int M;
-    private static int[] arr;
+public class BOJ_2559 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
-        arr = new int[N];
+        int N = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken());
+        int[] temperature = new int[N];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            temperature[i] = Integer.parseInt(st.nextToken());
         }
 
-        int j = 0;
         int sum = 0;
-        int answer = 0;
-        for (int i = 0; i < N; i++) {
-            while (sum < M && j < N) {
-                sum += arr[j];
-                j++;
+        for (int i = 0; i < K; i++) {
+            sum += temperature[i];
+        }
+        int max = sum;
+        for (int i = K; i < N; i++) {
+            sum += temperature[i] - temperature[i - K];
+            if (max < sum) {
+                max = sum;
             }
-            if (sum == M) {
-                answer++;
-            }
-            sum -= arr[i];
         }
 
-        bw.write(answer + "\n");
+        bw.write(max + "\n");
         bw.flush();
         bw.close();
         br.close();

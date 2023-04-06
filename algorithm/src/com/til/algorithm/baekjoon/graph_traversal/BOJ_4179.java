@@ -6,63 +6,57 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_5427 {
+public class BOJ_4179 {
 
-    private static int Y;
-    private static int X;
+    private static int R;
+    private static int C;
     private static char[][] map;
     private static int[][] fireMap;
     private static int[][] personMap;
-    private static Queue<int[]> fireQ;
-    private static Queue<int[]> personQ;
+    private static Queue<int[]> fireQ = new LinkedList<>();
+    private static Queue<int[]> personQ = new LinkedList<>();
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int tc = Integer.parseInt(br.readLine());
-        for (int t = 0; t < tc; t++) {
-            st = new StringTokenizer(br.readLine());
-            Y = Integer.parseInt(st.nextToken());
-            X = Integer.parseInt(st.nextToken());
-            map = new char[X][Y];
-            fireMap = new int[X][Y];
-            personMap = new int[X][Y];
-            fireQ = new LinkedList<>();
-            personQ = new LinkedList<>();
+        R = Integer.parseInt(st.nextToken());
+        C = Integer.parseInt(st.nextToken());
+        map = new char[R][C];
+        fireMap = new int[R][C];
+        personMap = new int[R][C];
 
-            for (int i = 0; i < X; i++) {
-                Arrays.fill(fireMap[i], -1);
-                Arrays.fill(personMap[i], -1);
-            }
+        for (int i = 0; i < R; i++) {
+            Arrays.fill(fireMap[i], -1);
+            Arrays.fill(personMap[i], -1);
+        }
 
-            for (int i = 0; i < X; i++) {
-                String row = br.readLine();
-                for (int j = 0; j < Y; j++) {
-                    map[i][j] = row.charAt(j);
-                    if (map[i][j] == '*') {
-                        fireMap[i][j] = 0;
-                        fireQ.offer(new int[]{i, j});
-                        continue;
-                    }
-                    if (map[i][j] == '@') {
-                        personMap[i][j] = 0;
-                        personQ.offer(new int[]{i, j});
-                    }
+        for (int i = 0; i < R; i++) {
+            String row = br.readLine();
+            for (int j = 0; j < C; j++) {
+                map[i][j] = row.charAt(j);
+                if (map[i][j] == 'F') {
+                    fireMap[i][j] = 0;
+                    fireQ.offer(new int[]{i, j});
+                    continue;
+                }
+                if (map[i][j] == 'J') {
+                    personMap[i][j] = 0;
+                    personQ.offer(new int[]{i, j});
                 }
             }
-            fire();
-            int result = person();
-            if (result == -1) {
-                bw.write("IMPOSSIBLE" + "\n");
-            } else {
-                bw.write(result + "\n");
-            }
-            bw.flush();
         }
+        fire();
+        int result = person();
+        if (result == -1) {
+            bw.write("IMPOSSIBLE" + "\n");
+        } else {
+            bw.write(result + "\n");
+        }
+        bw.flush();
         bw.close();
         br.close();
     }
@@ -115,10 +109,10 @@ public class BOJ_5427 {
     }
 
     private static boolean validateRange(int x, int y) {
-        return x >= 0 && y >= 0 && x < X && y < Y;
+        return x >= 0 && y >= 0 && x < R && y < C;
     }
 
     private static boolean isOnEdge(int x, int y) {
-        return x == 0 || y == 0 || x == X - 1 || y == Y - 1;
+        return x == 0 || y == 0 || x == R - 1 || y == C - 1;
     }
 }
