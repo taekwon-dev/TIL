@@ -23,21 +23,24 @@ public class BOJ_21921 {
         for (int i = 0; i < X; i++) {
             sum += visitor[i];
         }
-        int max = sum;
+        int max = 0;
         int maxCount = 1;
         for (int i = X; i < N; i++) {
             sum += visitor[i] - visitor[i - X];
             if (max == sum) {
                 maxCount++;
-            } else if (max < sum) {
+            }
+            if (max < sum) {
                 max = sum;
                 maxCount = 1;
             }
         }
+
         if (max == 0) {
             bw.write("SAD" + "\n");
         } else {
-            bw.write(max + "\n" + maxCount + "\n");
+            bw.write(max + "\n");
+            bw.write(maxCount + "\n");
         }
         bw.flush();
         bw.close();

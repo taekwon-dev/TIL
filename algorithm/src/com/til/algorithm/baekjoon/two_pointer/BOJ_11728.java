@@ -10,6 +10,7 @@ public class BOJ_11728 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
         int[] A = new int[N];
@@ -19,36 +20,36 @@ public class BOJ_11728 {
         for (int i = 0; i < N; i++) {
             A[i] = Integer.parseInt(st.nextToken());
         }
+        Arrays.sort(A);
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
             B[i] = Integer.parseInt(st.nextToken());
         }
+        Arrays.sort(B);
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder answer = new StringBuilder();
         int i = 0;
         int j = 0;
         while (i < N && j < M) {
             if (A[i] < B[j]) {
-                sb.append(A[i]).append(" ");
+                answer.append(A[i]).append(" ");
                 i++;
                 continue;
             }
-            sb.append(B[j]).append(" ");
+            answer.append(B[j]).append(" ");
             j++;
         }
-
         while (i < N) {
-            sb.append(A[i]).append(" ");
+            answer.append(A[i]).append(" ");
             i++;
         }
-
         while (j < M) {
-            sb.append(B[j]).append(" ");
+            answer.append(B[j]).append(" ");
             j++;
         }
 
-        bw.write(sb.toString() + "\n");
+        bw.write(answer.toString() + "\n");
         bw.flush();
         bw.close();
         br.close();

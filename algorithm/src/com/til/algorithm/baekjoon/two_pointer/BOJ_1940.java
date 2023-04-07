@@ -12,24 +12,26 @@ public class BOJ_1940 {
 
         int N = Integer.parseInt(br.readLine());
         int M = Integer.parseInt(br.readLine());
-        int[] arr = new int[N];
+        int[] weapon = new int[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            weapon[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arr);
+        Arrays.sort(weapon);
 
         int left = 0;
-        int right = arr.length - 1;
+        int right = weapon.length - 1;
         int answer = 0;
         while (left < right) {
-            int sum = arr[left] + arr[right];
+            int sum = weapon[left] + weapon[right];
             if (sum == M) {
                 answer++;
                 left++;
                 right--;
-            } else if (sum < M) {
+                continue;
+            }
+            if (sum < M) {
                 left++;
             } else {
                 right--;

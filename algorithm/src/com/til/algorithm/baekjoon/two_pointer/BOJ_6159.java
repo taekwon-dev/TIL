@@ -13,18 +13,18 @@ public class BOJ_6159 {
 
         int N = Integer.parseInt(st.nextToken());
         int S = Integer.parseInt(st.nextToken());
-        int[] cow = new int[N];
+        int[] len = new int[N];
 
         for (int i = 0; i < N; i++) {
-            cow[i] = Integer.parseInt(br.readLine());
+            len[i] = Integer.parseInt(br.readLine());
         }
-        Arrays.sort(cow);
+        Arrays.sort(len);
 
         int answer = 0;
         for (int i = 0; i < N - 1; i++) {
-            int sum = cow[i];
+            int sum = len[i];
             for (int j = i + 1; j < N; j++) {
-                if (sum + cow[j] <= S) {
+                if (sum + len[j] <= S) {
                     answer++;
                     continue;
                 }

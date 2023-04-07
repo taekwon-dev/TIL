@@ -9,20 +9,22 @@ public class BOJ_2018 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        int start = 1;
-        int end = 1;
+
+        int left = 1;
+        int right = 1;
         int sum = 1;
         int answer = 0;
-        while (start <= end) {
+
+        while (left <= right) {
             if (sum == N) {
                 answer++;
             }
             if (sum < N) {
-                end++;
-                sum += end;
+                right++;
+                sum += right;
             } else {
-                sum -= start;
-                start++;
+                sum -= left;
+                left++;
             }
         }
 
