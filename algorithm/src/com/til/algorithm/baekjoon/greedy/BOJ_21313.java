@@ -1,30 +1,28 @@
 package com.til.algorithm.baekjoon.greedy;
 
 import java.io.*;
-import java.util.Arrays;
 
-public class BOJ_2217 {
+public class BOJ_21313 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        int[] weight = new int[N];
+        StringBuilder answer = new StringBuilder();
 
-        for (int i = 0; i < N; i++) {
-            weight[i] = Integer.parseInt(br.readLine());
-        }
-        Arrays.sort(weight);
-
-        int max = weight[N - 1];
-        for (int i = 0; i < N - 1; i++) {
-            if (weight[i] * (N - i) > max) {
-                max = weight[i] * (N - i);
+        if (N % 2 == 0) {
+            for (int i = 0; i < N / 2; i++) {
+                answer.append("1 2").append(" ");
             }
+        } else {
+            for (int i = 0; i < N / 2; i++) {
+                answer.append("1 2").append(" ");
+            }
+            answer.append("3");
         }
 
-        bw.write(max + "\n");
+        bw.write(answer.toString() + "\n");
         bw.flush();
         bw.close();
         br.close();

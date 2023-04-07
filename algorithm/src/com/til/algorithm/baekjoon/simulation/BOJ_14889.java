@@ -1,4 +1,4 @@
-package com.til.algorithm.baekjoon.backtracking;
+package com.til.algorithm.baekjoon.simulation;
 
 import java.io.*;
 import java.util.StringTokenizer;

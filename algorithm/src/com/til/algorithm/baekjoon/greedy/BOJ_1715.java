@@ -1,30 +1,30 @@
 package com.til.algorithm.baekjoon.greedy;
 
 import java.io.*;
-import java.util.Arrays;
+import java.util.PriorityQueue;
 
-public class BOJ_2217 {
+public class BOJ_1715 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        int[] weight = new int[N];
-
+        PriorityQueue<Long> pq = new PriorityQueue<>();
         for (int i = 0; i < N; i++) {
-            weight[i] = Integer.parseInt(br.readLine());
-        }
-        Arrays.sort(weight);
-
-        int max = weight[N - 1];
-        for (int i = 0; i < N - 1; i++) {
-            if (weight[i] * (N - i) > max) {
-                max = weight[i] * (N - i);
-            }
+            pq.add(Long.parseLong(br.readLine()));
         }
 
-        bw.write(max + "\n");
+        long answer = 0;
+        while (pq.size() >= 2) {
+            long o1 = pq.poll();
+            long o2 = pq.poll();
+
+            answer += o1 + o2;
+            pq.add(o1 + o2);
+        }
+
+        bw.write(answer + "\n");
         bw.flush();
         bw.close();
         br.close();
