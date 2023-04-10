@@ -6,6 +6,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/**
+ *  Fire Move (1)
+ *  --------
+ *  JH Move   (2) - 불의 이동 과정을 기반으로 탈출 여부 확인
+ *  --------
+ *
+ */
 public class BOJ_4179 {
 
     private static int R;
