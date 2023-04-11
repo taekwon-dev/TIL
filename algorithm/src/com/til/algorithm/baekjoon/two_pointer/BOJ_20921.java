@@ -3,7 +3,7 @@ package com.til.algorithm.baekjoon.two_pointer;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class BOJ_21921 {
+public class BOJ_20921 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,16 +23,17 @@ public class BOJ_21921 {
         for (int i = 0; i < X; i++) {
             sum += visitor[i];
         }
-        int max = 0;
-        int maxCount = 1;
+        int max = sum;
+        int count = 1;
         for (int i = X; i < N; i++) {
             sum += visitor[i] - visitor[i - X];
             if (max == sum) {
-                maxCount++;
+                count++;
+                continue;
             }
             if (max < sum) {
                 max = sum;
-                maxCount = 1;
+                count = 1;
             }
         }
 
@@ -40,7 +41,7 @@ public class BOJ_21921 {
             bw.write("SAD" + "\n");
         } else {
             bw.write(max + "\n");
-            bw.write(maxCount + "\n");
+            bw.write(count + "\n");
         }
         bw.flush();
         bw.close();
