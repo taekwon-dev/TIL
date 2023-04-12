@@ -3,7 +3,7 @@ package com.til.algorithm.baekjoon.two_pointer;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class BOJ_2003 {
+public class BOJ_1806 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,29 +11,36 @@ public class BOJ_2003 {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-        int[] arr = new int[N];
+        int S = Integer.parseInt(st.nextToken());
+        int[] arr = new int[N + 1];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int answer = 0;
-        int j = 0;
+        int len = Integer.MAX_VALUE;
+        int l = 0;
+        int r = 0;
         int sum = 0;
-        for (int i = 0; i < N; i++) {
-            while (sum < M && j < N) {
-                sum += arr[j];
-                j++;
+        while (l <= N && r <= N) {
+            if (sum >= S && len > r - l) {
+                len = r - l;
             }
-            if (sum == M) {
-                answer++;
+            if (sum < S) {
+                sum += arr[r];
+                r++;
+            } else {
+                sum -= arr[l];
+                l++;
             }
-            sum -= arr[i];
+        }
+        if (len == Integer.MAX_VALUE) {
+            bw.write(0 + "\n");
+        } else {
+            bw.write(len + "\n");
         }
 
-        bw.write(answer + "\n");
         bw.flush();
         bw.close();
         br.close();

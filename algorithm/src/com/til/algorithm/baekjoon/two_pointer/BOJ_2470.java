@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BOJ_3273 {
+public class BOJ_2470 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,24 +19,30 @@ public class BOJ_3273 {
         }
         Arrays.sort(arr);
 
-        int X = Integer.parseInt(br.readLine());
+        int i = 0;
+        int j = N - 1;
         int left = 0;
-        int right = arr.length - 1;
-        int sum;
-        int answer = 0;
-        while (left < right) {
-            sum = arr[left] + arr[right];
-            if (sum == X) {
-                answer++;
+        int right = 0;
+        int gap = Integer.MAX_VALUE;
+        int sum = 0;
+        int abs = 0;
+
+        while (i < j) {
+            sum = arr[i] + arr[j];
+            abs = Math.abs(sum);
+            if (abs < gap) {
+                gap = abs;
+                left = arr[i];
+                right = arr[j];
             }
-            if (sum > X) {
-                right--;
+            if (sum > 0) {
+                j--;
             } else {
-                left++;
+                i++;
             }
         }
 
-        bw.write(answer + "\n");
+        bw.write(left + " " + right + "\n");
         bw.flush();
         bw.close();
         br.close();
