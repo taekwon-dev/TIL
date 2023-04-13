@@ -3,6 +3,7 @@ package com.til.algorithm.baekjoon.graph_traversal;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class BOJ_2667 {
 
@@ -11,7 +12,7 @@ public class BOJ_2667 {
     private static boolean[][] visited;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
-    private static int eachRegionSize;
+    private static int size;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -28,21 +29,21 @@ public class BOJ_2667 {
             }
         }
 
-        ArrayList<Integer> regions = new ArrayList<>();
+        List<Integer> village = new ArrayList<>();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (!visited[i][j] && map[i][j] == 1) {
                     dfs(i, j);
-                    regions.add(eachRegionSize);
-                    eachRegionSize = 0;
+                    village.add(size);
+                    size = 0;
                 }
             }
         }
-        Collections.sort(regions);
+        Collections.sort(village);
 
-        bw.write(regions.size() + "\n");
-        for (int region : regions) {
-            bw.write(region + "\n");
+        bw.write(village.size() + "\n");
+        for (int i = 0; i < village.size(); i++) {
+            bw.write(village.get(i) + "\n");
         }
         bw.flush();
         bw.close();
@@ -51,7 +52,7 @@ public class BOJ_2667 {
 
     private static void dfs(int x, int y) {
         visited[x][y] = true;
-        eachRegionSize++;
+        size++;
 
         for (int i = 0; i < 4; i++) {
             int nx = x + dx[i];

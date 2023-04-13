@@ -19,28 +19,28 @@ public class BOJ_1806 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int len = Integer.MAX_VALUE;
-        int l = 0;
-        int r = 0;
+        int i = 0;
+        int j = 0;
         int sum = 0;
-        while (l <= N && r <= N) {
-            if (sum >= S && len > r - l) {
-                len = r - l;
+        int len = Integer.MAX_VALUE;
+        while (j <= N) {
+            if (sum >= S && len > j - i) {
+                len = j - i;
             }
             if (sum < S) {
-                sum += arr[r];
-                r++;
+                sum += arr[j];
+                j++;
             } else {
-                sum -= arr[l];
-                l++;
+                sum -= arr[i];
+                i++;
             }
         }
+
         if (len == Integer.MAX_VALUE) {
             bw.write(0 + "\n");
         } else {
             bw.write(len + "\n");
         }
-
         bw.flush();
         bw.close();
         br.close();

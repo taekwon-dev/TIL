@@ -12,6 +12,7 @@ public class BOJ_20922 {
 
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
+        int[] count = new int[100_001];
         int[] arr = new int[N];
 
         st = new StringTokenizer(br.readLine());
@@ -20,18 +21,17 @@ public class BOJ_20922 {
         }
 
         int answer = 0;
-        int left = 0;
-        int right = 0;
-        int[] count = new int[100_000 + 1];
-        while (right < N) {
-            while (right < N && count[arr[right]] + 1 <= K) {
-                count[arr[right]]++;
-                right++;
+        int i = 0;
+        int j = 0;
+        while (j < N) {
+            while (j < N && count[arr[j]] + 1 <= K) {
+                count[arr[j]]++;
+                j++;
             }
-            int len = right - left;
+            int len = j - i;
             answer = Math.max(answer, len);
-            count[arr[left]]--;
-            left++;
+            count[arr[i]]--;
+            i++;
         }
 
         bw.write(answer + "\n");

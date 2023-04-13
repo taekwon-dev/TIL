@@ -1,67 +1,74 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 public class BOJ_18352 {
 
-    private static int n;
-    private static int m;
-    private static int k;
-    private static int x;
+    private static int N;
+    private static int M;
+    private static int K;
+    private static int X;
     private static boolean[] visited;
-    private static List<Integer>[] adjList;
+    private static ArrayList<Integer>[] adjList;
+    private static ArrayList<Integer> answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        k = Integer.parseInt(st.nextToken());
-        x = Integer.parseInt(st.nextToken());
-        visited = new boolean[n + 1];
-        adjList = new ArrayList[n + 1];
-        for (int i = 1; i <= n; i++) {
+
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
+        X = Integer.parseInt(st.nextToken());
+
+        visited = new boolean[N + 1];
+        adjList = new ArrayList[N + 1];
+        for (int i = 1; i <= N; i++) {
             adjList[i] = new ArrayList<>();
         }
+        answer = new ArrayList<>();
 
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int from = Integer.parseInt(st.nextToken());
             int to = Integer.parseInt(st.nextToken());
             adjList[from].add(to);
         }
-        bfs(x, 0);
+
+        bfs(X);
+        if (answer.isEmpty()) {
+            bw.write(-1 + "\n");
+        } else {
+            Collections.sort(answer);
+            for (int city : answer) {
+                bw.write(city + "\n");
+            }
+        }
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
-    private static void bfs(int start, int cnt) {
-        List<Integer> cities = new ArrayList<>();
+    private static void bfs(int start) {
         Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{start, cnt});
+        queue.offer(new int[]{start, 0});
         visited[start] = true;
 
         while (!queue.isEmpty()) {
-            int[] curr = queue.poll();
-            if (curr[1] == k) {
-                cities.add(curr[0]);
+            int[] now = queue.poll();
+
+            if (now[1] == K) {
+                answer.add(now[0]);
             }
-            for (int adj : adjList[curr[0]]) {
+
+            for (int adj : adjList[now[0]]) {
                 if (!visited[adj]) {
-                    queue.add(new int[]{adj, curr[1] + 1});
+                    queue.offer(new int[]{adj, now[1] + 1});
                     visited[adj] = true;
                 }
             }
-        }
-
-        if (cities.size() == 0) {
-            System.out.println(-1);
-            return;
-        }
-        Collections.sort(cities);
-        for (int city : cities) {
-            System.out.println(city);
         }
     }
 }

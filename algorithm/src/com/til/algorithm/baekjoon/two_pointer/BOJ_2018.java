@@ -11,20 +11,19 @@ public class BOJ_2018 {
         int N = Integer.parseInt(br.readLine());
 
         int answer = 0;
-        int left = 1;
-        int right = 1;
         int sum = 1;
-
-        while (left <= right) {
+        int i = 1;
+        int j = 1;
+        while (i <= j) {
             if (sum == N) {
                 answer++;
             }
             if (sum < N) {
-                right++;
-                sum += right;
+                j++;
+                sum += j;
             } else {
-                sum -= left;
-                left++;
+                sum -= i;
+                i++;
             }
         }
 

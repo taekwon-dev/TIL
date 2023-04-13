@@ -11,31 +11,31 @@ public class BOJ_2428 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        int[] file = new int[N];
+        int[] arr = new int[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            file[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(file);
+        Arrays.sort(arr);
 
         long answer = 0;
-        int left = 0;
-        int right = 0;
-        while (left < N) {
+        int i = 0;
+        int j = 0;
+        while (i < N) {
             while (true) {
-                if (right >= N - 1) {
+                if (j >= N - 1) {
                     break;
                 }
-                int l = file[left];
-                int r = file[right + 1];
-                if (l < r * 0.9) {
+                int left = arr[i];
+                int right = arr[j];
+                if (left < right * 0.9) {
                     break;
                 }
-                right++;
+                j++;
             }
-            answer += right - left;
-            left++;
+            answer += j - i;
+            i++;
         }
 
         bw.write(answer + "\n");

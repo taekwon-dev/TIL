@@ -18,21 +18,23 @@ public class BOJ_3273 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
-
         int X = Integer.parseInt(br.readLine());
-        int left = 0;
-        int right = arr.length - 1;
-        int sum;
+
         int answer = 0;
-        while (left < right) {
-            sum = arr[left] + arr[right];
+        int i = 0;
+        int j = arr.length - 1;
+        while (i < j) {
+            int sum = arr[i] + arr[j];
             if (sum == X) {
                 answer++;
+                i++;
+                j--;
+                continue;
             }
             if (sum > X) {
-                right--;
+                j--;
             } else {
-                left++;
+                i++;
             }
         }
 

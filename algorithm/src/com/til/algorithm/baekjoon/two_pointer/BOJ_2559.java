@@ -12,20 +12,20 @@ public class BOJ_2559 {
 
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
-        int[] temp = new int[N];
+        int[] arr = new int[N];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            temp[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
         int sum = 0;
         for (int i = 0; i < K; i++) {
-            sum += temp[i];
+            sum += arr[i];
         }
         int max = sum;
         for (int i = K; i < N; i++) {
-            sum += temp[i] - temp[i - K];
+            sum += arr[i] - arr[i - K];
             if (max < sum) {
                 max = sum;
             }

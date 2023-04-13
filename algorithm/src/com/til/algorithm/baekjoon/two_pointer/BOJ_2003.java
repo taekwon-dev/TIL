@@ -20,10 +20,10 @@ public class BOJ_2003 {
         }
 
         int answer = 0;
-        int j = 0;
         int sum = 0;
+        int j = 0;
         for (int i = 0; i < N; i++) {
-            while (sum < M && j < N) {
+            while (j < N && sum < M) {
                 sum += arr[j];
                 j++;
             }

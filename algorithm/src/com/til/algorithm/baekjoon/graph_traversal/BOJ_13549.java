@@ -1,7 +1,6 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -10,52 +9,46 @@ public class BOJ_13549 {
 
     private static int N;
     private static int K;
-    private static int[] dist = new int[100_001];
+    private static boolean[] visited = new boolean[100_001];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
-        Arrays.fill(dist, -1);
-        bfs(N);
-        bw.write(dist[K] + "\n");
+
+        bw.write(bfs(N) + "\n");
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void bfs(int N) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(N);
-        dist[N] = 0;
+    private static int bfs(int start) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{start, 0});
+        visited[start] = true;
 
         while (!queue.isEmpty()) {
-            int now = queue.poll();
-            if (now == K) {
-                break;
+            int[] now = queue.poll();
+
+            if (now[0] == K) {
+                return now[1];
             }
-            int jump = now * 2;
-            if (jump <= 100_000 && dist[jump] == -1) {
-                queue.add(jump);
-                dist[jump] = dist[now];
+            if (now[0] * 2 <= 100_000 && !visited[now[0] * 2]) {
+                queue.offer(new int[]{now[0] * 2, now[1]});
+                visited[now[0] * 2] = true;
             }
-            int nx = -1;
-            for (int i = 0; i < 2; i++) {
-                if (i == 0) {
-                    nx = now - 1;
-                } else if (i == 1) {
-                    nx = now + 1;
-                }
-                if (nx < 0 || nx > 100_000) {
-                    continue;
-                }
-                if (dist[nx] == -1) {
-                    queue.add(nx);
-                    dist[nx] = dist[now] + 1;
-                }
+            if (now[0] - 1 >= 0 && !visited[now[0] - 1]) {
+                queue.offer(new int[]{now[0] - 1, now[1] + 1});
+                visited[now[0] - 1] = true;
+            }
+            if (now[0] + 1 <= 100_000 && !visited[now[0] + 1]) {
+                queue.offer(new int[]{now[0] + 1, now[1] + 1});
+                visited[now[0] + 1] = true;
             }
         }
+        return -1;
     }
 }
