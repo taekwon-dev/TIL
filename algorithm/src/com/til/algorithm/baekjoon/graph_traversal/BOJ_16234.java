@@ -1,97 +1,93 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_16234 {
 
-    static class Node {
-        int x;
-        int y;
-
-        public Node(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
-    private static int n;
-    private static int l;
-    private static int r;
+    private static int N;
+    private static int L;
+    private static int R;
     private static int[][] map;
     private static boolean[][] visited;
+    private static ArrayList<int[]> unions;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
-    private static List<Node> union;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        l = Integer.parseInt(st.nextToken());
-        r = Integer.parseInt(st.nextToken());
-        map = new int[n + 1][n + 1];
-        for (int i = 1; i <= n; i++) {
+
+        N = Integer.parseInt(st.nextToken());
+        L = Integer.parseInt(st.nextToken());
+        R = Integer.parseInt(st.nextToken());
+        map = new int[N][N];
+
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 1; j <= n; j++) {
+            for (int j = 0; j < N; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        System.out.println(unify());
-    }
 
-    private static int unify() {
         int answer = 0;
         while (true) {
-            boolean flag = false;
-            visited = new boolean[n + 1][n + 1];
-            for (int i = 1; i <= n; i++) {
-                for (int j = 1; j <= n; j++) {
+            boolean unified = false;
+            visited = new boolean[N][N];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
                     if (!visited[i][j]) {
                         int sum = bfs(i, j);
-                        if (union.size() > 1) {
-                            flag = true;
-                        }
-                        int avg = sum / union.size();
-                        for (Node node : union) {
-                            map[node.x][node.y] = avg;
+                        if (unions.size() >= 2) {
+                            unified = true;
+                            int avg = sum / unions.size();
+                            for (int[] union : unions) {
+                                map[union[0]][union[1]] = avg;
+                            }
                         }
                     }
                 }
             }
-            if (!flag) {
-                return answer;
+            if (!unified) {
+                break;
             }
             answer++;
         }
+
+        bw.write(answer + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static int bfs(int x, int y) {
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(new Node(x, y));
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{x, y});
         visited[x][y] = true;
+        unions = new ArrayList<>();
+        unions.add(new int[]{x, y});
         int sum = map[x][y];
-        union = new ArrayList<>();
-        union.add(new Node(x, y));
 
         while (!queue.isEmpty()) {
-            Node node = queue.poll();
+            int[] now = queue.poll();
 
             for (int i = 0; i < 4; i++) {
-                int nx = node.x + dx[i];
-                int ny = node.y + dy[i];
-                if (nx >= 1 && ny >= 1 && nx <= n && ny <= n) {
-                    if (!visited[nx][ny]) {
-                        int diff = Math.abs(map[node.x][node.y] - map[nx][ny]);
-                        if (diff >= l && diff <= r) {
-                            queue.add(new Node(nx, ny));
-                            visited[nx][ny] = true;
-                            sum += map[nx][ny];
-                            union.add(new Node(nx, ny));
-                        }
-                    }
+                int nx = now[0] + dx[i];
+                int ny = now[1] + dy[i];
+
+                if (nx < 0 || ny < 0 || nx > N - 1 || ny > N - 1) {
+                    continue;
+                }
+                int abs = Math.abs(map[now[0]][now[1]] - map[nx][ny]);
+                if (!visited[nx][ny] && (abs >= L && abs <= R)) {
+                    queue.offer(new int[]{nx, ny});
+                    visited[nx][ny] = true;
+                    unions.add(new int[]{nx, ny});
+                    sum += map[nx][ny];
                 }
             }
         }

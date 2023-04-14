@@ -28,7 +28,7 @@ public class BOJ_2428 {
                     break;
                 }
                 int left = arr[i];
-                int right = arr[j];
+                int right = arr[j + 1];
                 if (left < right * 0.9) {
                     break;
                 }
