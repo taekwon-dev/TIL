@@ -24,14 +24,11 @@ public class BOJ_11000 {
             lecture[i][1] = end;
         }
 
-        Arrays.sort(lecture, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                if (o1[0] == o2[0]) {
-                    return o1[1] - o2[1];
-                }
-                return o1[0] - o2[0];
+        Arrays.sort(lecture, (o1, o2) -> {
+            if (o1[0] == o2[0]) {
+                return o1[1] - o2[1];
             }
+            return o1[0] - o2[0];
         });
 
         PriorityQueue<Integer> pq = new PriorityQueue<>();
