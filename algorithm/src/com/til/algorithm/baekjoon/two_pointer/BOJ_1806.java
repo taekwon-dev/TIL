@@ -35,9 +35,8 @@ public class BOJ_1806 {
                 i++;
             }
         }
-
         if (len == Integer.MAX_VALUE) {
-            bw.write(0 + "\n");
+            bw.write("0" + "\n");
         } else {
             bw.write(len + "\n");
         }
