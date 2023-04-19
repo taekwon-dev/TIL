@@ -1,44 +1,39 @@
 package com.til.algorithm.programmers.kakao.blind_recruitment_2019;
 
-import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 public class LV2_오픈채팅방 {
+
     public String[] solution(String[] record) {
-        Map<String, String> map = new HashMap<>();
-        List<String> visitLog = new ArrayList<>();
-        for (String log : record) {
-            StringTokenizer st = new StringTokenizer(log);
-            String tag = st.nextToken();
-            String uid = st.nextToken();
-            String nickname = null;
+        HashMap<String, String> map = new HashMap<>();
+        ArrayList<String> uids = new ArrayList<>();
+        ArrayList<String> notifications = new ArrayList<>();
 
-            if (!tag.equals("Leave")) {
-                nickname = st.nextToken();
-            }
+        for (String r : record) {
+            String[] rSplit = r.split(" ");
+            String flag = rSplit[0];
+            String uid = rSplit[1];
 
-            switch (tag) {
-                case "Enter":
-                    map.put(uid, nickname);
-                    visitLog.add(uid + "님이 들어왔습니다.");
-                    break;
-                case "Leave":
-                    visitLog.add(uid + "님이 나갔습니다.");
-                    break;
-                case "Change":
-                    map.put(uid, nickname);
-                    break;
+            if (flag.equals("Change")) {
+                if (map.containsKey(uid)) {
+                    map.put(uid, rSplit[2]);
+                }
+                continue;
             }
+            if (flag.equals("Enter")) {
+                map.put(uid, rSplit[2]);
+                uids.add(uid);
+                notifications.add("님이 들어왔습니다.");
+                continue;
+            }
+            uids.add(uid);
+            notifications.add("님이 나갔습니다.");
         }
-        String[] answer = new String[visitLog.size()];
-        int idx = 0;
-        for (String log : visitLog) {
-            int endOfNicknameIdx = log.indexOf("님");
-            String uid = log.substring(0, endOfNicknameIdx);
-            answer[idx++] = log.replace(uid, map.get(uid));
+        String[] answer = new String[uids.size()];
+        for (int i = 0; i < uids.size(); i++) {
+            String nickname = map.get(uids.get(i));
+            answer[i] = nickname + notifications.get(i);
         }
         return answer;
     }

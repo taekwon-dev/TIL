@@ -1,13 +1,8 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
-/**
- *  부분집합 + 조합
- */
 public class BOJ_1182_a {
 
     private static int n;
@@ -17,6 +12,7 @@ public class BOJ_1182_a {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         s = Integer.parseInt(st.nextToken());
@@ -27,7 +23,11 @@ public class BOJ_1182_a {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         backtracking(0, 0, 0);
-        System.out.println(answer);
+
+        bw.write(answer + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static void backtracking(int depth, int index, int sum) {

@@ -15,24 +15,22 @@ public class BOJ_1946 {
         int TC = Integer.parseInt(br.readLine());
         while (TC-- > 0) {
             int N = Integer.parseInt(br.readLine());
-            int[][] score = new int[N][2];
-
+            int[][] rank = new int[N][2];
             for (int i = 0; i < N; i++) {
                 st = new StringTokenizer(br.readLine());
-                int paper = Integer.parseInt(st.nextToken());
-                int interview = Integer.parseInt(st.nextToken());
-                score[i][0] = paper;
-                score[i][1] = interview;
+                rank[i][0] = Integer.parseInt(st.nextToken());
+                rank[i][1] = Integer.parseInt(st.nextToken());
             }
-            Arrays.sort(score, Comparator.comparingInt(o -> o[0]));
+            Arrays.sort(rank, Comparator.comparingInt(o -> o[0]));
 
             int answer = 1;
-            int standard = score[0][1];
+            int interviewRank = rank[0][1];
             for (int i = 1; i < N; i++) {
-                if (score[i][1] < standard) {
-                    answer++;
-                    standard = score[i][1];
+                if (rank[i][1] > interviewRank) {
+                    continue;
                 }
+                answer++;
+                interviewRank = rank[i][1];
             }
 
             bw.write(answer + "\n");

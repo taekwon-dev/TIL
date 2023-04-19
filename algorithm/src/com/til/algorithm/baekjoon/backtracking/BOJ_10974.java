@@ -6,7 +6,7 @@ public class BOJ_10974 {
 
     private static int N;
     private static boolean[] visited;
-    private static StringBuilder sb;
+    private static StringBuilder answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,25 +14,25 @@ public class BOJ_10974 {
 
         N = Integer.parseInt(br.readLine());
         visited = new boolean[N + 1];
-        sb = new StringBuilder();
+        answer = new StringBuilder();
 
         backtracking(0, "");
 
-        bw.write(sb.toString() + "\n");
+        bw.write(answer.toString() + "\n");
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void backtracking(int depth, String s) {
+    private static void backtracking(int depth, String permutation) {
         if (depth == N) {
-            sb.append(s).append("\n");
+            answer.append(permutation).append("\n");
             return;
         }
         for (int i = 1; i <= N; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                backtracking(depth + 1, s + i + " ");
+                backtracking(depth + 1, permutation + i + " ");
                 visited[i] = false;
             }
         }
