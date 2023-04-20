@@ -8,7 +8,7 @@ public class BOJ_10971 {
     private static int N;
     private static int[][] map;
     private static boolean[] visited;
-    private static int min;
+    private static int answer = Integer.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,38 +16,39 @@ public class BOJ_10971 {
         StringTokenizer st;
 
         N = Integer.parseInt(br.readLine());
-        map = new int[N][N];
-        visited = new boolean[N];
-        min = Integer.MAX_VALUE;
+        map = new int[N + 1][N + 1];
+        visited = new boolean[N + 1];
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 1; i <= N; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < N; j++) {
+            for (int j = 1; j <= N; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        for (int i = 0; i < N; i++) {
+
+        for (int i = 1; i <= N; i++) {
             visited[i] = true;
-            backtracking(i, 0, i, 0);
+            backtracking(0, i, i, 0);
         }
 
-        bw.write(min + "\n");
+        bw.write(answer + "\n");
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static void backtracking(int start, int depth, int prev, int cost) {
+    private static void backtracking(int depth, int start, int prev, int cost) {
         if (depth == N - 1) {
             if (map[prev][start] != 0) {
-                min = Math.min(min, cost + map[prev][start]);
+                cost += map[prev][start];
+                answer = Math.min(answer, cost);
             }
             return;
         }
-        for (int i = 0; i < N; i++) {
+        for (int i = 1; i <= N; i++) {
             if (!visited[i] && map[prev][i] != 0) {
                 visited[i] = true;
-                backtracking(start, depth + 1, i, cost + map[prev][i]);
+                backtracking(depth + 1, start, i, cost + map[prev][i]);
                 visited[i] = false;
             }
         }
