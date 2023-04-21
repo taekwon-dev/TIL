@@ -1,43 +1,54 @@
 package com.til.algorithm.baekjoon.backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class BOJ_6603 {
 
-    private static List<Integer> nums;
-    private static StringBuilder sb;
+    private static int K;
+    private static int[] S;
+    private static int[] P;
+    private static StringBuilder answer = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = null;
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
+
         while (true) {
-            sb = new StringBuilder();
             st = new StringTokenizer(br.readLine());
-            int n = Integer.parseInt(st.nextToken());
-            if (n == 0) {
+            K = Integer.parseInt(st.nextToken());
+            if (K == 0) {
                 break;
             }
-            nums = new ArrayList<>(n);
-            for (int i = 0; i < n; i++) {
-                nums.add(Integer.parseInt(st.nextToken()));
+            S = new int[K];
+            P = new int[6];
+
+            for (int i = 0; i < K; i++) {
+                S[i] = Integer.parseInt(st.nextToken());
             }
-            backtracking(0, 0, "");
-            System.out.println(sb.toString());
+            backtracking(0, 0);
+            answer.append("\n");
+
         }
+
+        bw.write(answer.toString() + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
-    private static void backtracking(int depth, int start, String s) {
+    private static void backtracking(int depth, int index) {
         if (depth == 6) {
-            sb.append(s).append("\n");
+            for (int i = 0; i < 6; i++) {
+                answer.append(P[i]).append(" ");
+            }
+            answer.append("\n");
             return;
         }
-        for (int i = start; i < nums.size(); i++) {
-            backtracking(depth + 1, i + 1, s + nums.get(i) + " ");
+        for (int i = index; i < K; i++) {
+            P[depth] = S[i];
+            backtracking(depth + 1, i + 1);
         }
     }
 }

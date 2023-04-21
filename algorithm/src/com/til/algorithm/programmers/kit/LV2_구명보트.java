@@ -6,24 +6,23 @@ public class LV2_구명보트 {
 
     public int solution(int[] people, int limit) {
         Arrays.sort(people);
+
         int answer = 0;
         int i = 0;
         int j = people.length - 1;
         while (i <= j) {
-            if (people[j] > limit) {
+            if (i == j) {
                 answer++;
-                j--;
-                continue;
+                break;
             }
             int sum = people[i] + people[j];
             if (sum > limit) {
-                answer++;
                 j--;
-                continue;
+            } else if (sum <= limit) {
+                i++;
+                j--;
             }
             answer++;
-            i++;
-            j--;
         }
 
         return answer;
