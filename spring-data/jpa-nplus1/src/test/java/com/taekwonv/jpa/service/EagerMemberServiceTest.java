@@ -20,7 +20,6 @@ class EagerMemberServiceTest {
     @Autowired
     private EagerMemberRepository eagerMemberRepository;
 
-
     @BeforeEach
     public void init() {
         List<EagerMember> eagerMembers = new ArrayList<>();
@@ -44,14 +43,14 @@ class EagerMemberServiceTest {
         /**
          * Hibernate: select eagermembe0_.id as id1_0_, eagermembe0_.name as name2_0_ from eager_member eagermembe0_ ❗️ 5건 조회 ❗️
          *
-         * ❗️ 각 eager member 주문 목록 조회 -> N + 1 문제❗️
-         * Hibernate: select eagerorder0_.eager_id as eager_id3_1_0_, eagerorder0_.id as id1_1_0_, eagerorder0_.id as id1_1_1_, eagerorder0_.eager_id as eager_id3_1_1_, eagerorder0_.name as name2_1_1_ from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
-         * Hibernate: select eagerorder0_.eager_id as eager_id3_1_0_, eagerorder0_.id as id1_1_0_, eagerorder0_.id as id1_1_1_, eagerorder0_.eager_id as eager_id3_1_1_, eagerorder0_.name as name2_1_1_ from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
-         * Hibernate: select eagerorder0_.eager_id as eager_id3_1_0_, eagerorder0_.id as id1_1_0_, eagerorder0_.id as id1_1_1_, eagerorder0_.eager_id as eager_id3_1_1_, eagerorder0_.name as name2_1_1_ from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
-         * Hibernate: select eagerorder0_.eager_id as eager_id3_1_0_, eagerorder0_.id as id1_1_0_, eagerorder0_.id as id1_1_1_, eagerorder0_.eager_id as eager_id3_1_1_, eagerorder0_.name as name2_1_1_ from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
-         * Hibernate: select eagerorder0_.eager_id as eager_id3_1_0_, eagerorder0_.id as id1_1_0_, eagerorder0_.id as id1_1_1_, eagerorder0_.eager_id as eager_id3_1_1_, eagerorder0_.name as name2_1_1_ from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
+         * ❗️ 각 eager member 주문 목록 조회 -> N(= 5) + 1 문제❗️
+         * Hibernate: select ... from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
+         * Hibernate: select ... from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
+         * Hibernate: select ... from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
+         * Hibernate: select ... from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
+         * Hibernate: select ... from eager_orders eagerorder0_ where eagerorder0_.eager_id=?
          */
-        // given
+        // when
         List<EagerMember> eagerMembers = eagerMemberRepository.findAll();
 
         // then
@@ -60,23 +59,35 @@ class EagerMemberServiceTest {
 
     @Test
     @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (INNER JOIN) 페치조인 사용")
-    void INNER_페치조인_즉시로딩_N_Plus_1() {
-
+    void INNER_페치조인_즉시로딩_N_Plus_1_주문목록X() {
         // given
+
+        /**
+         * Hibernate:
+         *  select ... from eager_member inner join eager_orders on eagermembe_.id=eagerorder_.eager_id
+         */
+        // when
         List<EagerMember> eagerMembers = eagerMemberRepository.findAllJoinFetch();
 
         // then
-        /** @beforeEach 에서
-         *
-         *  각 회원 별로 주문 목록을 추가하지 않은 것을 확인 할 수 있다.
-         *
-         *  이 때, INNER JOIN + FETCH JOIN 사용하게 되면 회원과 주문 목록의 교집합 부분이 조회되므로
-         *
-         *  이 상황에서는  이 나온다.
-         *
-         *  JPQL 은 엔티티 그래프와 달리 `join fetch` 명령어 앞에 INNER or LEFT OUTER 를 명시하여 조인 방식을 결정할 수 있다.
-         *
-         * */
+        assertThat(eagerMembers.size()).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (INNER JOIN) 페치조인 사용 - 주문목록 X")
+    void INNER_페치조인_즉시로딩_N_Plus_1_주문목록O() {
+        // given
+
+        /**
+         * Hibernate:
+         *  select
+         *  from eager_member
+         *  inner join eager_orders on eagermembe_.id=eagerorder_.eager_id
+         */
+        // when
+        List<EagerMember> eagerMembers = eagerMemberRepository.findAllJoinFetch();
+
+        // then
         assertThat(eagerMembers.size()).isEqualTo(0);
     }
 
@@ -84,7 +95,7 @@ class EagerMemberServiceTest {
     @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (LEFT OUTER JOIN) 페치조인 사용")
     void OUTER_페치조인_즉시로딩_N_Plus_1() {
 
-        // given
+        // when
         List<EagerMember> eagerMembers = eagerMemberRepository.findAllLeftOuterJoinFetch();
 
         // then
@@ -96,11 +107,10 @@ class EagerMemberServiceTest {
     @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (LEFT OUTER JOIN) 엔티티 그래프 사용")
     void OUTER_엔티티그래프_즉시로딩_N_Plus_1() {
 
-        // given
+        // when
         List<EagerMember> eagerMembers = eagerMemberRepository.findAllEntityGraph();
 
         // then
         assertThat(eagerMembers.size()).isEqualTo(5);
     }
-
 }
