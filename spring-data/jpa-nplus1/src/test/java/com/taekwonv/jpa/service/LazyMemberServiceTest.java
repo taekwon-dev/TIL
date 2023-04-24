@@ -59,17 +59,6 @@ class LazyMemberServiceTest {
         List<LazyMember> lazyMembers = lazyMemberRepository.findAllJoinFetch();
 
         // then
-        /** @beforeEach 에서
-         *
-         *  각 회원 별로 주문 목록을 추가하지 않은 것을 확인 할 수 있다.
-         *
-         *  이 때, INNER JOIN + FETCH JOIN 사용하게 되면 회원과 주문 목록의 교집합 부분이 조회되므로
-         *
-         *  이 상황에서는  이 나온다.
-         *
-         *  JPQL 은 엔티티 그래프와 달리 `join fetch` 명령어 앞에 INNER or LEFT OUTER 를 명시하여 조인 방식을 결정할 수 있다.
-         *
-         * */
         assertThat(lazyMembers.size()).isEqualTo(0);
     }
 
@@ -95,6 +84,4 @@ class LazyMemberServiceTest {
         // then
         assertThat(lazyMembers.size()).isEqualTo(5);
     }
-
-
 }
