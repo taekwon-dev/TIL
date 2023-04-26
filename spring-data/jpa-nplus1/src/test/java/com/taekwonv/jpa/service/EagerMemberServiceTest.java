@@ -59,30 +59,12 @@ class EagerMemberServiceTest {
 
     @Test
     @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (INNER JOIN) 페치조인 사용")
-    void INNER_페치조인_즉시로딩_N_Plus_1_주문목록X() {
+    void INNER_페치조인_즉시로딩_N_Plus_1_주문목록() {
         // given
 
         /**
          * Hibernate:
          *  select ... from eager_member inner join eager_orders on eagermembe_.id=eagerorder_.eager_id
-         */
-        // when
-        List<EagerMember> eagerMembers = eagerMemberRepository.findAllJoinFetch();
-
-        // then
-        assertThat(eagerMembers.size()).isEqualTo(0);
-    }
-
-    @Test
-    @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (INNER JOIN) 페치조인 사용 - 주문목록 X")
-    void INNER_페치조인_즉시로딩_N_Plus_1_주문목록O() {
-        // given
-
-        /**
-         * Hibernate:
-         *  select
-         *  from eager_member
-         *  inner join eager_orders on eagermembe_.id=eagerorder_.eager_id
          */
         // when
         List<EagerMember> eagerMembers = eagerMemberRepository.findAllJoinFetch();

@@ -66,7 +66,6 @@ public class EagerDistinctMemberServiceTest {
     @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (LEFT OUTER JOIN) 페치조인 사용")
     void OUTER_페치조인_즉시로딩_N_Plus_1() {
 
-
         /**
          * select {EM.*, EO.*}
          * from eager_member
@@ -81,7 +80,28 @@ public class EagerDistinctMemberServiceTest {
         assertThat(eagerMembers.size()).isEqualTo(10);
     }
 
+    @Test
+    @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (LEFT OUTER JOIN) 페치조인 + Distinct 적용")
+    void OUTER_페이조인_즉시로딩_N_Plus_1_Distinct() {
 
+        /**
+         * select {EM.*, EO.*}
+         * from eager_member
+         * left outer join eager_orders
+         * on eager_member.id = eagerorder.eager_id
+         */
+
+        // given
+        List<EagerMember> eagerMembers = eagerMemberRepository.findAllLeftOuterJoinFetchWithDistinct();
+
+        // then
+        assertThat(eagerMembers.size()).isEqualTo(5);
+    }
+
+
+    /**
+     * For Entity Graphs distinct applies by default. (https://stackoverflow.com/a/73348400)
+     */
     @Test
     @DisplayName("N + 1 문제 해결 - 즉시 로딩 관계 - (LEFT OUTER JOIN) 엔티티 그래프 사용")
     void OUTER_엔티티그래프_즉시로딩_N_Plus_1() {
