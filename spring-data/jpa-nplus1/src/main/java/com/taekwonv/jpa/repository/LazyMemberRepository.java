@@ -19,6 +19,9 @@ public interface LazyMemberRepository extends JpaRepository<LazyMember, Long> {
     @Query("SELECT lm FROM LazyMember lm LEFT OUTER JOIN FETCH lm.lazyOrders")
     List<LazyMember> findAllLeftOuterJoinFetch();
 
+    @Query("SELECT DISTINCT lm FROM LazyMember lm LEFT OUTER JOIN FETCH lm.lazyOrders")
+    List<LazyMember> findAllLeftOuterJoinFetchWithDistinct();
+
     @EntityGraph(attributePaths = "lazyOrders")
     @Query("SELECT lm FROM LazyMember lm")
     List<LazyMember> findAllEntityGraph();

@@ -19,9 +19,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LazyDistinctMemberServiceTest {
 
     @Autowired
-    private LazyMemberService lazyMemberService;
-
-    @Autowired
     private LazyMemberRepository lazyMemberRepository;
 
     @BeforeEach
@@ -59,17 +56,6 @@ public class LazyDistinctMemberServiceTest {
     }
 
     @Test
-    @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (LEFT OUTER JOIN) 페치조인 사용")
-    void OUTER_페치조인_지연로딩_N_Plus_1() {
-
-        // given
-        List<LazyMember> lazyMembers = lazyMemberRepository.findAllLeftOuterJoinFetch();
-
-        // then
-        assertThat(lazyMembers.size()).isEqualTo(10);
-    }
-
-    @Test
     @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (INNER JOIN) 페치조인 사용")
     void INNER_페치조인_지연로딩_N_Plus_1() {
 
@@ -80,6 +66,28 @@ public class LazyDistinctMemberServiceTest {
         assertThat(lazyMembers.size()).isEqualTo(10);
     }
 
+
+    @Test
+    @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (LEFT OUTER JOIN) 페치조인 사용 + Distinct 적용")
+    void OUTER_페치조인_지연로딩_N_Plus_1_Distinct() {
+
+        // given
+        List<LazyMember> lazyMembers = lazyMemberRepository.findAllLeftOuterJoinFetchWithDistinct();
+
+        // then
+        assertThat(lazyMembers.size()).isEqualTo(5);
+    }
+
+    @Test
+    @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (LEFT OUTER JOIN) 페치조인 사용")
+    void OUTER_페치조인_지연로딩_N_Plus_1() {
+
+        // given
+        List<LazyMember> lazyMembers = lazyMemberRepository.findAllLeftOuterJoinFetch();
+
+        // then
+        assertThat(lazyMembers.size()).isEqualTo(10);
+    }
 
     @Test
     @DisplayName("N + 1 문제 해결 - 지연 로딩 관계 - (LEFT OUTER JOIN) 엔티티 그래프 사용")
