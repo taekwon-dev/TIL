@@ -1,7 +1,6 @@
 package com.til.algorithm.baekjoon.implementation;
 
 import java.io.*;
-import java.util.Map;
 import java.util.TreeMap;
 
 public class BOJ_20291 {
@@ -10,12 +9,14 @@ public class BOJ_20291 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        Map<String, Integer> map = new TreeMap<>();
         int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
-            String fileExt = br.readLine().split("\\.")[1];
-            map.put(fileExt, map.getOrDefault(fileExt, 0) + 1);
+
+        TreeMap<String, Integer> map = new TreeMap<>();
+        while (N-- > 0) {
+            String exe = br.readLine().split("\\.")[1];
+            map.put(exe, map.getOrDefault(exe, 0) + 1);
         }
+
         StringBuilder answer = new StringBuilder();
         map.forEach((k, v) -> {
             answer.append(k + " " + v).append("\n");

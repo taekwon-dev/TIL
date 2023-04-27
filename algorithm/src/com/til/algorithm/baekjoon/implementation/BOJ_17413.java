@@ -8,12 +8,13 @@ public class BOJ_17413 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        char[] word = br.readLine().toCharArray();
-        StringBuilder answer = new StringBuilder();
+        boolean open = false;
         StringBuilder plain = new StringBuilder();
         StringBuilder reverse = new StringBuilder();
-        boolean open = false;
-        for (char c : word) {
+        StringBuilder answer = new StringBuilder();
+
+        String S = br.readLine();
+        for (char c : S.toCharArray()) {
             if (c == '<') {
                 open = true;
                 if (reverse.length() > 0) {

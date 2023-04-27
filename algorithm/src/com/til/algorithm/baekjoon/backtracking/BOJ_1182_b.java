@@ -45,6 +45,9 @@ public class BOJ_1182_b {
             return;
         }
 
+        /**
+         *  부분집합 표현 (각 원소별로 포함 또는 제외)
+         */
         backtracking(depth + 1, sum + arr[depth]);
         backtracking(depth + 1, sum);
     }

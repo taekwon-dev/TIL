@@ -7,7 +7,7 @@ public class BOJ_18429 {
 
     private static int N;
     private static int K;
-    private static int[] arr;
+    private static int[] kit;
     private static boolean[] visited;
     private static int answer;
 
@@ -18,13 +18,14 @@ public class BOJ_18429 {
 
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
-        arr = new int[N];
+        kit = new int[N];
         visited = new boolean[N];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            kit[i] = Integer.parseInt(st.nextToken());
         }
+
         backtracking(0, 500);
 
         bw.write(answer + "\n");
@@ -44,7 +45,7 @@ public class BOJ_18429 {
         for (int i = 0; i < N; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                backtracking(depth + 1, weight + arr[i] - K);
+                backtracking(depth + 1, weight + kit[i] - K);
                 visited[i] = false;
             }
         }

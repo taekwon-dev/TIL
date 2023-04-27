@@ -5,7 +5,7 @@ import java.io.*;
 public class BOJ_9663 {
 
     private static int N;
-    private static int[] queen;
+    private static int[] arr;
     private static int answer;
 
     public static void main(String[] args) throws IOException {
@@ -13,7 +13,7 @@ public class BOJ_9663 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         N = Integer.parseInt(br.readLine());
-        queen = new int[N];
+        arr = new int[N];
         backtracking(0);
 
         bw.write(answer + "\n");
@@ -28,7 +28,7 @@ public class BOJ_9663 {
             return;
         }
         for (int col = 0; col < N; col++) {
-            queen[row] = col;
+            arr[row] = col;
             if (isLocatable(row)) {
                 backtracking(row + 1);
             }
@@ -36,11 +36,11 @@ public class BOJ_9663 {
     }
 
     private static boolean isLocatable(int row) {
-        for (int r = 0; r < row; r++) {
-            if (queen[r] == queen[row]) {
+        for (int i = 0; i < row; i++) {
+            if (arr[row] == arr[i]) {
                 return false;
             }
-            if (Math.abs(r - row) == Math.abs(queen[r] - queen[row])) {
+            if (Math.abs(row - i) == Math.abs(arr[row] - arr[i])) {
                 return false;
             }
         }
