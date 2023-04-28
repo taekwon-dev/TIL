@@ -1,13 +1,13 @@
 package com.til.algorithm.baekjoon.backtracking;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_6603 {
 
     private static int K;
-    private static int[] S;
-    private static int[] P;
+    private static int[] arr;
     private static StringBuilder answer = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -18,18 +18,17 @@ public class BOJ_6603 {
         while (true) {
             st = new StringTokenizer(br.readLine());
             K = Integer.parseInt(st.nextToken());
+
             if (K == 0) {
                 break;
             }
-            S = new int[K];
-            P = new int[6];
-
+            arr = new int[K];
             for (int i = 0; i < K; i++) {
-                S[i] = Integer.parseInt(st.nextToken());
+                arr[i] = Integer.parseInt(st.nextToken());
             }
-            backtracking(0, 0);
+            Arrays.sort(arr);
+            backtracking(0, 0, "");
             answer.append("\n");
-
         }
 
         bw.write(answer.toString() + "\n");
@@ -38,17 +37,13 @@ public class BOJ_6603 {
         br.close();
     }
 
-    private static void backtracking(int depth, int index) {
+    private static void backtracking(int depth, int start, String s) {
         if (depth == 6) {
-            for (int i = 0; i < 6; i++) {
-                answer.append(P[i]).append(" ");
-            }
-            answer.append("\n");
+            answer.append(s).append("\n");
             return;
         }
-        for (int i = index; i < K; i++) {
-            P[depth] = S[i];
-            backtracking(depth + 1, i + 1);
+        for (int i = start; i < K; i++) {
+            backtracking(depth + 1, i + 1, s + arr[i]);
         }
     }
 }

@@ -6,10 +6,9 @@ import java.util.StringTokenizer;
 
 public class BOJ_1759 {
 
-    private static int N;
-    private static int M;
-    private static char[] alphabet;
-    private static char[] password;
+    private static int L;
+    private static int C;
+    private static char[] candidate;
     private static StringBuilder answer = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -17,17 +16,16 @@ public class BOJ_1759 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
-        password = new char[N];
-        alphabet = new char[M];
+        L = Integer.parseInt(st.nextToken());
+        C = Integer.parseInt(st.nextToken());
+        candidate = new char[C];
 
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < M; i++) {
-            alphabet[i] = st.nextToken().charAt(0);
+        for (int i = 0; i < C; i++) {
+            candidate[i] = st.nextToken().charAt(0);
         }
-        Arrays.sort(alphabet);
-        backtracking(0, 0);
+        Arrays.sort(candidate);
+        backtracking(0, 0, "");
 
         bw.write(answer.toString() + "\n");
         bw.flush();
@@ -35,24 +33,23 @@ public class BOJ_1759 {
         br.close();
     }
 
-    private static void backtracking(int depth, int start) {
-        if (depth == N) {
-            if (isValid()) {
+    private static void backtracking(int depth, int start, String password) {
+        if (depth == L) {
+            if (isValid(password)) {
                 answer.append(password).append("\n");
             }
             return;
         }
-        for (int i = start; i < M; i++) {
-            password[depth] = alphabet[i];
-            backtracking(depth + 1, i + 1);
+        for (int i = start; i < C; i++) {
+            backtracking(depth + 1, i + 1, password + candidate[i]);
         }
     }
 
-    private static boolean isValid() {
+    private static boolean isValid(String password) {
         int vowel = 0;
         int consonant = 0;
-        for (char c : password) {
-            if (isVowel(c)) {
+        for (char c : password.toCharArray()) {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
                 vowel++;
             } else {
                 consonant++;
@@ -62,9 +59,5 @@ public class BOJ_1759 {
             return true;
         }
         return false;
-    }
-
-    private static boolean isVowel(char c) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 }

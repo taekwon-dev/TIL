@@ -9,7 +9,7 @@ public class BOJ_1941 {
 
     private static char[][] map = new char[5][5];
     private static boolean[] visited = new boolean[25];
-    private static int[] seven = new int[7];
+    private static int[] arr = new int[7];
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
     private static int answer;
@@ -38,7 +38,7 @@ public class BOJ_1941 {
         }
         for (int i = start; i < 25; i++) {
             if (!visited[i]) {
-                seven[depth] = i;
+                arr[depth] = i;
                 visited[i] = true;
                 backtracking(depth + 1, i + 1);
                 visited[i] = false;
@@ -48,22 +48,20 @@ public class BOJ_1941 {
 
     private static boolean canBeSeven() {
         int Y = 0;
-        for (int i : seven) {
+        for (int i : arr) {
             if (map[i / 5][i % 5] == 'Y') {
                 Y++;
             }
             if (Y > 3) {
-                return false;
+                return  false;
             }
         }
-
         ArrayList<Integer> member = new ArrayList<>();
-        for (int m : seven) {
+        for (int m : arr) {
             member.add(m);
         }
-
         Queue<Integer> queue = new LinkedList<>();
-        queue.offer(seven[0]);
+        queue.offer(arr[0]);
 
         while (!queue.isEmpty()) {
             int now = queue.poll();
@@ -75,9 +73,9 @@ public class BOJ_1941 {
                 if (nx < 0 || ny < 0 || nx > 4 || ny > 4) {
                     continue;
                 }
-                if (member.contains(nx * 5 + ny)) {
-                    member.remove(Integer.valueOf(nx * 5 + ny));
-                    queue.offer(nx * 5 + ny);
+                if (member.contains(5 * nx + ny)) {
+                    member.remove(Integer.valueOf(5 * nx + ny));
+                    queue.offer(5 * nx + ny);
                 }
             }
         }
