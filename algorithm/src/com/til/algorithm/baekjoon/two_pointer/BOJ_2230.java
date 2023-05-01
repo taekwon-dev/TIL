@@ -1,9 +1,10 @@
 package com.til.algorithm.baekjoon.two_pointer;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BOJ_20922 {
+public class BOJ_2230 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,26 +12,28 @@ public class BOJ_20922 {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
         int[] arr = new int[N];
-        int[] count = new int[100_001];
 
-        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(br.readLine());
         }
+        Arrays.sort(arr);
 
-        int answer = 0;
         int i = 0;
         int j = 0;
+        int answer = Integer.MAX_VALUE;
+
         while (j < N) {
-            while (j < N && count[arr[j]] < K) {
-                count[arr[j]]++;
+            if (arr[j] - arr[i] < M) {
                 j++;
+                continue;
             }
-            int len = j - i;
-            answer = Math.max(answer, len);
-            count[arr[i]]--;
+            if (arr[j] - arr[i] == M) {
+                answer = M;
+                break;
+            }
+            answer = Math.min(answer, arr[j] - arr[i]);
             i++;
         }
 

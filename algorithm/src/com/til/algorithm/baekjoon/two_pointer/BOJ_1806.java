@@ -23,6 +23,7 @@ public class BOJ_1806 {
         int j = 0;
         int sum = 0;
         int len = Integer.MAX_VALUE;
+
         while (j <= N) {
             if (sum >= S && len > j - i) {
                 len = j - i;
@@ -35,8 +36,9 @@ public class BOJ_1806 {
                 i++;
             }
         }
+
         if (len == Integer.MAX_VALUE) {
-            bw.write("0" + "\n");
+            bw.write(0 + "\n");
         } else {
             bw.write(len + "\n");
         }

@@ -12,17 +12,17 @@ public class BOJ_3273 {
 
         int N = Integer.parseInt(br.readLine());
         int[] arr = new int[N];
-
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
         int X = Integer.parseInt(br.readLine());
 
-        int answer = 0;
         int i = 0;
-        int j = arr.length - 1;
+        int j = N - 1;
+        int answer = 0;
         while (i < j) {
             int sum = arr[i] + arr[j];
             if (sum == X) {

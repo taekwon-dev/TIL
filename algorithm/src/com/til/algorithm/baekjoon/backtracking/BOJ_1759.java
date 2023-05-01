@@ -9,7 +9,7 @@ public class BOJ_1759 {
     private static int L;
     private static int C;
     private static char[] candidate;
-    private static StringBuilder answer = new StringBuilder();
+    private static StringBuilder answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,6 +19,7 @@ public class BOJ_1759 {
         L = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
         candidate = new char[C];
+        answer = new StringBuilder();
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < C; i++) {
@@ -33,22 +34,23 @@ public class BOJ_1759 {
         br.close();
     }
 
-    private static void backtracking(int depth, int start, String password) {
+    private static void backtracking(int depth, int start, String pwd) {
         if (depth == L) {
-            if (isValid(password)) {
-                answer.append(password).append("\n");
+            if (isValid(pwd)) {
+                answer.append(pwd).append("\n");
             }
             return;
         }
         for (int i = start; i < C; i++) {
-            backtracking(depth + 1, i + 1, password + candidate[i]);
+            backtracking(depth + 1, i + 1, pwd + candidate[i]);
         }
     }
 
-    private static boolean isValid(String password) {
+    private static boolean isValid(String pwd) {
         int vowel = 0;
         int consonant = 0;
-        for (char c : password.toCharArray()) {
+
+        for (char c : pwd.toCharArray()) {
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
                 vowel++;
             } else {

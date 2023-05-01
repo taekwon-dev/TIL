@@ -7,7 +7,7 @@ public class BOJ_10819 {
 
     private static int N;
     private static int[] arr;
-    private static int[] rarr;
+    private static int[] candidate;
     private static boolean[] visited;
     private static int answer;
 
@@ -17,7 +17,7 @@ public class BOJ_10819 {
 
         N = Integer.parseInt(br.readLine());
         arr = new int[N];
-        rarr = new int[N];
+        candidate = new int[N];
         visited = new boolean[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -39,7 +39,7 @@ public class BOJ_10819 {
         }
         for (int i = 0; i < N; i++) {
             if (!visited[i]) {
-                rarr[depth] = arr[i];
+                candidate[depth] = arr[i];
                 visited[i] = true;
                 backtracking(depth + 1);
                 visited[i] = false;
@@ -48,10 +48,10 @@ public class BOJ_10819 {
     }
 
     private static int findMax() {
-        int result = 0;
+        int sum = 0;
         for (int i = 0; i < N - 1; i++) {
-            result += Math.abs(rarr[i] - rarr[i + 1]);
+            sum += Math.abs(candidate[i] - candidate[i + 1]);
         }
-        return result;
+        return sum;
     }
 }
