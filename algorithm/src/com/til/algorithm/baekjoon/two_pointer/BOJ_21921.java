@@ -12,27 +12,26 @@ public class BOJ_21921 {
 
         int N = Integer.parseInt(st.nextToken());
         int X = Integer.parseInt(st.nextToken());
-        int[] visitor = new int[N];
+        int[] arr = new int[N];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            visitor[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
         int sum = 0;
         for (int i = 0; i < X; i++) {
-            sum += visitor[i];
+            sum += arr[i];
         }
-        int max = 0;
-        int maxCount = 1;
+        int max = sum;
+        int maxCnt = 1;
         for (int i = X; i < N; i++) {
-            sum += visitor[i] - visitor[i - X];
+            sum += arr[i] - arr[i - X];
             if (max == sum) {
-                maxCount++;
-                continue;
+                maxCnt++;
             }
             if (max < sum) {
                 max = sum;
-                maxCount = 1;
+                maxCnt = 1;
             }
         }
 
@@ -40,9 +39,8 @@ public class BOJ_21921 {
             bw.write("SAD" + "\n");
         } else {
             bw.write(max + "\n");
-            bw.write(maxCount + "\n");
+            bw.write(maxCnt + "\n");
         }
-
         bw.flush();
         bw.close();
         br.close();

@@ -3,7 +3,7 @@ package com.til.algorithm.baekjoon.greedy;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class BOJ_11047 {
+public class BOJ_11407 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -12,20 +12,19 @@ public class BOJ_11047 {
 
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
+        int[] arr = new int[N];
 
-        int[] value = new int[N];
         for (int i = 0; i < N; i++) {
-            value[i] = Integer.parseInt(br.readLine());
+            arr[i] = Integer.parseInt(br.readLine());
         }
-
         int answer = 0;
         for (int i = N - 1; i >= 0; i--) {
-            if (value[i] > K) {
+            if (arr[i] > K) {
                 continue;
             }
-            int count = K / value[i];
-            K -= value[i] * count;
-            answer += count;
+            int coin = K / arr[i];
+            K -= arr[i] * coin;
+            answer += coin;
         }
 
         bw.write(answer + "\n");

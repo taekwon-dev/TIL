@@ -19,8 +19,8 @@ public class BOJ_2003 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int sum = 0;
         int answer = 0;
+        int sum = 0;
         int j = 0;
         for (int i = 0; i < N; i++) {
             while (j < N && sum < M) {

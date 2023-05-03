@@ -8,22 +8,22 @@ public class BOJ_1541 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String[] minusSplit = br.readLine().split("-");
-        int min = Integer.MAX_VALUE;
-        for (String s : minusSplit) {
-            String[] plusSplit = s.split("\\+");
+        int answer = Integer.MAX_VALUE;
+        String[] minus = br.readLine().split("-");
+        for (String s : minus) {
+            String[] plus = s.split("\\+");
             int sum = 0;
-            for (int i = 0; i < plusSplit.length; i++) {
-                sum += Integer.parseInt(plusSplit[i]);
+            for (int i = 0; i < plus.length; i++) {
+                sum += Integer.parseInt(plus[i]);
             }
-            if (min == Integer.MAX_VALUE) {
-                min = sum;
+            if (answer == Integer.MAX_VALUE) {
+                answer = sum;
             } else {
-                min -= sum;
+                answer -= sum;
             }
         }
 
-        bw.write(min + "\n");
+        bw.write(answer + "\n");
         bw.flush();
         bw.close();
         br.close();

@@ -10,21 +10,21 @@ public class BOJ_2217 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        int[] weight = new int[N];
+        int[] arr = new int[N];
 
         for (int i = 0; i < N; i++) {
-            weight[i] = Integer.parseInt(br.readLine());
+            arr[i] = Integer.parseInt(br.readLine());
         }
-        Arrays.sort(weight);
+        Arrays.sort(arr);
 
-        int max = weight[N - 1];
+        int answer = arr[N - 1];
         for (int i = 0; i < N - 1; i++) {
-            if (weight[i] * (N - i) > max) {
-                max = weight[i] * (N - i);
+            if (answer < arr[i] * (N - i)) {
+                answer = arr[i] * (N - i);
             }
         }
 
-        bw.write(max + "\n");
+        bw.write(answer + "\n");
         bw.flush();
         bw.close();
         br.close();
