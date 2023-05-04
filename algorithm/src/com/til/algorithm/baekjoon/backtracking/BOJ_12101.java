@@ -2,8 +2,6 @@ package com.til.algorithm.baekjoon.backtracking;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class BOJ_12101 {
@@ -21,9 +19,8 @@ public class BOJ_12101 {
         K = Integer.parseInt(st.nextToken());
 
         backtracking(0, "");
-        Collections.sort(candidate);
 
-        if (candidate.size() < K) {
+        if (K > candidate.size()) {
             bw.write(-1 + "\n");
         } else {
             bw.write(candidate.get(K - 1));

@@ -6,7 +6,6 @@ import java.util.StringTokenizer;
 
 public class BOJ_16198 {
 
-    private static int N;
     private static ArrayList<Integer> list = new ArrayList<>();
     private static int answer = Integer.MIN_VALUE;
 
@@ -14,7 +13,7 @@ public class BOJ_16198 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        N = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {

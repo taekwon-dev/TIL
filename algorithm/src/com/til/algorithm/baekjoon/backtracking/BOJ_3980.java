@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 public class BOJ_3980 {
 
     private static int[][] map = new int[11][11];
-    private static boolean[] assigned = new boolean[11];
+    private static boolean[] visited = new boolean[11];
     private static int answer;
 
     public static void main(String[] args) throws IOException {
@@ -23,26 +23,25 @@ public class BOJ_3980 {
                 }
             }
             answer = 0;
-            backtracking(0, 0);
+            backtracking(0,0);
 
             bw.write(answer + "\n");
             bw.flush();
         }
-
         bw.close();
         br.close();
     }
 
-    private static void backtracking(int row, int sum) {
-        if (row == 11) {
+    private static void backtracking(int depth, int sum) {
+        if (depth == 11) {
             answer = Math.max(answer, sum);
             return;
         }
-        for (int col = 0; col < 11; col++) {
-            if (!assigned[col] && map[row][col] != 0) {
-                assigned[col] = true;
-                backtracking(row + 1, sum + map[row][col]);
-                assigned[col] = false;
+        for (int i = 0; i < 11; i++) {
+            if (!visited[i] && map[depth][i] != 0) {
+                visited[i] = true;
+                backtracking(depth + 1, sum + map[depth][i]);
+                visited[i] = false;
             }
         }
     }

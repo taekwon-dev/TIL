@@ -14,7 +14,6 @@ public class BOJ_5014 {
     private static int D;
     private static boolean[] visited;
 
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -33,7 +32,6 @@ public class BOJ_5014 {
         } else {
             bw.write(result + "\n");
         }
-
         bw.flush();
         bw.close();
         br.close();
@@ -45,17 +43,27 @@ public class BOJ_5014 {
         visited[S] = true;
 
         while (!queue.isEmpty()) {
-            int[] curr = queue.poll();
-            if (curr[0] == G) {
-                return curr[1];
+            int[] now = queue.poll();
+
+            if (now[0] == G) {
+                return now[1];
             }
-            if (curr[0] + U <= F && !visited[curr[0] + U]) {
-                queue.offer(new int[]{curr[0] + U, curr[1] + 1});
-                visited[curr[0] + U] = true;
-            }
-            if (curr[0] - D >= 1 && !visited[curr[0] - D]) {
-                queue.offer(new int[]{curr[0] - D, curr[1] + 1});
-                visited[curr[0] - D] = true;
+
+            int nx = 0;
+            for (int i = 0; i < 2; i++) {
+                if (i == 0) {
+                    nx = now[0] + U;
+                } else {
+                    nx = now[0] - D;
+                }
+
+                if (nx < 1 || nx > F) {
+                    continue;
+                }
+                if (!visited[nx]) {
+                    queue.offer(new int[]{nx, now[1] + 1});
+                    visited[nx] = true;
+                }
             }
         }
         return -1;
