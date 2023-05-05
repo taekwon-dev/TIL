@@ -4,12 +4,13 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_1941 {
 
-    private static char[][] map;
-    private static boolean[] visited;
-    private static int[] seven;
+    private static char[][] map = new char[5][5];
+    private static boolean[] visited = new boolean[25];
+    private static int[] seven = new int[7];
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
     private static int answer;
@@ -18,14 +19,12 @@ public class BOJ_1941 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        map = new char[5][5];
-        visited = new boolean[25];
-        seven = new int[7];
-
         for (int i = 0; i < 5; i++) {
-            map[i] = br.readLine().toCharArray();
+            String row = br.readLine();
+            for (int j = 0; j < 5; j++) {
+                map[i][j] = row.charAt(j);
+            }
         }
-
         backtracking(0, 0);
 
         bw.write(answer + "\n");
@@ -51,18 +50,19 @@ public class BOJ_1941 {
 
     private static boolean isValid() {
         int Y = 0;
-        for (int y : seven) {
-            if (map[y / 5][y % 5] == 'Y') {
+        for (int s : seven) {
+            if (map[s / 5][s % 5] == 'Y') {
                 Y++;
             }
         }
-        if (Y > 3) {
+        if (Y >= 4) {
             return false;
         }
         ArrayList<Integer> member = new ArrayList<>();
-        for (int m : seven) {
-            member.add(m);
+        for (int s : seven) {
+            member.add(s);
         }
+
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(seven[0]);
 

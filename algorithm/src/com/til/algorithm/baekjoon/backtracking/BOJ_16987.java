@@ -5,8 +5,18 @@ import java.util.StringTokenizer;
 
 public class BOJ_16987 {
 
+    static class Egg {
+        int durability;
+        int weight;
+
+        public Egg(int durability, int weight) {
+            this.durability = durability;
+            this.weight = weight;
+        }
+    }
+
     private static int N;
-    private static int[][] arr;
+    private static Egg[] eggs;
     private static int answer;
 
     public static void main(String[] args) throws IOException {
@@ -15,12 +25,13 @@ public class BOJ_16987 {
         StringTokenizer st;
 
         N = Integer.parseInt(br.readLine());
-        arr = new int[N][2];
+        eggs = new Egg[N];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            arr[i][0] = Integer.parseInt(st.nextToken());
-            arr[i][1] = Integer.parseInt(st.nextToken());
+            int durability = Integer.parseInt(st.nextToken());
+            int weight = Integer.parseInt(st.nextToken());
+            eggs[i] = new Egg(durability, weight);
         }
         backtracking(0);
 
@@ -34,27 +45,27 @@ public class BOJ_16987 {
         if (idx == N) {
             int egg = 0;
             for (int i = 0; i < N; i++) {
-                if (arr[i][0] <= 0) {
+                if (eggs[i].durability <= 0) {
                     egg++;
                 }
             }
             answer = Math.max(answer, egg);
             return;
         }
-        if (arr[idx][0] <= 0) {
+        if (eggs[idx].durability <= 0) {
             backtracking(idx + 1);
         } else {
             boolean flag = false;
             for (int i = 0; i < N; i++) {
-                if (i == idx || arr[i][0] <= 0) {
+                if (idx == i || eggs[i].durability <= 0) {
                     continue;
                 }
                 flag = true;
-                arr[i][0] -= arr[idx][1];
-                arr[idx][0] -= arr[i][1];
+                eggs[i].durability -= eggs[idx].weight;
+                eggs[idx].durability -= eggs[i].weight;
                 backtracking(idx + 1);
-                arr[i][0] += arr[idx][1];
-                arr[idx][0] += arr[i][1];
+                eggs[i].durability += eggs[idx].weight;
+                eggs[idx].durability += eggs[i].weight;
             }
             if (!flag) {
                 backtracking(idx + 1);

@@ -10,28 +10,26 @@ public class BOJ_22945 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        int[] stat = new int[N + 1];
+        int[] arr = new int[N + 1];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 1; i <= N; i++) {
-            stat[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int l = 1;
-        int r = N;
-        int max = 0;
-        while (l <= r) {
-            int sum = Math.min(stat[l], stat[r]) * (r - l - 1);
-            max = Math.max(max, sum);
-
-            if (stat[l] > stat[r]) {
-                r--;
-            } else{
-                l++;
+        int answer = 0;
+        int i = 1;
+        int j = N;
+        while (i < j) {
+            int sum = Math.min(arr[i], arr[j]) * (j - i - 1);
+            answer = Math.max(answer, sum);
+            if (arr[i] > arr[j]) {
+                j--;
+            } else {
+                i++;
             }
         }
-
-        bw.write(max + "\n");
+        bw.write(answer + "\n");
         bw.flush();
         bw.close();
         br.close();

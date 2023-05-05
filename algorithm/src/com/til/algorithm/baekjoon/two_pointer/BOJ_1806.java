@@ -12,31 +12,29 @@ public class BOJ_1806 {
 
         int N = Integer.parseInt(st.nextToken());
         int S = Integer.parseInt(st.nextToken());
-        int[] arr = new int[N + 1];
+        int[] arr = new int[N];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        int len = Integer.MAX_VALUE;
-        int i = 0;
+
+        int len = 99_990;
         int j = 0;
         int sum = 0;
 
-        while (j <= N) {
+        for (int i = 0; i < N; i++) {
+            while (j < N && sum < S) {
+                sum += arr[j];
+                j++;
+            }
             if (sum >= S && len > j - i) {
                 len = j - i;
             }
-            if (sum < S) {
-                sum += arr[j];
-                j++;
-            } else {
-                sum -= arr[i];
-                i++;
-            }
+            sum -= arr[i];
         }
 
-        if (len == Integer.MAX_VALUE) {
+        if (len == 99_990) {
             bw.write(0 + "\n");
         } else {
             bw.write(len + "\n");

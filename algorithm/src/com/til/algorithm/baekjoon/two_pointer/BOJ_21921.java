@@ -12,28 +12,26 @@ public class BOJ_21921 {
 
         int N = Integer.parseInt(st.nextToken());
         int X = Integer.parseInt(st.nextToken());
-        int[] visitor = new int[N];
+        int[] arr = new int[N];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            visitor[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
         int visit = 0;
         for (int i = 0; i < X; i++) {
-            visit += visitor[i];
+            visit += arr[i];
         }
         int max = visit;
         int maxCnt = 1;
         for (int i = X; i < N; i++) {
-            visit += visitor[i] - visitor[i - X];
-            if (max == visit) {
-                maxCnt++;
-                continue;
-            }
+            visit += arr[i] - arr[i - X];
             if (max < visit) {
                 max = visit;
                 maxCnt = 1;
+            } else if (max == visit) {
+                maxCnt++;
             }
         }
 

@@ -20,19 +20,16 @@ public class BOJ_2003 {
         }
 
         int answer = 0;
-        int i = 0;
         int j = 0;
         int sum = 0;
-        while (j < N) {
+        for (int i = 0; i < N; i++) {
             while (j < N && sum < M) {
-                sum += arr[j];
-                j++;
+                sum += arr[j++];
             }
             if (sum == M) {
                 answer++;
             }
             sum -= arr[i];
-            i++;
         }
 
         bw.write(answer + "\n");
