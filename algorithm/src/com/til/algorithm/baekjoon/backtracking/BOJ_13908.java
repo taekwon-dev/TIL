@@ -18,9 +18,11 @@ public class BOJ_13908 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < M; i++) {
-            visited[Integer.parseInt(st.nextToken())] = true;
+        if (M > 0) {
+            st = new StringTokenizer(br.readLine());
+            for (int i = 0; i < M; i++) {
+                visited[Integer.parseInt(st.nextToken())] = true;
+            }
         }
         backtracking(0, 0);
 
