@@ -7,27 +7,28 @@ public class BOJ_14888 {
 
     private static int N;
     private static int[] arr;
-    private static int[] operation;
-    private static int max = Integer.MIN_VALUE;
-    private static int min = Integer.MAX_VALUE;
+    private static int[] sign;
+    private static int max;
+    private static int min;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
 
         N = Integer.parseInt(br.readLine());
         arr = new int[N];
-        operation = new int[4];
+        sign = new int[4];
+        max = Integer.MIN_VALUE;
+        min = Integer.MAX_VALUE;
 
-        st = new StringTokenizer(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < operation.length; i++) {
-            operation[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < sign.length; i++) {
+            sign[i] = Integer.parseInt(st.nextToken());
         }
         backtracking(0, arr[0]);
 
@@ -44,20 +45,21 @@ public class BOJ_14888 {
             min = Math.min(min, sum);
             return;
         }
-        for (int i = 0; i < operation.length; i++) {
-            if (operation[i] > 0) {
-                operation[i]--;
-                if (i == 0) {
-                    backtracking(depth + 1, sum + arr[depth + 1]);
-                } else if (i == 1) {
-                    backtracking(depth + 1, sum - arr[depth + 1]);
-                } else if (i == 2) {
-                    backtracking(depth + 1, sum * arr[depth + 1]);
-                } else {
-                    backtracking(depth + 1, sum / arr[depth + 1]);
-                }
-                operation[i]++;
+        for (int i = 0; i < sign.length; i++) {
+            if (sign[i] < 1) {
+                continue;
             }
+            sign[i]--;
+            if (i == 0) {
+                backtracking(depth + 1, sum + arr[depth + 1]);
+            } else if (i == 1) {
+                backtracking(depth + 1, sum - arr[depth + 1]);
+            } else if (i == 2) {
+                backtracking(depth + 1, sum * arr[depth + 1]);
+            } else if (i == 3) {
+                backtracking(depth + 1, sum / arr[depth + 1]);
+            }
+            sign[i]++;
         }
     }
 }

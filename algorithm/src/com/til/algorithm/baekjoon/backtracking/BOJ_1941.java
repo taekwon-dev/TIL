@@ -4,13 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.StringTokenizer;
 
 public class BOJ_1941 {
 
-    private static char[][] map = new char[5][5];
-    private static boolean[] visited = new boolean[25];
-    private static int[] seven = new int[7];
+    private static char[][] map;
+    private static int[] seven;
+    private static boolean[] visited;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
     private static int answer;
@@ -18,6 +17,10 @@ public class BOJ_1941 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        map = new char[5][5];
+        seven = new int[7];
+        visited = new boolean[25];
 
         for (int i = 0; i < 5; i++) {
             String row = br.readLine();
@@ -35,20 +38,22 @@ public class BOJ_1941 {
 
     private static void backtracking(int depth, int start) {
         if (depth == 7) {
-            if (isValid()) {
+            if (validate()) {
                 answer++;
             }
             return;
         }
-        for (int i = start; i < 25; i++) {
-            seven[depth] = i;
-            visited[i] = true;
-            backtracking(depth + 1, i + 1);
-            visited[i] = false;
+        for (int i = start; i < visited.length; i++) {
+            if (!visited[i]) {
+                seven[depth] = i;
+                visited[i] = true;
+                backtracking(depth + 1, i + 1);
+                visited[i] = false;
+            }
         }
     }
 
-    private static boolean isValid() {
+    private static boolean validate() {
         int Y = 0;
         for (int s : seven) {
             if (map[s / 5][s % 5] == 'Y') {

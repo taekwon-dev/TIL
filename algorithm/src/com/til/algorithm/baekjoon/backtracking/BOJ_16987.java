@@ -6,12 +6,12 @@ import java.util.StringTokenizer;
 public class BOJ_16987 {
 
     static class Egg {
-        int durability;
-        int weight;
+        int d;
+        int w;
 
-        public Egg(int durability, int weight) {
-            this.durability = durability;
-            this.weight = weight;
+        public Egg(int d, int w) {
+            this.d = d;
+            this.w = w;
         }
     }
 
@@ -29,9 +29,9 @@ public class BOJ_16987 {
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            int durability = Integer.parseInt(st.nextToken());
-            int weight = Integer.parseInt(st.nextToken());
-            eggs[i] = new Egg(durability, weight);
+            int d = Integer.parseInt(st.nextToken());
+            int w = Integer.parseInt(st.nextToken());
+            eggs[i] = new Egg(d, w);
         }
         backtracking(0);
 
@@ -41,34 +41,34 @@ public class BOJ_16987 {
         br.close();
     }
 
-    private static void backtracking(int idx) {
-        if (idx == N) {
-            int egg = 0;
+    private static void backtracking(int depth) {
+        if (depth == N) {
+            int brokenEgg = 0;
             for (int i = 0; i < N; i++) {
-                if (eggs[i].durability <= 0) {
-                    egg++;
+                if (eggs[i].d <= 0) {
+                    brokenEgg++;
                 }
             }
-            answer = Math.max(answer, egg);
+            answer = Math.max(answer, brokenEgg);
             return;
         }
-        if (eggs[idx].durability <= 0) {
-            backtracking(idx + 1);
+        if (eggs[depth].d <= 0) {
+            backtracking(depth + 1);
         } else {
             boolean flag = false;
             for (int i = 0; i < N; i++) {
-                if (idx == i || eggs[i].durability <= 0) {
+                if (depth == i || eggs[i].d <= 0) {
                     continue;
                 }
                 flag = true;
-                eggs[i].durability -= eggs[idx].weight;
-                eggs[idx].durability -= eggs[i].weight;
-                backtracking(idx + 1);
-                eggs[i].durability += eggs[idx].weight;
-                eggs[idx].durability += eggs[i].weight;
+                eggs[i].d -= eggs[depth].w;
+                eggs[depth].d -= eggs[i].w;
+                backtracking(depth + 1);
+                eggs[i].d += eggs[depth].w;
+                eggs[depth].d += eggs[i].w;
             }
             if (!flag) {
-                backtracking(idx + 1);
+                backtracking(depth + 1);
             }
         }
     }

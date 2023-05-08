@@ -16,13 +16,13 @@ public class BOJ_3980 {
 
         int TC = Integer.parseInt(br.readLine());
         while (TC-- > 0) {
+            answer = 0;
             for (int i = 0; i < 11; i++) {
                 st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < 11; j++) {
                     map[i][j] = Integer.parseInt(st.nextToken());
                 }
             }
-            answer = 0;
             backtracking(0,0);
 
             bw.write(answer + "\n");
@@ -40,7 +40,7 @@ public class BOJ_3980 {
         for (int i = 0; i < 11; i++) {
             if (!visited[i] && map[depth][i] != 0) {
                 visited[i] = true;
-                backtracking(depth + 1, sum + map[depth][i]);
+                backtracking(depth + 1,sum + map[depth][i]);
                 visited[i] = false;
             }
         }
