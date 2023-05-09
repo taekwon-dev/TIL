@@ -8,19 +8,20 @@ public class BOJ_1541 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int answer = Integer.MAX_VALUE;
-        String[] minus = br.readLine().split("-");
-        for (String s : minus) {
-            String[] plus = s.split("\\+");
-            int sum = 0;
-            for (int i = 0; i < plus.length; i++) {
-                sum += Integer.parseInt(plus[i]);
+        String[] minusSplit = br.readLine().split("-");
+
+        int answer = 0;
+        for (int i = 0; i < minusSplit.length; i++) {
+            String[] plusSplit = minusSplit[i].split("\\+");
+            int plus = 0;
+            for (int j = 0; j < plusSplit.length; j++) {
+                plus += Integer.parseInt(plusSplit[j]);
             }
-            if (answer == Integer.MAX_VALUE) {
-                answer = sum;
-            } else {
-                answer -= sum;
+            if (i == 0) {
+                answer = plus;
+                continue;
             }
+            answer -= plus;
         }
 
         bw.write(answer + "\n");

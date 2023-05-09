@@ -31,7 +31,7 @@ public class BOJ_7562 {
             int ey = Integer.parseInt(st.nextToken());
 
             if (sx == ex && sy == ey) {
-                bw.write("0" + "\n");
+                bw.write(0 + "\n");
             } else {
                 bw.write(bfs(sx, sy, ex, ey) + "\n");
             }
@@ -48,20 +48,22 @@ public class BOJ_7562 {
 
         while (!queue.isEmpty()) {
             int[] now = queue.poll();
+            int nowX = now[0];
+            int nowY = now[1];
+            int cost = now[2];
 
-            if (now[0] == ex && now[1] == ey) {
-                return now[2];
+            if (nowX == ex && nowY == ey) {
+                return cost;
             }
-
             for (int i = 0; i < 8; i++) {
-                int nx = now[0] + dx[i];
-                int ny = now[1] + dy[i];
+                int nx = nowX + dx[i];
+                int ny = nowY + dy[i];
 
                 if (nx < 0 || ny < 0 || nx > N - 1 || ny > N - 1) {
                     continue;
                 }
                 if (!visited[nx][ny]) {
-                    queue.offer(new int[]{nx, ny, now[2] + 1});
+                    queue.offer(new int[]{nx, ny, cost + 1});
                     visited[nx][ny] = true;
                 }
             }

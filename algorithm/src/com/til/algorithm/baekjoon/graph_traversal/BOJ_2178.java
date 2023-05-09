@@ -1,65 +1,70 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_2178 {
 
-    private static int n;
-    private static int m;
-    private static boolean[][] visited;
+    private static int N;
+    private static int M;
     private static int[][] map;
+    private static boolean[][] visited;
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        visited = new boolean[n + 1][m + 1];
-        map = new int[n + 1][m + 1];
 
-        for (int i = 1; i <= n; i++) {
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        map = new int[N + 1][M + 1];
+        visited = new boolean[N + 1][M + 1];
+
+        for (int i = 1; i <= N; i++) {
             String row = br.readLine();
-            for (int j = 1; j <= m; j++) {
+            for (int j = 1; j <= M; j++) {
                 map[i][j] = row.charAt(j - 1) - '0';
             }
         }
-        bfs();
+
+        bw.write(bfs(1, 1) + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
-    private static void bfs() {
+    private static int bfs(int sx, int sy) {
         Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{1, 1, 1});
-        visited[1][1] = true;
+        queue.offer(new int[]{sx, sy, 1});
+        visited[sx][sy] = true;
 
         while (!queue.isEmpty()) {
-            int[] curr = queue.poll();
-            int currX = curr[0];
-            int currY = curr[1];
-            int dist = curr[2];
+            int[] now = queue.poll();
+            int nowX = now[0];
+            int nowY = now[1];
+            int cost = now[2];
 
-            if (currX == n && currY == m) {
-                System.out.println(dist);
-                break;
+            if (nowX == N && nowY == M) {
+                return now[2];
             }
 
             for (int i = 0; i < 4; i++) {
-                int nx = currX + dx[i];
-                int ny = currY + dy[i];
+                int nx = nowX + dx[i];
+                int ny = nowY + dy[i];
 
-                if (nx >= 1 && ny >= 1 && nx <= n && ny <= m) {
-                    if (!visited[nx][ny] && map[nx][ny] == 1) {
-                        queue.add(new int[]{nx, ny, dist + 1});
-                        visited[nx][ny] = true;
-                    }
+                if (nx < 1 || ny < 1 || nx > N || ny > M) {
+                    continue;
+                }
+                if (!visited[nx][ny] && map[nx][ny] == 1) {
+                    queue.offer(new int[]{nx, ny, cost + 1});
+                    visited[nx][ny] = true;
                 }
             }
         }
+        return -1;
     }
 }

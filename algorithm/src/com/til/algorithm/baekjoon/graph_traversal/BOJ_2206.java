@@ -7,6 +7,20 @@ import java.util.StringTokenizer;
 
 public class BOJ_2206 {
 
+    static class Node {
+        int x;
+        int y;
+        int cost;
+        int wall;
+
+        public Node(int x, int y, int cost, int wall) {
+            this.x = x;
+            this.y = y;
+            this.cost = cost;
+            this.wall = wall;
+        }
+    }
+
     private static int N;
     private static int M;
     private static int[][] map;
@@ -31,40 +45,39 @@ public class BOJ_2206 {
             }
         }
 
-        bw.write(bfs() + "\n");
+        bw.write(bfs(1, 1) + "\n");
         bw.flush();
         bw.close();
         br.close();
     }
 
-    private static int bfs() {
-        Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{1, 1, 1, 0});
-        visited[1][1][0] = true;
+    private static int bfs(int sx, int sy) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(new Node(sx, sy, 1, 0));
+        visited[sx][sy][0] = true;
 
         while (!queue.isEmpty()) {
-            int now[] = queue.poll();
+            Node now = queue.poll();
 
-            if (now[0] == N && now[1] == M) {
-                return now[2];
+            if (now.x == N && now.y == M) {
+                return now.cost;
             }
+
             for (int i = 0; i < 4; i++) {
-                int nx = now[0] + dx[i];
-                int ny = now[1] + dy[i];
+                int nx = now.x + dx[i];
+                int ny = now.y + dy[i];
 
                 if (nx < 1 || ny < 1 || nx > N || ny > M) {
                     continue;
                 }
-                if (map[nx][ny] == 0) {
-                    if (!visited[nx][ny][now[3]]) {
-                        queue.offer(new int[]{nx, ny, now[2] + 1, now[3]});
-                        visited[nx][ny][now[3]] = true;
-                    }
-                } else if (map[nx][ny] == 1) {
-                    if (now[3] == 0 && !visited[nx][ny][1]) {
-                        queue.offer(new int[]{nx, ny, now[2] + 1, 1});
-                        visited[nx][ny][1] = true;
-                    }
+                if (map[nx][ny] == 0 && !visited[nx][ny][now.wall]) {
+                    queue.offer(new Node(nx, ny, now.cost + 1, now.wall));
+                    visited[nx][ny][now.wall] = true;
+                    continue;
+                }
+                if (map[nx][ny] == 1 && (now.wall == 0 && !visited[nx][ny][1])) {
+                    queue.offer(new Node(nx, ny, now.cost + 1, 1));
+                    visited[nx][ny][1] = true;
                 }
             }
         }

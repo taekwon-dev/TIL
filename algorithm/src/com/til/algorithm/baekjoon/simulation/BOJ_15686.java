@@ -6,22 +6,13 @@ import java.util.StringTokenizer;
 
 public class BOJ_15686 {
 
-    static class Node {
-        int x;
-        int y;
-
-        public Node(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
     private static int N;
     private static int M;
+    private static int[][] map;
+    private static ArrayList<int[]> chickens;
+    private static ArrayList<int[]> homes;
     private static boolean[] open;
-    private static ArrayList<Node> homes = new ArrayList<>();
-    private static ArrayList<Node> chickens = new ArrayList<>();
-    private static int answer = Integer.MAX_VALUE;
+    private static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,17 +21,21 @@ public class BOJ_15686 {
 
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
+        map = new int[N][N];
+        answer = Integer.MAX_VALUE;
+        chickens = new ArrayList<>();
+        homes = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
-                int val = Integer.parseInt(st.nextToken());
-                if (val == 1) {
-                    homes.add(new Node(i, j));
+                map[i][j] = Integer.parseInt(st.nextToken());
+                if (map[i][j] == 1) {
+                    homes.add(new int[]{i, j});
                     continue;
                 }
-                if (val == 2) {
-                    chickens.add(new Node(i, j));
+                if (map[i][j] == 2) {
+                    chickens.add(new int[]{i, j});
                 }
             }
         }
@@ -53,34 +48,34 @@ public class BOJ_15686 {
         br.close();
     }
 
-    private static void backtracking(int depth, int index) {
+    private static void backtracking(int depth, int start) {
         if (depth == M) {
             answer = Math.min(answer, getTotalChickenDistance());
             return;
         }
-        for (int i = index; i < chickens.size(); i++) {
-            open[i] = true;
-            backtracking(depth + 1, i + 1);
-            open[i] = false;
+        for (int i = start; i < open.length; i++) {
+            if (!open[i]) {
+                open[i] = true;
+                backtracking(depth + 1, i + 1);
+                open[i] = false;
+            }
         }
     }
 
     private static int getTotalChickenDistance() {
-        int totalDistance = 0;
-        for (Node home : homes) {
-            int chickenDistance = 100;
+        int totalChickenDistance = 0;
+        for (int[] home : homes) {
+            int chickenDistance = Integer.MAX_VALUE;
             for (int i = 0; i < chickens.size(); i++) {
                 if (!open[i]) {
                     continue;
                 }
-                chickenDistance = Math.min(chickenDistance, getChickenDistance(home, chickens.get(i)));
+                if (chickenDistance > Math.abs(home[0] - chickens.get(i)[0]) + Math.abs(home[1] - chickens.get(i)[1])) {
+                    chickenDistance = Math.abs(home[0] - chickens.get(i)[0]) + Math.abs(home[1] - chickens.get(i)[1]);
+                }
             }
-            totalDistance += chickenDistance;
+            totalChickenDistance += chickenDistance;
         }
-        return totalDistance;
-    }
-
-    private static int getChickenDistance(Node home, Node chicken) {
-        return Math.abs(home.x - chicken.x) + Math.abs(home.y - chicken.y);
+        return totalChickenDistance;
     }
 }
