@@ -11,8 +11,8 @@ public class LV2_순위검색 {
 
     public int[] solution(String[] info, String[] query) {
         for (int i = 0; i < info.length; i++) {
-            String[] infos = info[i].split(" ");
-            backtracking(infos, 0, "");
+            String[] bundle = info[i].split(" ");
+            backtracking(bundle, 0, "");
         }
         List<String> keys = new ArrayList<>(map.keySet());
         for (int i = 0; i < keys.size(); i++) {
@@ -21,10 +21,12 @@ public class LV2_순위검색 {
 
         int[] answer = new int[query.length];
         for (int i = 0; i < query.length; i++) {
-            String s = query[i].replace(" and ", "");
-            String[] querySplit = s.split(" ");
-            String key = querySplit[0];
-            int score = Integer.parseInt(querySplit[1]);
+            String q = query[i];
+            q = q.replace(" and ", "");
+            String[] bundle = q.split(" ");
+            String key = bundle[0];
+            int score = Integer.parseInt(bundle[1]);
+
             if (!map.containsKey(key)) {
                 answer[i] = 0;
             } else {
@@ -34,21 +36,22 @@ public class LV2_순위검색 {
         return answer;
     }
 
-    private void backtracking(String[] infos, int depth, String s) {
-        if (depth == infos.length - 1) {
+    private void backtracking(String[] bundle, int depth, String s) {
+        if (depth == bundle.length - 1) {
             if (!map.containsKey(s)) {
                 map.put(s, new ArrayList<>());
             }
-            int score = Integer.parseInt(infos[4]);
+            int score = Integer.parseInt(bundle[4]);
             map.get(s).add(score);
             return;
         }
-        backtracking(infos, depth + 1, s + infos[depth]);
-        backtracking(infos, depth + 1, s + "-");
+        backtracking(bundle, depth + 1, s + bundle[depth]);
+        backtracking(bundle, depth + 1, s + "-");
     }
 
     private int binarySearch(String key, int score) {
         List<Integer> scores = map.get(key);
+
         int l = 0;
         int r = scores.size() - 1;
         while (l <= r) {

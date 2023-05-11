@@ -48,10 +48,10 @@ public class BOJ_10819 {
     }
 
     private static int findMax() {
-        int sum = 0;
+        int max = 0;
         for (int i = 0; i < N - 1; i++) {
-            sum += Math.abs(candidate[i] - candidate[i + 1]);
+            max += Math.abs(candidate[i] - candidate[i + 1]);
         }
-        return sum;
+        return max;
     }
 }
