@@ -14,19 +14,19 @@ public class BOJ_2531 {
         int D = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
         int C = Integer.parseInt(st.nextToken());
-        int[] sushi = new int[N];
+        int[] arr = new int[N];
         int[] number = new int[D + 1];
 
         for (int i = 0; i < N; i++) {
-            sushi[i] = Integer.parseInt(br.readLine());
+            arr[i] = Integer.parseInt(br.readLine());
         }
 
         int cnt = 0;
         for (int i = 0; i < K; i++) {
-            if (number[sushi[i]] == 0) {
+            if (number[arr[i]] == 0) {
                 cnt++;
             }
-            number[sushi[i]]++;
+            number[arr[i]]++;
         }
         int max = cnt;
         for (int i = 0; i < N; i++) {
@@ -37,14 +37,14 @@ public class BOJ_2531 {
                     max = cnt;
                 }
             }
-            if (number[sushi[i]] == 1) {
+            if (number[arr[i]] == 1) {
                 cnt--;
             }
-            number[sushi[i]]--;
-            if (number[sushi[(i + K) % N]] == 0) {
+            number[arr[i]]--;
+            if (number[arr[(i + K) % N]] == 0) {
                 cnt++;
             }
-            number[sushi[(i + K) % N]]++;
+            number[arr[(i + K) % N]]++;
         }
 
         bw.write(max + "\n");

@@ -1,84 +1,75 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_7576 {
-    static class Node {
-        int x;
-        int y;
 
-        public Node(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
-    static int m, n;
-    static int[][] map;
-    static int[] dx = {1, -1, 0, 0};
-    static int[] dy = {0, 0, 1, -1};
-    static Queue<Node> queue = new LinkedList<>();
+    private static int M;
+    private static int N;
+    private static int[][] map;
+    private static int[] dx = {1, -1, 0, 0};
+    private static int[] dy = {0, 0, 1, -1};
+    private static Queue<int[]> queue = new LinkedList<>();
+    private static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        m = Integer.parseInt(st.nextToken());
-        n = Integer.parseInt(st.nextToken());
 
-        map = new int[n][m];
+        M = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
+        map = new int[N][M];
+        answer = -1;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < M; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
-
-                // 익은 토마토 큐 대기열에 추가
                 if (map[i][j] == 1) {
-                    queue.add(new Node(i, j));
+                    queue.offer(new int[]{i, j});
                 }
             }
         }
-        System.out.println(bfs());
+        bw.write(bfs() + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
     private static int bfs() {
-
         while (!queue.isEmpty()) {
-            Node node = queue.poll();
+            int[] now = queue.poll();
+            int nowX = now[0];
+            int nowY = now[1];
 
             for (int i = 0; i < 4; i++) {
-                int nx = node.x + dx[i];
-                int ny = node.y + dy[i];
+                int nx = nowX + dx[i];
+                int ny = nowY + dy[i];
 
-                if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
-                    if (map[nx][ny] == 0) {
-                        queue.add(new Node(nx, ny));
-                        map[nx][ny] = map[node.x][node.y] + 1;
-                    }
+                if (nx < 0 || ny < 0 || nx > N - 1 || ny > M - 1) {
+                    continue;
+                }
+                if (map[nx][ny] == 0) {
+                    queue.offer(new int[]{nx, ny});
+                    map[nx][ny] = map[nowX][nowY] + 1;
                 }
             }
         }
-        int answer = Integer.MIN_VALUE;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
                 if (map[i][j] == 0) {
                     return -1;
                 }
                 answer = Math.max(answer, map[i][j]);
             }
         }
-
         if (answer == 1) {
-            // 최초 저장 시 모든 토마토가 익은 상태
             return 0;
-        } else {
-            // 익은 토마토가 1로 설정되어 있어서 날짜 계산시 -1 처리 필요
-            return answer - 1;
         }
+        return answer - 1;
     }
 }

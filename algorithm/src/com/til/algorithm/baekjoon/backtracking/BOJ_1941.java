@@ -38,12 +38,12 @@ public class BOJ_1941 {
 
     private static void backtracking(int depth, int start) {
         if (depth == 7) {
-            if (validate()) {
+            if (bfs()) {
                 answer++;
             }
             return;
         }
-        for (int i = start; i < visited.length; i++) {
+        for (int i = start; i < 25; i++) {
             if (!visited[i]) {
                 seven[depth] = i;
                 visited[i] = true;
@@ -53,21 +53,20 @@ public class BOJ_1941 {
         }
     }
 
-    private static boolean validate() {
+    private static boolean bfs() {
         int Y = 0;
-        for (int s : seven) {
-            if (map[s / 5][s % 5] == 'Y') {
+        for (int member : seven) {
+            if (map[member / 5][member % 5] == 'Y') {
                 Y++;
             }
         }
         if (Y >= 4) {
             return false;
         }
-        ArrayList<Integer> member = new ArrayList<>();
-        for (int s : seven) {
-            member.add(s);
+        ArrayList<Integer> members = new ArrayList<>();
+        for (int member : seven) {
+            members.add(member);
         }
-
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(seven[0]);
 
@@ -81,13 +80,13 @@ public class BOJ_1941 {
                 if (nx < 0 || ny < 0 || nx > 4 || ny > 4) {
                     continue;
                 }
-                if (member.contains(5 * nx + ny)) {
-                    member.remove(Integer.valueOf(5 * nx + ny));
+                if (members.contains(5 * nx + ny)) {
+                    members.remove(Integer.valueOf(5 * nx + ny));
                     queue.offer(5 * nx + ny);
                 }
             }
         }
-        if (!member.isEmpty()) {
+        if (!members.isEmpty()) {
             return false;
         }
         return true;

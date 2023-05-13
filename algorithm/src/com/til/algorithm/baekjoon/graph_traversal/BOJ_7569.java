@@ -1,102 +1,86 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_7569 {
 
-
-    static class Node {
-        int x;
-        int y;
-        int z;
-
-        public Node(int x, int y, int z) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-    }
-
-    static int m, n, h;
-    static int[][][] map;
-
-    // -> { 1, 0, 0 }, { -1, 0, 0 }, { 0, 1, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 0, -1 }
-    static int[] dx = {1, -1, 0, 0, 0, 0};
-    static int[] dy = {0, 0, 1, -1, 0, 0};
-    static int[] dz = {0, 0, 0, 0, 1, -1};
-
-    static Queue<Node> queue = new LinkedList<>();
+    private static int M;
+    private static int N;
+    private static int H;
+    private static int[][][] map;
+    private static int[] dx = {1, -1, 0, 0, 0, 0};
+    private static int[] dy = {0, 0, 1, -1, 0, 0};
+    private static int[] dh = {0, 0, 0, 0, 1, -1};
+    private static Queue<int[]> queue = new LinkedList<>();
+    private static int answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        m = Integer.parseInt(st.nextToken());
-        n = Integer.parseInt(st.nextToken());
-        h = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
+        H = Integer.parseInt(st.nextToken());
+        map = new int[N][M][H];
+        answer = -1;
 
-        map = new int[n + 1][m + 1][h + 1];
-
-        for (int z = 1; z <= h; z++) {
-            for (int x = 1; x <= n; x++) {
+        for (int h = 0; h < H; h++) {
+            for (int n = 0; n < N; n++) {
                 st = new StringTokenizer(br.readLine());
-                for (int y = 1; y <= m; y++) {
-                    map[x][y][z] = Integer.parseInt(st.nextToken());
-
-                    if (map[x][y][z] == 1) {
-                        queue.add(new Node(x, y, z));
+                for (int m = 0; m < M; m++) {
+                    map[n][m][h] = Integer.parseInt(st.nextToken());
+                    if (map[n][m][h] == 1) {
+                        queue.offer(new int[]{n, m, h});
                     }
                 }
             }
         }
 
-        bfs();
+        bw.write(bfs() + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
-    private static void bfs() {
-
+    private static int bfs() {
         while (!queue.isEmpty()) {
-            Node node = queue.poll();
+            int[] now = queue.poll();
+            int nowX = now[0];
+            int nowY = now[1];
+            int nowH = now[2];
 
             for (int i = 0; i < 6; i++) {
-                int nx = node.x + dx[i];
-                int ny = node.y + dy[i];
-                int nz = node.z + dz[i];
+                int nx = nowX + dx[i];
+                int ny = nowY + dy[i];
+                int nh = nowH + dh[i];
 
-                if (nx >= 1 && ny >= 1 && nz >= 1 && nx <= n && ny <= m && nz <= h) {
-                    if (map[nx][ny][nz] == 0) {
-                        queue.add(new Node(nx, ny, nz));
-                        map[nx][ny][nz] = map[node.x][node.y][node.z] + 1;
-                    }
+                if (nx < 0 || ny < 0 || nh < 0 || nx > N - 1 || ny > M - 1 || nh > H - 1) {
+                    continue;
+                }
+                if (map[nx][ny][nh] == 0) {
+                    queue.offer(new int[]{nx, ny, nh});
+                    map[nx][ny][nh] = map[nowX][nowY][nowH] + 1;
                 }
             }
         }
 
-        // 모든 처리 완료
-        // 만약, 저장될 때부터 모든 토마토가 익어있는 상태이면 0을 출력해야 하고,
-        // 토마토가 모두 익지는 못하는 상황이면 -1을 출력해야 한다.
-        int max = 0;
-        for (int z = 1; z <= h; z++) {
-            for (int x = 1; x <= n; x++) {
-                for (int y = 1; y <= m; y++) {
-                    if (map[x][y][z] == 0) {
-                        System.out.println(-1);
-                        return;
+        for (int h = 0; h < H; h++) {
+            for (int n = 0; n < N; n++) {
+                for (int m = 0; m < M; m++) {
+                    if (map[n][m][h] == 0) {
+                        return -1;
                     }
-                    max = Math.max(max, map[x][y][z]);
+                    answer = Math.max(answer, map[n][m][h]);
                 }
             }
         }
-
-        if (max == 1) {
-            System.out.println(0);
-        } else {
-            System.out.println(max - 1);
+        if (answer == 1) {
+            return 0;
         }
+        return answer - 1;
     }
 }

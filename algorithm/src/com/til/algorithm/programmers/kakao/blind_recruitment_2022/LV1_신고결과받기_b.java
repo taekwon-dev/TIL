@@ -6,27 +6,29 @@ import java.util.HashSet;
 public class LV1_신고결과받기_b {
 
     public int[] solution(String[] id_list, String[] report, int k) {
-        HashMap<String, HashSet<String>> map = new HashMap<>();
-        HashMap<String, Integer> mail = new HashMap<>();
+        int[] answer = new int[id_list.length];
 
-        for (int idx = 0; idx < id_list.length; idx++) {
-            String id = id_list[idx];
-            map.put(id, new HashSet<>());
-            mail.put(id, idx);
+        HashMap<String, Integer> idMap = new HashMap<>();
+        HashMap<String, HashSet<String>> reportMap = new HashMap<>();
+
+        for (int i = 0; i < id_list.length; i++) {
+            idMap.put(id_list[i], i);
+            reportMap.put(id_list[i], new HashSet<>());
         }
 
         for (String r : report) {
-            String[] reportSplit = r.split(" ");
-            String reporter = reportSplit[0];
-            String target = reportSplit[1];
-            map.get(target).add(reporter);
+            String[] fromTo = r.split(" ");
+            String from = fromTo[0];
+            String to = fromTo[1];
+
+            reportMap.get(to).add(from);
         }
-        int[] answer = new int[id_list.length];
-        for (int i = 0; i < answer.length; i++) {
-            HashSet<String> set = map.get(id_list[i]);
-            if (set.size() >= k) {
-                for (String receiver : set) {
-                    answer[mail.get(receiver)]++;
+
+        for (int i = 0; i < id_list.length; i++) {
+            HashSet<String> reportSet = reportMap.get(id_list[i]);
+            if (reportSet.size() >= k) {
+                for (String reporter : reportSet) {
+                    answer[idMap.get(reporter)]++;
                 }
             }
         }

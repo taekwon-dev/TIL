@@ -21,9 +21,8 @@ public class BOJ_20922 {
         }
 
         int len = 0;
-        int i = 0;
         int j = 0;
-        while (j < N) {
+        for (int i = 0; i < N; i++) {
             while (j < N && cnt[arr[j]] < K) {
                 cnt[arr[j]]++;
                 j++;
@@ -32,7 +31,6 @@ public class BOJ_20922 {
                 len = j - i;
             }
             cnt[arr[i]]--;
-            i++;
         }
 
         bw.write(len + "\n");

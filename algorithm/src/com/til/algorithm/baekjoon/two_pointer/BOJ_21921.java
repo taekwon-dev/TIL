@@ -19,18 +19,20 @@ public class BOJ_21921 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int visit = 0;
+        int sum = 0;
         for (int i = 0; i < X; i++) {
-            visit += arr[i];
+            sum += arr[i];
         }
-        int max = visit;
+        int max = sum;
         int maxCnt = 1;
         for (int i = X; i < N; i++) {
-            visit += arr[i] - arr[i - X];
-            if (max < visit) {
-                max = visit;
+            sum += arr[i] - arr[i - X];
+            if (max < sum) {
+                max = sum;
                 maxCnt = 1;
-            } else if (max == visit) {
+                continue;
+            }
+            if (max == sum) {
                 maxCnt++;
             }
         }

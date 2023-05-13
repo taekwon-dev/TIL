@@ -19,10 +19,9 @@ public class BOJ_1806 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int len = 99_990;
-        int j = 0;
+        int len = N + 1;
         int sum = 0;
-
+        int j = 0;
         for (int i = 0; i < N; i++) {
             while (j < N && sum < S) {
                 sum += arr[j];
@@ -33,8 +32,7 @@ public class BOJ_1806 {
             }
             sum -= arr[i];
         }
-
-        if (len == 99_990) {
+        if (len == N + 1) {
             bw.write(0 + "\n");
         } else {
             bw.write(len + "\n");

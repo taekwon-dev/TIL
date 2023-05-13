@@ -22,13 +22,13 @@ public class BOJ_16922 {
         br.close();
     }
 
-    private static void backtracking(int depth, int index, int sum) {
+    private static void backtracking(int depth, int start, int number) {
         if (depth == N) {
-            set.add(sum);
+            set.add(number);
             return;
         }
-        for (int i = index; i < arr.length; i++) {
-            backtracking(depth + 1, i, sum + arr[i]);
+        for (int i = start; i < arr.length; i++) {
+            backtracking(depth + 1, i, number + arr[i]);
         }
     }
 }
