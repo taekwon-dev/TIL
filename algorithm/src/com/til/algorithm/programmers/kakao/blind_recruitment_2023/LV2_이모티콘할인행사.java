@@ -2,63 +2,52 @@ package com.til.algorithm.programmers.kakao.blind_recruitment_2023;
 
 public class LV2_이모티콘할인행사 {
 
-    private int[] discountRatio;
-    private int[] discount = {10, 20, 30, 40};
-    private int[][] users;
-    private int[] emoticons;
-    private int maxEnroll;
-    private int maxPay;
+    private int[] discountRatio = {10, 20, 30, 40};
+    private int[] discount;
+    private int maxJoin;
+    private int maxPayment;
 
     public int[] solution(int[][] users, int[] emoticons) {
-        this.discountRatio = new int[emoticons.length];
-        this.users = users;
-        this.emoticons = emoticons;
+        discount = new int[emoticons.length];
+        backtracking(users, emoticons, 0);
 
-        backtracking(0);
-
-        int[] answer = new int[2];
-        answer[0] = maxEnroll;
-        answer[1] = maxPay;
-
+        int[] answer = {maxJoin, maxPayment};
         return answer;
     }
 
-    private void backtracking(int depth) {
-        if (depth == discountRatio.length) {
-            calculate();
-            return;
-        }
-        for (int i = 0; i < discount.length; i++) {
-            discountRatio[depth] = discount[i];
-            backtracking(depth + 1);
-        }
-    }
+    private void backtracking(int[][] users, int[] emoticons, int depth) {
+        if (depth == emoticons.length) {
+            int join = 0;
+            int totalPayment = 0;
 
-    private void calculate() {
-        int enroll = 0;
-        int totalPay = 0;
+            for (int[] user : users) {
+                int targetDCRatio = user[0];
+                int targetPayment = user[1];
+                int payment = 0;
 
-        for (int[] user : users) {
-            int targetRatio = user[0];
-            int targetPay = user[1];
-
-            int pay = 0;
-            for (int i = 0; i < emoticons.length; i++) {
-                if (targetRatio <= discountRatio[i]) {
-                    pay += emoticons[i] / 100 * (100 - discountRatio[i]);
+                for (int i = 0; i < emoticons.length; i++) {
+                    if (targetDCRatio > discount[i]) {
+                        continue;
+                    }
+                    payment += emoticons[i] / 100 * (100 - discount[i]);
+                }
+                if (payment >= targetPayment) {
+                    join++;
+                } else {
+                    totalPayment += payment;
                 }
             }
-            if (pay >= targetPay) {
-                enroll++;
-            } else {
-                totalPay += pay;
+            if (maxJoin < join) {
+                maxJoin = join;
+                maxPayment = totalPayment;
+            } else if (maxJoin == join && maxPayment < totalPayment) {
+                maxPayment = totalPayment;
             }
+            return;
         }
-        if (maxEnroll < enroll) {
-            maxEnroll = enroll;
-            maxPay = totalPay;
-        } else if (maxEnroll == enroll && maxPay < totalPay) {
-            maxPay = totalPay;
+        for (int i = 0; i < discountRatio.length; i++) {
+            discount[depth] = discountRatio[i];
+            backtracking(users, emoticons, depth + 1);
         }
     }
 }
