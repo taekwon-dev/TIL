@@ -13,20 +13,24 @@ public class BOJ_11404 {
         int N = Integer.parseInt(br.readLine());
         int M = Integer.parseInt(br.readLine());
         int[][] map = new int[N + 1][N + 1];
+
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= N; j++) {
                 map[i][j] = (int) 1e9;
                 if (i == j) {
-                    map[i][j] = 0;
+                     map[i][j] = 0;
                 }
             }
         }
+
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int from = Integer.parseInt(st.nextToken());
             int to = Integer.parseInt(st.nextToken());
             int cost = Integer.parseInt(st.nextToken());
-            map[from][to] = Math.min(map[from][to], cost);
+            if (map[from][to] > cost) {
+                map[from][to] = cost;
+            }
         }
 
         for (int k = 1; k <= N; k++) {
@@ -38,19 +42,20 @@ public class BOJ_11404 {
                 }
             }
         }
-        StringBuilder sb = new StringBuilder();
+
+        StringBuilder answer = new StringBuilder();
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= N; j++) {
                 if (map[i][j] == (int) 1e9) {
-                    sb.append("0" + " ");
+                    answer.append("0" + " ");
                 } else {
-                    sb.append(map[i][j] + " ");
+                    answer.append(map[i][j] + " ");
                 }
             }
-            sb.append("\n");
+            answer.append("\n");
         }
 
-        bw.write(sb.toString() + "\n");
+        bw.write(answer.toString() + "\n");
         bw.flush();
         bw.close();
         br.close();
