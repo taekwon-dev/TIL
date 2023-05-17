@@ -5,28 +5,28 @@ import java.util.List;
 
 public class LEET_46 {
 
-    private List<List<Integer>> result = new ArrayList<>();
-    private List<Integer> permutation = new ArrayList<>();
+    private List<List<Integer>> answer = new ArrayList<>();
+    private List<Integer> candidate = new ArrayList<>();
     private boolean[] visited;
 
     public List<List<Integer>> permute(int[] nums) {
         visited = new boolean[nums.length];
         backtracking(nums, 0);
-        return result;
+        return answer;
     }
 
     private void backtracking(int[] nums, int depth) {
         if (depth == nums.length) {
-            result.add(new ArrayList<>(permutation));
+            answer.add(new ArrayList<>(candidate));
             return;
         }
         for (int i = 0; i < nums.length; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                permutation.add(nums[i]);
+                candidate.add(nums[i]);
                 backtracking(nums, depth + 1);
                 visited[i] = false;
-                permutation.remove(permutation.size() - 1);
+                candidate.remove(candidate.size() - 1);
             }
         }
     }

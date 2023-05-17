@@ -1,34 +1,32 @@
 package com.til.algorithm.leetCode.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LEET_39 {
 
-    private List<List<Integer>> combinations = new ArrayList<>();
-    private List<Integer> combination = new ArrayList<>();
-    private int[] candidates;
-    private int target;
+    private List<List<Integer>> answer = new ArrayList<>();
+    private List<Integer> candidate = new ArrayList<>();
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        this.candidates = candidates;
-        this.target = target;
-        backtracking(0, 0, 0);
-        return combinations;
+        backtracking(candidates, target, 0, 0);
+        Arrays.sort(candidates);
+        return answer;
     }
 
-    private void backtracking(int depth, int start, int sum) {
+    private void backtracking(int[] candidates, int target, int sum, int start) {
         if (sum > target) {
             return;
         }
         if (sum == target) {
-            combinations.add(new ArrayList<>(combination));
+            answer.add(new ArrayList<>(candidate));
             return;
         }
         for (int i = start; i < candidates.length; i++) {
-            combination.add(candidates[i]);
-            backtracking(depth + 1, i, sum + candidates[i]);
-            combination.remove(combination.size() - 1);
+            candidate.add(candidates[i]);
+            backtracking(candidates, target, sum + candidates[i], i);
+            candidate.remove(candidate.size() - 1);
         }
     }
 }

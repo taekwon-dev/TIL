@@ -9,14 +9,15 @@ public class LEET_125 {
         s = s.replaceAll("[^a-zA-Z0-9]", "");
         s = s.toLowerCase();
 
-        int i = 0;
-        int j = s.length() - 1;
-        while (i < j) {
-            if (s.charAt(i) != s.charAt(j)) {
-                return false;
+        int l = 0;
+        int r = s.length() - 1;
+        while (l < r) {
+            if (s.charAt(l) == s.charAt(r)) {
+                l++;
+                r--;
+                continue;
             }
-            i++;
-            j--;
+            return false;
         }
         return true;
     }

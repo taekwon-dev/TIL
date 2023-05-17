@@ -3,26 +3,26 @@ package com.til.algorithm.leetCode.string;
 public class LEET_680 {
 
     public boolean validPalindrome(String s) {
-        int start = 0;
-        int end = s.length() - 1;
+        int l = 0;
+        int r = s.length() - 1;
 
-        while (start < end) {
-            if (s.charAt(start) != s.charAt(end)) {
-                return isPalindrome(s, start, end - 1) || isPalindrome(s, start + 1, end);
+        while (l < r) {
+            if (s.charAt(l) != s.charAt(r)) {
+                return isPalindrom(s, l + 1, r) || isPalindrom(s, l, r - 1);
             }
-            start++;
-            end--;
+            l++;
+            r--;
         }
         return true;
     }
 
-    private boolean isPalindrome(String s, int start, int end) {
-        while (start < end) {
-            if (s.charAt(start) != s.charAt(end)) {
+    private boolean isPalindrom(String s, int l, int r) {
+        while (l < r) {
+            if (s.charAt(l) != s.charAt(r)) {
                 return false;
             }
-            start++;
-            end--;
+            l++;
+            r--;
         }
         return true;
     }

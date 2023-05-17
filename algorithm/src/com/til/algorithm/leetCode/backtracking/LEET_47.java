@@ -6,20 +6,20 @@ import java.util.List;
 
 public class LEET_47 {
 
-    private List<List<Integer>> result = new ArrayList<>();
-    private List<Integer> permutation = new ArrayList<>();
+    private List<List<Integer>> answer = new ArrayList<>();
+    private List<Integer> candidate = new ArrayList<>();
     private boolean[] visited;
 
     public List<List<Integer>> permuteUnique(int[] nums) {
-        Arrays.sort(nums);
         visited = new boolean[nums.length];
+        Arrays.sort(nums);
         backtracking(nums, 0);
-        return result;
+        return answer;
     }
 
     private void backtracking(int[] nums, int depth) {
         if (depth == nums.length) {
-            result.add(new ArrayList<>(permutation));
+            answer.add(new ArrayList<>(candidate));
             return;
         }
         int prev = -11;
@@ -27,10 +27,10 @@ public class LEET_47 {
             if (!visited[i] && prev != nums[i]) {
                 prev = nums[i];
                 visited[i] = true;
-                permutation.add(nums[i]);
+                candidate.add(nums[i]);
                 backtracking(nums, depth + 1);
                 visited[i] = false;
-                permutation.remove(permutation.size() - 1);
+                candidate.remove(candidate.size() - 1);
             }
         }
     }
