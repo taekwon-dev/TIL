@@ -6,13 +6,13 @@ import java.util.List;
 
 public class LEET_40 {
 
-    private List<List<Integer>> result = new ArrayList<>();
-    private List<Integer> list = new ArrayList<>();
+    private List<List<Integer>> answer = new ArrayList<>();
+    private List<Integer> candidate = new ArrayList<>();
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
         backtracking(candidates, target, 0, 0);
-        return result;
+        return answer;
     }
 
     private void backtracking(int[] candidates, int target, int start, int sum) {
@@ -20,17 +20,17 @@ public class LEET_40 {
             return;
         }
         if (sum == target) {
-            result.add(new ArrayList<>(list));
-            return;
+            answer.add(new ArrayList<>(candidate));
         }
-        int prev = 0;
+        int prev = -1;
         for (int i = start; i < candidates.length; i++) {
-            if (prev != candidates[i]) {
-                prev = candidates[i];
-                list.add(candidates[i]);
-                backtracking(candidates, target, i + 1, sum + candidates[i]);
-                list.remove(list.size() - 1);
+            if (prev == candidates[i]) {
+                continue;
             }
+            prev = candidates[i];
+            candidate.add(candidates[i]);
+            backtracking(candidates, target, i + 1, sum + candidates[i]);
+            candidate.remove(candidate.size() - 1);
         }
     }
 }

@@ -11,8 +11,8 @@ public class LEET_47 {
     private boolean[] visited;
 
     public List<List<Integer>> permuteUnique(int[] nums) {
-        visited = new boolean[nums.length];
         Arrays.sort(nums);
+        visited = new boolean[nums.length];
         backtracking(nums, 0);
         return answer;
     }
