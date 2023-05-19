@@ -1,44 +1,28 @@
 package com.til.algorithm.leetCode.backtracking;
 
+import com.til.algorithm.leetCode.tree.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class LEET_257 {
 
-    class TreeNode {
-
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
+    private List<String> answer = new ArrayList<>();
 
     public List<String> binaryTreePaths(TreeNode root) {
-        if (root == null) return null;
-        List<String> paths = new ArrayList<>();
-        backtracking(root, paths, "");
-        return paths;
+        dfs(root, "");
+        return answer;
     }
 
-    private void backtracking(TreeNode root, List<String> paths, String path) {
-        if (root.left == null && root.right == null) {
-            path += root.val;
-            paths.add(path);
+    private void dfs(TreeNode root, String path) {
+        if (root == null) {
             return;
         }
-        if (root.left != null) backtracking(root.left, paths, path + root.val + "->");
-        if (root.right != null) backtracking(root.right, paths, path + root.val + "->");
+        if (root.left == null && root.right == null) {
+            answer.add(path + root.val);
+            return;
+        }
+        dfs(root.left, path + root.val + "->");
+        dfs(root.right, path + root.val + "->");
     }
 }

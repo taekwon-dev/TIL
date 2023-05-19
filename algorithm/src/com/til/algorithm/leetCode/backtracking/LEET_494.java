@@ -2,7 +2,7 @@ package com.til.algorithm.leetCode.backtracking;
 
 public class LEET_494 {
 
-    int answer;
+    private int answer;
 
     public int findTargetSumWays(int[] nums, int target) {
         backtracking(nums, target, 0, 0);
