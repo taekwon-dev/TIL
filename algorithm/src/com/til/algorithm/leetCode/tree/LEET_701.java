@@ -4,8 +4,7 @@ public class LEET_701 {
 
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {
-            root = new TreeNode(val);
-            return root;
+            return new TreeNode(val);
         }
         if (root.val > val) {
             root.left = insertIntoBST(root.left, val);
