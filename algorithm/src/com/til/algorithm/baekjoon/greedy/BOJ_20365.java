@@ -9,33 +9,30 @@ public class BOJ_20365 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        char[] color = br.readLine().toCharArray();
-
-        int blue = 0;
-        int red = 0;
+        char[] c = br.readLine().toCharArray();
+        int b = 0;
+        int r = 0;
 
         for (int i = 0; i < N; i++) {
-            if (color[i] == 'B') {
-                blue++;
+            if (c[i] == 'B') {
+                b++;
                 while (i < N - 1) {
-                    if (color[i] == color[i + 1]) {
-                        i++;
-                        continue;
+                    if (c[i] != c[i + 1]) {
+                        break;
                     }
-                    break;
+                    i++;
                 }
             } else {
-                red++;
+                r++;
                 while (i < N - 1) {
-                    if (color[i] == color[i + 1]) {
-                        i++;
-                        continue;
+                    if (c[i] != c[i + 1]) {
+                        break;
                     }
-                    break;
+                    i++;
                 }
             }
         }
-        int answer = 1 + Math.min(blue, red);
+        int answer = Math.min(b, r) + 1;
 
         bw.write(answer + "\n");
         bw.flush();
