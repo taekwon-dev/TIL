@@ -31,7 +31,7 @@ public class BOJ_15658 {
         for (int i = 0; i < 4; i++) {
             operation[i] = Integer.parseInt(st.nextToken());
         }
-        backtracking(0, arr[0]);
+        backtracking(1, arr[0]);
 
         bw.write(max + "\n");
         bw.write(min + "\n");
@@ -41,7 +41,7 @@ public class BOJ_15658 {
     }
 
     private static void backtracking(int depth, int sum) {
-        if (depth == N - 1) {
+        if (depth == N) {
             max = Math.max(max, sum);
             min = Math.min(min, sum);
             return;
@@ -50,13 +50,13 @@ public class BOJ_15658 {
             if (operation[i] > 0) {
                 operation[i]--;
                 if (i == 0) {
-                    backtracking(depth + 1, sum + arr[depth + 1]);
+                    backtracking(depth + 1, sum + arr[depth]);
                 } else if (i == 1) {
-                    backtracking(depth + 1, sum - arr[depth + 1]);
+                    backtracking(depth + 1, sum - arr[depth]);
                 } else if (i == 2) {
-                    backtracking(depth + 1, sum * arr[depth + 1]);
+                    backtracking(depth + 1, sum * arr[depth]);
                 } else if (i == 3) {
-                    backtracking(depth + 1, sum / arr[depth + 1]);
+                    backtracking(depth + 1, sum / arr[depth]);
                 }
                 operation[i]++;
             }

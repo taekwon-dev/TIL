@@ -2,16 +2,20 @@ package com.til.algorithm.leetCode.backtracking;
 
 public class LEET_79 {
 
-    private static boolean[][] visited;
+    private char[][] board;
+    private String word;
+    private boolean[][] visited;
 
-    public static boolean exist(char[][] board, String word) {
+    public boolean exist(char[][] board, String word) {
+        this.board = board;
+        this.word = word;
         int n = board.length;
         int m = board[0].length;
         visited = new boolean[n][m];
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (search(board, word, 0, i, j)) {
+                if (search(0, i, j)) {
                     return true;
                 }
             }
@@ -19,7 +23,7 @@ public class LEET_79 {
         return false;
     }
 
-    private static boolean search(char[][] board, String word, int idx, int x, int y) {
+    private boolean search(int idx, int x, int y) {
         if (idx == word.length()) {
             return true;
         }
@@ -33,21 +37,10 @@ public class LEET_79 {
             return false;
         }
         visited[x][y] = true;
-        boolean result = search(board, word, idx + 1, x + 1, y) || search(board, word, idx + 1, x - 1, y) || search(board, word, idx + 1, x, y + 1) || search(board, word, idx + 1, x, y - 1);
+        boolean result = search(idx + 1, x + 1, y) || search(idx + 1, x - 1, y) || search(idx + 1, x, y + 1) || search(idx + 1, x, y - 1);
         if (!result) {
             visited[x][y] = false;
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        char[][] board = {
-                {'A', 'B', 'C', 'E'},
-                {'S', 'F', 'C', 'S'},
-                {'A', 'D', 'E', 'E'}
-        };
-        String word = "ABZ";
-
-        exist(board, word);
     }
 }

@@ -26,6 +26,7 @@ public class BOJ_16987 {
 
         N = Integer.parseInt(br.readLine());
         eggs = new Egg[N];
+
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             int d = Integer.parseInt(st.nextToken());
@@ -42,31 +43,31 @@ public class BOJ_16987 {
 
     private static void backtracking(int idx) {
         if (idx == N) {
-            int brokenEgg = 0;
+            int broken = 0;
             for (Egg egg : eggs) {
                 if (egg.d <= 0) {
-                    brokenEgg++;
+                    broken++;
                 }
             }
-            answer = Math.max(answer, brokenEgg);
+            answer = Math.max(answer, broken);
             return;
         }
         if (eggs[idx].d <= 0) {
             backtracking(idx + 1);
         } else {
-            boolean flag = false;
+            boolean hit = false;
             for (int i = 0; i < N; i++) {
                 if (i == idx || eggs[i].d <= 0) {
                     continue;
                 }
-                flag = true;
+                hit = true;
                 eggs[i].d -= eggs[idx].w;
                 eggs[idx].d -= eggs[i].w;
                 backtracking(idx + 1);
                 eggs[i].d += eggs[idx].w;
                 eggs[idx].d += eggs[i].w;
             }
-            if (!flag) {
+            if (!hit) {
                 backtracking(idx + 1);
             }
         }
