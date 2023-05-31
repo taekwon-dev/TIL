@@ -32,26 +32,24 @@ public class BOJ_10819 {
         br.close();
     }
 
-    private static void backtracking(int depth) {
-        if (depth == N) {
-            answer = Math.max(answer, findMax());
+    private static void backtracking(int idx) {
+        if (idx == N) {
+            int sum = 0;
+            for (int i = 0; i < N - 1; i++) {
+                sum += Math.abs(candidate[i] - candidate[i + 1]);
+            }
+            if (answer < sum) {
+                answer = sum;
+            }
             return;
         }
         for (int i = 0; i < N; i++) {
             if (!visited[i]) {
-                candidate[depth] = arr[i];
+                candidate[idx] = arr[i];
                 visited[i] = true;
-                backtracking(depth + 1);
+                backtracking(idx + 1);
                 visited[i] = false;
             }
         }
-    }
-
-    private static int findMax() {
-        int max = 0;
-        for (int i = 0; i < N - 1; i++) {
-            max += Math.abs(candidate[i] - candidate[i + 1]);
-        }
-        return max;
     }
 }

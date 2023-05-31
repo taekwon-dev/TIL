@@ -1,75 +1,66 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_5567 {
-    static class Node {
-        int v;
-        int dist;
 
-        public Node(int v, int dist) {
-            this.v = v;
-            this.dist = dist;
-        }
-    }
-    static int n, m;
-    static boolean[] visited;
-    static ArrayList<Integer>[] adjList;
-    static int result;
+    private static int N;
+    private static int M;
+    private static ArrayList<Integer>[] adjList;
+    private static boolean[] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        m = Integer.parseInt(br.readLine());
-        visited = new boolean[n + 1];
-        adjList = new ArrayList[n + 1];
-        for (int i = 1; i <= n; i++) {
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
+
+        N = Integer.parseInt(br.readLine());
+        M = Integer.parseInt(br.readLine());
+        adjList = new ArrayList[N + 1];
+        for (int i = 1; i <= N; i++) {
             adjList[i] = new ArrayList<>();
         }
-        StringTokenizer st = null;
-        for (int i = 0; i < m; i++) {
+        visited = new boolean[N + 1];
+
+        for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
-            int from = Integer.parseInt(st.nextToken());
-            int to = Integer.parseInt(st.nextToken());
-            adjList[from].add(to);
-            adjList[to].add(from);
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            adjList[a].add(b);
+            adjList[b].add(a);
         }
-        bfs();
-        System.out.println(result);
+
+        bw.write(bfs(1) + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
-    private static void bfs() {
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(new Node(1, 0));
-        visited[1] = true;
+    private static int bfs(int start) {
+        int invite = 0;
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{start, 0});
+        visited[start] = true;
+
         while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            for (int adj : adjList[node.v]) {
+            int[] now = queue.poll();
+
+            if (now[1] >= 2) {
+                break;
+            }
+
+            for (int adj : adjList[now[0]]) {
                 if (!visited[adj]) {
-                    queue.add(new Node(adj, node.dist + 1));
+                    invite++;
                     visited[adj] = true;
-                    if (node.dist + 1 <= 2) {
-                        result++;
-                    }
+                    queue.offer(new int[]{adj, now[1] + 1});
                 }
             }
         }
+        return invite;
     }
-
-    private static void dfs(int v, int depth) {
-        if (depth == 2) {
-            return;
-        }
-        for (int adj : adjList[v]) {
-            visited[v] = true;
-            dfs(adj, depth + 1);
-        }
-    }
-
 }

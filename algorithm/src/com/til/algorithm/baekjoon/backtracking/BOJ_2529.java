@@ -9,8 +9,8 @@ public class BOJ_2529 {
 
     private static int K;
     private static char[] sign;
-    private static boolean[] visited = new boolean[10];
-    private static ArrayList<String> nums = new ArrayList<>();
+    private static boolean[] visited;
+    private static ArrayList<String> candidates;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,31 +18,35 @@ public class BOJ_2529 {
 
         K = Integer.parseInt(br.readLine());
         sign = new char[K];
+        visited = new boolean[10];
+        candidates = new ArrayList<>();
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < K; i++) {
             sign[i] = st.nextToken().charAt(0);
         }
         backtracking(0, "");
-        Collections.sort(nums);
 
-        bw.write(nums.get(nums.size() - 1) + "\n");
-        bw.write(nums.get(0) + "\n");
-        bw.flush();
+        bw.write(Collections.max(candidates) + "\n");
+        bw.write(Collections.min(candidates) + "\n");
         bw.close();
         br.close();
     }
 
-    private static void backtracking(int depth, String s) {
-        if (depth == K + 1) {
-            nums.add(s);
+    private static void backtracking(int idx, String num) {
+        if (idx == K + 1) {
+            // K개의 부등호 -> K + 1개의 수
+            candidates.add(num);
             return;
         }
-        for (int i = 0; i < 10; i++) {
-            if (!visited[i] && (depth == 0 || isLocatable(sign[depth - 1], s.charAt(s.length() - 1) - '0', i))) {
-                visited[i] = true;
-                backtracking(depth + 1, s + i);
-                visited[i] = false;
+        for (int i = 0; i <= 9; i++) {
+            // 가장 마지막 수 vs 새로 넣을 수 비교
+            if (idx == 0 || isLocatable(sign[idx - 1], num.charAt(num.length() - 1) - '0', i)) {
+                if (!visited[i]) {
+                    visited[i] = true;
+                    backtracking(idx + 1, num + i);
+                    visited[i] = false;
+                }
             }
         }
     }
