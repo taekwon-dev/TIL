@@ -27,9 +27,9 @@ public class BOJ_2428 {
                 if (j >= N - 1) {
                     break;
                 }
-                int left = arr[i];
-                int right = arr[j + 1];
-                if (left < right * 0.9) {
+                int small = arr[i];
+                int big = arr[j + 1];
+                if (small < big * 0.9) {
                     break;
                 }
                 j++;

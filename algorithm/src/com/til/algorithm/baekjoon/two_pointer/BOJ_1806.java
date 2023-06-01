@@ -32,6 +32,7 @@ public class BOJ_1806 {
             }
             sum -= arr[i];
         }
+
         if (len == N + 1) {
             bw.write(0 + "\n");
         } else {

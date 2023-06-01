@@ -33,10 +33,6 @@ public class BOJ_11403 {
         StringBuilder answer = new StringBuilder();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (i == j) {
-                    answer.append(1).append(" ");
-                    continue;
-                }
                 answer.append(dist[i][j]).append(" ");
             }
             answer.append("\n");

@@ -13,15 +13,15 @@ public class BOJ_11728 {
 
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-
         int[] A = new int[N];
+        int[] B = new int[M];
+
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             A[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(A);
 
-        int[] B = new int[M];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
             B[i] = Integer.parseInt(st.nextToken());
@@ -40,6 +40,7 @@ public class BOJ_11728 {
             answer.append(B[j]).append(" ");
             j++;
         }
+
         while (i < N) {
             answer.append(A[i]).append(" ");
             i++;

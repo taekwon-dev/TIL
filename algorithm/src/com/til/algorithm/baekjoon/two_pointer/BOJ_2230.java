@@ -32,7 +32,9 @@ public class BOJ_2230 {
                 answer = M;
                 break;
             }
-            answer = Math.min(answer, arr[j] - arr[i]);
+            if (answer > arr[j] - arr[i]) {
+                answer = arr[j] - arr[i];
+            }
             i++;
         }
 

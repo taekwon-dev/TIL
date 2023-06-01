@@ -1,82 +1,71 @@
 package com.til.algorithm.baekjoon.graph_traversal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_6118 {
-    static class Node implements Comparable<Node> {
-        int v;
-        int dist;
 
-        public Node(int v, int dist) {
-            this.v = v;
-            this.dist = dist;
-        }
-
-        @Override
-        public int compareTo(Node o) {
-            if (this.dist == o.dist) {
-                return this.v - o.v;
-            }
-            return this.dist - o.dist;
-        }
-    }
-    static int n, m;
-    static ArrayList<Integer>[] adjList;
-    static boolean[] visited;
-    static int max;
-    static ArrayList<Node> nodeList = new ArrayList<>();
+    private static int N;
+    private static int M;
+    private static ArrayList<Integer>[] adjList;
+    private static boolean[] visited;
+    private static int destination;
+    private static int distance;
+    private static int count;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        adjList = new ArrayList[n + 1];
-        for (int i = 1; i <= n; i++) {
+
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        adjList = new ArrayList[N + 1];
+        for (int i = 1; i <= N; i++) {
             adjList[i] = new ArrayList<>();
         }
-        for (int i = 0; i < m; i++) {
+        visited = new boolean[N + 1];
+
+        for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
-            int s = Integer.parseInt(st.nextToken());
-            int e = Integer.parseInt(st.nextToken());
-            adjList[s].add(e);
-            adjList[e].add(s);
+            int from = Integer.parseInt(st.nextToken());
+            int to = Integer.parseInt(st.nextToken());
+            adjList[from].add(to);
+            adjList[to].add(from);
         }
-        visited = new boolean[n + 1];
-        bfs();
-        Collections.sort(nodeList);
-        for (int i = 0; i < nodeList.size(); i++) {
-            if (nodeList.get(i).dist == max) {
-                System.out.println(nodeList.get(i).v);
-                break;
-            }
-        }
-        int count = 0;
-        for (int i = 0; i < nodeList.size(); i++) {
-            if (nodeList.get(i).dist == max) {
-                count++;
-            }
-        }
-        System.out.println(max);
-        System.out.println(count);
+        bfs(1);
+
+        bw.write(destination + " " + distance + " " + count + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
-    private static void bfs() {
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(new Node(1, 0));
-        visited[1] = true;
+    private static void bfs(int start) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{start, 0});
+        visited[start] = true;
 
         while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            nodeList.add(node);
-            max = Math.max(max, node.dist);
+            int[] now = queue.poll();
 
-            for (int adj : adjList[node.v]) {
+            if (now[1] > distance) {
+                distance = now[1];
+                destination = now[0];
+                count = 1;
+            } else if (now[1] == distance) {
+                if (destination > now[0]) {
+                    destination = now[0];
+                }
+                count++;
+            }
+
+            for (int adj : adjList[now[0]]) {
                 if (!visited[adj]) {
-                    queue.add(new Node(adj, node.dist + 1));
+                    queue.offer(new int[]{adj, now[1] + 1});
                     visited[adj] = true;
                 }
             }

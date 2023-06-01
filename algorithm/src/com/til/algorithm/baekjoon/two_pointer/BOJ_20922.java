@@ -13,24 +13,25 @@ public class BOJ_20922 {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
         int[] arr = new int[N];
-        int[] cnt = new int[100_001];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
+        int[] count = new int[100_001];
 
         int len = 0;
         int j = 0;
+
         for (int i = 0; i < N; i++) {
-            while (j < N && cnt[arr[j]] < K) {
-                cnt[arr[j]]++;
+            while (j < N && count[arr[j]] < K) {
+                count[arr[j]]++;
                 j++;
             }
             if (len < j - i) {
                 len = j - i;
             }
-            cnt[arr[i]]--;
+            count[arr[i]]--;
         }
 
         bw.write(len + "\n");

@@ -4,14 +4,13 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BOJ_1940 {
+public class BOJ_2470 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        int M = Integer.parseInt(br.readLine());
         int[] arr = new int[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -20,26 +19,30 @@ public class BOJ_1940 {
         }
         Arrays.sort(arr);
 
-        int answer = 0;
         int i = 0;
         int j = N - 1;
+        int l = 0;
+        int r = 0;
+        int gap = Integer.MAX_VALUE;
         int sum = 0;
+        int abs = 0;
+
         while (i < j) {
             sum = arr[i] + arr[j];
-            if (sum < M) {
-                i++;
-                continue;
+            abs = Math.abs(sum);
+            if (gap > abs) {
+                gap = abs;
+                l = arr[i];
+                r = arr[j];
             }
-            if (sum > M) {
+            if (sum > 0) {
                 j--;
-                continue;
+            } else {
+                i++;
             }
-            answer++;
-            i++;
-            j--;
         }
 
-        bw.write(answer + "\n");
+        bw.write(l + " " + r + "\n");
         bw.flush();
         bw.close();
         br.close();
