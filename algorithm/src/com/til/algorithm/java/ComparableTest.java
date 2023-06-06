@@ -9,7 +9,9 @@ import java.util.List;
  *     /
  *   7 − 7  (0)
  *     \
- *       9  (-1)
+ *       9  (-1) : ~Swap! (자바는 기본적으로 오름차순을 적용, 따라서 비교 결과가 음수가 나오는 경우 교환 X)
+ *
+ *   객체 정렬 시, 객체의 어떤 값을 기준으로 정렬할 지 결정하기 위해 Comparable 인터페이스 구현!
  */
 public class ComparableTest {
 

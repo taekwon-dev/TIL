@@ -31,10 +31,9 @@ public class BOJ_11501 {
                 }
                 answer += max - arr[i];
             }
-
             bw.write(answer + "\n");
-            bw.flush();
         }
+        bw.flush();
         bw.close();
         br.close();
     }

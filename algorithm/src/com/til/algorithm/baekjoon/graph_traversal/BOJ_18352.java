@@ -9,9 +9,9 @@ public class BOJ_18352 {
     private static int M;
     private static int K;
     private static int X;
-    private static boolean[] visited;
     private static ArrayList<Integer>[] adjList;
-    private static ArrayList<Integer> answer;
+    private static boolean[] visited;
+    private static ArrayList<Integer> answer = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,13 +22,11 @@ public class BOJ_18352 {
         M = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
         X = Integer.parseInt(st.nextToken());
-
-        visited = new boolean[N + 1];
         adjList = new ArrayList[N + 1];
         for (int i = 1; i <= N; i++) {
             adjList[i] = new ArrayList<>();
         }
-        answer = new ArrayList<>();
+        visited = new boolean[N + 1];
 
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
@@ -38,13 +36,16 @@ public class BOJ_18352 {
         }
 
         bfs(X);
-        if (answer.isEmpty()) {
+
+        if (answer.size() == 0) {
             bw.write(-1 + "\n");
         } else {
+            StringBuilder sb = new StringBuilder();
             Collections.sort(answer);
-            for (int city : answer) {
-                bw.write(city + "\n");
+            for (int node : answer) {
+                sb.append(node).append("\n");
             }
+            bw.write(sb.toString() + "\n");
         }
         bw.flush();
         bw.close();
