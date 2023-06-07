@@ -36,6 +36,7 @@ public class BOJ_13549 {
             if (now[0] == K) {
                 return now[1];
             }
+
             if (now[0] * 2 <= 100_000 && !visited[now[0] * 2]) {
                 queue.offer(new int[]{now[0] * 2, now[1]});
                 visited[now[0] * 2] = true;
