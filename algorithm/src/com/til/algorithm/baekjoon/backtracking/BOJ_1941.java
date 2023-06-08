@@ -7,9 +7,9 @@ import java.util.Queue;
 
 public class BOJ_1941 {
 
-    private static char[][] map;
-    private static int[] seven;
-    private static boolean[] visited;
+    private static char[][] map = new char[5][5];
+    private static int[] seven = new int[7];
+    private static boolean[] visited = new boolean[25];
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
     private static int answer;
@@ -17,10 +17,6 @@ public class BOJ_1941 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        map = new char[5][5];
-        seven = new int[7];
-        visited = new boolean[25];
 
         for (int i = 0; i < 5; i++) {
             String row = br.readLine();
@@ -38,35 +34,40 @@ public class BOJ_1941 {
 
     private static void backtracking(int depth, int start) {
         if (depth == 7) {
-            if (bfs()) {
+            if (isValid()) {
                 answer++;
             }
             return;
         }
         for (int i = start; i < 25; i++) {
             if (!visited[i]) {
-                seven[depth] = i;
                 visited[i] = true;
+                seven[depth] = i;
                 backtracking(depth + 1, i + 1);
                 visited[i] = false;
             }
         }
     }
 
-    private static boolean bfs() {
+    private static boolean isValid() {
         int Y = 0;
-        for (int member : seven) {
-            if (map[member / 5][member % 5] == 'Y') {
+        for (int i = 0; i < 7; i++) {
+            int x = seven[i] / 5;
+            int y = seven[i] % 5;
+
+            if (map[x][y] == 'Y') {
                 Y++;
             }
         }
         if (Y >= 4) {
             return false;
         }
+
         ArrayList<Integer> members = new ArrayList<>();
         for (int member : seven) {
             members.add(member);
         }
+
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(seven[0]);
 
