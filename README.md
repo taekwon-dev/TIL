@@ -45,7 +45,7 @@
     - [MySQL - Index [2] - 인덱스 자료구조 (Hash Table)](https://medium.com/taekwon-v/mysql-index-1-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%82%AC%EC%9A%A9-%EB%B0%B0%EA%B2%BD-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0-hash-table-3a2fe3a003bc)
     - [MySQL - Index [3] - 인덱스 자료구조 (B+Tree)](https://medium.com/taekwon-v/mysql-index-2-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0-b-tree-fbbce62c6005)
     - [MySQL - Index [4] - Index(B+Tree) 특징 및 Index 사용 관련 고려사항](https://medium.com/taekwon-v/mysql-index-3-index-b-tree-%ED%8A%B9%EC%A7%95-%EB%B0%8F-index-%EC%82%AC%EC%9A%A9-%EA%B4%80%EB%A0%A8-%EA%B3%A0%EB%A0%A4%EC%82%AC%ED%95%AD-547808f93c8d)
-    - [MySQL - 인덱스를 통한 쿼리 성능 개선기](https://medium.com/taekwon-v/mysql-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%BF%BC%EB%A6%AC-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0%EA%B8%B0-c3b6d1a9e7b2)
+    - [MySQL - 인덱스를 통한 쿼리 성능 개선기](https://medium.com/taekwon-v/mysql-improving-query-performance-with-indexes-ea70ec7c439d)
       
 
 - **Java**
