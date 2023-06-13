@@ -1,0 +1,5 @@
+-- ⭐ MOD(A, B) : A를 B로 나눈 나머지
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE MOD(ID, 2) = 0
