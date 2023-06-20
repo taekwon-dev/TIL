@@ -1,7 +1,7 @@
 -- ⭐ 서브 쿼리 사용할 때 주의할 점 (1. 괄호 2. ORDER BY 사용 불가능 ...)
 -- ⭐ 서브 쿼리 사용 가능한 곳 (1. SELECT 2. FROM 3. WHERE 4. HAVING 5. ORDER BY ...)
 -- ⭐ 서브 쿼리 위치에 따른 명칭 (1. SELECT = 스칼라 2. FROM = 인라인 뷰 3. WHERE 일반 서브 쿼리)
--- ⭐ 인라인 뷰의 경우 별칭 필수
+-- ⭐ 인라인 뷰(FROM 절에 서브 쿼리)의 경우 별칭 필수
 
 SELECT A.FOOD_TYPE, A.REST_ID, A.REST_NAME, A.FAVORITES
 FROM REST_INFO A, (SELECT FOOD_TYPE, MAX(FAVORITES) AS FAVORITES

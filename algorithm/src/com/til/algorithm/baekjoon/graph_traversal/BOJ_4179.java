@@ -11,10 +11,10 @@ public class BOJ_4179 {
     private static int R;
     private static int C;
     private static char[][] map;
-    private static int[][] fireMap;
-    private static int[][] jihoonMap;
-    private static Queue<int[]> fireQ = new LinkedList<>();
-    private static Queue<int[]> jihoonQ = new LinkedList<>();
+    private static int[][] fMap;
+    private static int[][] jhMap;
+    private static Queue<int[]> fQueue = new LinkedList<>();
+    private static Queue<int[]> jhQueue = new LinkedList<>();
     private static int[] dx = {1, -1, 0, 0};
     private static int[] dy = {0, 0, 1, -1};
 
@@ -26,31 +26,34 @@ public class BOJ_4179 {
         R = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
         map = new char[R][C];
-        fireMap = new int[R][C];
-        jihoonMap = new int[R][C];
+        fMap = new int[R][C];
+        jhMap = new int[R][C];
 
         for (int i = 0; i < R; i++) {
-            Arrays.fill(fireMap[i], -1);
-            Arrays.fill(jihoonMap[i], -1);
+            Arrays.fill(fMap[i], -1);
+            Arrays.fill(jhMap[i], -1);
         }
 
         for (int i = 0; i < R; i++) {
             String row = br.readLine();
             for (int j = 0; j < C; j++) {
                 map[i][j] = row.charAt(j);
+
                 if (map[i][j] == 'F') {
-                    fireQ.offer(new int[]{i, j});
-                    fireMap[i][j] = 0;
+                    fQueue.offer(new int[]{i, j});
+                    fMap[i][j] = 0;
                     continue;
                 }
                 if (map[i][j] == 'J') {
-                    jihoonQ.offer(new int[]{i, j});
-                    jihoonMap[i][j] = 0;
+                    jhQueue.offer(new int[]{i, j});
+                    jhMap[i][j] = 0;
                 }
             }
         }
-        move_fire();
-        int result = move_jihoon();
+
+        moveFire();
+        int result = moveJH();
+
         if (result == -1) {
             bw.write("IMPOSSIBLE" + "\n");
         } else {
@@ -61,55 +64,64 @@ public class BOJ_4179 {
         br.close();
     }
 
-    private static void move_fire() {
-        while (!fireQ.isEmpty()) {
-            int[] fire = fireQ.poll();
-            int fireX = fire[0];
-            int fireY = fire[1];
+    private static void moveFire() {
+        while (!fQueue.isEmpty()) {
+            int[] fire = fQueue.poll();
 
             for (int i = 0; i < 4; i++) {
-                int nx = fireX + dx[i];
-                int ny = fireY + dy[i];
+                int nx = fire[0] + dx[i];
+                int ny = fire[1] + dy[i];
 
-                if (nx < 0 || ny < 0 || nx > R - 1 || ny > C - 1) {
+                if (!validateRegion(nx, ny)) {
                     continue;
                 }
-                if (fireMap[nx][ny] != -1 || map[nx][ny] == '#') {
+                if (map[nx][ny] == '#') {
                     continue;
                 }
-                fireQ.offer(new int[]{nx, ny});
-                fireMap[nx][ny] = fireMap[fireX][fireY] + 1;
+                if (fMap[nx][ny] != -1) {
+                    continue;
+                }
+
+                fQueue.offer(new int[]{nx, ny});
+                fMap[nx][ny] = fMap[fire[0]][fire[1]] + 1;
             }
         }
     }
 
-    private static int move_jihoon() {
-        while (!jihoonQ.isEmpty()) {
-            int[] jh = jihoonQ.poll();
-            int jhX = jh[0];
-            int jhY = jh[1];
+    private static int moveJH() {
+        while (!jhQueue.isEmpty()) {
+            int[] jh = jhQueue.poll();
 
-            if (isOnEdge(jhX, jhY)) {
-                return jihoonMap[jhX][jhY] + 1;
+            // Egde에 도달한 뒤 탈출하기 위해 + 1 처리
+            if (isOnEdge(jh[0], jh[1])) {
+                return jhMap[jh[0]][jh[1]] + 1;
             }
 
             for (int i = 0; i < 4; i++) {
-                int nx = jhX + dx[i];
-                int ny = jhY + dy[i];
+                int nx = jh[0] + dx[i];
+                int ny = jh[1] + dy[i];
 
-                if (nx < 0 || ny < 0 || nx > R - 1 || ny > C - 1) {
+                if (!validateRegion(nx, ny)) {
                     continue;
                 }
-                if (jihoonMap[nx][ny] != -1 || map[nx][ny] == '#') {
+                if (map[nx][ny] == '#') {
                     continue;
                 }
-                if (fireMap[nx][ny] == -1 || fireMap[nx][ny] > jihoonMap[jhX][jhY] + 1) {
-                    jihoonQ.offer(new int[]{nx, ny});
-                    jihoonMap[nx][ny] = jihoonMap[jhX][jhY] + 1;
+                if (jhMap[nx][ny] != -1) {
+                    continue;
+                }
+                // Fire가 이동하지 않거나, Fire보다 더 빨리 JH가 도달하는 경우만 이동가능
+                if (fMap[nx][ny] == -1 || fMap[nx][ny] > jhMap[jh[0]][jh[1]] + 1) {
+                    jhQueue.offer(new int[]{nx, ny});
+                    jhMap[nx][ny] = jhMap[jh[0]][jh[1]] + 1;
                 }
             }
         }
         return -1;
+    }
+
+    private static boolean validateRegion(int x, int y) {
+        return x >= 0 && y >= 0 && x < R && y < C;
     }
 
     private static boolean isOnEdge(int x, int y) {
