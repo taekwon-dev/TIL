@@ -13,15 +13,17 @@ public class BOJ_1213 {
             alphabet[c - 'A']++;
         }
 
-        int odd = 0;
+        int oddCnt = 0;
         for (int cnt : alphabet) {
             if (cnt % 2 != 0) {
-                 odd++;
+                oddCnt++;
             }
         }
-        String answer = "";
-        if (odd > 1) {
-            answer += "I'm Sorry Hansoo";
+
+        StringBuilder answer = new StringBuilder();
+
+        if (oddCnt > 1) {
+            answer.append("I'm Sorry Hansoo");
         } else {
             StringBuilder front = new StringBuilder();
             for (int i = 0; i < alphabet.length; i++) {
@@ -29,19 +31,19 @@ public class BOJ_1213 {
                     front.append((char) (i + 'A'));
                 }
             }
-            answer += front.toString();
-
+            answer.append(front);
             String end = front.reverse().toString();
+
             StringBuilder mid = new StringBuilder();
             for (int i = 0; i < alphabet.length; i++) {
                 if (alphabet[i] % 2 == 1) {
                     mid.append((char) (i + 'A'));
                 }
             }
-            answer += mid.toString();
-            answer += end;
+            answer.append(mid).append(end);
         }
-        bw.write(answer + "\n");
+
+        bw.write(answer.toString() + "\n");
         bw.flush();
         bw.close();
         br.close();
