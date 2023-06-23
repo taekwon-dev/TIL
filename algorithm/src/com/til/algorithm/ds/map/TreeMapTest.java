@@ -1,10 +1,12 @@
 package com.til.algorithm.ds.map;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -118,7 +120,7 @@ class TreeMapTest {
     }
 
     @Test
-    @DisplayName("HashMap 값 출력 via Iterator() + KeySet()")
+    @DisplayName("TreeMap 값 출력 via Iterator() + KeySet()")
     void printWithIteratorKeySet() {
         TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
@@ -133,7 +135,7 @@ class TreeMapTest {
     }
 
     @Test
-    @DisplayName("HashMap 값 출력 via Iterator() + EntrySet()")
+    @DisplayName("TreeMap 값 출력 via Iterator() + EntrySet()")
     void printWithIteratorEntrySet() {
         TreeMap<Integer, String> map = new TreeMap<>();
         map.put(1, "1등");
@@ -147,4 +149,29 @@ class TreeMapTest {
         }
     }
 
+    @Test
+    @DisplayName("TreeMap 첫 번째 엔트리 출력")
+    void printFirstEntrySet() {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(1, "1등");
+        map.put(2, "2등");
+        map.put(3, "3등");
+
+        Map.Entry<Integer, String> firstEntry = map.firstEntry();
+        assertEquals(firstEntry.getKey(), 1);
+        assertEquals(firstEntry.getValue(), "1등");
+    }
+
+    @Test
+    @DisplayName("TreeMap 마지막 번째 엔트리 출력")
+    void printLastEntrySet() {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(1, "1등");
+        map.put(2, "2등");
+        map.put(3, "3등");
+
+        Map.Entry<Integer, String> lastEntry = map.lastEntry();
+        assertEquals(lastEntry.getKey(), 3);
+        assertEquals(lastEntry.getValue(), "3등");
+    }
 }

@@ -46,10 +46,4 @@ class LinkedHashMapTest {
         map.remove("20", 20);
         assertEquals(map.size(), 2);
     }
-
-    @Test
-    @DisplayName("LinkedHashMap 값 출력")
-    void print() {
-
-    }
 }

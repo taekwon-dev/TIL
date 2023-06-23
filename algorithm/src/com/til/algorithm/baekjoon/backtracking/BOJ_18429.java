@@ -25,6 +25,7 @@ public class BOJ_18429 {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
+
         backtracking(0, 500);
 
         bw.write(answer + "\n");
@@ -33,18 +34,20 @@ public class BOJ_18429 {
         br.close();
     }
 
-    private static void backtracking(int depth, int weight) {
-        if (weight < 500) {
+    private static void backtracking(int day, int sum) {
+        if (sum < 500) {
             return;
         }
-        if (depth == N) {
-            answer++;
+        if (day == N) {
+            if (sum >= 500) {
+                answer++;
+            }
             return;
         }
         for (int i = 0; i < N; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                backtracking(depth + 1, weight + arr[i] - K);
+                backtracking(day + 1, sum - K + arr[i]);
                 visited[i] = false;
             }
         }

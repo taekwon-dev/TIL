@@ -10,17 +10,17 @@ public class BOJ_2217 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int N = Integer.parseInt(br.readLine());
-        int[] rope = new int[N];
+        int[] arr = new int[N];
 
         for (int i = 0; i < N; i++) {
-            rope[i] = Integer.parseInt(br.readLine());
+            arr[i] = Integer.parseInt(br.readLine());
         }
-        Arrays.sort(rope);
+        Arrays.sort(arr);
 
-        int answer = rope[N - 1];
+        int answer = arr[N - 1];
         for (int i = 0; i < N - 1; i++) {
-            if (answer < rope[i] * (N - i)) {
-                answer = rope[i] * (N - i);
+            if (answer < arr[i] * (N - i)) {
+                answer = arr[i] * (N - i);
             }
         }
 

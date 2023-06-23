@@ -8,6 +8,16 @@ import java.util.StringTokenizer;
 
 public class BOJ_1202 {
 
+    static class Jewel {
+        int mass;
+        int value;
+
+        Jewel(int mass, int value) {
+            this.mass = mass;
+            this.value = value;
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -15,24 +25,20 @@ public class BOJ_1202 {
 
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
-        int[][] jewel = new int[N][2];
+        Jewel[] jewels = new Jewel[N];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            int mass = Integer.parseInt(st.nextToken());
-            int value = Integer.parseInt(st.nextToken());
-            jewel[i][0] = mass;
-            jewel[i][1] = value;
+            int M = Integer.parseInt(st.nextToken());
+            int V = Integer.parseInt(st.nextToken());
+            jewels[i] = new Jewel(M, V);
         }
 
-        Arrays.sort(jewel, (o1, o2) -> {
-            // 보석의 무게가 같은 경우
-            if (o1[0] == o2[0]) {
-                // 보석의 가치를 기준으로 내림차순 적용
-                return o2[1] - o1[1];
+        Arrays.sort(jewels, (o1, o2) -> {
+            if (o1.mass == o2.mass) {
+                return o2.value - o1.value;
             }
-            // 보석의 무게를 기준으로 오름차순 적용
-            return o1[0] - o2[0];
+            return o1.mass - o2.mass;
         });
 
         int[] bag = new int[K];
@@ -45,8 +51,8 @@ public class BOJ_1202 {
         long answer = 0;
         int j = 0;
         for (int i = 0; i < K; i++) {
-            while (j < N && jewel[j][0] <= bag[i]) {
-                pq.offer(jewel[j][1]);
+            while (j < N && jewels[j].mass <= bag[i]) {
+                pq.offer(jewels[j].value);
                 j++;
             }
             if (!pq.isEmpty()) {
