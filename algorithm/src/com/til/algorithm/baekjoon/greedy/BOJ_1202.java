@@ -47,6 +47,9 @@ public class BOJ_1202 {
         }
         Arrays.sort(bag);
 
+        // 가방에 넣을 수 있는 보석이 여러 개 있는 경우 가장
+        // 가치가 높은 보석에 바로 접근 할 수 있도록 우선순위 큐 사용
+        // Java 의 경우 디폴트로 최소 힙이 생성되므로, 역순 지정하여 최대 힙으로 생성
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         long answer = 0;
         int j = 0;

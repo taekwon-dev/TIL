@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * [[0, 1, 1], [1, 0, 1], [1, 1, 0]]
  */
-public class 순열_중복원소포함 {
+public class 순열_동일원소포함_중복제거 {
 
     public static void main(String[] args) {
         int[] nums = {1, 1, 0};
@@ -27,6 +27,7 @@ public class 순열_중복원소포함 {
         }
         int prev = -1;
         for (int i = 0; i < nums.length; i++) {
+            // 정렬 상태에서, 이전 선택 원소와 동일한 경우 배제
             if (!visited[i] && prev != nums[i]) {
                 prev = nums[i];
                 list.add(nums[i]);
