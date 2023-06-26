@@ -12,9 +12,8 @@ public class BOJ_2018 {
 
         int answer = 0;
         int sum = 0;
-        int j = 1;
 
-        for (int i = 1; i <= N; i++) {
+        for (int i = 1, j = 1; i <= N; i++) {
             while (j <= N && sum < N) {
                 sum += j;
                 j++;

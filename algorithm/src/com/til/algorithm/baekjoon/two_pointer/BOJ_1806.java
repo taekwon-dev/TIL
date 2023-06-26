@@ -22,8 +22,7 @@ public class BOJ_1806 {
         // 최대 길이가 N인 경우에 N을 반환하기 위해 N보다 1큰 수로 초기화
         int len = N + 1;
         int sum = 0;
-        int j = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0, j = 0; i < N; i++) {
             while (j < N && sum < S) {
                 sum += arr[j];
                 j++;

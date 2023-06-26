@@ -26,6 +26,8 @@ public class BOJ_21921 {
 
         int maxVisitor = sum;
         int maxVisitorCount = 1;
+
+        // 슬라이딩 윈도우 적용
         for (int i = X; i < N; i++) {
             sum += visitor[i] - visitor[i - X];
             if (maxVisitor < sum) {
