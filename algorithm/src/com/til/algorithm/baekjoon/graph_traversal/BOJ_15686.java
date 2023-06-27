@@ -46,10 +46,12 @@ public class BOJ_15686 {
     }
 
     private static void backtracking(int depth, int index) {
+        // 남길 치킨 집 개수 정해지면, 치킨 총 거리 계산 (최댓값 갱신)
         if (depth == M) {
             answer = Math.min(answer, getChickenMinDistance());
             return;
         }
+        // '치킨 집 중에서 오픈 상태로 남길 집을 고른다' 의미를 조합(Combination)으로 해석
         for (int i = index; i < chickens.size(); i++) {
             if (!open[i]) {
                 open[i] = true;
