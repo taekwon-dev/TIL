@@ -10,6 +10,7 @@ public class BOJ_1543 {
 
         String source = br.readLine();
         String target = br.readLine();
+
         int answer = 0;
 
         for (int i = 0; i <= source.length() - target.length(); i++) {

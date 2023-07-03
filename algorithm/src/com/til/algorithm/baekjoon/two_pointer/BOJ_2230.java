@@ -20,9 +20,10 @@ public class BOJ_2230 {
         }
         Arrays.sort(arr);
 
-        int answer = Integer.MAX_VALUE;
         int i = 0;
         int j = 0;
+        int answer = Integer.MAX_VALUE;
+
         while (j < N) {
             if (arr[j] - arr[i] < M) {
                 j++;
