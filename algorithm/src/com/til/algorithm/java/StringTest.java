@@ -264,4 +264,17 @@ class StringTest {
         assertTrue(s1.isBlank());
         assertTrue(s2.isBlank());
     }
+
+    @Test
+    @DisplayName("String.split() with Zero Length")
+    void stringSplitWithZeroLength() {
+        String containsZeroLength = "try hello world   ";
+
+        String[] sp1 = containsZeroLength.split(" ");
+        assertTrue(sp1.length == 3);
+
+        // If the limit is negative then the pattern will be applied as many times as possible and the array can have any length.
+        String[] sp2 = containsZeroLength.split(" ", -1);
+        assertTrue(sp2.length == 6);
+    }
 }
