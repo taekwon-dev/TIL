@@ -241,6 +241,17 @@ class StringTest {
     }
 
     @Test
+    @DisplayName("indexOf()를 통해 어떤 문자열에서 특정 문자열의 시작 위치를 알 수 있다")
+    void 문자열_인덱스기반_탐색_특정_문자열_시작위치탐색() {
+        String source = "hello";
+        String target = "elloh";
+
+        String temp = source.repeat(2);
+        assertEquals(temp.indexOf("elloh"), 1);
+        assertEquals(temp.indexOf("elloH"), -1);
+    }
+
+    @Test
     @DisplayName("mathces() 활용하여 정규식 패턴 일치여부 확인")
     void matches() {
         String source = "frodo";

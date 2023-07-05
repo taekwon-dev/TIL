@@ -54,8 +54,16 @@ public class StringBuilderTest {
     }
 
     @Test
+    @DisplayName("StringBuilder Delete a char on the specific position")
+    void deleteCharAt() {
+        StringBuilder sb = new StringBuilder("ABCD");
+        sb.deleteCharAt(0); // delete the first char
+        assertEquals(sb.toString(), "BCD");
+    }
+
+    @Test
     @DisplayName("StringBuilder Delete()")
-    void deleteStringBuilder() {
+    void deleteStart2End() {
         StringBuilder sb = new StringBuilder("abcde");
         sb.delete(0, sb.length());
         assertEquals(sb.toString(), "");
