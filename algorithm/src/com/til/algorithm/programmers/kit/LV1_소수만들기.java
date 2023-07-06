@@ -1,6 +1,7 @@
 package com.til.algorithm.programmers.kit;
 
 public class LV1_소수만들기 {
+
     public int solution(int[] nums) {
         int answer = 0;
 
@@ -24,4 +25,3 @@ public class LV1_소수만들기 {
         return true;
     }
 }
-
