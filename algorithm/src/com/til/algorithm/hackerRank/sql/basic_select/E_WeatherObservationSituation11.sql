@@ -1,3 +1,0 @@
-SELECT DISTINCT CITY
-FROM STATION
-WHERE CITY REGEXP '^[^(a|e|i|o|u)]' OR CITY REGEXP '[^(a|e|i|o|u)]$'
