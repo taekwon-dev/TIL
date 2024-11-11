@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="425e9ee7-5015-4d34-8b62-90e59b825d04" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2nSmNUda1zF6luI8dQmPNhXEBHZ" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BankMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BoundedMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DaemonThreadMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloRunnableMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloThreadMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InnerRunnableMainV1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InnerRunnableMainV2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InnerRunnableMainV3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InnerRunnableMainV4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JoinMainV0.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JoinMainV2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JoinMainV3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JoinMainV4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JoinTest1Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JoinTest2Main.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.LockSupportMainV1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LockSupportMainV2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ManyThreadMainV1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ManyThreadMainV2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyLoggerMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyPrinterV1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyPrinterV2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyPrinterV3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyPrinterV4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StartTest1Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StartTest2Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StartTest3Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StartTest4Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SyncTest1Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadInfoMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadStateMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadStopMainV1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadStopMainV2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadStopMainV3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadStopMainV4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VolatileCountMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VolatileFlagMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.YieldMain.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/yun/Desktop/TIL/java-lab/java-adv1/src/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="thread.bounded" />
+      <recent name="thread.sync" />
+      <recent name="thread.sync.test" />
+      <recent name="thread.sync.lock" />
+      <recent name="thread.volatile1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.BoundedMain">
+    <configuration name="BankMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="thread.sync.BankMain" />
+      <module name="java-adv1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="thread.sync.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoundedMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="thread.bounded.BoundedMain" />
+      <module name="java-adv1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="thread.bounded.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LockSupportMainV1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="thread.sync.lock.LockSupportMainV1" />
+      <module name="java-adv1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="thread.sync.lock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LockSupportMainV2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="thread.sync.lock.LockSupportMainV2" />
+      <module name="java-adv1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="thread.sync.lock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="java-adv1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BoundedMain" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.BankMain" />
+        <item itemvalue="Application.LockSupportMainV2" />
+        <item itemvalue="Application.LockSupportMainV1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="425e9ee7-5015-4d34-8b62-90e59b825d04" name="Changes" comment="" />
+      <created>1728974812087</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728974812087</updated>
+      <workItem from="1728974813273" duration="1139000" />
+      <workItem from="1729060976349" duration="51813000" />
+      <workItem from="1729598114497" duration="26022000" />
+      <workItem from="1730179815828" duration="12245000" />
+      <workItem from="1730347976239" duration="4576000" />
+      <workItem from="1730378290446" duration="2902000" />
+      <workItem from="1730699718093" duration="9214000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/thread/control/join/JoinMainV2.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/thread/sync/BankAccountV2.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
