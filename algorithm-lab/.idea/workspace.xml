@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c18f29c4-f736-4941-80ab-cdad02fcc2c8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../algorithm/algorithm-lab/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../algorithm/algorithm-lab/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../algorithm/algorithm-lab/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../algorithm/algorithm-lab/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../algorithm/algorithm-lab/algorithm-lab.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="c18f29c4-f736-4941-80ab-cdad02fcc2c8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +59,7 @@
       <updated>1731343532229</updated>
       <workItem from="1731343533236" duration="1765000" />
       <workItem from="1731394579309" duration="6000" />
+      <workItem from="1731397633077" duration="416000" />
     </task>
     <servers />
   </component>
