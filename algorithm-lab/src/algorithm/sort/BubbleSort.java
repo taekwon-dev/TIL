@@ -1,5 +1,7 @@
 package algorithm.sort;
 
+import static algorithm.util.ArrayUtils.swap;
+
 public class BubbleSort {
 
     private static void bubbleSort(int[] arr) {
@@ -18,11 +20,5 @@ public class BubbleSort {
                 break;
             }
         }
-    }
-
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 }
