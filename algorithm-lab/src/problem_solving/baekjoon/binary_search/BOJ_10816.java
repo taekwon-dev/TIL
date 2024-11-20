@@ -3,6 +3,7 @@ package problem_solving.baekjoon.binary_search;
 import java.util.*;
 import java.io.*;
 
+// Lower-bound, Upper-bound
 public class BOJ_10816 {
 
     public static void main(String[] args) throws IOException {
