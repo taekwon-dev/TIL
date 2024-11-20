@@ -3,3 +3,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea/
+
+### Mac OS ###
+.DS_Store
