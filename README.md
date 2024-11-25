@@ -61,6 +61,7 @@
     - [Java Servlet [3] - How to Maintain a User State (HttpSession)](https://medium.com/taekwon-v/servlet-series-3-how-the-servlet-container-handles-multithreading-6e96391902e0)
     - [Java Servlet [4] - How the Servlet Container Handles multithreading](https://medium.com/taekwon-v/servlet-series-4-how-to-maintain-a-user-state-httpsession-e4d95799617b)
     - [Java Servlet [5] - Servlet Scopes](https://medium.com/taekwon-v/servlet-series-5-servlet-scopes-f68f0c44ed38)
+    - [Java Concurrency - Lifecycle of a Thread](https://medium.com/taekwon-v/java-concurrency-lifecycle-of-a-thread-70b2d4d22f69)
 
 
 - **Spring Core**
