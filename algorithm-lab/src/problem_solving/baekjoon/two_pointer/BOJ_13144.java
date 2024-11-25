@@ -6,28 +6,31 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+import java.util.*;
+import java.io.*;
+
 public class BOJ_13144 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
-        int[] count = new int[100_001];
         int[] arr = new int[n];
+        int[] countArr = new int[100_001];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int p2 = 0;
         long answer = 0;
+        int p2 = 0;
         for (int p1 = 0; p1 < n; p1++) {
-            while (p2 < n && count[arr[p2]] == 0) {
-                count[arr[p2]]++;
+            while (p2 < n && countArr[arr[p2]] < 1) {
+                countArr[arr[p2]]++;
                 p2++;
             }
-            count[arr[p1]]--;
+            countArr[arr[p1]]--;
 
             answer += p2 - p1;
         }

@@ -1,4 +1,4 @@
-package problem_solving.baekjoon.two_pointer;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
