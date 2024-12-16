@@ -3,6 +3,7 @@ package problem_solving.baekjoon.binary_search;
 import java.util.*;
 import java.io.*;
 
+// 두 개의 제외 대상이 필요함
 public class BOJ_1253 {
 
     public static void main(String[] args) throws IOException {
