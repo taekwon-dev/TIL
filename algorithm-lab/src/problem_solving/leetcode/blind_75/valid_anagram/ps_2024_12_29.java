@@ -1,6 +1,7 @@
-package problem_solving.leetcode.blind_75;
+package problem_solving.leetcode.blind_75.valid_anagram;
 
-public class LEET_242 {
+public class ps_2024_12_29 {
+
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
