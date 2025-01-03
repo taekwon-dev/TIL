@@ -15,7 +15,7 @@ public class ps_2025_01_03 {
             int from = trip[1];
 
             while (!pq.isEmpty() && pq.peek()[2] <= from) {
-                currentPassengers -= pq.poll()[2];
+                currentPassengers -= pq.poll()[0];
             }
             currentPassengers += numPassengers;
             if (currentPassengers > capacity) {
