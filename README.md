@@ -124,4 +124,4 @@
     - [DevOps - ZEXT Infrastructure & CI/CD](https://medium.com/taekwon-v/devops-zext-infrastructure-ci-cd-5b4106dde554)
 
 - **Retrospective**
-    - [Interview] - [당근 직무 면접까지의 과정 회고](https://medium.com/taekwon-v/%EB%8B%B9%EA%B7%BC-%EC%A7%81%EB%AC%B4-%EB%A9%B4%EC%A0%91%EA%B9%8C%EC%A7%80%EC%9D%98-%EA%B3%BC%EC%A0%95-%ED%9A%8C%EA%B3%A0-71fe7de2f8bb)     
+    - [당근 직무 면접까지의 과정 회고](https://medium.com/taekwon-v/%EB%8B%B9%EA%B7%BC-%EC%A7%81%EB%AC%B4-%EB%A9%B4%EC%A0%91%EA%B9%8C%EC%A7%80%EC%9D%98-%EA%B3%BC%EC%A0%95-%ED%9A%8C%EA%B3%A0-71fe7de2f8bb)     
