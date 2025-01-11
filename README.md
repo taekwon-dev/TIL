@@ -122,3 +122,6 @@
     - [Git - Squash Commits into one](https://medium.com/taekwon-v/git-squash-commits-into-one-f9830a49fe5b)
     - [Git - CRLS (새줄문자) 설정 with Docker](https://medium.com/taekwon-v/git-crlf-%EC%83%88%EC%A4%84-%EB%AC%B8%EC%9E%90-%EC%84%A4%EC%A0%95-with-docker-bab88a24072c)
     - [DevOps - ZEXT Infrastructure & CI/CD](https://medium.com/taekwon-v/devops-zext-infrastructure-ci-cd-5b4106dde554)
+
+- **Retrospective**
+    - [Interview] - [당근 직무 면접까지의 과정 회고](https://medium.com/taekwon-v/%EB%8B%B9%EA%B7%BC-%EC%A7%81%EB%AC%B4-%EB%A9%B4%EC%A0%91%EA%B9%8C%EC%A7%80%EC%9D%98-%EA%B3%BC%EC%A0%95-%ED%9A%8C%EA%B3%A0-71fe7de2f8bb)     
