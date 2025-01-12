@@ -1,6 +1,6 @@
-package problem_solving.leetcode.blind_75.search_in_rotated_sorted_array_ii;
+package problem_solving.leetcode.search_in_rotated_sorted_array_ii;
 
-public class ps_2025_01_07 {
+public class ps_2025_01_08 {
 
     public boolean search(int[] nums, int target) {
         int low = 0;

@@ -1,10 +1,10 @@
-package problem_solving.leetcode.blind_75.search_in_rotated_sorted_array_ii;
+package problem_solving.leetcode.search_in_rotated_sorted_array_ii;
 
-public class ps_2025_01_06 {
+public class ps_2025_01_07 {
 
     public boolean search(int[] nums, int target) {
         int low = 0;
-        int high = nums.length -1;
+        int high = nums.length - 1;
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
@@ -18,6 +18,7 @@ public class ps_2025_01_06 {
                 high--;
                 continue;
             }
+
 
             if (nums[low] <= nums[mid]) {
                 if (nums[low] <= target && target < nums[mid]) {
