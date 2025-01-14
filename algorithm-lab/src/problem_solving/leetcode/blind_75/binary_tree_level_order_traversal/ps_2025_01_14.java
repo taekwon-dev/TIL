@@ -5,9 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class ps_2025_01_13 {
+public class ps_2025_01_14 {
 
-    // BFS
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> answer = new ArrayList<>();
         if (root == null) {
@@ -19,21 +18,20 @@ public class ps_2025_01_13 {
 
         while (!q.isEmpty()) {
             int levelSize = q.size();
-            List<Integer> currentLevel = new ArrayList<>();
+            List<Integer> currentLevelNodes = new ArrayList<>();
 
             for (int i = 0; i < levelSize; i++) {
                 TreeNode currentNode = q.poll();
-                currentLevel.add(currentNode.val);
+                currentLevelNodes.add(currentNode.val);
 
                 if (currentNode.left != null) {
                     q.offer(currentNode.left);
                 }
-
                 if (currentNode.right != null) {
                     q.offer(currentNode.right);
                 }
             }
-            answer.add(currentLevel);
+            answer.add(currentLevelNodes);
         }
         return answer;
     }
